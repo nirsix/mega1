@@ -96,7 +96,7 @@ var
     end;
   end;
 
-  // Судя по всему раньше в платеже указывали саба, и если мы его находили - создавалась проводка именно на саба
+  // РЎСѓРґСЏ РїРѕ РІСЃРµРјСѓ СЂР°РЅСЊС€Рµ РІ РїР»Р°С‚РµР¶Рµ СѓРєР°Р·С‹РІР°Р»Рё СЃР°Р±Р°, Рё РµСЃР»Рё РјС‹ РµРіРѕ РЅР°С…РѕРґРёР»Рё - СЃРѕР·РґР°РІР°Р»Р°СЃСЊ РїСЂРѕРІРѕРґРєР° РёРјРµРЅРЅРѕ РЅР° СЃР°Р±Р°
   function GetSubDKFromNP(aNP, aKodDK: string): string;
   var
     i: integer;
@@ -120,7 +120,7 @@ var
           DM.qrPVW.Close;
         except
           on E: Exception do begin
-//            WriteToLogFile('  Ошибка при вызове функции GetSubDKFromNP: ' + E.Message);
+//            WriteToLogFile('  РћС€РёР±РєР° РїСЂРё РІС‹Р·РѕРІРµ С„СѓРЅРєС†РёРё GetSubDKFromNP: ' + E.Message);
             Result := '';
           end;
         end;
@@ -276,7 +276,7 @@ var
   end;
 
   procedure CheckSubDk(var aKod_dk: string; aSchet: string);
-  { Проверка на сабдебиторов }
+  { РџСЂРѕРІРµСЂРєР° РЅР° СЃР°Р±РґРµР±РёС‚РѕСЂРѕРІ }
   const
     lSQLsd = 'select sdk.KOD_DK, sdk.PRIMARY_SCHET, sdk1.KOD_DK OSN_KOD_DK, sdk1.PRIMARY_SCHET OSN_PRIMARY_SCHET from sprav_dk sdk' +
      ' left join sprav_dk sdk1 on (sdk1.KOD_DK=sdk.PARENT)' +
@@ -289,7 +289,7 @@ var
     qr1.Database:= DM.Money;
     qr1.Transaction:= DM.trMoney;
     try
-    // Проверка на сабдебитора и подмена его по условию
+    // РџСЂРѕРІРµСЂРєР° РЅР° СЃР°Р±РґРµР±РёС‚РѕСЂР° Рё РїРѕРґРјРµРЅР° РµРіРѕ РїРѕ СѓСЃР»РѕРІРёСЋ
     if Length(aSchet) < 15 then
       begin
     qr1.Close;
@@ -297,21 +297,21 @@ var
     qr1.ExecQuery;
     if (not qr1.FieldByName('kod_dk').IsNull) and (qr1.FieldByName('kod_dk').AsFloat<>0) then
     begin
-      // клиент сабдебитор
+      // РєР»РёРµРЅС‚ СЃР°Р±РґРµР±РёС‚РѕСЂ
       if qr1.FieldByName('PRIMARY_SCHET').AsString= qr1.FieldByName('OSN_PRIMARY_SCHET').AsString
       then
-        // подменяем сабдебитора...
+        // РїРѕРґРјРµРЅСЏРµРј СЃР°Р±РґРµР±РёС‚РѕСЂР°...
         aKod_dk:=trim(replacestr(qr1.FieldByName('OSN_KOD_DK').AsString,',','.'));
       exit;
     end;
       end;
-    // проверяем основной - на счет сабдебитора
+    // РїСЂРѕРІРµСЂСЏРµРј РѕСЃРЅРѕРІРЅРѕР№ - РЅР° СЃС‡РµС‚ СЃР°Р±РґРµР±РёС‚РѕСЂР°
     qr1.Close;
     qr1.SQL.Text:=format(lSQLosn,[aKod_dk, aSchet, aSchet]);
     qr1.ExecQuery;
     if (not qr1.FieldByName('kod_dk').IsNull) and (qr1.FieldByName('kod_dk').AsFloat<>0) then
     begin
-      // платят с основного, но подменяем на сабдебитора
+      // РїР»Р°С‚СЏС‚ СЃ РѕСЃРЅРѕРІРЅРѕРіРѕ, РЅРѕ РїРѕРґРјРµРЅСЏРµРј РЅР° СЃР°Р±РґРµР±РёС‚РѕСЂР°
       akod_dk:=trim(replacestr(qr1.FieldByName('kod_dk').AsString,',','.'));
     end;
     finally
@@ -322,11 +322,11 @@ var
 
   procedure MakePPProvForPrivat;
   begin
-    // Платежи на ЧП
+    // РџР»Р°С‚РµР¶Рё РЅР° Р§Рџ
     no_insert:='0';
     to_kod := CheckKodDkBySchet(trim(DM.qrSp.FieldByName('TO_SC').AsString),
         Trim(DM.qrSp.FieldByName('TO_KOD').AsString));
-    // по умолчанию - конечный потребитель
+    // РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ - РєРѕРЅРµС‡РЅС‹Р№ РїРѕС‚СЂРµР±РёС‚РµР»СЊ
     from_kod:=CheckKodDkBySchet(trim(DM.qrSp.FieldByName('FROM_SC').AsString),
         Trim(DM.qrSp.FieldByName('FROM_KOD').AsString));
 
@@ -335,7 +335,7 @@ var
     if not IsInternalDk(from_kod) then
     begin
       CheckSubDk(from_kod, trim(DM.qrSp.FieldByName('FROM_SC').AsString));
-      // создаем проводку
+      // СЃРѕР·РґР°РµРј РїСЂРѕРІРѕРґРєСѓ
       DM.qrW.Close;
       DM.qrW.SQL.Text :=
         'select bdo.group_oper, bdo.kod_oper, bdo.balance_kod, bdo.kod_dk, bdo.doctype '+
@@ -382,8 +382,8 @@ var
             begin
               BankProv.Close;
               no_insert:='4';
-              WriteToLogFile('  ПриватБанк_ЧП:' + e.Message);
-              WriteToLogFile('  Документ: '+DM.qrSp.FieldByName('DATEP').AsString+' №'+DM.qrSp.FieldByName('NUMP').AsString+' сумма: '+DM.qrSp.FieldByName('SUMMAK').AsString);
+              WriteToLogFile('  РџСЂРёРІР°С‚Р‘Р°РЅРє_Р§Рџ:' + e.Message);
+              WriteToLogFile('  Р”РѕРєСѓРјРµРЅС‚: '+DM.qrSp.FieldByName('DATEP').AsString+' в„–'+DM.qrSp.FieldByName('NUMP').AsString+' СЃСѓРјРјР°: '+DM.qrSp.FieldByName('SUMMAK').AsString);
             end;
           end;
       end; //if no_insert = 0
@@ -424,7 +424,7 @@ var
     result:= DM.qrW.FieldByName('balance').AsInteger;
   end;
 
-  // Пришли из российских проводок
+  // РџСЂРёС€Р»Рё РёР· СЂРѕСЃСЃРёР№СЃРєРёС… РїСЂРѕРІРѕРґРѕРє
   function GetKodDK(aKodDK, aSchet: string): string;
   var
     lRecordsCount: Integer;
@@ -518,7 +518,7 @@ var
   var from_kod, no_insert: string;
       qr: TMegaQuery;
   begin
-    result:= DebtorCode; // если по примечанию не найдет, то подставляем банк
+    result:= DebtorCode; // РµСЃР»Рё РїРѕ РїСЂРёРјРµС‡Р°РЅРёСЋ РЅРµ РЅР°Р№РґРµС‚, С‚Рѕ РїРѕРґСЃС‚Р°РІР»СЏРµРј Р±Р°РЅРє
     from_kod:= '';
     qr:= TMegaQuery.Create(nil);
     qr.Database:= DM.Money;
@@ -526,7 +526,7 @@ var
     try
       qr.SQL.Text:= 'select count(*) as cnt, max(group_dk) group_dk   from sprav_dk where kod_dk =' + FloatToStr(DebtorCode);
       qr.ExecQuery;
-      if ((qr.FieldByName('cnt').AsInteger=0) or (qr.FieldByName('group_dk').AsInteger=200)) then  // Банк
+      if ((qr.FieldByName('cnt').AsInteger=0) or (qr.FieldByName('group_dk').AsInteger=200)) then  // Р‘Р°РЅРє
      begin
        Notes:= ReplaceStr(Notes, ',', ', ');
        re:=TRegExpr.Create;
@@ -536,7 +536,7 @@ var
           repeat
             no_insert:= '0';
             from_kod := re.Match[0];
-            if length(re.Match[0])=27 then    // цифры от Iban пропускаем
+            if length(re.Match[0])=27 then    // С†РёС„СЂС‹ РѕС‚ Iban РїСЂРѕРїСѓСЃРєР°РµРј
              from_kod:= '';
             from_kod:=Trim(from_kod);
             if from_kod <> '' then
@@ -597,41 +597,41 @@ begin
           if (DM.qrSp.FieldByName('FROM_KOD').AsString = DM.qrSp.FieldByName('TO_KOD').AsString) then
           begin
             DM.qrSp.Edit;
-            DM.qrSp.FieldByName('STATUS').AsInteger:= 4; // (исключен из обработки, сумма - 0)
+            DM.qrSp.FieldByName('STATUS').AsInteger:= 4; // (РёСЃРєР»СЋС‡РµРЅ РёР· РѕР±СЂР°Р±РѕС‚РєРё, СЃСѓРјРјР° - 0)
             DM.qrSp.Post;
           end
           else
           case DM.qrSp.FieldByName('BANK').AsInteger of
-          1:{$REGION 'Банк Пивденный'}
+          1:{$REGION 'Р‘Р°РЅРє РџРёРІРґРµРЅРЅС‹Р№'}
             begin
               DocType:= '';
-              //не делаем вставку на 0 грн, если плательщик - мы и если счета инкассации (кроме двух)
+              //РЅРµ РґРµР»Р°РµРј РІСЃС‚Р°РІРєСѓ РЅР° 0 РіСЂРЅ, РµСЃР»Рё РїР»Р°С‚РµР»СЊС‰РёРє - РјС‹ Рё РµСЃР»Рё СЃС‡РµС‚Р° РёРЅРєР°СЃСЃР°С†РёРё (РєСЂРѕРјРµ РґРІСѓС…)
               if ((DM.qrSp.FieldByName('SUMMAK').AsFloat=0)
                   or (DM.qrSp.FieldByName('FROM_KOD').AsFloat = bPivd.DKTo))
-                // по просьбе ОДЗ нужно создавать проводки по всем счетам инкассации
+                // РїРѕ РїСЂРѕСЃСЊР±Рµ РћР”Р— РЅСѓР¶РЅРѕ СЃРѕР·РґР°РІР°С‚СЊ РїСЂРѕРІРѕРґРєРё РїРѕ РІСЃРµРј СЃС‡РµС‚Р°Рј РёРЅРєР°СЃСЃР°С†РёРё
                 // 01.04.2010
                  { OR ((Pos('2902',DM.qrSp.FieldByName('FROM_SC').AsString) = 1 )
-                       ///  2 рахунки інкасації, які треба обробляти
+                       ///  2 СЂР°С…СѓРЅРєРё С–РЅРєР°СЃР°С†С–С—, СЏРєС– С‚СЂРµР±Р° РѕР±СЂРѕР±Р»СЏС‚Рё
                       and (DM.qrSp.FieldByName('FROM_SC').AsString <> '290229010200')
                       and (DM.qrSp.FieldByName('FROM_SC').AsString <> '29024900040017'))}
               then
               begin
-                // нет необходимости делать вставку
+                // РЅРµС‚ РЅРµРѕР±С…РѕРґРёРјРѕСЃС‚Рё РґРµР»Р°С‚СЊ РІСЃС‚Р°РІРєСѓ
                 DM.qrSp.Edit;
                 if (DM.qrSp.FieldByName('SUMMAK').AsFloat=0)
-                then DM.qrSp.FieldByName('STATUS').AsInteger :=4 // (исключен из обработки, сумма - 0)
-                else DM.qrSp.FieldByName('STATUS').AsInteger :=2; // (ошибка дк)
+                then DM.qrSp.FieldByName('STATUS').AsInteger :=4 // (РёСЃРєР»СЋС‡РµРЅ РёР· РѕР±СЂР°Р±РѕС‚РєРё, СЃСѓРјРјР° - 0)
+                else DM.qrSp.FieldByName('STATUS').AsInteger :=2; // (РѕС€РёР±РєР° РґРє)
                 DM.qrSp.Post;
               end else
               begin
-                  //Проверяю на инкассацию
+                  //РџСЂРѕРІРµСЂСЏСЋ РЅР° РёРЅРєР°СЃСЃР°С†РёСЋ
                 DM.qrPVW.Close;
                 DM.qrPVW.SQL.Text:='select FROM_SC, DOCTYPE, GROUPOPER, KODOPER, DK_FROM, DK_TO, CFO   from GET_BANK_INKASS('+ QuotedStr(Trim(DM.qrSp.FieldByName('FROM_SC').AsString))+','+ DM.qrSp.FieldByName('TO_KOD').AsString+')' ;
                 DM.qrPVW.ExecQuery;
-                if DM.qrPVW.Eof then //не инкассация
+                if DM.qrPVW.Eof then //РЅРµ РёРЅРєР°СЃСЃР°С†РёСЏ
                 begin
-                  // проверим дебитора
-                  // Сперва по счёту
+                  // РїСЂРѕРІРµСЂРёРј РґРµР±РёС‚РѕСЂР°
+                  // РЎРїРµСЂРІР° РїРѕ СЃС‡С‘С‚Сѓ
 
 { ---------------- Changed by Kislaja.J in 07.02.2011 --------------- }
                   //from_kod := CheckKodDkOnlySchet(Trim(DM.qrSp.FieldByName('FROM_SC').AsString));
@@ -644,12 +644,12 @@ begin
 { ----------- End of changing by Kislaja.J in 07.02.2011 ----------- }
                   begin
                     DM.qrSp.Edit;
-                    DM.qrSp.FieldByName('STATUS').AsInteger:=2; //дк не найден
+                    DM.qrSp.FieldByName('STATUS').AsInteger:=2; //РґРє РЅРµ РЅР°Р№РґРµРЅ
                     inc(lErr);
                     DM.qrSp.Post;
                   end else
                   begin
-                    // платежка на вставку...
+                    // РїР»Р°С‚РµР¶РєР° РЅР° РІСЃС‚Р°РІРєСѓ...
                     try
                       if// (HasManufacturerPaymentsContract(StrToFloat(from_kod){BankProv.fieldDK_FROM.AsFloat}) and
                         ((DM.qrSp.FieldByName('TO_SC').AsString = '26004340728201') or
@@ -657,15 +657,15 @@ begin
                          )
                       then
                       begin
-                        //если баланс 77
+                        //РµСЃР»Рё Р±Р°Р»Р°РЅСЃ 77
                        { if (ActualBalanceForFactoryProv(DM.qrSP.FieldByName('FROM_KOD').AsFloat)=77) then
                         begin
-                          BankProv.New('Прв77');
+                          BankProv.New('РџСЂРІ77');
                           BankProv.fieldGROUP_OPER.Value := 77361000;
                         end
                         else
                         begin
-                          BankProv.New('Прв7');
+                          BankProv.New('РџСЂРІ7');
                           BankProv.fieldGROUP_OPER.Value := 7361000;
                         end;
 
@@ -732,7 +732,7 @@ begin
                     except
                       on E: Exception do
                       begin
-                        WriteToLogFile('  Ошибка при создании проводки, банк Південний: ' + E.Message + #13#10 + floattostr(from_kod_d) );
+                        WriteToLogFile('  РћС€РёР±РєР° РїСЂРё СЃРѕР·РґР°РЅРёРё РїСЂРѕРІРѕРґРєРё, Р±Р°РЅРє РџС–РІРґРµРЅРЅРёР№: ' + E.Message + #13#10 + floattostr(from_kod_d) );
                         DM.qrSp.Edit;
                         DM.qrSp.FieldByName('STATUS').AsInteger := 3;
                         inc(lErr);
@@ -743,7 +743,7 @@ begin
                  end
                    else
                 begin
-                  {$REGION 'Инкассация'}
+                  {$REGION 'РРЅРєР°СЃСЃР°С†РёСЏ'}
                   try
                     BankProv.New(DM.qrPVW.FieldByName('doctype').AsString);
                     BankProv.fieldOPERDATE.Value                                 := strtodate(DM.qrSp.FieldByName('DATEP').AsString);
@@ -768,7 +768,7 @@ begin
                   except
                     on e:Exception do
                     begin
-                      WriteToLogFile('  Ошибка при создании проводки, банк Південний, инкассация: ' + E.Message);
+                      WriteToLogFile('  РћС€РёР±РєР° РїСЂРё СЃРѕР·РґР°РЅРёРё РїСЂРѕРІРѕРґРєРё, Р±Р°РЅРє РџС–РІРґРµРЅРЅРёР№, РёРЅРєР°СЃСЃР°С†РёСЏ: ' + E.Message);
                       DM.qrSp.Edit;
                       DM.qrSp.FieldByName('STATUS').AsInteger:=3;
                       inc(lErr);
@@ -778,28 +778,28 @@ begin
                   {$ENDREGION}
                 end;
                 end;
-            end; // Банк Пивденный
+            end; // Р‘Р°РЅРє РџРёРІРґРµРЅРЅС‹Р№
             {$ENDREGION}
 
-          2:{$REGION 'Индустриал'}
+          2:{$REGION 'РРЅРґСѓСЃС‚СЂРёР°Р»'}
             begin
               if (DM.qrSp.FieldByName('SUMMAK').AsFloat=0) OR (DM.qrSp.FieldByName('FROM_KOD').AsInteger=bInd.DKTo) then
               begin
-                // нет необходимости делать вставку
+                // РЅРµС‚ РЅРµРѕР±С…РѕРґРёРјРѕСЃС‚Рё РґРµР»Р°С‚СЊ РІСЃС‚Р°РІРєСѓ
                 DM.qrSp.Edit;
                 DM.qrSp.FieldByName('STATUS').AsInteger:=4;
                 DM.qrSp.Post;
               end
               else
                 begin
-                  // проверим дебитора
+                  // РїСЂРѕРІРµСЂРёРј РґРµР±РёС‚РѕСЂР°
                   from_kod := sabDK(Trim(ReplaceStr(DM.qrSp.FieldByName('FROM_KOD').AsString,',','.')), DM.qrSp.FieldByName('NP').AsString);
                   DM.qrW.Close;
                   DM.qrW.SQL.Text:='select count(*) from SPRAV_DK where KOD_DK=' + from_kod;
                   DM.qrW.ExecQuery;
                   if DM.qrW.Fields[0].AsInteger=0 then
                   begin
-                    // нет DK
+                    // РЅРµС‚ DK
                     DM.qrSp.Edit;
                     DM.qrSp.FieldByName('STATUS').AsInteger:=2;
                     inc(lErr);
@@ -807,7 +807,7 @@ begin
                   end
                   else
                     begin
-                      // платежка на вставку...
+                      // РїР»Р°С‚РµР¶РєР° РЅР° РІСЃС‚Р°РІРєСѓ...
                       try
                         BankProv.New(bInd.DocType);
                         BankProv.fieldOPERDATE.Value   := DM.qrSp.FieldByName('DATEP').AsDateTime;
@@ -829,7 +829,7 @@ begin
                       except
                         on e:Exception do
                         begin
-                          WriteToLogFile('  Ошибка при создании проводки, банк Индустриал: ' + E.Message);
+                          WriteToLogFile('  РћС€РёР±РєР° РїСЂРё СЃРѕР·РґР°РЅРёРё РїСЂРѕРІРѕРґРєРё, Р±Р°РЅРє РРЅРґСѓСЃС‚СЂРёР°Р»: ' + E.Message);
                           DM.qrSp.Edit;
                           DM.qrSp.FieldByName('STATUS').AsInteger:=3;
                           inc(lErr);
@@ -838,7 +838,7 @@ begin
                       end;
                     end;
                 end;
-            end;  // ИндустриалБанк
+            end;  // РРЅРґСѓСЃС‚СЂРёР°Р»Р‘Р°РЅРє
             {$ENDREGION}
 
           3:{$REGION 'OTP'}
@@ -847,21 +847,21 @@ begin
               OR ((DM.qrSp.FieldByName('TO_KOD').AsFloat <> 25484884)
               and (DM.qrSp.FieldByName('TO_KOD').AsFloat<>37310549))) then
               begin
-                // нет необходимости делать вставку
+                // РЅРµС‚ РЅРµРѕР±С…РѕРґРёРјРѕСЃС‚Рё РґРµР»Р°С‚СЊ РІСЃС‚Р°РІРєСѓ
                 DM.qrSp.Edit;
                 DM.qrSp.FieldByName('STATUS').AsInteger:=4;
                 DM.qrSp.Post;
               end
               else
                 begin
-                  // проверим дебитора
+                  // РїСЂРѕРІРµСЂРёРј РґРµР±РёС‚РѕСЂР°
                   DM.qrW.Close;
                   DM.qrW.SQL.Text:='select count(*) from SPRAV_DK where KOD_DK='+
                     ReplaceStr(DM.qrSp.FieldByName('FROM_KOD').AsString,',','.');
                   DM.qrW.ExecQuery;
                   if DM.qrW.Fields[0].AsInteger=0 then
                   begin
-                    // нет DK
+                    // РЅРµС‚ DK
                     DM.qrSp.Edit;
                     DM.qrSp.FieldByName('STATUS').AsInteger:=2;
                     inc(lErr);
@@ -869,7 +869,7 @@ begin
                   end
                   else
                     begin
-                      // платежка на вставку...
+                      // РїР»Р°С‚РµР¶РєР° РЅР° РІСЃС‚Р°РІРєСѓ...
                       try
                         BankProv.New(bOTP.DocType);
                         BankProv.fieldOPERDATE.Value:=DM.qrSp.FieldByName('DATEP').AsDateTime;
@@ -892,7 +892,7 @@ begin
                       except
                         on e:Exception do
                         begin
-                          WriteToLogFile('  Ошибка при создании проводки, банк OTP: '+ E.Message);
+                          WriteToLogFile('  РћС€РёР±РєР° РїСЂРё СЃРѕР·РґР°РЅРёРё РїСЂРѕРІРѕРґРєРё, Р±Р°РЅРє OTP: '+ E.Message);
                           DM.qrSp.Edit;
                           DM.qrSp.FieldByName('STATUS').AsInteger:=3;
                           inc(lErr);
@@ -904,27 +904,27 @@ begin
             end;
             {$ENDREGIoN}
 
-          4:{$REGION 'ПУМБ'}
+          4:{$REGION 'РџРЈРњР‘'}
             begin
               if ((DM.qrSp.FieldByName('SUMMAK').AsFloat=0) OR
               ((DM.qrSp.FieldByName('TO_KOD').AsFloat <> 25484884)
               and (DM.qrSp.FieldByName('TO_KOD').AsFloat<>37310549))) then
               begin
-                // нет необходимости делать вставку
+                // РЅРµС‚ РЅРµРѕР±С…РѕРґРёРјРѕСЃС‚Рё РґРµР»Р°С‚СЊ РІСЃС‚Р°РІРєСѓ
                 DM.qrSp.Edit;
                 DM.qrSp.FieldByName('STATUS').AsInteger:=4;
                 DM.qrSp.Post;
               end
               else
                 begin
-                  // проверим дебитора
+                  // РїСЂРѕРІРµСЂРёРј РґРµР±РёС‚РѕСЂР°
                   DM.qrW.Close;
                   DM.qrW.SQL.Text:='select count(*) from SPRAV_DK where KOD_DK='+
                     ReplaceStr(DM.qrSp.FieldByName('FROM_KOD').AsString,',','.');
                   DM.qrW.ExecQuery;
                   if DM.qrW.Fields[0].AsInteger=0 then
                   begin
-                    // нет DK
+                    // РЅРµС‚ DK
                     DM.qrSp.Edit;
                     DM.qrSp.FieldByName('STATUS').AsInteger:=2;
                     inc(lErr);
@@ -932,7 +932,7 @@ begin
                   end
                   else
                     begin
-                      // платежка на вставку...
+                      // РїР»Р°С‚РµР¶РєР° РЅР° РІСЃС‚Р°РІРєСѓ...
                       try
                         BankProv.New(bFuib.DocType);
                         BankProv.fieldOPERDATE.Value:=DM.qrSp.FieldByName('DATEP').AsDateTime;
@@ -955,7 +955,7 @@ begin
                       except
                         on e:Exception do
                         begin
-                          WriteToLogFile('  Ошибка при создании проводки, банк ПУМБ: ' + E.Message);
+                          WriteToLogFile('  РћС€РёР±РєР° РїСЂРё СЃРѕР·РґР°РЅРёРё РїСЂРѕРІРѕРґРєРё, Р±Р°РЅРє РџРЈРњР‘: ' + E.Message);
                           DM.qrSp.Edit;
                           DM.qrSp.FieldByName('STATUS').AsInteger:=3;
                           inc(lErr);
@@ -964,10 +964,10 @@ begin
                       end;
                     end;
                 end;
-            end;  // ПУМБ
+            end;  // РџРЈРњР‘
             {$ENDREGION}
 
-          5:{$REGION 'ПраймБанк'}
+          5:{$REGION 'РџСЂР°Р№РјР‘Р°РЅРє'}
             begin
               DM.qrSp.Edit;
               DM.qrSp.FieldByName('STATUS').AsInteger:=4;
@@ -975,13 +975,13 @@ begin
             end;
             {$ENDREGION}
 
-          6:{$REGION 'Аваль'}
+          6:{$REGION 'РђРІР°Р»СЊ'}
             begin
               if (DM.qrSp.FieldByName('SUMMAK').AsFloat > 0) then
               begin
                 //if ((HasManufacturerPaymentsContract(DM.qrSp.FieldByName('FROM_KOD').AsFloat)) or (DM.qrSp.FieldByName('TO_KOD').AsFloat = 32096432)) then
                 //begin
-                //  {$REGION 'Платежи на производителя. Признак - наличие документа (см. функцию). или получатель - Имидж Холдинг'}
+                //  {$REGION 'РџР»Р°С‚РµР¶Рё РЅР° РїСЂРѕРёР·РІРѕРґРёС‚РµР»СЏ. РџСЂРёР·РЅР°Рє - РЅР°Р»РёС‡РёРµ РґРѕРєСѓРјРµРЅС‚Р° (СЃРј. С„СѓРЅРєС†РёСЋ). РёР»Рё РїРѕР»СѓС‡Р°С‚РµР»СЊ - РРјРёРґР¶ РҐРѕР»РґРёРЅРі'}
                 //  try
                 //    if (ActualBalanceForFactoryProv(DM.qrSP.FieldByName('FROM_KOD').AsFloat)=77) then
                 //    begin
@@ -990,7 +990,7 @@ begin
                 //    end
                 //    else
                 //    begin
-                //      BankProv.New('Прв7');
+                //      BankProv.New('РџСЂРІ7');
                 //       BankProv.fieldGROUP_OPER.Value := 7361000;
                 //    end;
                 //    BankProv.fieldOPERDATE.Value       := DM.qrSp.FieldByName('DATEP').AsDateTime;
@@ -1011,7 +1011,7 @@ begin
                 //  except
                 //    on e:Exception do
                 //    begin
-                //      WriteToLogFile('  Ошибка при создании проводки, банк Аваль: ' + e.Message);
+                //      WriteToLogFile('  РћС€РёР±РєР° РїСЂРё СЃРѕР·РґР°РЅРёРё РїСЂРѕРІРѕРґРєРё, Р±Р°РЅРє РђРІР°Р»СЊ: ' + e.Message);
                  //     DM.qrSp.Edit;
                  //     DM.qrSp.FieldByName('STATUS').AsInteger:=3;
                  //     inc(lErr);
@@ -1023,22 +1023,22 @@ begin
                 //else
 //                if ((DM.qrSp.FieldByName('TO_KOD').AsFloat = 25484884) or (DM.qrSp.FieldByName('TO_KOD').AsFloat=37310549)) then
                 if ((DM.qrSp.FieldByName('TO_KOD').AsFloat=37310549) and (DM.qrSp.FieldByName('FROM_KOD').AsFloat<>DM.qrSp.FieldByName('TO_KOD').AsFloat) and (DM.qrSp.FieldByName('TO_SC').AsString ='UA423808050000000026008419851' {'26008205517'}) and (DM.qrSp.FieldByName('FROM_KOD').AsFloat<>23794014)) then
-                begin      //УДК
+                begin      //РЈР”Рљ
                   if (not IsExistsKodDK(DM.qrSP.FieldByName('FROM_KOD').AsFloat)) then
                    begin
                      DM.qrSp.Edit;
-                     DM.qrSp.FieldByName('STATUS').AsInteger:=2; //дк не найден
+                     DM.qrSp.FieldByName('STATUS').AsInteger:=2; //РґРє РЅРµ РЅР°Р№РґРµРЅ
                      inc(lErr);
                      DM.qrSp.Post;
                    end
                   else
                    begin
-                   {$REGION 'Создание проводки'}
+                   {$REGION 'РЎРѕР·РґР°РЅРёРµ РїСЂРѕРІРѕРґРєРё'}
                    try
                      if  DM.qrSp.FieldByName('TO_KOD').AsFloat=37310549   then
-                       BankProv.New('ППс7')
+                       BankProv.New('РџРџСЃ7')
                      else
-                       BankProv.New('ППс77');
+                       BankProv.New('РџРџСЃ77');
                      BankProv.fieldOPERDATE.Value       := DM.qrSp.FieldByName('DATEP').AsDateTime;
                      BankProv.fieldDOCNUMBER.Value      := DM.qrSp.FieldByName('NUMP').AsInteger;
                      if  DM.qrSp.FieldByName('TO_KOD').AsFloat=37310549   then
@@ -1068,7 +1068,7 @@ begin
                    except
                      on e:Exception do
                      begin
-                       WriteToLogFile('  Ошибка при создании проводки, банк Аваль: ' + e.Message);
+                       WriteToLogFile('  РћС€РёР±РєР° РїСЂРё СЃРѕР·РґР°РЅРёРё РїСЂРѕРІРѕРґРєРё, Р±Р°РЅРє РђРІР°Р»СЊ: ' + e.Message);
                        DM.qrSp.Edit;
                        DM.qrSp.FieldByName('STATUS').AsInteger:=3;
                        inc(lErr);
@@ -1080,12 +1080,12 @@ begin
                 end
                 else
                 if (DM.qrSp.FieldByName('TO_KOD').AsFloat=32174761) then
-                 begin //Полтава ЛВЗ
+                 begin //РџРѕР»С‚Р°РІР° Р›Р’Р—
                    if (DM.qrSp.FieldByName('FROM_SC').AsString ='29020316519') then
                     begin
-                      {$REGION 'поступлений со счета 29020316519'}
+                      {$REGION 'РїРѕСЃС‚СѓРїР»РµРЅРёР№ СЃРѕ СЃС‡РµС‚Р° 29020316519'}
                       try
-                        BankProv.New('ППс11');
+                        BankProv.New('РџРџСЃ11');
                         BankProv.fieldOPERDATE.Value       := DM.qrSp.FieldByName('DATEP').AsDateTime;
                         BankProv.fieldDOCNUMBER.Value      := DM.qrSp.FieldByName('NUMP').AsInteger;
                         BankProv.fieldGROUP_OPER.Value     := 113330000;
@@ -1107,7 +1107,7 @@ begin
                       except
                         on e:Exception do
                          begin
-                           WriteToLogFile('  Ошибка при создании проводки, банк Аваль, ЛВЗ Полтава: ' + e.Message);
+                           WriteToLogFile('  РћС€РёР±РєР° РїСЂРё СЃРѕР·РґР°РЅРёРё РїСЂРѕРІРѕРґРєРё, Р±Р°РЅРє РђРІР°Р»СЊ, Р›Р’Р— РџРѕР»С‚Р°РІР°: ' + e.Message);
                            DM.qrSp.Edit;
                            DM.qrSp.FieldByName('STATUS').AsInteger:=3;
                            inc(lErr);
@@ -1121,14 +1121,14 @@ begin
                       if (not IsExistsKodDK(DM.qrSP.FieldByName('FROM_KOD').AsFloat)) then
                        begin
                          DM.qrSp.Edit;
-                         DM.qrSp.FieldByName('STATUS').AsInteger:=2; //дк не найден
+                         DM.qrSp.FieldByName('STATUS').AsInteger:=2; //РґРє РЅРµ РЅР°Р№РґРµРЅ
                          inc(lErr);
                          DM.qrSp.Post;
                        end
                       else
-                      {$REGION 'От покупателя'}
+                      {$REGION 'РћС‚ РїРѕРєСѓРїР°С‚РµР»СЏ'}
                       try
-                        BankProv.New('ППс11');
+                        BankProv.New('РџРџСЃ11');
                         BankProv.fieldOPERDATE.Value       := DM.qrSp.FieldByName('DATEP').AsDateTime;
                         BankProv.fieldDOCNUMBER.Value      := DM.qrSp.FieldByName('NUMP').AsInteger;
                         BankProv.fieldGROUP_OPER.Value     := 11361000;
@@ -1150,7 +1150,7 @@ begin
                       except
                         on e:Exception do
                          begin
-                           WriteToLogFile('  Ошибка при создании проводки, банк Аваль, ЛВЗ Полтава: ' + e.Message);
+                           WriteToLogFile('  РћС€РёР±РєР° РїСЂРё СЃРѕР·РґР°РЅРёРё РїСЂРѕРІРѕРґРєРё, Р±Р°РЅРє РђРІР°Р»СЊ, Р›Р’Р— РџРѕР»С‚Р°РІР°: ' + e.Message);
                            DM.qrSp.Edit;
                            DM.qrSp.FieldByName('STATUS').AsInteger:=3;
                            inc(lErr);
@@ -1162,7 +1162,7 @@ begin
                  end
                 else
                  begin
-                   // нет необходимости делать вставку
+                   // РЅРµС‚ РЅРµРѕР±С…РѕРґРёРјРѕСЃС‚Рё РґРµР»Р°С‚СЊ РІСЃС‚Р°РІРєСѓ
                    DM.qrSp.Edit;
                    DM.qrSp.FieldByName('STATUS').AsInteger:=4;
                    DM.qrSp.Post;
@@ -1170,7 +1170,7 @@ begin
               end
               else // ((DM.qrSp.FieldByName('SUMMAK').AsFloat=0) OR (DM.qrSp.FieldByName('TO_KOD').AsFloat <> 25484884)) then
               begin
-                // нет необходимости делать вставку
+                // РЅРµС‚ РЅРµРѕР±С…РѕРґРёРјРѕСЃС‚Рё РґРµР»Р°С‚СЊ РІСЃС‚Р°РІРєСѓ
                 DM.qrSp.Edit;
                 DM.qrSp.FieldByName('STATUS').AsInteger:=4;
                 DM.qrSp.Post;
@@ -1178,13 +1178,13 @@ begin
             end;
             {$ENDREGION}
 
-          8:{$REGION 'ПромИнвестБанк'}
+          8:{$REGION 'РџСЂРѕРјРРЅРІРµСЃС‚Р‘Р°РЅРє'}
             begin
               if ((DM.qrSp.FieldByName('SUMMAK').AsFloat <> 0)
               and ((DM.qrSp.FieldByName('TO_KOD').AsFloat = 25484884)
               or (DM.qrSp.FieldByName('TO_KOD').AsFloat=37310549))) then
               begin
-                // проверим дебитора
+                // РїСЂРѕРІРµСЂРёРј РґРµР±РёС‚РѕСЂР°
                 DM.qrW.Close;
 //                DM.qrW.SQL.Text := 'select count(*) from SPRAV_DK where KOD_DK= :DK';
                 DM.qrW.SQL.Text := 'select sb.cfo from sprav_bank sb where sb.mfo = :MFO';
@@ -1226,7 +1226,7 @@ begin
                   except
                     on e:Exception do
                     begin
-                      WriteToLogFile('  Ошибка при создании проводки, банк ПИБ: ' + E.Message);
+                      WriteToLogFile('  РћС€РёР±РєР° РїСЂРё СЃРѕР·РґР°РЅРёРё РїСЂРѕРІРѕРґРєРё, Р±Р°РЅРє РџРР‘: ' + E.Message);
                       DM.qrSp.Edit;
                       DM.qrSp.FieldByName('STATUS').AsInteger:=3;
                       inc(lErr);
@@ -1236,7 +1236,7 @@ begin
                 end;
               end else
               begin
-                // нет необходимости делать проводку
+                // РЅРµС‚ РЅРµРѕР±С…РѕРґРёРјРѕСЃС‚Рё РґРµР»Р°С‚СЊ РїСЂРѕРІРѕРґРєСѓ
                 DM.qrSp.Edit;
                 DM.qrSp.FieldByName('STATUS').AsInteger := 4;
                 DM.qrSp.Post;
@@ -1244,12 +1244,12 @@ begin
             end;
             {$ENDREGION}
 
-          0:{$REGION 'ПриватБанк'}
+          0:{$REGION 'РџСЂРёРІР°С‚Р‘Р°РЅРє'}
             begin
               fProv:= False;
               if (((DM.qrSp.FieldByName('TO_KOD').AsString = '42735405') or (DM.qrSp.FieldByName('TO_KOD').AsString = '43178627') or (DM.qrSp.FieldByName('TO_KOD').AsString = '44364729') ) and (DM.qrSp.FieldByName('FROM_KOD').AsString <> '37310549') and (DM.qrSp.FieldByName('FROM_KOD').AsString <> DM.qrSp.FieldByName('TO_KOD').AsString)) then
-               {$REGION 'ПриватБанк - ГСГ и ГСЕ'}
-               begin     // ГСГ
+               {$REGION 'РџСЂРёРІР°С‚Р‘Р°РЅРє - Р“РЎР“ Рё Р“РЎР•'}
+               begin     // Р“РЎР“
                  DM.qrW.Close;
                             DM.qrW.SQL.Text := 'select bdo.group_oper, bdo.kod_oper, bdo.balance_kod, bdo.kod_dk, bdo.doctype '+
                                                'from bank_dkoper bdo where bdo.payment_type = 1 and bdo.kod_dk = ' + DM.qrSp.FieldByName('TO_KOD').AsString + ' and bdo.to_sc = ''' + trim(DM.qrSp.FieldByName('TO_SC').AsString)+'''';
@@ -1261,7 +1261,7 @@ begin
                               if (DM.qrSp.FieldByName('PRVRECID').AsInteger=0) then
                               begin
                                 sN:= Ansiuppercase( DM.qrSp.FieldByName('NP').AsString);
-                                if ((POs('ВИРУЧ', sN)>0) or (POs('ВЫРУЧ', sN)>0))  then
+                                if ((POs('Р’РР РЈР§', sN)>0) or (POs('Р’Р«Р РЈР§', sN)>0))  then
                                  begin
                                    DebtorFrom := 0;
                                    DM.qrW.Close;
@@ -1301,7 +1301,7 @@ begin
                                 except
                                   on e:Exception do
                                   begin
-                                    WriteToLogFile('  Ошибка при создании проводки, Приватбанк_ГСГ_ГСЕ: ' + E.Message);
+                                    WriteToLogFile('  РћС€РёР±РєР° РїСЂРё СЃРѕР·РґР°РЅРёРё РїСЂРѕРІРѕРґРєРё, РџСЂРёРІР°С‚Р±Р°РЅРє_Р“РЎР“_Р“РЎР•: ' + E.Message);
                                     BankProv.Close;
                                     no_insert:='4';
                                   end;
@@ -1334,14 +1334,14 @@ begin
               else
                begin
                 no_insert:='0';
-                // только УДК
+                // С‚РѕР»СЊРєРѕ РЈР”Рљ
                 if (    (Pos('20',DM.qrSp.FieldByName('FROM_SC').AsString)=1) or
                         (Pos('26',DM.qrSp.FieldByName('FROM_SC').AsString)=1) or
                         (Pos('20',DM.qrSp.FieldByName('FROM_SC').AsString)=16) or
                         (Pos('26',DM.qrSp.FieldByName('FROM_SC').AsString)=16)
                    ) then
                   begin
-                    {$REGION 'Обработка счетов на 20 и 26'}
+                    {$REGION 'РћР±СЂР°Р±РѕС‚РєР° СЃС‡РµС‚РѕРІ РЅР° 20 Рё 26'}
                     from_kod:=sabDK(CheckKodDkBySchet(trim(DM.qrSp.FieldByName('FROM_SC').AsString),
                             Trim(DM.qrSp.FieldByName('FROM_KOD').AsString)),DM.qrSp.FieldByName('NP').AsString);
                     to_kod:=CheckKodDkBySchet(trim(DM.qrSp.FieldByName('TO_SC').AsString),
@@ -1353,7 +1353,7 @@ begin
                     begin
                       if not is_sub then
                         CheckSubDk(from_kod, trim(DM.qrSp.FieldByName('FROM_SC').AsString));
-                      // создаем проводку
+                      // СЃРѕР·РґР°РµРј РїСЂРѕРІРѕРґРєСѓ
                       DM.qrW.Close;
                       DM.qrW.SQL.Text:='select bdo.group_oper, bdo.kod_oper, bdo.balance_kod, bdo.kod_dk, bdo.doctype '+
                                        'from bank_dkoper bdo where bdo.payment_type=0 and bdo.kod_dk='+to_kod + ' and bdo.to_sc= ''' + DM.qrSp.FieldByName('TO_SC').AsString + '''';
@@ -1392,10 +1392,10 @@ begin
                           except
                             on e:Exception do
                             begin
-                              WriteToLogFile('  Ошибка при создании проводки, Приватбанк: ' + E.Message);
+                              WriteToLogFile('  РћС€РёР±РєР° РїСЂРё СЃРѕР·РґР°РЅРёРё РїСЂРѕРІРѕРґРєРё, РџСЂРёРІР°С‚Р±Р°РЅРє: ' + E.Message);
                               BankProv.Close;
                               no_insert:='4';
-                              WriteToLogFile('Документ: '+DM.qrSp.FieldByName('DATEP').AsString+' №'+DM.qrSp.FieldByName('NUMP').AsString+' сумма: '+DM.qrSp.FieldByName('SUMMAK').AsString);
+                              WriteToLogFile('Р”РѕРєСѓРјРµРЅС‚: '+DM.qrSp.FieldByName('DATEP').AsString+' в„–'+DM.qrSp.FieldByName('NUMP').AsString+' СЃСѓРјРјР°: '+DM.qrSp.FieldByName('SUMMAK').AsString);
                             end;
                           end;
                         end; //
@@ -1419,11 +1419,11 @@ begin
                   if (not fProv) then
 
                   begin
-                    {$REGION 'обработка счетов на 29'}
+                    {$REGION 'РѕР±СЂР°Р±РѕС‚РєР° СЃС‡РµС‚РѕРІ РЅР° 29'}
                     if ((Pos('2902',trim(DM.qrSp.FieldByName('FROM_SC').AsString))=1) or (Pos('2902',trim(DM.qrSp.FieldByName('FROM_SC').AsString))=16)) then
                     begin
-                      // корпоратив
-                      // проверка наличия
+                      // РєРѕСЂРїРѕСЂР°С‚РёРІ
+                      // РїСЂРѕРІРµСЂРєР° РЅР°Р»РёС‡РёСЏ
                       re:=TRegExpr.Create;
                       try
                         re.Expression := '\d{6,}';
@@ -1431,7 +1431,7 @@ begin
                         repeat
                           no_insert:= '0';
                           from_kod := re.Match[0];
-                          if length(re.Match[0])=27 then    // цифры от Iban пропускаем
+                          if length(re.Match[0])=27 then    // С†РёС„СЂС‹ РѕС‚ Iban РїСЂРѕРїСѓСЃРєР°РµРј
                            from_kod:= '';
                           if from_kod <> '' then
                           begin
@@ -1445,12 +1445,12 @@ begin
                           to_kod := CheckKodDkBySchet(trim(DM.qrSp.FieldByName('TO_SC').AsString), Trim(DM.qrSp.FieldByName('TO_KOD').AsString));
                           //if from_kod = '0' then no_insert:='1';
                           if to_kod   = '0' then no_insert:='2';
-                          // По этому надо сделать цикл.
+                          // РџРѕ СЌС‚РѕРјСѓ РЅР°РґРѕ СЃРґРµР»Р°С‚СЊ С†РёРєР».
                           if (from_kod <> '0') then
                            if not IsInternalDk(from_kod) then
                             begin
                               CheckSubDk(from_kod, trim(DM.qrSp.FieldByName('FROM_SC').AsString));
-                              // создаем проводку
+                              // СЃРѕР·РґР°РµРј РїСЂРѕРІРѕРґРєСѓ
                               DM.qrW.Close;
                               DM.qrW.SQL.Text := 'select bdo.group_oper, bdo.kod_oper, bdo.balance_kod, bdo.kod_dk, bdo.doctype '+
                                                'from bank_dkoper bdo where bdo.payment_type = 1 and bdo.kod_dk = ' + to_kod + ' and bdo.to_sc = ''' + trim(DM.qrSp.FieldByName('TO_SC').AsString) + '''';
@@ -1481,7 +1481,7 @@ begin
                                   except
                                     on e:Exception do
                                     begin
-                                       WriteToLogFile('  Ошибка при создании проводки, Приватбанк_корпоратив: ' + E.Message);
+                                       WriteToLogFile('  РћС€РёР±РєР° РїСЂРё СЃРѕР·РґР°РЅРёРё РїСЂРѕРІРѕРґРєРё, РџСЂРёРІР°С‚Р±Р°РЅРє_РєРѕСЂРїРѕСЂР°С‚РёРІ: ' + E.Message);
                                        BankProv.Close;
                                        no_insert:='4';
                                     end;
@@ -1517,8 +1517,8 @@ begin
                           end; }
                       finally
                         re.Free;
-                      end; // корпоратив
-                      // Проверяю на платёж по Ф2
+                      end; // РєРѕСЂРїРѕСЂР°С‚РёРІ
+                      // РџСЂРѕРІРµСЂСЏСЋ РЅР° РїР»Р°С‚С‘Р¶ РїРѕ Р¤2
                       if ((not fProv) and (from_kod<>'0')) then
                       begin
                         to_kod:=CheckKodDkBySchet(trim(DM.qrSp.FieldByName('TO_SC').AsString),
@@ -1559,22 +1559,22 @@ begin
                             except
                               on e:Exception do
                               begin
-                                WriteToLogFile('  Ошибка при создании проводки, Приватбанк_ЧП: ' + E.Message);
+                                WriteToLogFile('  РћС€РёР±РєР° РїСЂРё СЃРѕР·РґР°РЅРёРё РїСЂРѕРІРѕРґРєРё, РџСЂРёРІР°С‚Р±Р°РЅРє_Р§Рџ: ' + E.Message);
                                 BankProv.Close;
                                 no_insert:='4';
-                                WriteToLogFile('  Документ: '+DM.qrSp.FieldByName('DATEP').AsString+' №'+DM.qrSp.FieldByName('NUMP').AsString+' сумма: '+DM.qrSp.FieldByName('SUMMAK').AsString);
+                                WriteToLogFile('  Р”РѕРєСѓРјРµРЅС‚: '+DM.qrSp.FieldByName('DATEP').AsString+' в„–'+DM.qrSp.FieldByName('NUMP').AsString+' СЃСѓРјРјР°: '+DM.qrSp.FieldByName('SUMMAK').AsString);
                               end;
                             end;
                           end; // Group DK = 2
                       end; // if no_insert = 0
-                      // вторая проводка по Ф2
+                      // РІС‚РѕСЂР°СЏ РїСЂРѕРІРѕРґРєР° РїРѕ Р¤2
                       if ((no_insert = '0') OR (no_insert = '5'))
                       then inc(lIns)
                       else inc(lErr);
                       {$ENDREGION}
                     end;
                     if (not FProv) then
-                    {$REGION 'инкассация'}
+                    {$REGION 'РёРЅРєР°СЃСЃР°С†РёСЏ'}
                     begin
                       DM.qrW.Close;
                       DM.qrW.SQL.Text:=format('SELECT DOCTYPE, GROUPOPER, KODOPER, DK_FROM, DK_TO, CFO FROM GET_BANK_INKASS("%s",%s)',
@@ -1582,7 +1582,7 @@ begin
                       DM.qrW.ExecQuery;
                       if not DM.qrW.Eof then
                        begin
-                         {$REGION 'Пытаемся сохранить проводку, ставим статус в банк_док, в зависимости от результата сохранения'}
+                         {$REGION 'РџС‹С‚Р°РµРјСЃСЏ СЃРѕС…СЂР°РЅРёС‚СЊ РїСЂРѕРІРѕРґРєСѓ, СЃС‚Р°РІРёРј СЃС‚Р°С‚СѓСЃ РІ Р±Р°РЅРє_РґРѕРє, РІ Р·Р°РІРёСЃРёРјРѕСЃС‚Рё РѕС‚ СЂРµР·СѓР»СЊС‚Р°С‚Р° СЃРѕС…СЂР°РЅРµРЅРёСЏ'}
                           no_insert:='0';
                           try
                             BankProv.New(DM.qrW.FieldByName('DOCTYPE').AsString);
@@ -1604,10 +1604,10 @@ begin
                          except
                             on e:Exception do
                              begin
-                               WriteToLogFile('  Ошибка при создании проводки, Приватбанк_Инкассация: ' + E.Message);
+                               WriteToLogFile('  РћС€РёР±РєР° РїСЂРё СЃРѕР·РґР°РЅРёРё РїСЂРѕРІРѕРґРєРё, РџСЂРёРІР°С‚Р±Р°РЅРє_РРЅРєР°СЃСЃР°С†РёСЏ: ' + E.Message);
                                BankProv.Close;
                                no_insert:= '3';
-                               WriteToLogFile('  Документ: '+DM.qrSp.FieldByName('DATEP').AsString+' №'+DM.qrSp.FieldByName('NUMP').AsString+' сумма: '+DM.qrSp.FieldByName('SUMMAK').AsString);
+                               WriteToLogFile('  Р”РѕРєСѓРјРµРЅС‚: '+DM.qrSp.FieldByName('DATEP').AsString+' в„–'+DM.qrSp.FieldByName('NUMP').AsString+' СЃСѓРјРјР°: '+DM.qrSp.FieldByName('SUMMAK').AsString);
                              end;
                          end;
                          if no_insert='0' then
@@ -1627,7 +1627,7 @@ begin
                        end
                       else
                        begin
-                         {$REGION 'Дебитор не найден в BAnk_Inkass, ставим статус'}
+                         {$REGION 'Р”РµР±РёС‚РѕСЂ РЅРµ РЅР°Р№РґРµРЅ РІ BAnk_Inkass, СЃС‚Р°РІРёРј СЃС‚Р°С‚СѓСЃ'}
                          DM.qrSp.Edit;
                          DM.qrSp.FieldByName('STATUS').AsInteger:=2;
                          DM.qrSp.Post;
@@ -1641,10 +1641,10 @@ begin
               end;
               end;
               {$ENDREGION}
-           {$REGION 'ПриватБанк - old'}
+           {$REGION 'РџСЂРёРІР°С‚Р‘Р°РЅРє - old'}
            { begin
               if (DM.qrSp.FieldByName('TO_KOD').AsString = '42735405') and ((DM.qrSp.FieldByName('FROM_KOD').AsString <> '42735405')) then
-               begin     // ГСГ
+               begin     // Р“РЎР“
                  DM.qrW.Close;
                             DM.qrW.SQL.Text := 'select bdo.group_oper, bdo.kod_oper, bdo.balance_kod, bdo.kod_dk, bdo.doctype '+
                                                'from bank_dkoper bdo where bdo.payment_type = 1 and bdo.kod_dk = ' + DM.qrSp.FieldByName('TO_KOD').AsString + ' and bdo.to_sc = ''' + trim(DM.qrSp.FieldByName('TO_SC').AsString)+'''';
@@ -1674,7 +1674,7 @@ begin
                                 except
                                   on e:Exception do
                                   begin
-                                    WriteToLogFile('  Ошибка при создании проводки, Приватбанк_ГСГ: ' + E.Message);
+                                    WriteToLogFile('  РћС€РёР±РєР° РїСЂРё СЃРѕР·РґР°РЅРёРё РїСЂРѕРІРѕРґРєРё, РџСЂРёРІР°С‚Р±Р°РЅРє_Р“РЎР“: ' + E.Message);
                                     BankProv.Close;
                                     no_insert:='4';
                                   end;
@@ -1690,7 +1690,7 @@ begin
                end
               else
               begin
-              //Проверяю на инкассацию
+              //РџСЂРѕРІРµСЂСЏСЋ РЅР° РёРЅРєР°СЃСЃР°С†РёСЋ
               DM.qrW.Close;
               DM.qrW.SQL.Text:=format('SELECT first 1 DOCTYPE, GROUPOPER, KODOPER, DK_FROM, DK_TO, CFO FROM GET_BANK_INKASS("%s" ,%s , "%s" )',
                 [trim(DM.qrSp.FieldByName('FROM_SC').AsString),DM.qrSp.FieldByName('TO_KOD').AsString, DM.qrSp.FieldByName('TO_SC').AsString]);
@@ -1700,7 +1700,7 @@ begin
               or ((DM.qrSp.FieldByName('TO_KOD').AsString <> '25484884')
               and (DM.qrSp.FieldByName('TO_KOD').AsFloat<>37310549))
               ) then
-           //   $REGION 'НЕ инкассация'
+           //   $REGION 'РќР• РёРЅРєР°СЃСЃР°С†РёСЏ'
                if ((((DM.qrSp.FieldByName('TO_KOD').AsString = '25484884') and (DM.qrSp.FieldByName('FROM_KOD').AsString = '25484884')) or ((DM.qrSp.FieldByName('TO_KOD').AsString = '37310549') and (DM.qrSp.FieldByName('FROM_KOD').AsString = '37310549'))) or (Pos('3648',trim(DM.qrSp.FieldByName('TO_SC').AsString)) = 1) or (Pos('3648',trim(DM.qrSp.FieldByName('TO_SC').AsString)) = 16)) then
                 begin
                   DM.qrSp.Edit;
@@ -1713,7 +1713,7 @@ begin
                 no_insert:='0';
                 if not((trim(DM.qrSp.FieldByName('TO_KOD').AsString) = bPrivat.KodToIgnore) AND
                        (trim(DM.qrSp.FieldByName('TO_SC').AsString) = bPrivat.ScToIgnore)
-                       //добавил УДК
+                       //РґРѕР±Р°РІРёР» РЈР”Рљ
                        and (trim(DM.qrSp.FieldByName('TO_KOD').AsString) = '37310549')) then
                 begin
                   if ( (
@@ -1730,7 +1730,7 @@ begin
                        )
                   then
                   begin
-//                    $REGION 'Обработка счетов на 20 и 26'
+//                    $REGION 'РћР±СЂР°Р±РѕС‚РєР° СЃС‡РµС‚РѕРІ РЅР° 20 Рё 26'
                     from_kod:=sabDK(CheckKodDkBySchet(trim(DM.qrSp.FieldByName('FROM_SC').AsString),
                             Trim(DM.qrSp.FieldByName('FROM_KOD').AsString)),DM.qrSp.FieldByName('NP').AsString);
                     to_kod:=CheckKodDkBySchet(trim(DM.qrSp.FieldByName('TO_SC').AsString),
@@ -1741,7 +1741,7 @@ begin
                     begin
                       if not is_sub then
                         CheckSubDk(from_kod, trim(DM.qrSp.FieldByName('FROM_SC').AsString));
-                      // создаем проводку
+                      // СЃРѕР·РґР°РµРј РїСЂРѕРІРѕРґРєСѓ
                       DM.qrW.Close;
                       DM.qrW.SQL.Text:='select bdo.group_oper, bdo.kod_oper, bdo.balance_kod, bdo.kod_dk, bdo.doctype '+
                                        'from bank_dkoper bdo where bdo.payment_type=0 and bdo.kod_dk='+to_kod + ' and bdo.to_sc= ''' + DM.qrSp.FieldByName('TO_SC').AsString + '''';
@@ -1779,10 +1779,10 @@ begin
                           except
                             on e:Exception do
                             begin
-                              WriteToLogFile('  Ошибка при создании проводки, Приватбанк: ' + E.Message);
+                              WriteToLogFile('  РћС€РёР±РєР° РїСЂРё СЃРѕР·РґР°РЅРёРё РїСЂРѕРІРѕРґРєРё, РџСЂРёРІР°С‚Р±Р°РЅРє: ' + E.Message);
                               BankProv.Close;
                               no_insert:='4';
-                              WriteToLogFile('Документ: '+DM.qrSp.FieldByName('DATEP').AsString+' №'+DM.qrSp.FieldByName('NUMP').AsString+' сумма: '+DM.qrSp.FieldByName('SUMMAK').AsString);
+                              WriteToLogFile('Р”РѕРєСѓРјРµРЅС‚: '+DM.qrSp.FieldByName('DATEP').AsString+' в„–'+DM.qrSp.FieldByName('NUMP').AsString+' СЃСѓРјРјР°: '+DM.qrSp.FieldByName('SUMMAK').AsString);
                             end;
                           end;
                         end; //
@@ -1809,11 +1809,11 @@ begin
 //                    $ENDREGION
                   end else
                   begin
-                    //$REGION 'обработка счетов на 29'
+                    //$REGION 'РѕР±СЂР°Р±РѕС‚РєР° СЃС‡РµС‚РѕРІ РЅР° 29'
                     if ((Pos('2902',trim(DM.qrSp.FieldByName('FROM_SC').AsString))=1) or (Pos('2902',trim(DM.qrSp.FieldByName('FROM_SC').AsString))=16)) then
                     begin
-                      // корпоратив
-                      // проверка наличия
+                      // РєРѕСЂРїРѕСЂР°С‚РёРІ
+                      // РїСЂРѕРІРµСЂРєР° РЅР°Р»РёС‡РёСЏ
                       re:=TRegExpr.Create;
                       try
                         re.Expression := '\d{6,';
@@ -1835,11 +1835,11 @@ begin
                           to_kod := CheckKodDkBySchet(trim(DM.qrSp.FieldByName('TO_SC').AsString), Trim(DM.qrSp.FieldByName('TO_KOD').AsString));
                           if from_kod = '0' then no_insert:='1';
                           if to_kod   = '0' then no_insert:='2';
-                          // По этому надо сделать цикл.
+                          // РџРѕ СЌС‚РѕРјСѓ РЅР°РґРѕ СЃРґРµР»Р°С‚СЊ С†РёРєР».
                           if not IsInternalDk(from_kod) then
                           begin
                             CheckSubDk(from_kod, trim(DM.qrSp.FieldByName('FROM_SC').AsString));
-                            // создаем проводку
+                            // СЃРѕР·РґР°РµРј РїСЂРѕРІРѕРґРєСѓ
                             DM.qrW.Close;
                             DM.qrW.SQL.Text := 'select bdo.group_oper, bdo.kod_oper, bdo.balance_kod, bdo.kod_dk, bdo.doctype '+
                                                'from bank_dkoper bdo where bdo.payment_type = 1 and bdo.kod_dk = ' + to_kod + ' and bdo.to_sc = ''' + trim(DM.qrSp.FieldByName('TO_SC').AsString) + '''';
@@ -1869,7 +1869,7 @@ begin
                                 except
                                   on e:Exception do
                                   begin
-                                    WriteToLogFile('  Ошибка при создании проводки, Приватбанк_корпоратив: ' + E.Message);
+                                    WriteToLogFile('  РћС€РёР±РєР° РїСЂРё СЃРѕР·РґР°РЅРёРё РїСЂРѕРІРѕРґРєРё, РџСЂРёРІР°С‚Р±Р°РЅРє_РєРѕСЂРїРѕСЂР°С‚РёРІ: ' + E.Message);
                                     BankProv.Close;
                                     no_insert:='4';
                                   end;
@@ -1904,8 +1904,8 @@ begin
                           end;
                       finally
                         re.Free;
-                      end; // корпоратив
-                      // Проверяю на платёж по Ф2
+                      end; // РєРѕСЂРїРѕСЂР°С‚РёРІ
+                      // РџСЂРѕРІРµСЂСЏСЋ РЅР° РїР»Р°С‚С‘Р¶ РїРѕ Р¤2
                       if no_insert = '0' then
                       begin
                         to_kod:=CheckKodDkBySchet(trim(DM.qrSp.FieldByName('TO_SC').AsString),
@@ -1945,21 +1945,21 @@ begin
                             except
                               on e:Exception do
                               begin
-                                WriteToLogFile('  Ошибка при создании проводки, Приватбанк_ЧП: ' + E.Message);
+                                WriteToLogFile('  РћС€РёР±РєР° РїСЂРё СЃРѕР·РґР°РЅРёРё РїСЂРѕРІРѕРґРєРё, РџСЂРёРІР°С‚Р±Р°РЅРє_Р§Рџ: ' + E.Message);
                                 BankProv.Close;
                                 no_insert:='4';
-                                WriteToLogFile('  Документ: '+DM.qrSp.FieldByName('DATEP').AsString+' №'+DM.qrSp.FieldByName('NUMP').AsString+' сумма: '+DM.qrSp.FieldByName('SUMMAK').AsString);
+                                WriteToLogFile('  Р”РѕРєСѓРјРµРЅС‚: '+DM.qrSp.FieldByName('DATEP').AsString+' в„–'+DM.qrSp.FieldByName('NUMP').AsString+' СЃСѓРјРјР°: '+DM.qrSp.FieldByName('SUMMAK').AsString);
                               end;
                             end;
                           end; // Group DK = 2
                       end; // if no_insert = 0
-                      // вторая проводка по Ф2
+                      // РІС‚РѕСЂР°СЏ РїСЂРѕРІРѕРґРєР° РїРѕ Р¤2
                       if ((no_insert = '0') OR (no_insert = '5'))
                       then inc(lIns)
                       else inc(lErr);
                       //$ENDREGION
                     end else
-                    begin  // все остальніе счета тупо ставим в исключен из обработки
+                    begin  // РІСЃРµ РѕСЃС‚Р°Р»СЊРЅС–Рµ СЃС‡РµС‚Р° С‚СѓРїРѕ СЃС‚Р°РІРёРј РІ РёСЃРєР»СЋС‡РµРЅ РёР· РѕР±СЂР°Р±РѕС‚РєРё
                       DM.qrSp.Edit;
                       DM.qrSp.FieldByName('STATUS').AsInteger := 4;
                       DM.qrSp.Post;
@@ -1976,11 +1976,11 @@ begin
               end
 //              $ENDREGION
               else
-//              $REGION 'инкассация'
+//              $REGION 'РёРЅРєР°СЃСЃР°С†РёСЏ'
               begin
-                // Проверка на ЧП
-                // Товариство з обмеженою відповідальністю "Торгівельний будинок "Мегаполіс"
-                //--- сюда же не зайдет,учитывая условия выше!!! - зачем???? (Яна)
+                // РџСЂРѕРІРµСЂРєР° РЅР° Р§Рџ
+                // РўРѕРІР°СЂРёСЃС‚РІРѕ Р· РѕР±РјРµР¶РµРЅРѕСЋ РІС–РґРїРѕРІС–РґР°Р»СЊРЅС–СЃС‚СЋ "РўРѕСЂРіС–РІРµР»СЊРЅРёР№ Р±СѓРґРёРЅРѕРє "РњРµРіР°РїРѕР»С–СЃ"
+                //--- СЃСЋРґР° Р¶Рµ РЅРµ Р·Р°Р№РґРµС‚,СѓС‡РёС‚С‹РІР°СЏ СѓСЃР»РѕРІРёСЏ РІС‹С€Рµ!!! - Р·Р°С‡РµРј???? (РЇРЅР°)
                 if ((DM.qrSp.FieldByName('TO_KOD').AsString <> '25484884') and (DM.qrSp.FieldByName('TO_KOD').AsFloat<>37310549)) then
                 begin
                   DM.qrW.Close;
@@ -1991,7 +1991,7 @@ begin
 
                 if not DM.qrW.Eof then
                 begin
-                  //$REGION 'Пытаемся сохранить проводку, ставим статус в банк_док, в зависимости от результата сохранения'
+                  //$REGION 'РџС‹С‚Р°РµРјСЃСЏ СЃРѕС…СЂР°РЅРёС‚СЊ РїСЂРѕРІРѕРґРєСѓ, СЃС‚Р°РІРёРј СЃС‚Р°С‚СѓСЃ РІ Р±Р°РЅРє_РґРѕРє, РІ Р·Р°РІРёСЃРёРјРѕСЃС‚Рё РѕС‚ СЂРµР·СѓР»СЊС‚Р°С‚Р° СЃРѕС…СЂР°РЅРµРЅРёСЏ'
                   no_insert:='0';
                   try
                     BankProv.New(DM.qrW.FieldByName('DOCTYPE').AsString);
@@ -2012,10 +2012,10 @@ begin
                   except
                     on e:Exception do
                     begin
-                      WriteToLogFile('  Ошибка при создании проводки, Приватбанк_Инкассация: ' + E.Message);
+                      WriteToLogFile('  РћС€РёР±РєР° РїСЂРё СЃРѕР·РґР°РЅРёРё РїСЂРѕРІРѕРґРєРё, РџСЂРёРІР°С‚Р±Р°РЅРє_РРЅРєР°СЃСЃР°С†РёСЏ: ' + E.Message);
                       BankProv.Close;
                       no_insert := '3';
-                      WriteToLogFile('  Документ: '+DM.qrSp.FieldByName('DATEP').AsString+' №'+DM.qrSp.FieldByName('NUMP').AsString+' сумма: '+DM.qrSp.FieldByName('SUMMAK').AsString);
+                      WriteToLogFile('  Р”РѕРєСѓРјРµРЅС‚: '+DM.qrSp.FieldByName('DATEP').AsString+' в„–'+DM.qrSp.FieldByName('NUMP').AsString+' СЃСѓРјРјР°: '+DM.qrSp.FieldByName('SUMMAK').AsString);
                     end;
                   end;
 
@@ -2035,7 +2035,7 @@ begin
 //                  $ENDREGION
                 end else
                 begin
-                  //$REGION 'Дебитор не найден в BAnk_Inkass, ставим статус'
+                  //$REGION 'Р”РµР±РёС‚РѕСЂ РЅРµ РЅР°Р№РґРµРЅ РІ BAnk_Inkass, СЃС‚Р°РІРёРј СЃС‚Р°С‚СѓСЃ'
                   DM.qrSp.Edit;
                   DM.qrSp.FieldByName('STATUS').AsInteger:=2;
                   DM.qrSp.Post;
@@ -2049,27 +2049,27 @@ begin
   }
   {$ENDREGION}
 
-          21:{$REGION 'Банк ФОРУМ'}
+          21:{$REGION 'Р‘Р°РЅРє Р¤РћР РЈРњ'}
             begin
               if ((DM.qrSp.FieldByName('SUMMAK').AsFloat <> 0)
               and ((DM.qrSp.FieldByName('TO_KOD').AsFloat = 25484884)
                or (DM.qrSp.FieldByName('TO_KOD').AsFloat=37310549))) then
               begin
-                // проверим дебитора
+                // РїСЂРѕРІРµСЂРёРј РґРµР±РёС‚РѕСЂР°
                 DM.qrW.Close;
                 DM.qrW.SQL.Text := 'select count(*) from SPRAV_DK where KOD_DK= :DK';
                 DM.qrW.ParamByName('DK').AsString := ReplaceStr(DM.qrSp.FieldByName('FROM_KOD').AsString,',','.');
                 DM.qrW.ExecQuery;
                 if DM.qrW.Fields[0].AsInteger = 0 then
                 begin
-                  // нет DK
+                  // РЅРµС‚ DK
                   DM.qrSp.Edit;
                   DM.qrSp.FieldByName('STATUS').AsInteger:=2;
                   inc(lErr);
                   DM.qrSp.Post;
                 end else
                 begin
-                    // платежка на вставку...
+                    // РїР»Р°С‚РµР¶РєР° РЅР° РІСЃС‚Р°РІРєСѓ...
                   try
                     BankProv.New(bForum.DocType);
                     BankProv.fieldOPERDATE.Value   := DM.qrSp.FieldByName('DATEP').AsDateTime;
@@ -2091,7 +2091,7 @@ begin
                   except
                     on e:Exception do
                     begin
-                      WriteToLogFile('  Ошибка при создании проводки, банк Форум: ' + E.Message);
+                      WriteToLogFile('  РћС€РёР±РєР° РїСЂРё СЃРѕР·РґР°РЅРёРё РїСЂРѕРІРѕРґРєРё, Р±Р°РЅРє Р¤РѕСЂСѓРј: ' + E.Message);
                       DM.qrSp.Edit;
                       DM.qrSp.FieldByName('STATUS').AsInteger:=3;
                       inc(lErr);
@@ -2101,8 +2101,8 @@ begin
                 end;
               end else
               begin
-                // обработка комиссии и какого-то говна
-                // если не комиссия и не говно - значит говно
+                // РѕР±СЂР°Р±РѕС‚РєР° РєРѕРјРёСЃСЃРёРё Рё РєР°РєРѕРіРѕ-С‚Рѕ РіРѕРІРЅР°
+                // РµСЃР»Рё РЅРµ РєРѕРјРёСЃСЃРёСЏ Рё РЅРµ РіРѕРІРЅРѕ - Р·РЅР°С‡РёС‚ РіРѕРІРЅРѕ
                 if ((DM.qrSp.FieldByName('SUMMAD').AsFloat <> 0)
                     and (DM.qrSp.FieldByName('TO_KOD').AsFloat = 26337346))
                 then
@@ -2112,13 +2112,13 @@ begin
                       or (DM.qrSp.FieldByName('TO_SC').AsString = '61105107018108'))
                   then
                     try
-                      BankProv.New('МО77');
+                      BankProv.New('РњРћ77');
                       BankProv.fieldOPERDATE.Value       := DM.qrSp.FieldByName('DATEP').AsDateTime;
                       BankProv.fieldDOCNUMBER.Value      := DM.qrSp.FieldByName('NUMP').AsInteger;
                       BankProv.fieldGROUP_OPER.AsInteger := 77311160;
                       BankProv.fieldKOD_OPER.AsInteger   := 920000; 
                       BankProv.fieldDK_FROM.Value        := DM.qrSp.FieldByName('FROM_KOD').AsFloat;
-                      BankProv.fieldDK_TO.Value          := DM.qrSp.FieldByName('TO_KOD').AsFloat; //26337346 ??? попробуем, если сломается - поставим сразу код
+                      BankProv.fieldDK_TO.Value          := DM.qrSp.FieldByName('TO_KOD').AsFloat; //26337346 ??? РїРѕРїСЂРѕР±СѓРµРј, РµСЃР»Рё СЃР»РѕРјР°РµС‚СЃСЏ - РїРѕСЃС‚Р°РІРёРј СЃСЂР°Р·Сѓ РєРѕРґ
                       BankProv.fieldSUMMA1.Value         := DM.qrSp.FieldByName('SUMMAD').AsFloat;
                       BankProv.fieldNOTES.Value          := DM.qrSp.FieldByName('NP').AsString;
                       if dbParams.SendToRegions > 0 then BankProv.fieldSTATE.Value:=21;
@@ -2132,7 +2132,7 @@ begin
                     except
                       on e:Exception do
                       begin
-                        WriteToLogFile('  Ошибка при создании проводки, банк Форум: ' + E.Message);
+                        WriteToLogFile('  РћС€РёР±РєР° РїСЂРё СЃРѕР·РґР°РЅРёРё РїСЂРѕРІРѕРґРєРё, Р±Р°РЅРє Р¤РѕСЂСѓРј: ' + E.Message);
                         DM.qrSp.Edit;
                         DM.qrSp.FieldByName('STATUS').AsInteger:=3;
                         inc(lErr);
@@ -2143,13 +2143,13 @@ begin
                     if ((DM.qrSp.FieldByName('TO_SC').AsString = '2902690005') or (DM.qrSP.FieldByName('TO_SC').AsString = '2900990000'))
                     then
                       try
-                        BankProv.New('МО77');
+                        BankProv.New('РњРћ77');
                         BankProv.fieldOPERDATE.Value       := DM.qrSp.FieldByName('DATEP').AsDateTime;
                         BankProv.fieldDOCNUMBER.Value      := DM.qrSp.FieldByName('NUMP').AsInteger;
                         BankProv.fieldGROUP_OPER.AsInteger := 77311160;
                         BankProv.fieldKOD_OPER.AsInteger   := 685804; 
                         BankProv.fieldDK_FROM.Value        := DM.qrSp.FieldByName('FROM_KOD').AsFloat;
-                        BankProv.fieldDK_TO.Value          := DM.qrSp.FieldByName('TO_KOD').AsFloat; //26337346 ??? попробуем, если сломается - поставим сразу код
+                        BankProv.fieldDK_TO.Value          := DM.qrSp.FieldByName('TO_KOD').AsFloat; //26337346 ??? РїРѕРїСЂРѕР±СѓРµРј, РµСЃР»Рё СЃР»РѕРјР°РµС‚СЃСЏ - РїРѕСЃС‚Р°РІРёРј СЃСЂР°Р·Сѓ РєРѕРґ
                         BankProv.fieldSUMMA1.Value         := DM.qrSp.FieldByName('SUMMAD').AsFloat;
                         BankProv.fieldNOTES.Value          := DM.qrSp.FieldByName('NP').AsString;
                         if dbParams.SendToRegions > 0 then BankProv.fieldSTATE.Value:=21;
@@ -2163,7 +2163,7 @@ begin
                       except
                         on e:Exception do
                         begin
-                          WriteToLogFile('  Ошибка при создании проводки, банк Форум: ' + E.Message);
+                          WriteToLogFile('  РћС€РёР±РєР° РїСЂРё СЃРѕР·РґР°РЅРёРё РїСЂРѕРІРѕРґРєРё, Р±Р°РЅРє Р¤РѕСЂСѓРј: ' + E.Message);
                           DM.qrSp.Edit;
                           DM.qrSp.FieldByName('STATUS').AsInteger:=3;
                           inc(lErr);
@@ -2172,14 +2172,14 @@ begin
                       end
                     else
                     begin
-                      // нет необходимости делать вставку
+                      // РЅРµС‚ РЅРµРѕР±С…РѕРґРёРјРѕСЃС‚Рё РґРµР»Р°С‚СЊ РІСЃС‚Р°РІРєСѓ
                       DM.qrSp.Edit;
                       DM.qrSp.FieldByName('STATUS').AsInteger := 4;
                       DM.qrSp.Post;
                     end;                           
                 end else  
                 begin
-                  // нет необходимости делать вставку
+                  // РЅРµС‚ РЅРµРѕР±С…РѕРґРёРјРѕСЃС‚Рё РґРµР»Р°С‚СЊ РІСЃС‚Р°РІРєСѓ
                   DM.qrSp.Edit;
                   DM.qrSp.FieldByName('STATUS').AsInteger := 4;
                   DM.qrSp.Post;
@@ -2188,7 +2188,7 @@ begin
             end;
             {$ENDREGION}
 
-            30:{$REGION 'Сити-банк Америка'}
+            30:{$REGION 'РЎРёС‚Рё-Р±Р°РЅРє РђРјРµСЂРёРєР°'}
              begin
                xsdt:= TXSDateTime.Create();
                try
@@ -2210,7 +2210,7 @@ begin
                       DM.qrSp.FieldByName('STATUS').AsInteger:= 0;
                       inc(lErr);
                       DM.qrSp.Post;
-                      WriteToLogFile('  Ошибка при вызове метода создания проводки по СИТИ-БАНКУ: ' + E.Message);
+                      WriteToLogFile('  РћС€РёР±РєР° РїСЂРё РІС‹Р·РѕРІРµ РјРµС‚РѕРґР° СЃРѕР·РґР°РЅРёСЏ РїСЂРѕРІРѕРґРєРё РїРѕ РЎРРўР-Р‘РђРќРљРЈ: ' + E.Message);
                     end;
                  end;
                finally
@@ -2219,14 +2219,14 @@ begin
              end;
           {$ENDREGION}
 
-            {31: begin  // ссоздание проводки на триггере BANK_DOC
+            {31: begin  // СЃСЃРѕР·РґР°РЅРёРµ РїСЂРѕРІРѕРґРєРё РЅР° С‚СЂРёРіРіРµСЂРµ BANK_DOC
                   DM.qrSp.Edit;
                   DM.qrSp.FieldByName('STATUS').AsInteger := 4;
                   DM.qrSp.Post;
                 end
              }
 
-          else //  Все прочие, россия и тп.
+          else //  Р’СЃРµ РїСЂРѕС‡РёРµ, СЂРѕСЃСЃРёСЏ Рё С‚Рї.
             begin
               aProvsDK := IntfMegaDBCommon.GetParam('DK_MAKE_PROV', '71351080');
               try
@@ -2272,12 +2272,12 @@ begin
                 end;
               finally
               end;
-            end;  // Все прочие
+            end;  // Р’СЃРµ РїСЂРѕС‡РёРµ
           end; //CASE
            except
             on e:Exception do
              begin
-               WriteToLogFile('  Ошибка при вызове метода SaveProv: ' + E.Message);
+               WriteToLogFile('  РћС€РёР±РєР° РїСЂРё РІС‹Р·РѕРІРµ РјРµС‚РѕРґР° SaveProv: ' + E.Message);
              end;
            end;
 
@@ -2289,21 +2289,21 @@ begin
 
         if DM.qrSp.Transaction.InTransaction then DM.qrSp.Transaction.CommitRetaining;
 
-          WriteToLogFile('  Создание проводок завершено.'+#13+#10+
-             '   Обработано документов '+inttostr(lObr)+'.'+#13+#10+
-             '   Создано проводок '+inttostr(lIns)+'.'+#13+#10+
-             '   Ошибок '+inttostr(lErr)+'.'+#13+#10+
-             '   Затрачено времени '+timetostr(Now-StartTime)+'.');
+          WriteToLogFile('  РЎРѕР·РґР°РЅРёРµ РїСЂРѕРІРѕРґРѕРє Р·Р°РІРµСЂС€РµРЅРѕ.'+#13+#10+
+             '   РћР±СЂР°Р±РѕС‚Р°РЅРѕ РґРѕРєСѓРјРµРЅС‚РѕРІ '+inttostr(lObr)+'.'+#13+#10+
+             '   РЎРѕР·РґР°РЅРѕ РїСЂРѕРІРѕРґРѕРє '+inttostr(lIns)+'.'+#13+#10+
+             '   РћС€РёР±РѕРє '+inttostr(lErr)+'.'+#13+#10+
+             '   Р—Р°С‚СЂР°С‡РµРЅРѕ РІСЂРµРјРµРЅРё '+timetostr(Now-StartTime)+'.');
       end
       else
-        WriteToLogFile('  Нет документов для обработки!');
+        WriteToLogFile('  РќРµС‚ РґРѕРєСѓРјРµРЅС‚РѕРІ РґР»СЏ РѕР±СЂР°Р±РѕС‚РєРё!');
     finally
       BankProv.Free;
     end;
   except
     on e:Exception do
     begin
-      WriteToLogFile('  Ошибка при вызове метода SaveProv: ' + E.Message);
+      WriteToLogFile('  РћС€РёР±РєР° РїСЂРё РІС‹Р·РѕРІРµ РјРµС‚РѕРґР° SaveProv: ' + E.Message);
       exit;
     end;
   end;
