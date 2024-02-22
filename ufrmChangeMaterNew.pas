@@ -120,12 +120,12 @@ procedure TfrmChangeMaterNew.actAddCurExecute(Sender: TObject);
 var 
   ANode: TcxDBTreeListNode; 
 begin 
-  if Application.MessageBox('Вы действительно хотите добавить ценность как основную?','Внимание', MB_YESNO + MB_ICONQUESTION) = ID_NO then
+  if Application.MessageBox('Р’С‹ РґРµР№СЃС‚РІРёС‚РµР»СЊРЅРѕ С…РѕС‚РёС‚Рµ РґРѕР±Р°РІРёС‚СЊ С†РµРЅРЅРѕСЃС‚СЊ РєР°Рє РѕСЃРЅРѕРІРЅСѓСЋ?','Р’РЅРёРјР°РЅРёРµ', MB_YESNO + MB_ICONQUESTION) = ID_NO then
     Exit;
   if pc.ActivePageIndex = 0 then
    begin
-     ANode := TcxDBTreeListNode(cxDBTreeListChangeMater.FocusedNode);//выделенный узел, который нужно поднять на уровень вверх
-     if ANode.ParentKeyValue = 0 then exit;//нулевой уровень, выше уже некуда переносить
+     ANode := TcxDBTreeListNode(cxDBTreeListChangeMater.FocusedNode);//РІС‹РґРµР»РµРЅРЅС‹Р№ СѓР·РµР», РєРѕС‚РѕСЂС‹Р№ РЅСѓР¶РЅРѕ РїРѕРґРЅСЏС‚СЊ РЅР° СѓСЂРѕРІРµРЅСЊ РІРІРµСЂС…
+     if ANode.ParentKeyValue = 0 then exit;//РЅСѓР»РµРІРѕР№ СѓСЂРѕРІРµРЅСЊ, РІС‹С€Рµ СѓР¶Рµ РЅРµРєСѓРґР° РїРµСЂРµРЅРѕСЃРёС‚СЊ
      if MegaSelMaterDialog1.Execute then
       begin
        mdsChangeMater.DisableControls;
@@ -146,8 +146,8 @@ begin
   end
   else
   begin
-    ANode := TcxDBTreeListNode(cxDBTreeListChangeMaterEDI.FocusedNode);//выделенный узел, который нужно поднять на уровень вверх
-    if ANode.ParentKeyValue = 0 then exit;//нулевой уровень, выше уже некуда переносить
+    ANode := TcxDBTreeListNode(cxDBTreeListChangeMaterEDI.FocusedNode);//РІС‹РґРµР»РµРЅРЅС‹Р№ СѓР·РµР», РєРѕС‚РѕСЂС‹Р№ РЅСѓР¶РЅРѕ РїРѕРґРЅСЏС‚СЊ РЅР° СѓСЂРѕРІРµРЅСЊ РІРІРµСЂС…
+    if ANode.ParentKeyValue = 0 then exit;//РЅСѓР»РµРІРѕР№ СѓСЂРѕРІРµРЅСЊ, РІС‹С€Рµ СѓР¶Рµ РЅРµРєСѓРґР° РїРµСЂРµРЅРѕСЃРёС‚СЊ
 
     if MegaSelMaterDialog1.Execute then
      begin
@@ -175,12 +175,12 @@ var
   ANode: TcxDBTreeListNode;
 begin
 
-  if Application.MessageBox('Вы действительно хотите добавить ценность как подчиненную текущей?','Внимание', MB_YESNO + MB_ICONQUESTION) = ID_NO then
+  if Application.MessageBox('Р’С‹ РґРµР№СЃС‚РІРёС‚РµР»СЊРЅРѕ С…РѕС‚РёС‚Рµ РґРѕР±Р°РІРёС‚СЊ С†РµРЅРЅРѕСЃС‚СЊ РєР°Рє РїРѕРґС‡РёРЅРµРЅРЅСѓСЋ С‚РµРєСѓС‰РµР№?','Р’РЅРёРјР°РЅРёРµ', MB_YESNO + MB_ICONQUESTION) = ID_NO then
     Exit;
   if pc.ActivePageIndex = 0 then
    begin
-     ANode := TcxDBTreeListNode(cxDBTreeListChangeMater.FocusedNode);//выделенный узел, который нужно поднять на уровень вверх
-     if ANode.ParentKeyValue = 0 then exit;//нулевой уровень, выше уже некуда переносить
+     ANode := TcxDBTreeListNode(cxDBTreeListChangeMater.FocusedNode);//РІС‹РґРµР»РµРЅРЅС‹Р№ СѓР·РµР», РєРѕС‚РѕСЂС‹Р№ РЅСѓР¶РЅРѕ РїРѕРґРЅСЏС‚СЊ РЅР° СѓСЂРѕРІРµРЅСЊ РІРІРµСЂС…
+     if ANode.ParentKeyValue = 0 then exit;//РЅСѓР»РµРІРѕР№ СѓСЂРѕРІРµРЅСЊ, РІС‹С€Рµ СѓР¶Рµ РЅРµРєСѓРґР° РїРµСЂРµРЅРѕСЃРёС‚СЊ
 
      if MegaSelMaterDialog1.Execute then
       begin
@@ -211,8 +211,8 @@ begin
    end
    else
    begin
-     ANode := TcxDBTreeListNode(cxDBTreeListChangeMaterEDI.FocusedNode);//выделенный узел, который нужно поднять на уровень вверх
-     if ANode.ParentKeyValue = 0 then exit;//нулевой уровень, выше уже некуда переносить
+     ANode := TcxDBTreeListNode(cxDBTreeListChangeMaterEDI.FocusedNode);//РІС‹РґРµР»РµРЅРЅС‹Р№ СѓР·РµР», РєРѕС‚РѕСЂС‹Р№ РЅСѓР¶РЅРѕ РїРѕРґРЅСЏС‚СЊ РЅР° СѓСЂРѕРІРµРЅСЊ РІРІРµСЂС…
+     if ANode.ParentKeyValue = 0 then exit;//РЅСѓР»РµРІРѕР№ СѓСЂРѕРІРµРЅСЊ, РІС‹С€Рµ СѓР¶Рµ РЅРµРєСѓРґР° РїРµСЂРµРЅРѕСЃРёС‚СЊ
 
      if MegaSelMaterDialog1.Execute then
       begin
@@ -248,12 +248,12 @@ var
   ANode: TcxDBTreeListNode;
 begin
 
-  if Application.MessageBox('Вы действительно хотите добавить ценность как родительскую к текущей?','Внимание', MB_YESNO + MB_ICONQUESTION) = ID_NO then
+  if Application.MessageBox('Р’С‹ РґРµР№СЃС‚РІРёС‚РµР»СЊРЅРѕ С…РѕС‚РёС‚Рµ РґРѕР±Р°РІРёС‚СЊ С†РµРЅРЅРѕСЃС‚СЊ РєР°Рє СЂРѕРґРёС‚РµР»СЊСЃРєСѓСЋ Рє С‚РµРєСѓС‰РµР№?','Р’РЅРёРјР°РЅРёРµ', MB_YESNO + MB_ICONQUESTION) = ID_NO then
     Exit;
   if pc.ActivePageIndex = 0 then
    begin
-    ANode := TcxDBTreeListNode(cxDBTreeListChangeMater.FocusedNode);//выделенный узел, который нужно поднять на уровень вверх
-    if ANode.ParentKeyValue = 0 then exit;//нулевой уровень, выше уже некуда переносить
+    ANode := TcxDBTreeListNode(cxDBTreeListChangeMater.FocusedNode);//РІС‹РґРµР»РµРЅРЅС‹Р№ СѓР·РµР», РєРѕС‚РѕСЂС‹Р№ РЅСѓР¶РЅРѕ РїРѕРґРЅСЏС‚СЊ РЅР° СѓСЂРѕРІРµРЅСЊ РІРІРµСЂС…
+    if ANode.ParentKeyValue = 0 then exit;//РЅСѓР»РµРІРѕР№ СѓСЂРѕРІРµРЅСЊ, РІС‹С€Рµ СѓР¶Рµ РЅРµРєСѓРґР° РїРµСЂРµРЅРѕСЃРёС‚СЊ
 
     if MegaSelMaterDialog1.Execute then
      begin
@@ -277,24 +277,24 @@ begin
        mdsChangeMater.CloseOpen(true);
        mdsChangeMater.EnableControls;
      end;
-{  if ANode.Parent <> nil then//проверяем существование родителя
+{  if ANode.Parent <> nil then//РїСЂРѕРІРµСЂСЏРµРј СЃСѓС‰РµСЃС‚РІРѕРІР°РЅРёРµ СЂРѕРґРёС‚РµР»СЏ
     with TpFibDataSet(cxDBTreeListChangeMater.DataController.DataSource.DataSet) do
     begin 
       DisableControls;
       Edit;
-      //TcxDBTreeListNode(ANode.Parent).ParentKeyValue - значение ключевого поля нового родителя
-      FBN('KOD_MATER_PARENT').Value := TcxDBTreeListNode(ANode.Parent).ParentKeyValue;//нужно переместить на уровень выше своего родителя.
-      FBN('KOD_MATER').Value := TcxDBTreeListNode(ANode).KeyValue;//какой узел перемещаем
+      //TcxDBTreeListNode(ANode.Parent).ParentKeyValue - Р·РЅР°С‡РµРЅРёРµ РєР»СЋС‡РµРІРѕРіРѕ РїРѕР»СЏ РЅРѕРІРѕРіРѕ СЂРѕРґРёС‚РµР»СЏ
+      FBN('KOD_MATER_PARENT').Value := TcxDBTreeListNode(ANode.Parent).ParentKeyValue;//РЅСѓР¶РЅРѕ РїРµСЂРµРјРµСЃС‚РёС‚СЊ РЅР° СѓСЂРѕРІРµРЅСЊ РІС‹С€Рµ СЃРІРѕРµРіРѕ СЂРѕРґРёС‚РµР»СЏ.
+      FBN('KOD_MATER').Value := TcxDBTreeListNode(ANode).KeyValue;//РєР°РєРѕР№ СѓР·РµР» РїРµСЂРµРјРµС‰Р°РµРј
       Post; 
       EnableControls;
     end//with 
   else 
     with TpFibDataSet(cxDBTreeListChangeMater.DataController.DataSource.DataSet) do
-    begin//если у родителя нет родителя, то перемещение происходит со 1го на нулевой уровень, а значит parent = 0 
+    begin//РµСЃР»Рё Сѓ СЂРѕРґРёС‚РµР»СЏ РЅРµС‚ СЂРѕРґРёС‚РµР»СЏ, С‚Рѕ РїРµСЂРµРјРµС‰РµРЅРёРµ РїСЂРѕРёСЃС…РѕРґРёС‚ СЃРѕ 1РіРѕ РЅР° РЅСѓР»РµРІРѕР№ СѓСЂРѕРІРµРЅСЊ, Р° Р·РЅР°С‡РёС‚ parent = 0 
         DisableControls; 
         Edit;
-        FBN('KOD_MATER_PARENT').Value := 0;//перемещаем на самый верхний уровень 
-        FBN('KOD_MATER').Value := TcxDBTreeListNode(ANode).KeyValue;//какой узел перемещаем
+        FBN('KOD_MATER_PARENT').Value := 0;//РїРµСЂРµРјРµС‰Р°РµРј РЅР° СЃР°РјС‹Р№ РІРµСЂС…РЅРёР№ СѓСЂРѕРІРµРЅСЊ 
+        FBN('KOD_MATER').Value := TcxDBTreeListNode(ANode).KeyValue;//РєР°РєРѕР№ СѓР·РµР» РїРµСЂРµРјРµС‰Р°РµРј
         Post;
         EnableControls;
     end;//with }
@@ -304,8 +304,8 @@ begin
    end
    else
    begin
-    ANode := TcxDBTreeListNode(cxDBTreeListChangeMaterEDI.FocusedNode);//выделенный узел, который нужно поднять на уровень вверх
-    if ANode.ParentKeyValue = 0 then exit;//нулевой уровень, выше уже некуда переносить
+    ANode := TcxDBTreeListNode(cxDBTreeListChangeMaterEDI.FocusedNode);//РІС‹РґРµР»РµРЅРЅС‹Р№ СѓР·РµР», РєРѕС‚РѕСЂС‹Р№ РЅСѓР¶РЅРѕ РїРѕРґРЅСЏС‚СЊ РЅР° СѓСЂРѕРІРµРЅСЊ РІРІРµСЂС…
+    if ANode.ParentKeyValue = 0 then exit;//РЅСѓР»РµРІРѕР№ СѓСЂРѕРІРµРЅСЊ, РІС‹С€Рµ СѓР¶Рµ РЅРµРєСѓРґР° РїРµСЂРµРЅРѕСЃРёС‚СЊ
 
     if MegaSelMaterDialog1.Execute then
      begin
@@ -340,11 +340,11 @@ var
   ANode: TcxDBTreeListNode;
 begin
   // if ANode.ParentKeyValue <> null then
-  if Application.MessageBox('Вы действительно хотите удалить ценность?','Внимание', MB_YESNO + MB_ICONQUESTION) = ID_NO then
+  if Application.MessageBox('Р’С‹ РґРµР№СЃС‚РІРёС‚РµР»СЊРЅРѕ С…РѕС‚РёС‚Рµ СѓРґР°Р»РёС‚СЊ С†РµРЅРЅРѕСЃС‚СЊ?','Р’РЅРёРјР°РЅРёРµ', MB_YESNO + MB_ICONQUESTION) = ID_NO then
     Exit;
   if pc.ActivePageIndex = 0 then
    begin
-     ANode := TcxDBTreeListNode(cxDBTreeListChangeMater.FocusedNode);//выделенный узел, который нужно поднять на уровень вверх
+     ANode := TcxDBTreeListNode(cxDBTreeListChangeMater.FocusedNode);//РІС‹РґРµР»РµРЅРЅС‹Р№ СѓР·РµР», РєРѕС‚РѕСЂС‹Р№ РЅСѓР¶РЅРѕ РїРѕРґРЅСЏС‚СЊ РЅР° СѓСЂРѕРІРµРЅСЊ РІРІРµСЂС…
      mdsChangeMater.DisableControls;
 
      mdsChangeMater.Delete;
@@ -365,7 +365,7 @@ begin
    end
   else
    begin
-     ANode := TcxDBTreeListNode(cxDBTreeListChangeMaterEDI.FocusedNode);//выделенный узел, который нужно поднять на уровень вверх
+     ANode := TcxDBTreeListNode(cxDBTreeListChangeMaterEDI.FocusedNode);//РІС‹РґРµР»РµРЅРЅС‹Р№ СѓР·РµР», РєРѕС‚РѕСЂС‹Р№ РЅСѓР¶РЅРѕ РїРѕРґРЅСЏС‚СЊ РЅР° СѓСЂРѕРІРµРЅСЊ РІРІРµСЂС…
      mdsChangeMaterEDI.DisableControls;
 
      mdsChangeMaterEDI.Delete;
