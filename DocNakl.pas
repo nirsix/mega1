@@ -1,7 +1,7 @@
 // ------------------------------------
 // projecWTYFMegapolis Money
 // --
-// module  : Документ накладная
+// module  : Р”РѕРєСѓРјРµРЅС‚ РЅР°РєР»Р°РґРЅР°СЏ
 // author  :
 // --
 // created       :
@@ -10,11 +10,11 @@
 { ...
 
 16/04/2002 lutsenko
-  изменился вызов функции NeedPrintTaraNakl
+  РёР·РјРµРЅРёР»СЃСЏ РІС‹Р·РѕРІ С„СѓРЅРєС†РёРё NeedPrintTaraNakl
 
 14.04.2002 lutsenko
-  Убрал метод NeedPrintTaraNakl. теперь
-  эту проверку выполняет функция NeedPrintTaraNakl в модуле uUtils
+  РЈР±СЂР°Р» РјРµС‚РѕРґ NeedPrintTaraNakl. С‚РµРїРµСЂСЊ
+  СЌС‚Сѓ РїСЂРѕРІРµСЂРєСѓ РІС‹РїРѕР»РЅСЏРµС‚ С„СѓРЅРєС†РёСЏ NeedPrintTaraNakl РІ РјРѕРґСѓР»Рµ uUtils
 }
 
 unit DocNakl;
@@ -1605,23 +1605,23 @@ type
     aCheckWithColNumber : integer;
     aCanFreeForm,isAlphaCol : boolean;
 
-    FProvStatus: integer; // статус проводки в документе
-    FIsStickering: integer;  //стикеруестя дебитор или нет
+    FProvStatus: integer; // СЃС‚Р°С‚СѓСЃ РїСЂРѕРІРѕРґРєРё РІ РґРѕРєСѓРјРµРЅС‚Рµ
+    FIsStickering: integer;  //СЃС‚РёРєРµСЂСѓРµСЃС‚СЏ РґРµР±РёС‚РѕСЂ РёР»Рё РЅРµС‚
     FDesignReport: boolean; //added by lutsenko 01/04/2002 -
                             //internal variable - switch for designing report
 
-    printNaklIf_different_Addr:boolean; // sys_base_params.PRINT_NAKL_DIF_CFO (def=1) печатать накладную если ADDR_FROM<>ADDR_TO
+    printNaklIf_different_Addr:boolean; // sys_base_params.PRINT_NAKL_DIF_CFO (def=1) РїРµС‡Р°С‚Р°С‚СЊ РЅР°РєР»Р°РґРЅСѓСЋ РµСЃР»Рё ADDR_FROM<>ADDR_TO
 
     NaklPervChange : boolean;
     NaklContractChange : boolean;
     PrintOSNakl:boolean;
     FDSDocType: TMegaDSDocType;
-    lstDoc:TList; //Список привязанных документов по операции
-    NaklOutletRecid: integer;  // параметры ТТ в накладной
+    lstDoc:TList; //РЎРїРёСЃРѕРє РїСЂРёРІСЏР·Р°РЅРЅС‹С… РґРѕРєСѓРјРµРЅС‚РѕРІ РїРѕ РѕРїРµСЂР°С†РёРё
+    NaklOutletRecid: integer;  // РїР°СЂР°РјРµС‚СЂС‹ РўРў РІ РЅР°РєР»Р°РґРЅРѕР№
     NaklOutletBaseid: integer;
     FIsUnloadContainers:integer;
-    FIsShippingPallets:integer;// признак что это отгрузка паллет
-    FIsStickeringNakl:integer;// признак что это отгрузка паллет
+    FIsShippingPallets:integer;// РїСЂРёР·РЅР°Рє С‡С‚Рѕ СЌС‚Рѕ РѕС‚РіСЂСѓР·РєР° РїР°Р»Р»РµС‚
+    FIsStickeringNakl:integer;// РїСЂРёР·РЅР°Рє С‡С‚Рѕ СЌС‚Рѕ РѕС‚РіСЂСѓР·РєР° РїР°Р»Р»РµС‚
     FInsertedPosIds: TList;
     pmp_items: TdmDocPopupMenuPrint_Items;
 
@@ -1636,7 +1636,7 @@ type
     function GetVozvrChP: boolean;
     function GetNewDocNaklNumber:integer;
 
-    // первичная документация
+    // РїРµСЂРІРёС‡РЅР°СЏ РґРѕРєСѓРјРµРЅС‚Р°С†РёСЏ
     procedure InsertNaklPerv(msg : string; r: integer);
     procedure DeleteNaklPerv;
     function  GetNaklPervComment : string;
@@ -1729,7 +1729,7 @@ type
 
     function ShowError:integer;
     procedure checkReturnCause;
-    //Проверка возможности изменения документа, исходя из статуса STATE
+    //РџСЂРѕРІРµСЂРєР° РІРѕР·РјРѕР¶РЅРѕСЃС‚Рё РёР·РјРµРЅРµРЅРёСЏ РґРѕРєСѓРјРµРЅС‚Р°, РёСЃС…РѕРґСЏ РёР· СЃС‚Р°С‚СѓСЃР° STATE
     procedure CheckAllowChangeByNaklState;
     procedure SkidckaNDSUchet;
   public
@@ -1766,23 +1766,23 @@ type
     Loaded:boolean;
     LOCKPRICE:integer;
 
-    //  0  Разрешить менять цены
-    //  1  Запретить менять при наличии колонки
-    //  2  Разрешить менять в +-0.01 по колонкам, остальніе свободны
-    //  3  Разрешить менять в +-0.01
+    //  0  Р Р°Р·СЂРµС€РёС‚СЊ РјРµРЅСЏС‚СЊ С†РµРЅС‹
+    //  1  Р—Р°РїСЂРµС‚РёС‚СЊ РјРµРЅСЏС‚СЊ РїСЂРё РЅР°Р»РёС‡РёРё РєРѕР»РѕРЅРєРё
+    //  2  Р Р°Р·СЂРµС€РёС‚СЊ РјРµРЅСЏС‚СЊ РІ +-0.01 РїРѕ РєРѕР»РѕРЅРєР°Рј, РѕСЃС‚Р°Р»СЊРЅС–Рµ СЃРІРѕР±РѕРґРЅС‹
+    //  3  Р Р°Р·СЂРµС€РёС‚СЊ РјРµРЅСЏС‚СЊ РІ +-0.01
     OPERSTATUS: Integer;
     verKassa:integer;
-    protokol:integer;//протокол для датекса 0- датекс; 1- криптон
-    DISCOUNT:Integer;// яункция скидки работала криво в старой длл (были перевернуты параметры) в новой все ок. поэтому 0- старый вызов; 1- новый
+    protokol:integer;//РїСЂРѕС‚РѕРєРѕР» РґР»СЏ РґР°С‚РµРєСЃР° 0- РґР°С‚РµРєСЃ; 1- РєСЂРёРїС‚РѕРЅ
+    DISCOUNT:Integer;// СЏСѓРЅРєС†РёСЏ СЃРєРёРґРєРё СЂР°Р±РѕС‚Р°Р»Р° РєСЂРёРІРѕ РІ СЃС‚Р°СЂРѕР№ РґР»Р» (Р±С‹Р»Рё РїРµСЂРµРІРµСЂРЅСѓС‚С‹ РїР°СЂР°РјРµС‚СЂС‹) РІ РЅРѕРІРѕР№ РІСЃРµ РѕРє. РїРѕСЌС‚РѕРјСѓ 0- СЃС‚Р°СЂС‹Р№ РІС‹Р·РѕРІ; 1- РЅРѕРІС‹Р№
 
     PDVOPERSTATUS: integer;
-    // см константы ios... (модуль uConst)
+    // СЃРј РєРѕРЅСЃС‚Р°РЅС‚С‹ ios... (РјРѕРґСѓР»СЊ uConst)
     ShowIndColor:boolean;
     ChangeKolich:boolean;
     CheckRecNo:integer;
     NextCheckFlag:boolean;
     DatePart:TDateTime;
-    WhereNaklPosSQL: String;// Список рекайди накладных,на базе которых собирать данную
+    WhereNaklPosSQL: String;// РЎРїРёСЃРѕРє СЂРµРєР°Р№РґРё РЅР°РєР»Р°РґРЅС‹С…,РЅР° Р±Р°Р·Рµ РєРѕС‚РѕСЂС‹С… СЃРѕР±РёСЂР°С‚СЊ РґР°РЅРЅСѓСЋ
 
     MainTableName: String;
     SubTableName: String;
@@ -1818,13 +1818,13 @@ type
     procedure CheckCorrectPeresort(var exept:string;var result:integer);
     procedure SetCFO(aCFO: integer);
     procedure CheckNaklBase(numAkc:integer);
-   //снимаем пометку базовой накладной по конкретной акции
+   //СЃРЅРёРјР°РµРј РїРѕРјРµС‚РєСѓ Р±Р°Р·РѕРІРѕР№ РЅР°РєР»Р°РґРЅРѕР№ РїРѕ РєРѕРЅРєСЂРµС‚РЅРѕР№ Р°РєС†РёРё
     procedure UnCheckNaklBase(numAkc:integer);
     procedure AddMissingColumn;
-    //проверка на создание накалдной по чп (задача от Нарыкова)
+    //РїСЂРѕРІРµСЂРєР° РЅР° СЃРѕР·РґР°РЅРёРµ РЅР°РєР°Р»РґРЅРѕР№ РїРѕ С‡Рї (Р·Р°РґР°С‡Р° РѕС‚ РќР°СЂС‹РєРѕРІР°)
     procedure CheckCreateNaklCHP(var doctype_to:string;var group_oper_to:integer;var kod_oper_to:integer);
     function CreateNaklCopy2CHP(doctype_to:string;group_oper_to,kod_oper_to:integer):boolean;
-    //снимаем пометку по всемакциям
+    //СЃРЅРёРјР°РµРј РїРѕРјРµС‚РєСѓ РїРѕ РІСЃРµРјР°РєС†РёСЏРј
     procedure UnCheckNaklBaseAll;
 {    constructor Create(AOwner: TComponent;
                        RECID: Integer; BASEID: Integer;
@@ -1842,7 +1842,7 @@ type
     procedure SendENakl(aOutKodMater: boolean = false; aShowInfo:boolean=true);
 
     procedure SetPriceCol(aCol, aAllPrice: integer);
-    //Разрешить отгрузку без проверки ассортимента для новой точки
+    //Р Р°Р·СЂРµС€РёС‚СЊ РѕС‚РіСЂСѓР·РєСѓ Р±РµР· РїСЂРѕРІРµСЂРєРё Р°СЃСЃРѕСЂС‚РёРјРµРЅС‚Р° РґР»СЏ РЅРѕРІРѕР№ С‚РѕС‡РєРё
     procedure AllowNotCheckForNewTT(aOutletRecid, aOutletBaseid:integer);
     { public declarations }
     procedure UpdateActions; override;
@@ -1862,11 +1862,11 @@ var
   BUF_NSDINSUMMA: Integer;
   BUF_OPERDATE: string; //nirs 12.01.2023
   WasRepainted:boolean=false;
-  OplCheckEnable:boolean;  //++ Для временной блокировки события cbOplClick во время программного изменения
-  SumVpl:Double; //++ Сумма к оплате используется если изменяется оплаченная накладная
+  OplCheckEnable:boolean;  //++ Р”Р»СЏ РІСЂРµРјРµРЅРЅРѕР№ Р±Р»РѕРєРёСЂРѕРІРєРё СЃРѕР±С‹С‚РёСЏ cbOplClick РІРѕ РІСЂРµРјСЏ РїСЂРѕРіСЂР°РјРјРЅРѕРіРѕ РёР·РјРµРЅРµРЅРёСЏ
+  SumVpl:Double; //++ РЎСѓРјРјР° Рє РѕРїР»Р°С‚Рµ РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РµСЃР»Рё РёР·РјРµРЅСЏРµС‚СЃСЏ РѕРїР»Р°С‡РµРЅРЅР°СЏ РЅР°РєР»Р°РґРЅР°СЏ
   fp:Variant;
-  LastErrorBool: Boolean; // Результат последней операции (Истина-успешно, Ложь-ошибка)
-  sumPDVScidcka: Float; // Сумма с учетом скиндки НДС
+  LastErrorBool: Boolean; // Р РµР·СѓР»СЊС‚Р°С‚ РїРѕСЃР»РµРґРЅРµР№ РѕРїРµСЂР°С†РёРё (РСЃС‚РёРЅР°-СѓСЃРїРµС€РЅРѕ, Р›РѕР¶СЊ-РѕС€РёР±РєР°)
+  sumPDVScidcka: Float; // РЎСѓРјРјР° СЃ СѓС‡РµС‚РѕРј СЃРєРёРЅРґРєРё РќР”РЎ
 
   lvi:bool = false; // [gsa:180220]
 
@@ -1980,12 +1980,12 @@ begin
 
   aNaklSaved := RECID > 0;
 
-  // Список рекайди накладных,на базе которых собирать данную
+  // РЎРїРёСЃРѕРє СЂРµРєР°Р№РґРё РЅР°РєР»Р°РґРЅС‹С…,РЅР° Р±Р°Р·Рµ РєРѕС‚РѕСЂС‹С… СЃРѕР±РёСЂР°С‚СЊ РґР°РЅРЅСѓСЋ
   WhereNaklPosSQL:= aDestNaklsList;
   FProvStatus:=-1;
   FIsStickering:= -1;
   // btnNote.Visible := IntfMegaDBCommon.IsOffice;
-  // Action виден для Офиса или когда Счёт-фактура
+  // Action РІРёРґРµРЅ РґР»СЏ РћС„РёСЃР° РёР»Рё РєРѕРіРґР° РЎС‡С‘С‚-С„Р°РєС‚СѓСЂР°
   // MakeDoc.Visible := ((IntfMegaDBCommon.IsOffice) AND (FormKod = 5));
   // DBEdit3.Visible:= IsRussia or IsUsa;
   miOKK.Visible:= IsRussia;
@@ -1994,7 +1994,7 @@ begin
   cxDBTEEgais.Visible:= IsRussia;
   cxDBTextEditEgaisCode.Visible:= IsRussia;
   cxLabelEgaisCode.Visible:= IsRussia;
-  //проверяем ст. оператора
+  //РїСЂРѕРІРµСЂСЏРµРј СЃС‚. РѕРїРµСЂР°С‚РѕСЂР°
   tbSendNakl.Enabled:= ((IntfMegaAccessManager.GetUserAccess = iuaSystem)
                      or (IntfMegaAccessManager.GetUserRole='DEVELOPER')
                      or (IntfMegaAccessManager.GetUserAccess = iuaStOperator)
@@ -2039,9 +2039,9 @@ begin
       lblCFOOtgr.Visible:= False;
   except
 { ----------------- Added by Lion in 26.06.2008 ---------------- }
-{ Какое-то время некоторые базы будут необновленные - поэтому нужно,
-  если что, дать возможность работать новой версии программы со старыми базами.
-  Позже этот код можно будет убрать (когда во всех базах будут эти поля)
+{ РљР°РєРѕРµ-С‚Рѕ РІСЂРµРјСЏ РЅРµРєРѕС‚РѕСЂС‹Рµ Р±Р°Р·С‹ Р±СѓРґСѓС‚ РЅРµРѕР±РЅРѕРІР»РµРЅРЅС‹Рµ - РїРѕСЌС‚РѕРјСѓ РЅСѓР¶РЅРѕ,
+  РµСЃР»Рё С‡С‚Рѕ, РґР°С‚СЊ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ СЂР°Р±РѕС‚Р°С‚СЊ РЅРѕРІРѕР№ РІРµСЂСЃРёРё РїСЂРѕРіСЂР°РјРјС‹ СЃРѕ СЃС‚Р°СЂС‹РјРё Р±Р°Р·Р°РјРё.
+  РџРѕР·Р¶Рµ СЌС‚РѕС‚ РєРѕРґ РјРѕР¶РЅРѕ Р±СѓРґРµС‚ СѓР±СЂР°С‚СЊ (РєРѕРіРґР° РІРѕ РІСЃРµС… Р±Р°Р·Р°С… Р±СѓРґСѓС‚ СЌС‚Рё РїРѕР»СЏ)
 }
     FreeVar(DocNaklZAYAVKA_ID);
     FreeVar(DocNaklSENDED_TO_OFFICE);
@@ -2057,7 +2057,7 @@ begin
     Source.DataSet.Open;
 { ----------- End of addition by Lion in 26.06.2008 ----------- }
   end;
-  //-- объект - тип документа
+  //-- РѕР±СЉРµРєС‚ - С‚РёРї РґРѕРєСѓРјРµРЅС‚Р°
   FDSDocType:= TMegaDSDocType.Create(Self);
   FDSDocType.Database:= IntfDBProvider.GetDB;
   FDSDocType.Transaction:= Nakl_Transaction;
@@ -2088,7 +2088,7 @@ begin
     balanceDType:=IntfMegaCommon.GetBalanceByDocType(Source.DataSet.FieldByName('DOCTYPE').AsString);
     Caption := Source.Dataset.FieldByName('DOC_NAME_').AsString;
     if (Source.Dataset.FieldByName('IS_BANKET').AsInteger=1) then
-      Caption:= Caption+' (БАНКЕТНАЯ)';
+      Caption:= Caption+' (Р‘РђРќРљР•РўРќРђРЇ)';
     {+++}
     dm.GetOperStatus(Nakl_Transaction, DocNaklGROUP_OPER.AsInteger, DocNaklKOD_OPER.AsInteger,OPERSTATUS,PDVOPERSTATUS);
     MegaSelCFO.Enabled:= OPERSTATUS in [iosOFInternalMove,iosOFFromToRoad,iosOFPurchasingWriteOff];
@@ -2097,7 +2097,7 @@ begin
 
     SetRules;
     //----------------------------------------------------
-    // установка названия текущей торг точки
+    // СѓСЃС‚Р°РЅРѕРІРєР° РЅР°Р·РІР°РЅРёСЏ С‚РµРєСѓС‰РµР№ С‚РѕСЂРі С‚РѕС‡РєРё
     InitOutletNameFromNaklData;
     InitDeliveryTimeFromNaklData;
 
@@ -2113,7 +2113,7 @@ begin
 
   //-- added by lutsenko 02.11.2002
   MegaSelCFO.Open;
-//!!! тест
+//!!! С‚РµСЃС‚
   MegaSelCFOfrom.Open;
   MegaSelCFOto.Open;
 //
@@ -2142,16 +2142,16 @@ begin
   else SumVpl:=0;
 {BS+ }
 
-// Добавил проверку на формирование по списку накладных
-// 14.02.2007, Игнат К.
-  {if (((DocNaklDOCTYPE.AsString[1]='З') and  (IntfMegaDBCommon.GetBaseID<>2))
+// Р”РѕР±Р°РІРёР» РїСЂРѕРІРµСЂРєСѓ РЅР° С„РѕСЂРјРёСЂРѕРІР°РЅРёРµ РїРѕ СЃРїРёСЃРєСѓ РЅР°РєР»Р°РґРЅС‹С…
+// 14.02.2007, РРіРЅР°С‚ Рљ.
+  {if (((DocNaklDOCTYPE.AsString[1]='Р—') and  (IntfMegaDBCommon.GetBaseID<>2))
       OR ((aDestNaklsList <> '') AND IsRussia) ) then
   begin
     DontCheckRest:=true;
     btSep.Visible:= not ((aDestNaklsList <> '') AND (IntfMegaDBCommon.GetCountry=iccRussia));
   end;}
   NoTr:=true;
-  //убираем умножение на НДС будет все хранится без НДС (транспорт это база)
+  //СѓР±РёСЂР°РµРј СѓРјРЅРѕР¶РµРЅРёРµ РЅР° РќР”РЎ Р±СѓРґРµС‚ РІСЃРµ С…СЂР°РЅРёС‚СЃСЏ Р±РµР· РќР”РЎ (С‚СЂР°РЅСЃРїРѕСЂС‚ СЌС‚Рѕ Р±Р°Р·Р°)
   //if DocNaklNDSINSUMMA.Value=0 then
  // begin
  //   smTrans.Value:=DocNaklTRANSPORT.Value*1.2;
@@ -2179,7 +2179,7 @@ begin
 //  end else
 //  begin
 //    DBEdit2.ReadOnly:=false;
-//  end; это уже давно не нужно (Дереза Д)
+//  end; СЌС‚Рѕ СѓР¶Рµ РґР°РІРЅРѕ РЅРµ РЅСѓР¶РЅРѕ (Р”РµСЂРµР·Р° Р”)
 
 
   cxDBse_Nacenka.Properties.ReadOnly:=true;
@@ -2191,12 +2191,12 @@ begin
     if OPERSTATUS = iosPrePay then
       cxDBse_Nacenka.Properties.ReadOnly:=CheckFromSubDog_ToNacenka;
   except
-    // не понимаю откуда тут эксепшн, но он есть
+    // РЅРµ РїРѕРЅРёРјР°СЋ РѕС‚РєСѓРґР° С‚СѓС‚ СЌРєСЃРµРїС€РЅ, РЅРѕ РѕРЅ РµСЃС‚СЊ
     on e:Exception do
       ShowMessage(e.Message);
   end;
 
-  UpdateDK_C_Controls; //изменить элементы управления "Через Кого"
+  UpdateDK_C_Controls; //РёР·РјРµРЅРёС‚СЊ СЌР»РµРјРµРЅС‚С‹ СѓРїСЂР°РІР»РµРЅРёСЏ "Р§РµСЂРµР· РљРѕРіРѕ"
 
   btTransit.Down:=not DocNaklTRANSIT.IsNull;
   if  btTransit.Down then
@@ -2216,7 +2216,7 @@ begin
  // PanelDop.Visible:=(IntfMegaDBCommon.IsOffice or (IntfMegaAccessManager.GetUserRole = 'TRANSPORT_AUDIT') or (IntfMegaAccessManager.GetUserRole = 'CORRECTOR'));
 //  pnlOffice.Visible:=IntfMegaDBCommon.IsOffice;
 
-  //проверка на изменение ЦФО
+  //РїСЂРѕРІРµСЂРєР° РЅР° РёР·РјРµРЅРµРЅРёРµ Р¦Р¤Рћ
 //  if IntfMegaDBCommon.IsOffice then
 //  begin
     if not MegaSelCFO.Enabled then MegaSelCFO.Enabled:=CanChangeCFO();
@@ -2224,10 +2224,10 @@ begin
   //------------------
   if IntfMegaDBCommon.GetCountry=iccRussia
   then begin
-    N8.Caption :='Создать/открыть счет-фактуру на продажу';
-    N16.Caption:='Создать/открыть корректировку к счету-фактуре на продажу';
-    N32.Caption:='Создать/открыть счет-фактуру на приобретение';
-    N33.Caption:='Создать/открыть корректировку к счету-фактуре на приобретение';
+    N8.Caption :='РЎРѕР·РґР°С‚СЊ/РѕС‚РєСЂС‹С‚СЊ СЃС‡РµС‚-С„Р°РєС‚СѓСЂСѓ РЅР° РїСЂРѕРґР°Р¶Сѓ';
+    N16.Caption:='РЎРѕР·РґР°С‚СЊ/РѕС‚РєСЂС‹С‚СЊ РєРѕСЂСЂРµРєС‚РёСЂРѕРІРєСѓ Рє СЃС‡РµС‚Сѓ-С„Р°РєС‚СѓСЂРµ РЅР° РїСЂРѕРґР°Р¶Сѓ';
+    N32.Caption:='РЎРѕР·РґР°С‚СЊ/РѕС‚РєСЂС‹С‚СЊ СЃС‡РµС‚-С„Р°РєС‚СѓСЂСѓ РЅР° РїСЂРёРѕР±СЂРµС‚РµРЅРёРµ';
+    N33.Caption:='РЎРѕР·РґР°С‚СЊ/РѕС‚РєСЂС‹С‚СЊ РєРѕСЂСЂРµРєС‚РёСЂРѕРІРєСѓ Рє СЃС‡РµС‚Сѓ-С„Р°РєС‚СѓСЂРµ РЅР° РїСЂРёРѕР±СЂРµС‚РµРЅРёРµ';
     N64.Visible:=True;
   end;
 
@@ -2277,23 +2277,23 @@ begin
   Action := caFree;
   is_leave:=false;
 
-  // SaveDoc сохраняет, откатывает или совсем отказывается от сохранения документа
-  // если документ сохранен или наоборот - транзакция откачена, процедура
-  // вернет - True, т.е. работа с документом завершена (сохранена или отменена)
-  // False возвращается лишь в случае, когда сохранение невозможно или пользователь
-  // предпочел Cancel
+  // SaveDoc СЃРѕС…СЂР°РЅСЏРµС‚, РѕС‚РєР°С‚С‹РІР°РµС‚ РёР»Рё СЃРѕРІСЃРµРј РѕС‚РєР°Р·С‹РІР°РµС‚СЃСЏ РѕС‚ СЃРѕС…СЂР°РЅРµРЅРёСЏ РґРѕРєСѓРјРµРЅС‚Р°
+  // РµСЃР»Рё РґРѕРєСѓРјРµРЅС‚ СЃРѕС…СЂР°РЅРµРЅ РёР»Рё РЅР°РѕР±РѕСЂРѕС‚ - С‚СЂР°РЅР·Р°РєС†РёСЏ РѕС‚РєР°С‡РµРЅР°, РїСЂРѕС†РµРґСѓСЂР°
+  // РІРµСЂРЅРµС‚ - True, С‚.Рµ. СЂР°Р±РѕС‚Р° СЃ РґРѕРєСѓРјРµРЅС‚РѕРј Р·Р°РІРµСЂС€РµРЅР° (СЃРѕС…СЂР°РЅРµРЅР° РёР»Рё РѕС‚РјРµРЅРµРЅР°)
+  // False РІРѕР·РІСЂР°С‰Р°РµС‚СЃСЏ Р»РёС€СЊ РІ СЃР»СѓС‡Р°Рµ, РєРѕРіРґР° СЃРѕС…СЂР°РЅРµРЅРёРµ РЅРµРІРѕР·РјРѕР¶РЅРѕ РёР»Рё РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ
+  // РїСЂРµРґРїРѕС‡РµР» Cancel
   if not SaveDoc then
   begin
     Action := caNone;
     exit;
   end;
 
-// отпрвляю сообщение только если накладная вызвана из Doclist-а
+// РѕС‚РїСЂРІР»СЏСЋ СЃРѕРѕР±С‰РµРЅРёРµ С‚РѕР»СЊРєРѕ РµСЃР»Рё РЅР°РєР»Р°РґРЅР°СЏ РІС‹Р·РІР°РЅР° РёР· Doclist-Р°
   if Assigned(Owner) and (Owner is TDocListForm) then
   begin
-    // тогда если накладная открыта из операций по счету, он не пересчитывабтся
-    // а если накладная пересохраняется LocateDocPos будет вызвана из SaveDoc
-    LocateDocPos(false);   //++ если true - тогда в доклисте создается новый документ
+    // С‚РѕРіРґР° РµСЃР»Рё РЅР°РєР»Р°РґРЅР°СЏ РѕС‚РєСЂС‹С‚Р° РёР· РѕРїРµСЂР°С†РёР№ РїРѕ СЃС‡РµС‚Сѓ, РѕРЅ РЅРµ РїРµСЂРµСЃС‡РёС‚С‹РІР°Р±С‚СЃСЏ
+    // Р° РµСЃР»Рё РЅР°РєР»Р°РґРЅР°СЏ РїРµСЂРµСЃРѕС…СЂР°РЅСЏРµС‚СЃСЏ LocateDocPos Р±СѓРґРµС‚ РІС‹Р·РІР°РЅР° РёР· SaveDoc
+    LocateDocPos(false);   //++ РµСЃР»Рё true - С‚РѕРіРґР° РІ РґРѕРєР»РёСЃС‚Рµ СЃРѕР·РґР°РµС‚СЃСЏ РЅРѕРІС‹Р№ РґРѕРєСѓРјРµРЅС‚
   end;
 
 
@@ -2363,12 +2363,12 @@ var
   ProvKolich: Double;
   restYear:double;
 begin
-  { Выборка всех cчетов из операции где есть аналитика по ценностям}
+  { Р’С‹Р±РѕСЂРєР° РІСЃРµС… cС‡РµС‚РѕРІ РёР· РѕРїРµСЂР°С†РёРё РіРґРµ РµСЃС‚СЊ Р°РЅР°Р»РёС‚РёРєР° РїРѕ С†РµРЅРЅРѕСЃС‚СЏРј}
   Result := 0;
   if DocPosKOD_MATER.Value = 0 then Exit;
-  if FindPart('ПСРТ',DocNaklDocType.AsString) >0 then Exit;
+  if FindPart('РџРЎР Рў',DocNaklDocType.AsString) >0 then Exit;
 
- {Херня для России -  делаем типа возврат вместо клиента}
+ {РҐРµСЂРЅСЏ РґР»СЏ Р РѕСЃСЃРёРё -  РґРµР»Р°РµРј С‚РёРїР° РІРѕР·РІСЂР°С‚ РІРјРµСЃС‚Рѕ РєР»РёРµРЅС‚Р°}
   if ((OPERSTATUS = iosReturnClient)
   and ((IntfMegaDBCommon.GetCountry = iccRussia) OR (IntfMegaDBCommon.GetCountry = kodRUS))) then
      exit;
@@ -2411,7 +2411,7 @@ begin
       if  RestYear<Result then
         Result:=RestYear;
     end;
-  { Контроль остатков проведенной позиции, DocPosRECID.Value <> 0}
+  { РљРѕРЅС‚СЂРѕР»СЊ РѕСЃС‚Р°С‚РєРѕРІ РїСЂРѕРІРµРґРµРЅРЅРѕР№ РїРѕР·РёС†РёРё, DocPosRECID.Value <> 0}
   if DocPosRECID.Value <> 0 then
   begin
     Query.Close;
@@ -2466,7 +2466,7 @@ begin
   DocPos.First;
   if NextCheckFlag then
     DocPos.MoveBy(CheckRecNo);
-  // Прставление признака "в продаже". Убрал 29.10.05 Захарченко.
+  // РџСЂСЃС‚Р°РІР»РµРЅРёРµ РїСЂРёР·РЅР°РєР° "РІ РїСЂРѕРґР°Р¶Рµ". РЈР±СЂР°Р» 29.10.05 Р—Р°С…Р°СЂС‡РµРЅРєРѕ.
   // Query1.Close;
   // Query1.SQL.Text := 'UPDATE SPRAV_MATER SET TOSALE = ?TOSALE WHERE KOD_MATER = ?KOD_MATER';
   // Query1.Prepare;
@@ -2485,9 +2485,9 @@ begin
     Rest := GetRest;
     if Rest < 0 then
     begin
-      if ((DocNaklDOCTYPE.AsString[1]<>'З') AND (not (OPERSTATUS in [iosSpecification, iosRealization,iosZMC, iosCorrectReturn]))) then
+      if ((DocNaklDOCTYPE.AsString[1]<>'Р—') AND (not (OPERSTATUS in [iosSpecification, iosRealization,iosZMC, iosCorrectReturn]))) then
       begin
-        Application.MessageBox('Ценность списана со склада другим пользователем. Требуется изменить количество ...', 'Внимание !', MB_OK + MB_ICONWARNING);
+        Application.MessageBox('Р¦РµРЅРЅРѕСЃС‚СЊ СЃРїРёСЃР°РЅР° СЃРѕ СЃРєР»Р°РґР° РґСЂСѓРіРёРј РїРѕР»СЊР·РѕРІР°С‚РµР»РµРј. РўСЂРµР±СѓРµС‚СЃСЏ РёР·РјРµРЅРёС‚СЊ РєРѕР»РёС‡РµСЃС‚РІРѕ ...', 'Р’РЅРёРјР°РЅРёРµ !', MB_OK + MB_ICONWARNING);
         Result := false;
         Exit;
       end;
@@ -2510,7 +2510,7 @@ begin
     // if DocPosTOSALE.Value <> Query1.Params[0].AsInteger
     //  then Query1.ExecQuery;
 
-   { 09/10/2018 - убрала по просьбе Спивак - не может дать бухгалтеру права на все операции (согласовано с Данилом) 
+   { 09/10/2018 - СѓР±СЂР°Р»Р° РїРѕ РїСЂРѕСЃСЊР±Рµ РЎРїРёРІР°Рє - РЅРµ РјРѕР¶РµС‚ РґР°С‚СЊ Р±СѓС…РіР°Р»С‚РµСЂСѓ РїСЂР°РІР° РЅР° РІСЃРµ РѕРїРµСЂР°С†РёРё (СЃРѕРіР»Р°СЃРѕРІР°РЅРѕ СЃ Р”Р°РЅРёР»РѕРј) 
      if not IntfMegaDBCommon.IsOffice then
      if (DocPosSTATE.Value <> Query2.Params[0].AsInteger) and (DocNaklSTATE.AsInteger<>5) and (DocNaklSTATE.AsInteger<>6)
        then Query2.ExecQuery;
@@ -2523,13 +2523,13 @@ begin
         PDV2 := true;
       if PDV1 and PDV2 then
       begin
-        Application.MessageBox('В документе обнаружена позиция с несовместимой налоговой группой. Перенесите позицию в другой документ...', 'Внимание !', MB_OK + MB_ICONWARNING);
+        Application.MessageBox('Р’ РґРѕРєСѓРјРµРЅС‚Рµ РѕР±РЅР°СЂСѓР¶РµРЅР° РїРѕР·РёС†РёСЏ СЃ РЅРµСЃРѕРІРјРµСЃС‚РёРјРѕР№ РЅР°Р»РѕРіРѕРІРѕР№ РіСЂСѓРїРїРѕР№. РџРµСЂРµРЅРµСЃРёС‚Рµ РїРѕР·РёС†РёСЋ РІ РґСЂСѓРіРѕР№ РґРѕРєСѓРјРµРЅС‚...', 'Р’РЅРёРјР°РЅРёРµ !', MB_OK + MB_ICONWARNING);
         Exit;
       end;
     end;
 
-    {сохранение индикативных цен}
-    // В России неактуально - ха-ха-ха
+    {СЃРѕС…СЂР°РЅРµРЅРёРµ РёРЅРґРёРєР°С‚РёРІРЅС‹С… С†РµРЅ}
+    // Р’ Р РѕСЃСЃРёРё РЅРµР°РєС‚СѓР°Р»СЊРЅРѕ - С…Р°-С…Р°-С…Р°
     if not ((IntfMegaDBCommon.GetCountry = iccRussia) OR (IntfMegaDBCommon.GetCountry = kodRUS)) then
       if (DocPosIND.Value = 1) and (IsPrihod <> -1) and not AlphaStarted then
       begin
@@ -2574,16 +2574,16 @@ begin
   if DocNakl.State in [dsInsert, dsEdit]
    then DocNakl.SafePost;
 
-// Саша Пец: смысл кода не понятен:), закоментарил, было торможение - пару секунд
+// РЎР°С€Р° РџРµС†: СЃРјС‹СЃР» РєРѕРґР° РЅРµ РїРѕРЅСЏС‚РµРЅ:), Р·Р°РєРѕРјРµРЅС‚Р°СЂРёР», Р±С‹Р»Рѕ С‚РѕСЂРјРѕР¶РµРЅРёРµ - РїР°СЂСѓ СЃРµРєСѓРЅРґ
 //  try
 //    DocNakl.Edit;
 //  except
-    // блокируем exception при отсутствии прав
+    // Р±Р»РѕРєРёСЂСѓРµРј exception РїСЂРё РѕС‚СЃСѓС‚СЃС‚РІРёРё РїСЂР°РІ
 //  end;
 end;
 
-procedure TDocNaklForm.SkidckaNDSUchet; { [gsa] 18-01-2018 для подсчета
-  количества скидок с учетом НДС. Согласно доработки с Расширения ф-й мани. }
+procedure TDocNaklForm.SkidckaNDSUchet; { [gsa] 18-01-2018 РґР»СЏ РїРѕРґСЃС‡РµС‚Р°
+  РєРѕР»РёС‡РµСЃС‚РІР° СЃРєРёРґРѕРє СЃ СѓС‡РµС‚РѕРј РќР”РЎ. РЎРѕРіР»Р°СЃРЅРѕ РґРѕСЂР°Р±РѕС‚РєРё СЃ Р Р°СЃС€РёСЂРµРЅРёСЏ С„-Р№ РјР°РЅРё. }
 begin
    sumPDVScidcka:=0.0;
    DocPos.DisableControls;
@@ -2603,7 +2603,7 @@ begin
     0 : if Row = 0 then
            begin
              WriteTextEH(DBGridEH1.Canvas,Rect,False,2,2,
-             'Итого:',taRightJustify,tlTop,True,False,0,0,false,true);
+             'РС‚РѕРіРѕ:',taRightJustify,tlTop,True,False,0,0,false,true);
            end;
     3 : case Row of
           1: begin
@@ -2643,12 +2643,12 @@ begin
     12: case Row of
          1: if DocNaklNDSINSUMMA.Value = 1 then
               WriteTextEH(DBGridEH1.Canvas,Rect,False,2,2,
-             'В т.ч. НДС:',taLeftJustify,tlTop,True,False,0,0,false,true)
+             'Р’ С‚.С‡. РќР”РЎ:',taLeftJustify,tlTop,True,False,0,0,false,true)
             else
               WriteTextEH(DBGridEH1.Canvas,Rect,False,2,2,
-             'НДС:',taLeftJustify,tlTop,True,False,0,0,false,true);
+             'РќР”РЎ:',taLeftJustify,tlTop,True,False,0,0,false,true);
          2:   WriteTextEH(DBGridEH1.Canvas,Rect,False,2,2,
-             'К оплате:',taLeftJustify,tlTop,True,False,0,0,false,true);
+             'Рљ РѕРїР»Р°С‚Рµ:',taLeftJustify,tlTop,True,False,0,0,false,true);
        end;
     13 : case Row of
           0: begin
@@ -2682,13 +2682,13 @@ begin
           0: begin
                if DocNaklEXCISE_IN_SUMMA.Value=1 then
                  WriteTextEH(DBGridEH1.Canvas,Rect,False,2,2,
-                 'В т.ч. акциз:',taLeftJustify,tlTop,True,False,0,0,false,true)
+                 'Р’ С‚.С‡. Р°РєС†РёР·:',taLeftJustify,tlTop,True,False,0,0,false,true)
                else
                  WriteTextEH(DBGridEH1.Canvas,Rect,False,2,2,
-                 'А также акциз:',taLeftJustify,tlTop,True,False,0,0,false,true)
+                 'Рђ С‚Р°РєР¶Рµ Р°РєС†РёР·:',taLeftJustify,tlTop,True,False,0,0,false,true)
              end;
           end;
-    24 : case Row of //[gsa] 16012019  доработка по запросу расширение функций Мани
+    24 : case Row of //[gsa] 16012019  РґРѕСЂР°Р±РѕС‚РєР° РїРѕ Р·Р°РїСЂРѕСЃСѓ СЂР°СЃС€РёСЂРµРЅРёРµ С„СѓРЅРєС†РёР№ РњР°РЅРё
             0: begin
                 WriteTextEH(DBGridEH1.Canvas,
                               Rect,
@@ -2720,7 +2720,7 @@ begin
   Sum.Close;
   Sum.Open;
   GetStateSelfExport;
-  btnStartBP.Visible :=  False{$IFDEF D10+}OR true{(DocNaklDOCTYPE.asString = 'ВНк77')}{$ENDIF};
+  btnStartBP.Visible :=  False{$IFDEF D10+}OR true{(DocNaklDOCTYPE.asString = 'Р’РќРє77')}{$ENDIF};
 
   if (DocNaklGroup_OPER.Value<>0)and(DocNaklKOD_OPER.Value<>0) then
     pmp_items.AddPopupMenuItems(DocNaklOPERDATE.Value,DocNaklDocType.Value,
@@ -2767,7 +2767,7 @@ begin
 
   Dataset.FieldByName('OPERDATE').AsDateTime := FOPERDATE;
 
-  //-- получение номера документа
+  //-- РїРѕР»СѓС‡РµРЅРёРµ РЅРѕРјРµСЂР° РґРѕРєСѓРјРµРЅС‚Р°
   Query.Close;
   try
     if IntfMegaDBCommon.GetCountry = iccRussia then
@@ -2782,7 +2782,7 @@ begin
     Query.ParamByName('OPERDATE').asDate:=FOPERDATE;
     Query.ExecQuery;
   except
-    { А вдруг процедура старая ещё }
+    { Рђ РІРґСЂСѓРі РїСЂРѕС†РµРґСѓСЂР° СЃС‚Р°СЂР°СЏ РµС‰С‘ }
     Query.SQL.Text :=' select DOCNUMBER from GET_NEW_DOCNUMBER(:BASEID,:DOCTYPE,:OPERDATE,null)';
     Query.ParamByName('BASEID').asInteger:=IntfMegaDBCommon.GetBaseID;
     Query.ParamByName('DOCTYPE').asString:=FDSDocType.FieldDocType.AsString;
@@ -2801,7 +2801,7 @@ begin
   Dataset.FieldByName('STATE').AsInteger              := idsNew;
   Dataset.FieldByName('TRANSPORT').AsInteger          := 0;
 
-  //-- операции поумолчанию
+  //-- РѕРїРµСЂР°С†РёРё РїРѕСѓРјРѕР»С‡Р°РЅРёСЋ
   Query.Close;
   if ((IntfMegaDBCommon.GetCountry = iccUSA) and (MainTableName='DOC_NAKL') and (Source.Dataset.FieldByName('GROUP_OPER').AsInteger=0)) then
   begin
@@ -2814,7 +2814,7 @@ begin
         group_oper:=Query.FieldByName('group_oper').AsInteger;
         kod_oper:= Query.FieldByName('kod_oper').AsInteger;
         Query.close;
-        //только в таком порядке потому что при изменении  KOD_OPER Query закрывается
+        //С‚РѕР»СЊРєРѕ РІ С‚Р°РєРѕРј РїРѕСЂСЏРґРєРµ РїРѕС‚РѕРјСѓ С‡С‚Рѕ РїСЂРё РёР·РјРµРЅРµРЅРёРё  KOD_OPER Query Р·Р°РєСЂС‹РІР°РµС‚СЃСЏ
         DataSet.FieldByName('GROUP_NAME').value := group_name;
         Dataset.FieldByName('NAME_OPER').value := name_oper;
         Dataset.FieldByName('GROUP_OPER').AsInteger := group_oper;
@@ -2889,7 +2889,7 @@ begin
    else
     begin
       if (OperStatus = iosSelectByDK_C) or ((OperStatus <> iosRealizationF1) and(OperStatus <> iosPrePay)
-      and ((OperStatus <> iosRealizationF2) OR (((IntfMegaDBCommon.GetCountry = iccRussia) OR (IntfMegaDBCommon.GetCountry = kodRUS)) AND ((Pos('КЧк', DocNaklDOCTYPE.AsString) > 0) OR (OperStatus = iosRealizationF2))))) then
+      and ((OperStatus <> iosRealizationF2) OR (((IntfMegaDBCommon.GetCountry = iccRussia) OR (IntfMegaDBCommon.GetCountry = kodRUS)) AND ((Pos('РљР§Рє', DocNaklDOCTYPE.AsString) > 0) OR (OperStatus = iosRealizationF2))))) then
       begin
         if (OperStatus = iosSelectByDK_C) then
          begin
@@ -2946,11 +2946,11 @@ begin
   o_DK_TO  :=kod_DK_TO;
   o_DK_C   :=kod_DK_C;
 
-   DK_FROM_CE.Enabled:= not CheckDKfromOper(o_DK_FROM,Source.Dataset.FieldByName('DK_FROM'),'От кого');
+   DK_FROM_CE.Enabled:= not CheckDKfromOper(o_DK_FROM,Source.Dataset.FieldByName('DK_FROM'),'РћС‚ РєРѕРіРѕ');
    DK_FROM_ED.Enabled:=DK_FROM_CE.Enabled;
-   DK_TO_CE.Enabled  := not CheckDKfromOper(o_DK_TO,Source.Dataset.FieldByName('DK_TO'),'Кому');
+   DK_TO_CE.Enabled  := not CheckDKfromOper(o_DK_TO,Source.Dataset.FieldByName('DK_TO'),'РљРѕРјСѓ');
    DK_TO_ED.Enabled  :=DK_TO_CE.Enabled;
-   DK_C_NAME_CE.Enabled   := not CheckDKfromOper(o_DK_C,Source.Dataset.FieldByName('DK_C'),'Через');
+   DK_C_NAME_CE.Enabled   := not CheckDKfromOper(o_DK_C,Source.Dataset.FieldByName('DK_C'),'Р§РµСЂРµР·');
    DK_C_ED.Enabled   :=DK_C_NAME_CE.Enabled;
 
 
@@ -2981,7 +2981,7 @@ begin
     if (DocNakl.State=dsInsert) or (DocNakl.State=dsEdit) then DocNaklDK_C.AsVariant:=NULL;
   Self.Width := Self.Width + 1;
   Self.Width := Self.Width - 1;
-  //получение статуса операции
+  //РїРѕР»СѓС‡РµРЅРёРµ СЃС‚Р°С‚СѓСЃР° РѕРїРµСЂР°С†РёРё
   Query.Close;
   Query.SQL.Text := 'select * from GET_ISRASKHOD(' +
     IntToStr(Source.DataSet.FieldByName('GROUP_OPER').AsInteger)+', ' +
@@ -2993,7 +2993,7 @@ begin
   OPERSTATUS_OLD:=OPERSTATUS;
   OPERSTATUS:= GetProvStatus;
 
-  // Адрес откуда/куда
+  // РђРґСЂРµСЃ РѕС‚РєСѓРґР°/РєСѓРґР°
   Query.Close;
   Query.SQL.Text:='select can_change from can_change_cfo_on_doc(:GROUP_OPER,:KOD_OPER, :kc, :operdate)';
   Query.Params.ByName['GROUP_OPER'].AsInteger:=Source.DataSet.FieldByName('GROUP_OPER').AsInteger;
@@ -3006,7 +3006,7 @@ begin
   if (IntfMegaDBCommon.GetCountry = iccRussia) then
     if MegaSelCFOto.Enabled then
       PriceType.Enabled:= (IntfMegaAccessManager.GetUserRole = 'CORRECTOR') or IsDebug;
-  //делаем активным или нет при изменении операции
+  //РґРµР»Р°РµРј Р°РєС‚РёРІРЅС‹Рј РёР»Рё РЅРµС‚ РїСЂРё РёР·РјРµРЅРµРЅРёРё РѕРїРµСЂР°С†РёРё
   smTrans.enabled:= ((IntfMegaDBCommon.IsOffice) or (((IntfMegaAccessManager.GetUserRole = 'TRANSPORT_AUDIT') or (IntfMegaAccessManager.GetUserRole = 'CORRECTOR')) and (DocNaklWITH_SUM_TRANSPORT.AsInteger =1)));
 
   Query.Close;
@@ -3015,7 +3015,7 @@ begin
   Query.Params.ByName['KC'].AsInteger:=2;
   Query.ExecQuery;
   MegaSelCFOfrom.Enabled:= Query.Fields[0].AsInteger>0;
-  // or (OPERSTATUS in [iosIncomeFromProvider,iosIncomeFromRoad, iosImportIncomeFromRoad, iosCFOAddressChange]); 31.07.19 перенесла в процедуру
+  // or (OPERSTATUS in [iosIncomeFromProvider,iosIncomeFromRoad, iosImportIncomeFromRoad, iosCFOAddressChange]); 31.07.19 РїРµСЂРµРЅРµСЃР»Р° РІ РїСЂРѕС†РµРґСѓСЂСѓ
 
 //  Query.Close;
 //  Query.SQL.Text:='select status from sprav_oper where  group_oper = '+
@@ -3029,34 +3029,34 @@ begin
   if OPERSTATUS_OLD<>OPERSTATUS then
   begin
     case OPERSTATUS of
-      iosReturnToProvider:  //Возврат поставщику
+      iosReturnToProvider:  //Р’РѕР·РІСЂР°С‚ РїРѕСЃС‚Р°РІС‰РёРєСѓ
         begin
         end;
-      iosReturnFromClient:  //Возврат от покупателя
+      iosReturnFromClient:  //Р’РѕР·РІСЂР°С‚ РѕС‚ РїРѕРєСѓРїР°С‚РµР»СЏ
         begin
         end;
-      iosRealizationF1:  //Реализация Ф1
+      iosRealizationF1:  //Р РµР°Р»РёР·Р°С†РёСЏ Р¤1
         begin
         end;
-      iosRealizationF2:  //Реализация Ф2
+      iosRealizationF2:  //Р РµР°Р»РёР·Р°С†РёСЏ Р¤2
         begin
         end;
-      iosInternalMove:  //Внутреннее перемещение
+      iosInternalMove:  //Р’РЅСѓС‚СЂРµРЅРЅРµРµ РїРµСЂРµРјРµС‰РµРЅРёРµ
         begin
         end;
-      iosIncomeFromProvider:  //Приход от поставщика
+      iosIncomeFromProvider:  //РџСЂРёС…РѕРґ РѕС‚ РїРѕСЃС‚Р°РІС‰РёРєР°
         begin
         end;
-      iosIncomeFromRoad:  //Приход из пути
+      iosIncomeFromRoad:  //РџСЂРёС…РѕРґ РёР· РїСѓС‚Рё
         begin
         end;
-      iosImportIncomeFromRoad:  //импорт Приход из пути
+      iosImportIncomeFromRoad:  //РёРјРїРѕСЂС‚ РџСЂРёС…РѕРґ РёР· РїСѓС‚Рё
         begin
         end;
-      iosOutcomeToRoad:  //Уход в путь
+      iosOutcomeToRoad:  //РЈС…РѕРґ РІ РїСѓС‚СЊ
         begin
         end;
-      iosPrePay:    //со Скидкой при допсоглашении "Работа по предоплате"
+      iosPrePay:    //СЃРѕ РЎРєРёРґРєРѕР№ РїСЂРё РґРѕРїСЃРѕРіР»Р°С€РµРЅРёРё "Р Р°Р±РѕС‚Р° РїРѕ РїСЂРµРґРѕРїР»Р°С‚Рµ"
         begin
         end;
       iosCFOAddressChange:
@@ -3066,7 +3066,7 @@ begin
     end;
   end;
 
-  //!!! тест  SetAddr(operstatus);
+  //!!! С‚РµСЃС‚  SetAddr(operstatus);
 
   Kurs.Hint:=DocNaklV1_Name.Value+ '/'+ DocNaklV_Name.Value;
   Kurs1.Hint:=DocNaklV_Name.Value+ '/'+ DocNaklV1_Name.Value;
@@ -3109,7 +3109,7 @@ begin
   if Source.DataSet.FieldByName('V1').AsInteger <> V1 then
     Source.DataSet.FieldByName('V1').AsInteger := V1;
   DocNaklOPERDATEChange(nil);
-  //после этого могут пересчитаться цены и датасет закрывается. 
+  //РїРѕСЃР»Рµ СЌС‚РѕРіРѕ РјРѕРіСѓС‚ РїРµСЂРµСЃС‡РёС‚Р°С‚СЊСЃСЏ С†РµРЅС‹ Рё РґР°С‚Р°СЃРµС‚ Р·Р°РєСЂС‹РІР°РµС‚СЃСЏ. 
   if not (Source.DataSet.State in[dsInsert,dsEdit]) then Source.DataSet.Edit;
   if Source.DataSet.FieldByName('V').AsInteger = Source.DataSet.FieldByName('V1').AsInteger then
     Source.DataSet.FieldByName('PRICE_FROM_VALYUTA').AsInteger := Source.DataSet.FieldByName('V').AsInteger;
@@ -3132,7 +3132,7 @@ begin
   end;
   // added by ZIS 02.07.2003
   MegaSelCFO.Enabled:= OPERSTATUS in [iosOFInternalMove,iosOFFromToRoad,iosOFPurchasingWriteOff];
-  //проверка на изменение ЦФО
+  //РїСЂРѕРІРµСЂРєР° РЅР° РёР·РјРµРЅРµРЅРёРµ Р¦Р¤Рћ
   if IntfMegaDBCommon.IsOffice then
   begin
      if not MegaSelCFO.Enabled then MegaSelCFO.Enabled:=CanChangeCFO();
@@ -3164,7 +3164,7 @@ begin
                             and (GetProvStatus=iosOFSubarenda);
 
   actSubRent_List.Enabled:=(GetProvStatus=iosOFSubarenda) and (DocNaklSTATE.Value=8);
-  //или на дебиторе установлен признак ситкеровки
+  //РёР»Рё РЅР° РґРµР±РёС‚РѕСЂРµ СѓСЃС‚Р°РЅРѕРІР»РµРЅ РїСЂРёР·РЅР°Рє СЃРёС‚РєРµСЂРѕРІРєРё
   tbOrderSklad.Visible:=(GetProvStatus in [iosUnionSort, iosOutcomeToOtv,iosIncomeFromRoad,iosImportIncomeFromRoad,iosOutcomeToRoad,iosIncomeFromProvider,iosMaterWithDiscReal,iosMaterWithDiscount, iosRealizationF1, iosRealizationF2,iosPosting,iosIncomeFromRoadFromProvider]) or (isStickering=1);
 
  // tbOrderSklad.Visible:=;
@@ -3198,7 +3198,7 @@ begin
   except
     on E:Exception do
     begin
-         Warning('Возникли ошибки при проставлении цен. '#13#10+
+         Warning('Р’РѕР·РЅРёРєР»Рё РѕС€РёР±РєРё РїСЂРё РїСЂРѕСЃС‚Р°РІР»РµРЅРёРё С†РµРЅ. '#13#10+
               e.Message);
     end;
   end;
@@ -3208,7 +3208,7 @@ end;
 
 procedure TDocNaklForm.DocNaklDK_FROMChange(Sender: TField);
 begin
-   DK_FROM_CE.Enabled:= not CheckDKfromOper(o_DK_FROM,sender,'От кого');
+   DK_FROM_CE.Enabled:= not CheckDKfromOper(o_DK_FROM,sender,'РћС‚ РєРѕРіРѕ');
    DK_FROM_ED.Enabled:=DK_FROM_CE.Enabled;
    Source.DataSet.FieldByName('DK_FROM_NAME').AsString:=IntfMegaCommon.GetShortNameDK(sender.AsFloat);
 
@@ -3216,7 +3216,7 @@ begin
   Query.Close;
   Query.SQL.Text := 'SELECT * FROM SPRAV_DK WHERE KOD_DK = ' + FloatToStr(Sender.AsFloat);
   Query.ExecQuery;
-  if  Source.DataSet.FieldByName('DOCTYPE').AsString[1]='П' then
+  if  Source.DataSet.FieldByName('DOCTYPE').AsString[1]='Рџ' then
   begin
     DK_OTSR:= Query.FieldByName('OTSR').AsInteger;
     if  (DocNaklBALANCE_KOD.AsInteger<>ibcMP) and (DocNaklBALANCE_KOD.AsInteger<>ibcMPRus) and (Query.FieldByName('OTSRF2').AsInteger<>0) then
@@ -3246,7 +3246,7 @@ var
   ldsDK: TMegaDSDK;
 begin
 
-   DK_TO_CE.Enabled  := not CheckDKfromOper(o_DK_TO,sender,'Кому');
+   DK_TO_CE.Enabled  := not CheckDKfromOper(o_DK_TO,sender,'РљРѕРјСѓ');
    DK_TO_ED.Enabled  := DK_TO_CE.Enabled;
    Source.DataSet.FieldByName('DK_TO_NAME').AsString:=IntfMegaCommon.GetShortNameDK(sender.AsFloat);
 
@@ -3260,8 +3260,8 @@ begin
     Schet, i,analitik_brand_case,
     analitik_contract,analitic_contract_FROM,analitic_contract_TO)) and (2048 or 4096) <> 0)
   then begin
-    // нужен диалог выбора ТТ
-    //для России если реализация по Ф2 и это конечный потребитель, то "выход"
+    // РЅСѓР¶РµРЅ РґРёР°Р»РѕРі РІС‹Р±РѕСЂР° РўРў
+    //РґР»СЏ Р РѕСЃСЃРёРё РµСЃР»Рё СЂРµР°Р»РёР·Р°С†РёСЏ РїРѕ Р¤2 Рё СЌС‚Рѕ РєРѕРЅРµС‡РЅС‹Р№ РїРѕС‚СЂРµР±РёС‚РµР»СЊ, С‚Рѕ "РІС‹С…РѕРґ"
     if ((IntfMegaDBCommon.GetCountry= iccRussia)or (IntfMegaDBCommon.GetCountry=kodRUS))and
        ((DocNaklDK_TO.AsFloat=999) OR (DocNaklDK_TO.AsFloat=9999)) and (OPERSTATUS=iosRealizationF2)
       then exit;
@@ -3274,7 +3274,7 @@ begin
     end
     else begin
       Source.DataSet.Cancel;
-      // Sender. Clear; // showmessage('выбор ТТ отменен');
+      // Sender. Clear; // showmessage('РІС‹Р±РѕСЂ РўРў РѕС‚РјРµРЅРµРЅ');
       exit;
     end;
     // mSelDK_TO.Options:=[dkoOnlySubDKF2,dkoSelTradeOutlet])
@@ -3288,7 +3288,7 @@ begin
    if OPERSTATUS=iosPrePay then
     cxDBse_Nacenka.Properties.ReadOnly:=CheckFromSubDog_ToNacenka;
 
-  ldsDK:= TMegaDSDK.Create(Self); //набор данных - дебитор-кредитор
+  ldsDK:= TMegaDSDK.Create(Self); //РЅР°Р±РѕСЂ РґР°РЅРЅС‹С… - РґРµР±РёС‚РѕСЂ-РєСЂРµРґРёС‚РѕСЂ
   try
     ldsDK.Database:= IntfDBProvider.GetDB;
     ldsDK.Transaction:= Nakl_Transaction;
@@ -3315,7 +3315,7 @@ begin
     then i:=0
     else i:=1;
 
-    if  Source.DataSet.FieldByName('DOCTYPE').AsString[1]<>'П' then
+    if  Source.DataSet.FieldByName('DOCTYPE').AsString[1]<>'Рџ' then
     begin
       DK_OTSR:= ldsDK.FieldOtsr.AsInteger;
 
@@ -3347,9 +3347,9 @@ begin
       if DefaultPrice=0 then Source.DataSet.FieldByName('PRICETYPE_').AsInteger :=
         ldsDK.FieldPriceType.AsInteger;
 
-      {пересчет цен при изменении дебитора согласно его ценовой политики}
+      {РїРµСЂРµСЃС‡РµС‚ С†РµРЅ РїСЂРё РёР·РјРµРЅРµРЅРёРё РґРµР±РёС‚РѕСЂР° СЃРѕРіР»Р°СЃРЅРѕ РµРіРѕ С†РµРЅРѕРІРѕР№ РїРѕР»РёС‚РёРєРё}
       if (Sender.OldValue<>null) and (Sender.OldValue <> Sender.NewValue) and (GetProvStatus<>iosBreakManufact) and
-      (Application.MessageBox('Изменить цены в документе ?','Подтверждение', MB_YESNO+MB_ICONQUESTION+MB_DEFBUTTON2) = IDYES) then
+      (Application.MessageBox('РР·РјРµРЅРёС‚СЊ С†РµРЅС‹ РІ РґРѕРєСѓРјРµРЅС‚Рµ ?','РџРѕРґС‚РІРµСЂР¶РґРµРЅРёРµ', MB_YESNO+MB_ICONQUESTION+MB_DEFBUTTON2) = IDYES) then
       begin
 { ---------------- Changed by Lion in 25.12.2008 --------------- }
 //        AntiRecusria := True;
@@ -3420,9 +3420,9 @@ var lAntiRecusriaPrev: boolean;
 begin
   if NoEvent then exit;
   if AntiRecusria then Exit;
-  {пересчет цен при изменении галочки}
+  {РїРµСЂРµСЃС‡РµС‚ С†РµРЅ РїСЂРё РёР·РјРµРЅРµРЅРёРё РіР°Р»РѕС‡РєРё}
   if (Sender.OldValue<>null) and (Sender.OldValue <> Sender.NewValue) and
-     (Application.MessageBox('Изменить цены в документе ?','Подтверждение', MB_YESNO+MB_ICONQUESTION+MB_DEFBUTTON2) = IDYES) then
+     (Application.MessageBox('РР·РјРµРЅРёС‚СЊ С†РµРЅС‹ РІ РґРѕРєСѓРјРµРЅС‚Рµ ?','РџРѕРґС‚РІРµСЂР¶РґРµРЅРёРµ', MB_YESNO+MB_ICONQUESTION+MB_DEFBUTTON2) = IDYES) then
   begin
     UpdatePosPrices;
 
@@ -3442,7 +3442,7 @@ begin
    if (DocNaklSTATE.OldValue = idsBug) and (DocNaklSTATE.NewValue=idsBug) then
     begin
       if not IntfMegaDBCommon.IsOffice then
-        raise Exception.Create('Изменение в документе запрещено. Снимите признак оплаты!');
+        raise Exception.Create('РР·РјРµРЅРµРЅРёРµ РІ РґРѕРєСѓРјРµРЅС‚Рµ Р·Р°РїСЂРµС‰РµРЅРѕ. РЎРЅРёРјРёС‚Рµ РїСЂРёР·РЅР°Рє РѕРїР»Р°С‚С‹!');
     end
     else
     begin
@@ -3514,7 +3514,7 @@ var
   virtPriceKod:integer;
 begin
   if NoEvent then exit;
-  { Выборка наименования ценности по коду }
+  { Р’С‹Р±РѕСЂРєР° РЅР°РёРјРµРЅРѕРІР°РЅРёСЏ С†РµРЅРЅРѕСЃС‚Рё РїРѕ РєРѕРґСѓ }
   if KOD_CHANGED then
   begin
     KOD_CHANGED := False;
@@ -3522,7 +3522,7 @@ begin
   end;
   Query.Close;
   if Sender = DocPosLOCAL_KOD then
-    // выбор по локальному коду
+    // РІС‹Р±РѕСЂ РїРѕ Р»РѕРєР°Р»СЊРЅРѕРјСѓ РєРѕРґСѓ
     Query.SQL.Text := 'SELECT sm.*, spdv.PDVGROUP_STAVKA,  coalesce(sm.PDVGROUP, ''A'') as PDVGROUP_KOD, gm.OTSR, gm.OTSR_PRIOR, gm.COL COL1,'
     + ' (SELECT COUNT(*) FROM PRICE_KOLICH WHERE GROUP_MATER=sm.GROUP_MATER) PRICE_KOL, gm.TVID_KOD '
     + ' FROM SPRAV_MATER sm '
@@ -3531,7 +3531,7 @@ begin
     +' WHERE sm.LOCAL_KOD = ' + InttoStr(DocPosLOCAL_KOD.AsInteger)
   else begin
     if Sender = DocPosINVENTAR_NUMBER then
-      // выбор по инветларному номеру
+      // РІС‹Р±РѕСЂ РїРѕ РёРЅРІРµС‚Р»Р°СЂРЅРѕРјСѓ РЅРѕРјРµСЂСѓ
  //     Query.SQL.Text := 'SELECT SPRAV_MATER.*,SPRAV_PDVGROUP.PDVGROUP_STAVKA, PDVGROUP_KOD, GROUP_MATER.OTSR, GROUP_MATER.OTSR_PRIOR, GROUP_MATER.COL COL1,'
 //      + ' (SELECT COUNT(*) FROM PRICE_KOLICH WHERE GROUP_MATER=SPRAV_MATER.GROUP_MATER) PRICE_KOL, GROUP_MATER.TVID_KOD '
 //      + ' FROM SPRAV_MATER, SPRAV_PDVGROUP, GROUP_MATER WHERE INVENTAR_NUMBER = ' + ReplaceStr(FloatToStr(DocPosINVENTAR_NUMBER.AsFloat), ',', '.') + 'AND SPRAV_MATER.PDVGROUP=SPRAV_PDVGROUP.PDVGROUP_KOD AND  GROUP_MATER.GROUP_MATER=SPRAV_MATER.GROUP_MATER'
@@ -3542,7 +3542,7 @@ begin
     + ' left join GET_PDV_STAVKA_BALANCE(' + IntToStr(DocNaklBALANCE_KOD.AsInteger) + ', ''' + DateToStrEx(DocNaklDATE_PDVSTAVKA.AsDatetime) + ''', Sm.PDVGROUP) spdv on 1=1 '
     +' WHERE sm.INVENTAR_NUMBER = ' + ReplaceStr(FloatToStr(DocPosINVENTAR_NUMBER.AsFloat), ',', '.')
     else
-      // выбор по коду товара
+      // РІС‹Р±РѕСЂ РїРѕ РєРѕРґСѓ С‚РѕРІР°СЂР°
       Query.SQL.Text := 'SELECT sm.*, spdv.PDVGROUP_STAVKA,  coalesce(Sm.PDVGROUP, ''A'') as PDVGROUP_KOD, gm.OTSR, gm.OTSR_PRIOR, gm.COL COL1,'
     + ' (SELECT COUNT(*) FROM PRICE_KOLICH WHERE GROUP_MATER=Sm.GROUP_MATER) PRICE_KOL, Gm.TVID_KOD '
     + ' FROM SPRAV_MATER sm '
@@ -3565,7 +3565,7 @@ begin
   DocPosSource.DataSet.FieldByName('INVENTAR_NUMBER').AsFloat := Query.FieldByName('INVENTAR_NUMBER').AsDouble;
   DocPosSource.DataSet.FieldByName('TOSALE').AsInteger := Query.FieldByName('TOSALE').AsInteger;
   case IntfMegaDBCommon.GetCountry of
-    iccUkraine : DocPosSource.DataSet.FieldByName('IND').AsInteger := Query.FieldByName('INDIKATIV').AsInteger * liUtils.iif(DocNaklBALANCE_KOD.AsInteger<>11,1,0);//для баланса 11 идикатив не ставим равным 0 (магазин в на лвз полтавы)
+    iccUkraine : DocPosSource.DataSet.FieldByName('IND').AsInteger := Query.FieldByName('INDIKATIV').AsInteger * liUtils.iif(DocNaklBALANCE_KOD.AsInteger<>11,1,0);//РґР»СЏ Р±Р°Р»Р°РЅСЃР° 11 РёРґРёРєР°С‚РёРІ РЅРµ СЃС‚Р°РІРёРј СЂР°РІРЅС‹Рј 0 (РјР°РіР°Р·РёРЅ РІ РЅР° Р»РІР· РїРѕР»С‚Р°РІС‹)
     iccRussia : DocPosSource.DataSet.FieldByName('IND').AsInteger := 0;
   end;
 
@@ -3577,7 +3577,7 @@ begin
   DocPosSource.DataSet.FieldByName('PRICE_KOL').AsInteger := Query.FieldByName('PRICE_KOL').AsInteger;
   DocPosSource.DataSet.FieldByName('TVID_KOD').AsInteger := Query.FieldByName('TVID_KOD').AsInteger;  
 
- {Запрет изменения цены в зависимости от колонки}
+ {Р—Р°РїСЂРµС‚ РёР·РјРµРЅРµРЅРёСЏ С†РµРЅС‹ РІ Р·Р°РІРёСЃРёРјРѕСЃС‚Рё РѕС‚ РєРѕР»РѕРЅРєРё}
 {  if IntfMegaDBCommon.GetBaseID=1 then EditNaklPos.Price1Edit.ReadOnly:=false else
   EditNaklPos.Price1Edit.ReadOnly:= (DocPos.FieldByName('COL1').AsInteger = 1) AND (DocNaklDK_TO.AsFloat<>DM.DKTDM) and (DocNaklDK_TO.AsFloat<>DM.DKPP) and (DocNaklDK_TO.AsFloat<>14) and (DocNaklDK_TO.AsFloat<>999) and (DocNaklDK_TO.AsFloat<>1017);
   EditNaklPos.Price2Edit.ReadOnly:=EditNaklPos.Price1Edit.ReadOnly;
@@ -3593,7 +3593,7 @@ begin
   EditNaklPos.RxDBCalcEdit2.ReadOnly:=EditNaklPos.Price1Edit.ReadOnly;}
  {*******}
 
-  if (DocNaklBALANCE_KOD.AsInteger<>IntfMegaCommon.GetMainFirmBalanceKod) and (DocNaklDOCTYPE.AsString[1]<>'П') and (DocNaklDOCTYPE.AsString[1]<>'Р') and (DocNaklDK_TO.AsFloat<>999) then
+  if (DocNaklBALANCE_KOD.AsInteger<>IntfMegaCommon.GetMainFirmBalanceKod) and (DocNaklDOCTYPE.AsString[1]<>'Рџ') and (DocNaklDOCTYPE.AsString[1]<>'Р ') and (DocNaklDK_TO.AsFloat<>999) then
   begin
     if Query.FieldByName('GROUP_MATER').AsInteger=2 then begin
 //      Query3.Transaction.Active:=false;
@@ -3630,7 +3630,7 @@ begin
 
         if  not ((Query3.Fields[0].AsFloat=0) or (Query3.Fields[0].AsVariant=NULL)) then
         begin
-          Application.MessageBox('Товар есть на складе 50', 'Внимание !', MB_OK + MB_ICONWARNING);
+          Application.MessageBox('РўРѕРІР°СЂ РµСЃС‚СЊ РЅР° СЃРєР»Р°РґРµ 50', 'Р’РЅРёРјР°РЅРёРµ !', MB_OK + MB_ICONWARNING);
           DocPos.Cancel;
           DocPos.Append;
           exit;
@@ -3649,7 +3649,7 @@ begin
     begin
       if (POS_OTSR<>Query.FieldByName('OTSR').AsInteger) and (not NoOtsr) then
       begin
-              Application.MessageBox('Набивайте позиции с отличающимися отсрочками в разных накладных', 'Внимание !', MB_OK + MB_ICONWARNING);
+              Application.MessageBox('РќР°Р±РёРІР°Р№С‚Рµ РїРѕР·РёС†РёРё СЃ РѕС‚Р»РёС‡Р°СЋС‰РёРјРёСЃСЏ РѕС‚СЃСЂРѕС‡РєР°РјРё РІ СЂР°Р·РЅС‹С… РЅР°РєР»Р°РґРЅС‹С…', 'Р’РЅРёРјР°РЅРёРµ !', MB_OK + MB_ICONWARNING);
               DocPos.Cancel;
               DocPos.Append;
               exit;
@@ -3695,7 +3695,7 @@ begin
           + ', ' + IntToStr(NaklOutletRecid)
           + ', ' + IntToStr(NaklOutletBaseid)
           { ---------------- Added by Lion in 24.12.2008 --------------- }
-          {           Накладную нужно создавать по ценам региона           }
+          {           РќР°РєР»Р°РґРЅСѓСЋ РЅСѓР¶РЅРѕ СЃРѕР·РґР°РІР°С‚СЊ РїРѕ С†РµРЅР°Рј СЂРµРіРёРѕРЅР°           }
           + liUtils.iif((Trim(DocNaklADDR_TO.asstring) = '') or (DocNaklCFO.asInteger = DocNaklADDR_TO.AsInteger), ' ,null ', ', ' + DocNaklADDR_TO.asstring)
           + ', null, 0, null , '''+DateToStr(DocNaklDOC_CREATE.Value)+''''
           { ----------- End of changing by Lion in 24.12.2008 ----------- }
@@ -3710,7 +3710,7 @@ begin
           + ', ' + FloatToStr(ClientDK)
           + ', ' + DocNaklCFO.asstring
           { ---------------- Added by Lion in 24.12.2008 --------------- }
-          {           Накладную нужно создавать по ценам региона - в Украине не нужно           }
+          {           РќР°РєР»Р°РґРЅСѓСЋ РЅСѓР¶РЅРѕ СЃРѕР·РґР°РІР°С‚СЊ РїРѕ С†РµРЅР°Рј СЂРµРіРёРѕРЅР° - РІ РЈРєСЂР°РёРЅРµ РЅРµ РЅСѓР¶РЅРѕ           }
           //      + liUtils.iif(Trim(DocNaklADDR_TO.asstring) = '', '', ', ' + DocNaklADDR_TO.asstring)
           { ----------- End of changing by Lion in 24.12.2008 ----------- }
           + ')';
@@ -3790,7 +3790,7 @@ procedure Add(KOD: Double);
 begin
   DocPos.Append;
   DocPosKOD_MATER.Value := KOD;
-{BS+} if (IntfMegaDBCommon.GetBaseID<>2) then  EditNaklPos.NotCheckRest:=((DocNaklDOCTYPE.AsString[1]='З') OR (OPERSTATUS in [iosSpecification, iosRealization, iosZMC, iosCorrectReturn]) );  //btSep.Down;}
+{BS+} if (IntfMegaDBCommon.GetBaseID<>2) then  EditNaklPos.NotCheckRest:=((DocNaklDOCTYPE.AsString[1]='Р—') OR (OPERSTATUS in [iosSpecification, iosRealization, iosZMC, iosCorrectReturn]) );  //btSep.Down;}
   if EditNaklPos.ShowModal = mrOk then
     if DocPosTARA_MATER.Value <> 0 then
     begin
@@ -3836,7 +3836,7 @@ procedure Add(KOD: Double);
 begin
   DocPos.Append;
   DocPosKOD_MATER.Value := KOD;
-{BS+} if (IntfMegaDBCommon.GetBaseID<>2) then  EditNaklPos.NotCheckRest:=((DocNaklDOCTYPE.AsString[1]='З') OR (OPERSTATUS in [iosSpecification, iosRealization,iosZMC, iosCorrectReturn]) );  //btSep.Down;}
+{BS+} if (IntfMegaDBCommon.GetBaseID<>2) then  EditNaklPos.NotCheckRest:=((DocNaklDOCTYPE.AsString[1]='Р—') OR (OPERSTATUS in [iosSpecification, iosRealization,iosZMC, iosCorrectReturn]) );  //btSep.Down;}
   if EditNaklPos.ShowModal = mrOk then
     if DocPosTARA_MATER.Value <> 0 then
     begin
@@ -3881,11 +3881,11 @@ begin
 
   if DBGridEh1.SelectedRows.Count>0 then
   begin
-    if (Application.MessageBox('Вы действительно хотите удалить выбранные позиции?','Подтверждение', MB_YESNO+MB_ICONQUESTION) = IDYES) then
+    if (Application.MessageBox('Р’С‹ РґРµР№СЃС‚РІРёС‚РµР»СЊРЅРѕ С…РѕС‚РёС‚Рµ СѓРґР°Р»РёС‚СЊ РІС‹Р±СЂР°РЅРЅС‹Рµ РїРѕР·РёС†РёРё?','РџРѕРґС‚РІРµСЂР¶РґРµРЅРёРµ', MB_YESNO+MB_ICONQUESTION) = IDYES) then
       Begin
         StrListRECID := TStringList.Create;
         StrListBASEID := TStringList.Create;
-        // сохраняю RecID, BaseID
+        // СЃРѕС…СЂР°РЅСЏСЋ RecID, BaseID
         For i:=0 to DBGridEh1.SelectedRows.Count-1 do
           Begin
             DBGridEh1.DataSource.DataSet.GotoBookmark(pointer(DBGridEh1.SelectedRows.Items[i]));
@@ -3893,7 +3893,7 @@ begin
             StrListRECID.Add(DocPosRECID.AsString);
           End;
 
-        // по RecID, BaseID, выполняю delete
+        // РїРѕ RecID, BaseID, РІС‹РїРѕР»РЅСЏСЋ delete
         For i:=0 to StrListRECID.count - 1  do
           Begin
             if DocPos.Locate('BASEID;RECID',
@@ -3915,8 +3915,8 @@ procedure TDocNaklForm.EditExecute(Sender: TObject);
 var
   OLD_KOLICH: Double;
 begin
-  // если нет прав
-  try  // если нет прав, то открываю формочку только для чтения
+  // РµСЃР»Рё РЅРµС‚ РїСЂР°РІ
+  try  // РµСЃР»Рё РЅРµС‚ РїСЂР°РІ, С‚Рѕ РѕС‚РєСЂС‹РІР°СЋ С„РѕСЂРјРѕС‡РєСѓ С‚РѕР»СЊРєРѕ РґР»СЏ С‡С‚РµРЅРёСЏ
     DocPosSource.Dataset.Edit;
     EditNaklPos.ReadOnly := false;
   except
@@ -3927,7 +3927,7 @@ begin
     DocPosSource.Dataset.Edit;
   ChangeKolich:=false;
   OLD_KOLICH := DocPosKOLICH.Value;
-{BS+}  if (IntfMegaDBCommon.GetBaseID<>2) then  EditNaklPos.NotCheckRest:=((DocNaklDOCTYPE.AsString[1]='З') OR (OPERSTATUS in [iosSpecification, iosRealization,iosZMC, iosCorrectReturn]) ); //btSep.Down; }
+{BS+}  if (IntfMegaDBCommon.GetBaseID<>2) then  EditNaklPos.NotCheckRest:=((DocNaklDOCTYPE.AsString[1]='Р—') OR (OPERSTATUS in [iosSpecification, iosRealization,iosZMC, iosCorrectReturn]) ); //btSep.Down; }
   if (EditNaklPos.ShowModal = mrOk) and
      (DocPosTARA_MATER.Value <> 0) and
      (not EditNaklPos.ReadOnly) then
@@ -3970,7 +3970,7 @@ var
   mr: Integer;
 begin
   //25.01.2005
-  // Игнат К.
+  // РРіРЅР°С‚ Рљ.
   if DocNakl.State in [dsInsert] then
     DocNakl.Post;
   mr := mrOk;
@@ -3978,7 +3978,7 @@ begin
   while mr = mrOk do
   begin
     DocPosSource.Dataset.Append;
-{ BS+}  if (IntfMegaDBCommon.GetBaseID<>2) then  EditNaklPos.NotCheckRest:=((DocNaklDOCTYPE.AsString[1]='З') OR (OPERSTATUS in [iosSpecification, iosRealization,iosZMC, iosCorrectReturn]) );  //btSep.Down; }
+{ BS+}  if (IntfMegaDBCommon.GetBaseID<>2) then  EditNaklPos.NotCheckRest:=((DocNaklDOCTYPE.AsString[1]='Р—') OR (OPERSTATUS in [iosSpecification, iosRealization,iosZMC, iosCorrectReturn]) );  //btSep.Down; }
     mr := EditNaklPos.ShowModal;
     if mr = mrOk then
       if DocPosTARA_MATER.Value <> 0 then
@@ -4031,8 +4031,8 @@ end;
 
 procedure TDocNaklForm.PrintExecute(Sender: TObject);
 begin
-  // проверяю, если на дебиторе выставлена галочка "печать с учетом возвратов",
-  // то делаю видимым пункт "Печать накладной с учетом возвратов"
+  // РїСЂРѕРІРµСЂСЏСЋ, РµСЃР»Рё РЅР° РґРµР±РёС‚РѕСЂРµ РІС‹СЃС‚Р°РІР»РµРЅР° РіР°Р»РѕС‡РєР° "РїРµС‡Р°С‚СЊ СЃ СѓС‡РµС‚РѕРј РІРѕР·РІСЂР°С‚РѕРІ",
+  // С‚Рѕ РґРµР»Р°СЋ РІРёРґРёРјС‹Рј РїСѓРЅРєС‚ "РџРµС‡Р°С‚СЊ РЅР°РєР»Р°РґРЅРѕР№ СЃ СѓС‡РµС‚РѕРј РІРѕР·РІСЂР°С‚РѕРІ"
   PrintNaklWithVozvrat.Visible := DocNaklDK_TO_PRINT_WITH_VOZVRAT.AsInteger = 1;
 
   (**)
@@ -4088,17 +4088,17 @@ end;
 
 procedure TDocNaklForm.CreateDocExecute(Sender: TObject);
 begin
-{BS+}  if (DocNaklDOCTYPE.AsString[1]='З') and (DocNaklDOCTYPE.AsString[2]='А') and (IntfMegaDBCommon.GetBaseID<>2) then exit;
+{BS+}  if (DocNaklDOCTYPE.AsString[1]='Р—') and (DocNaklDOCTYPE.AsString[2]='Рђ') and (IntfMegaDBCommon.GetBaseID<>2) then exit;
   CreatePopup.Popup(Mouse.CursorPos.x,Mouse.CursorPos.y);
 end;
 
 procedure TDocNaklForm.CreatePDVNaklExecute(Sender: TObject);
-//21/05/2002 - луценко - изменил логику процедуры, чтобы не только создавало , но и показывало налоговые накладные
+//21/05/2002 - Р»СѓС†РµРЅРєРѕ - РёР·РјРµРЅРёР» Р»РѕРіРёРєСѓ РїСЂРѕС†РµРґСѓСЂС‹, С‡С‚РѕР±С‹ РЅРµ С‚РѕР»СЊРєРѕ СЃРѕР·РґР°РІР°Р»Рѕ , РЅРѕ Рё РїРѕРєР°Р·С‹РІР°Р»Рѕ РЅР°Р»РѕРіРѕРІС‹Рµ РЅР°РєР»Р°РґРЅС‹Рµ
 var
   fff:TMakePDVNForm;
   i: integer;
 begin
-  //if OPERSTATUS=6 then exit; убрал проверку пусть регулируется статусом НДС в операции
+  //if OPERSTATUS=6 then exit; СѓР±СЂР°Р» РїСЂРѕРІРµСЂРєСѓ РїСѓСЃС‚СЊ СЂРµРіСѓР»РёСЂСѓРµС‚СЃСЏ СЃС‚Р°С‚СѓСЃРѕРј РќР”РЎ РІ РѕРїРµСЂР°С†РёРё
   if PosModified then
     if not CheckRest(True) then
       Exit;
@@ -4138,7 +4138,7 @@ begin
        if i<=0
         then i:=98
         else
-         if Application.MessageBox('Допустимо создание нескольких документов.Создать?','Внимание',MB_YESNO)=ID_YES then begin
+         if Application.MessageBox('Р”РѕРїСѓСЃС‚РёРјРѕ СЃРѕР·РґР°РЅРёРµ РЅРµСЃРєРѕР»СЊРєРёС… РґРѕРєСѓРјРµРЅС‚РѕРІ.РЎРѕР·РґР°С‚СЊ?','Р’РЅРёРјР°РЅРёРµ',MB_YESNO)=ID_YES then begin
             I:=-99
          end
          else i:=99;
@@ -4153,7 +4153,7 @@ begin
     Query3.ExecQuery;
   end;
 
-  if (Query3.EOF and Query3.BOF)or(i=-99) then //налоговой не существует - создаём
+  if (Query3.EOF and Query3.BOF)or(i=-99) then //РЅР°Р»РѕРіРѕРІРѕР№ РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚ - СЃРѕР·РґР°С‘Рј
   begin
 //    fff:=TMakePDVNForm.Create(self,DocNaklRECID.Value,DocNaklBASEID.Value,DocNaklDOC_INHERITED.Value,DocNaklBALANCE_KOD.Value);
     fff:=TMakePDVNForm.Create(self,DocNaklRECID.Value,DocNaklBASEID.Value,DocNaklDOC_INHERITED.Value,DocNaklBALANCE_KOD.Value,DocNaklCFO.asString);
@@ -4162,12 +4162,12 @@ begin
     DocNakl.ConfirmPost := False;
     DocNakl.AutoPost := False;
   end
-  else begin //налоговая уже существует - открываем
+  else begin //РЅР°Р»РѕРіРѕРІР°СЏ СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚ - РѕС‚РєСЂС‹РІР°РµРј
     if IntfMegaDBCommon.GetCountry in [iccRussia] then
-            Application.MessageBox(PChar('По данной накладной уже создан счет-фактура'),Pchar('Внимание'),MB_OK+MB_ICONINFORMATION);
+            Application.MessageBox(PChar('РџРѕ РґР°РЅРЅРѕР№ РЅР°РєР»Р°РґРЅРѕР№ СѓР¶Рµ СЃРѕР·РґР°РЅ СЃС‡РµС‚-С„Р°РєС‚СѓСЂР°'),Pchar('Р’РЅРёРјР°РЅРёРµ'),MB_OK+MB_ICONINFORMATION);
     if IntfMegaDBCommon.GetCountry in [iccUkraine] then
-            Application.MessageBox(PChar('По данной накладной уже существует налоговая накладная'),Pchar('Внимание'),MB_OK+MB_ICONINFORMATION);
-//          ShowMessage('По данной накладной уже существует налоговая накладная');
+            Application.MessageBox(PChar('РџРѕ РґР°РЅРЅРѕР№ РЅР°РєР»Р°РґРЅРѕР№ СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚ РЅР°Р»РѕРіРѕРІР°СЏ РЅР°РєР»Р°РґРЅР°СЏ'),Pchar('Р’РЅРёРјР°РЅРёРµ'),MB_OK+MB_ICONINFORMATION);
+//          ShowMessage('РџРѕ РґР°РЅРЅРѕР№ РЅР°РєР»Р°РґРЅРѕР№ СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚ РЅР°Р»РѕРіРѕРІР°СЏ РЅР°РєР»Р°РґРЅР°СЏ');
     if Query3.FieldByName('recid').AsInteger<>0 then
     OpenDocument(Application,12,Query3.FieldByName('recid').AsInteger,Query3.FieldByName('baseid').AsInteger,date,null);
 {    PDVKey := VarArrayOf([Query3.FieldByName('recid').AsInteger, Query3.FieldByName('baseid').AsInteger]);
@@ -4216,8 +4216,8 @@ end;
 procedure TDocNaklForm.DocNaklAfterPost(DataSet: TDataSet);
 begin
   if not (LinkQ.ParamByName('PARENT_RECID').IsNull or LinkQ.ParamByName('DOC_RECID').IsNull) then begin
-     //документ был создан из др. документа
-     //пытаемся создать "связь"
+     //РґРѕРєСѓРјРµРЅС‚ Р±С‹Р» СЃРѕР·РґР°РЅ РёР· РґСЂ. РґРѕРєСѓРјРµРЅС‚Р°
+     //РїС‹С‚Р°РµРјСЃСЏ СЃРѕР·РґР°С‚СЊ "СЃРІСЏР·СЊ"
      LinkQ.Close;
      LinkQ.ExecQuery;
      fErrLink:=false;
@@ -4236,11 +4236,11 @@ begin
 
   if ((WhereNaklPosSQL <> '') AND (IntfMegaDBCommon.GetCountry=iccRussia)) then
   begin
-    NoEvent := True; // Чтоб рекурсия не мешала
+    NoEvent := True; // Р§С‚РѕР± СЂРµРєСѓСЂСЃРёСЏ РЅРµ РјРµС€Р°Р»Р°
     try
-      // Позиции?
+      // РџРѕР·РёС†РёРё?
       // 12.02.2007
-      // добавить позиции из базовых документов
+      // РґРѕР±Р°РІРёС‚СЊ РїРѕР·РёС†РёРё РёР· Р±Р°Р·РѕРІС‹С… РґРѕРєСѓРјРµРЅС‚РѕРІ
       if WhereNaklPosSQL <> '' then
       begin
         DM.SharedQuery.Transaction.CommitRetaining;
@@ -4296,7 +4296,7 @@ begin
       end;
     finally
       WhereNaklPosSQL := '';
-      NoEvent := False; // Чтоб рекурсия не мешала
+      NoEvent := False; // Р§С‚РѕР± СЂРµРєСѓСЂСЃРёСЏ РЅРµ РјРµС€Р°Р»Р°
       DocPos.Close;
       DocPos.Open;
     end;
@@ -4342,13 +4342,13 @@ begin
     if (not ((pricetype1 in AllowPrice) or (0 in AllowPrice))) then
       pricetype2:=DefaultPrice  else  pricetype2:=pricetype1;
     DocNaklPRICETYPE_.NewValue:=pricetype2;
-    Application.MessageBox('Тип цены недопустим','Ошибка', MB_OK+MB_ICONERROR);
+    Application.MessageBox('РўРёРї С†РµРЅС‹ РЅРµРґРѕРїСѓСЃС‚РёРј','РћС€РёР±РєР°', MB_OK+MB_ICONERROR);
     exit;
   end;
 
   if ((DocPos.RecordCount <= 0) or ((DocNaklPRICETYPE_.OldValue = DocNaklPRICETYPE_.NewValue) and (DocNaklKURS.OldValue=DocNaklKURS.NewValue))) then Exit;
   if not AlphaStarted then
-  if not FORCEPRICE  then if (Application.MessageBox('Изменить цены в документе ?','Подтверждение', MB_YESNO+MB_ICONQUESTION+MB_DEFBUTTON2) <> IDYES) then Exit;
+  if not FORCEPRICE  then if (Application.MessageBox('РР·РјРµРЅРёС‚СЊ С†РµРЅС‹ РІ РґРѕРєСѓРјРµРЅС‚Рµ ?','РџРѕРґС‚РІРµСЂР¶РґРµРЅРёРµ', MB_YESNO+MB_ICONQUESTION+MB_DEFBUTTON2) <> IDYES) then Exit;
 { ---------------- Changed by Lion in 25.12.2008 --------------- }
 //  UpdateQuery.Close;
 //  UpdateQuery.Params[0].AsInteger := DocNaklRECID.Value;
@@ -4364,7 +4364,7 @@ begin
 //  DocPos.Open;
 //  Sum.Close;
 //  Sum.Open;
-  //if not AlphaStarted then // если стартует альфа не будем пересчитывать цены.
+  //if not AlphaStarted then // РµСЃР»Рё СЃС‚Р°СЂС‚СѓРµС‚ Р°Р»СЊС„Р° РЅРµ Р±СѓРґРµРј РїРµСЂРµСЃС‡РёС‚С‹РІР°С‚СЊ С†РµРЅС‹.
   UpdatePosPrices(Sender = DocNaklKURS);
 { ----------- End of changing by Lion in 25.12.2008 ----------- }
   SetOtsr;
@@ -4432,7 +4432,7 @@ begin
           end;
         except
           on e: Exception do
-            ShowMessage('Ошибка!:' + e.Message + format(' [%d:%s] ', [i, DocPos.Fields[i].FieldName]));
+            ShowMessage('РћС€РёР±РєР°!:' + e.Message + format(' [%d:%s] ', [i, DocPos.Fields[i].FieldName]));
         end;
 
       end;
@@ -4446,7 +4446,7 @@ begin
   if NoEvent then exit;
 {
   if (DocPosSource.DataSet.FieldByName('PRICE_KOL').AsInteger<>0)
-   // add by ZIS 23.05.03 исключаем изменение кол-ва в возвратах
+   // add by ZIS 23.05.03 РёСЃРєР»СЋС‡Р°РµРј РёР·РјРµРЅРµРЅРёРµ РєРѕР»-РІР° РІ РІРѕР·РІСЂР°С‚Р°С…
    and not( (DocNaklDK_TO.AsFloat=DM.DKTDM) or (DocNaklDK_TO.AsFloat=DM.DKPP))
 }
   if(not( (DocNaklDK_TO.AsFloat=DM.DKTDM) or (DocNaklDK_TO.AsFloat=DM.DKPP)))
@@ -4455,7 +4455,7 @@ begin
 
   if (isPrihod = -1) and not AlphaStarted and not ChangeZakSpravForbidden
   then
-   { if (Application.MessageBox('Изменить закупочную цену в справочнике ?','Подтверждение', MB_YESNO+MB_ICONQUESTION+MB_DEFBUTTON1) = IDYES) then
+   { if (Application.MessageBox('РР·РјРµРЅРёС‚СЊ Р·Р°РєСѓРїРѕС‡РЅСѓСЋ С†РµРЅСѓ РІ СЃРїСЂР°РІРѕС‡РЅРёРєРµ ?','РџРѕРґС‚РІРµСЂР¶РґРµРЅРёРµ', MB_YESNO+MB_ICONQUESTION+MB_DEFBUTTON1) = IDYES) then
     begin
       Query.Close;
       Query.SQL.Text :=  'EXECUTE PROCEDURE UPDATE_PRICES(' +
@@ -4499,14 +4499,14 @@ begin
   if not CheckPrice then
   begin
     DocPos.Cancel;
-    raise Exception.Create('Цена позиции не совпадает с ценой в ценовой колонке!');
+    raise Exception.Create('Р¦РµРЅР° РїРѕР·РёС†РёРё РЅРµ СЃРѕРІРїР°РґР°РµС‚ СЃ С†РµРЅРѕР№ РІ С†РµРЅРѕРІРѕР№ РєРѕР»РѕРЅРєРµ!');
     exit;
   end;
   if (DocNaklSTATE.Value = 3)
   then Dataset.Cancel
   else begin
     if (DocPosKOLICH.Value = 0) then
-      if Application.MessageBox('Сохранить позицию с нулевым количеством ?','Внимание', MB_YESNO+MB_ICONWARNING+MB_DEFBUTTON2) = ID_NO
+      if Application.MessageBox('РЎРѕС…СЂР°РЅРёС‚СЊ РїРѕР·РёС†РёСЋ СЃ РЅСѓР»РµРІС‹Рј РєРѕР»РёС‡РµСЃС‚РІРѕРј ?','Р’РЅРёРјР°РЅРёРµ', MB_YESNO+MB_ICONWARNING+MB_DEFBUTTON2) = ID_NO
       then Dataset.Cancel;
 
     if(DataSet.State in [dsInsert, dsEdit])
@@ -4540,7 +4540,7 @@ end;
 function TDocNaklForm.UseNaklTranForInvoces: Boolean;
 begin
   Result:= (FInsertedPosIds.IndexOf(Pointer(DocPos.FieldByName('RECID').AsInteger)) <> -1)
-        or (not cbOpl.Checked and (DocNakl.FieldByName('DOCTYPE').AsString = 'РН-500'));
+        or (not cbOpl.Checked and (DocNakl.FieldByName('DOCTYPE').AsString = 'Р Рќ-500'));
 end;
 
 procedure TDocNaklForm.DocPosCalcFields(DataSet: TDataSet);
@@ -4583,8 +4583,8 @@ begin
   else
     DocPosSKIDKA_WITH_PDV.Value := DocPosSKIDKA.Value;
   DocPosPRICE_PREV.Value:= DocPosPRICEWPDV.Value + DocPosSKIDKA_WITH_PDV.Value / DocPosKolich.Value;
-  // считаем самую похожую колонку - btnShowCol.checked
-  // сравниваю с выбранной колонкой - btnCheckWithCol.checked
+  // СЃС‡РёС‚Р°РµРј СЃР°РјСѓСЋ РїРѕС…РѕР¶СѓСЋ РєРѕР»РѕРЅРєСѓ - btnShowCol.checked
+  // СЃСЂР°РІРЅРёРІР°СЋ СЃ РІС‹Р±СЂР°РЅРЅРѕР№ РєРѕР»РѕРЅРєРѕР№ - btnCheckWithCol.checked
   CalcColFordocNaklPosRecord;
   DocPosPrice_box.value := DocPosPrice1.Value*DocPosCOUNTINBOX.Value;
 {  if DBGridEH1.Columns[15].Visible then
@@ -4626,7 +4626,7 @@ var
    copy_recid,copy_baseid:integer;
 begin
     result := false;
-//создаем копию данной накладной
+//СЃРѕР·РґР°РµРј РєРѕРїРёСЋ РґР°РЅРЅРѕР№ РЅР°РєР»Р°РґРЅРѕР№
       try
         Query.Close;
         Query.SQL.Text:= sCreateCopy;
@@ -4642,7 +4642,7 @@ begin
 
         on e:Exception do
         begin
-           Warning('Возникли ошибки при создании документа в ЧП: '#13#10+
+           Warning('Р’РѕР·РЅРёРєР»Рё РѕС€РёР±РєРё РїСЂРё СЃРѕР·РґР°РЅРёРё РґРѕРєСѓРјРµРЅС‚Р° РІ Р§Рџ: '#13#10+
               e.Message);
            result := false;
            exit;
@@ -4652,7 +4652,7 @@ begin
 
       copy_recid := Query.FieldByName('RECID_RESULT').asInteger;
       copy_baseid := Query.FieldByName('BASEID_RESULT').asInteger;
-      //создаем привязку чпшной и удкщной накладной чтобы потом можно было проверить надо делать копию или нет
+      //СЃРѕР·РґР°РµРј РїСЂРёРІСЏР·РєСѓ С‡РїС€РЅРѕР№ Рё СѓРґРєС‰РЅРѕР№ РЅР°РєР»Р°РґРЅРѕР№ С‡С‚РѕР±С‹ РїРѕС‚РѕРј РјРѕР¶РЅРѕ Р±С‹Р»Рѕ РїСЂРѕРІРµСЂРёС‚СЊ РЅР°РґРѕ РґРµР»Р°С‚СЊ РєРѕРїРёСЋ РёР»Рё РЅРµС‚
      if  copy_recid<>0 then
      begin
         try
@@ -4669,7 +4669,7 @@ begin
         except
           on e:Exception do
           begin
-           Warning('Возникли ошибки при создании првязки накладной в ЧП: '#13#10+
+           Warning('Р’РѕР·РЅРёРєР»Рё РѕС€РёР±РєРё РїСЂРё СЃРѕР·РґР°РЅРёРё РїСЂРІСЏР·РєРё РЅР°РєР»Р°РґРЅРѕР№ РІ Р§Рџ: '#13#10+
               e.Message);
              result := false;
              exit;
@@ -4708,8 +4708,8 @@ end;   }
 procedure TDocNaklForm.CheckSelfExportState;
 begin
   case SelfExportState of
-    stRejected: Abort('Печать запрещена, т.к. БП "Самовывоз" отклонён.');
-    stPending: Abort('Печать запрещена, т.к. БП "Самовывоз" ещё не согласован.');
+    stRejected: Abort('РџРµС‡Р°С‚СЊ Р·Р°РїСЂРµС‰РµРЅР°, С‚.Рє. Р‘Рџ "РЎР°РјРѕРІС‹РІРѕР·" РѕС‚РєР»РѕРЅС‘РЅ.');
+    stPending: Abort('РџРµС‡Р°С‚СЊ Р·Р°РїСЂРµС‰РµРЅР°, С‚.Рє. Р‘Рџ "РЎР°РјРѕРІС‹РІРѕР·" РµС‰С‘ РЅРµ СЃРѕРіР»Р°СЃРѕРІР°РЅ.');
   end;
 end;
 
@@ -4722,39 +4722,39 @@ var
 begin
 
   if ((DocNaklTRANSPORT.asFloat>0) and (Sender <> acPrintNaklWithoutTransport)) then
-      if Application.MessageBox('Перед распечаткой накладной с'+
-     ' транспортными услугами документ должен быть включен в ТТН. '+
-     '  Документ включен в ТТН?','Подтверждение', MB_YESNO+MB_ICONQUESTION) <> IDYES then
+      if Application.MessageBox('РџРµСЂРµРґ СЂР°СЃРїРµС‡Р°С‚РєРѕР№ РЅР°РєР»Р°РґРЅРѕР№ СЃ'+
+     ' С‚СЂР°РЅСЃРїРѕСЂС‚РЅС‹РјРё СѓСЃР»СѓРіР°РјРё РґРѕРєСѓРјРµРЅС‚ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ РІРєР»СЋС‡РµРЅ РІ РўРўРќ. '+
+     '  Р”РѕРєСѓРјРµРЅС‚ РІРєР»СЋС‡РµРЅ РІ РўРўРќ?','РџРѕРґС‚РІРµСЂР¶РґРµРЅРёРµ', MB_YESNO+MB_ICONQUESTION) <> IDYES then
      exit;
 
   CheckSelfExportState;
-  // проверки на возможность печати
+  // РїСЂРѕРІРµСЂРєРё РЅР° РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ РїРµС‡Р°С‚Рё
   if  (not AllowAll)
   and (DocNaklSTATE.Value<>idsBug)
   and (DocNaklSTATE.Value<>idsKassa)
   and (DocNaklDK_TO.AsFloat<>ddkEndUser)
   and (not intfMegaDBCommon.IsOffice)
-  and (not (IntfMegaDBCommon.GetParam('IS_LVZ', '0') = '1')) // для лвз печатаем все документы
+  and (not (IntfMegaDBCommon.GetParam('IS_LVZ', '0') = '1')) // РґР»СЏ Р»РІР· РїРµС‡Р°С‚Р°РµРј РІСЃРµ РґРѕРєСѓРјРµРЅС‚С‹
   and (DocNaklSTATE.Value<>idsFromOffice)
 { ----------------- Added by Lion in 06.04.2009 ---------------- }
-  and (DocNaklDOCTYPE.AsString<>'ПН-500') // 06.04.2009: Давыдов Денис сказал, что такие нужно иметь возможность печатать из регионов
+  and (DocNaklDOCTYPE.AsString<>'РџРќ-500') // 06.04.2009: Р”Р°РІС‹РґРѕРІ Р”РµРЅРёСЃ СЃРєР°Р·Р°Р», С‡С‚Рѕ С‚Р°РєРёРµ РЅСѓР¶РЅРѕ РёРјРµС‚СЊ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ РїРµС‡Р°С‚Р°С‚СЊ РёР· СЂРµРіРёРѕРЅРѕРІ
 { ----------- End of addition by Lion in 06.04.2009 ----------- }
   {and (OPERSTATUS = iosOutcomeToOtv)} then
   begin
-    Application.MessageBox('Нет галочки "опл" или тип документ ПН-500, печать документа невозможна! ',
-      'Внимание', MB_OK + MB_ICONSTOP);
+    Application.MessageBox('РќРµС‚ РіР°Р»РѕС‡РєРё "РѕРїР»" РёР»Рё С‚РёРї РґРѕРєСѓРјРµРЅС‚ РџРќ-500, РїРµС‡Р°С‚СЊ РґРѕРєСѓРјРµРЅС‚Р° РЅРµРІРѕР·РјРѕР¶РЅР°! ',
+      'Р’РЅРёРјР°РЅРёРµ', MB_OK + MB_ICONSTOP);
 
     exit;
   end;
   if (DocNaklSTATE.Value= idsPrepare)
   or (DocNaklSTATE.Value= idsToOffice) then
   begin
-    Application.MessageBox('Документ отправлен в офис! ',
-      'Внимание', MB_OK + MB_ICONSTOP);
+    Application.MessageBox('Р”РѕРєСѓРјРµРЅС‚ РѕС‚РїСЂР°РІР»РµРЅ РІ РѕС„РёСЃ! ',
+      'Р’РЅРёРјР°РЅРёРµ', MB_OK + MB_ICONSTOP);
     exit;
   end;
 
-  //-- тоже проверка
+  //-- С‚РѕР¶Рµ РїСЂРѕРІРµСЂРєР°
 //  if (DocNaklSTATE.Value <= 0) and (not IntfMegaDBCommon.IsOffice) then
   if (DocNaklSTATE.Value <= 0) and (not IntfMegaDBCommon.IsOffice) then
 
@@ -4764,14 +4764,14 @@ begin
   end;
 
 { ---------------- Changed by Petc.O in 06.11.2008 --------------- }
-  // всвязи с особенностями реализации многопоточности в fr3
-  // не даем закрыть накладную(а сворачиваем), пока она не допечатается
+  // РІСЃРІСЏР·Рё СЃ РѕСЃРѕР±РµРЅРЅРѕСЃС‚СЏРјРё СЂРµР°Р»РёР·Р°С†РёРё РјРЅРѕРіРѕРїРѕС‚РѕС‡РЅРѕСЃС‚Рё РІ fr3
+  // РЅРµ РґР°РµРј Р·Р°РєСЂС‹С‚СЊ РЅР°РєР»Р°РґРЅСѓСЋ(Р° СЃРІРѕСЂР°С‡РёРІР°РµРј), РїРѕРєР° РѕРЅР° РЅРµ РґРѕРїРµС‡Р°С‚Р°РµС‚СЃСЏ
   aCanFreeForm := false;
 { ----------- End of changing by Petc.O in 06.11.2008 ----------- }
   //
   ldmRep:= TdmPrintNakl2.Create(Self);
-  // проверяю, если на дебиторе выставлена галочка "печать с учетом возвратов",
-  // то делаю видимым пункт "Печать накладной с учетом возвратов"
+  // РїСЂРѕРІРµСЂСЏСЋ, РµСЃР»Рё РЅР° РґРµР±РёС‚РѕСЂРµ РІС‹СЃС‚Р°РІР»РµРЅР° РіР°Р»РѕС‡РєР° "РїРµС‡Р°С‚СЊ СЃ СѓС‡РµС‚РѕРј РІРѕР·РІСЂР°С‚РѕРІ",
+  // С‚Рѕ РґРµР»Р°СЋ РІРёРґРёРјС‹Рј РїСѓРЅРєС‚ "РџРµС‡Р°С‚СЊ РЅР°РєР»Р°РґРЅРѕР№ СЃ СѓС‡РµС‚РѕРј РІРѕР·РІСЂР°С‚РѕРІ"
   if ((Sender = PrintNaklWithVozvrat) or (Sender = PrintWithZMC)) And (DocNaklDK_TO_PRINT_WITH_VOZVRAT.AsInteger = 1){} Then
     Begin
       ldmRep.PrintNaklWithVozvrat := True;
@@ -4782,13 +4782,13 @@ begin
   ldmRep.PrintNaklNew := ((Sender = PrintNaklNew) or (Sender = actPrintLVZ));
   ldmRep.lvi:=lvi;
    try
-    // проверка на наличие лицензии
+    // РїСЂРѕРІРµСЂРєР° РЅР° РЅР°Р»РёС‡РёРµ Р»РёС†РµРЅР·РёРё
     if (OPERSTATUS <> 4) or (IntfMegaDBCommon.GetParam('PR_NEW_NAKL_F2_AGENT','0') <> '1') then
      fLic:= True
     else
      fLic:= DM.GetLic(DocNakl.FieldByName('DK_TO').AsFloat, DocNakl.FieldByName('OPERDATE').AsDateTime);
     i:= 1;
-  repeat  //если нет лицензии печатаем еще док-т и на агента
+  repeat  //РµСЃР»Рё РЅРµС‚ Р»РёС†РµРЅР·РёРё РїРµС‡Р°С‚Р°РµРј РµС‰Рµ РґРѕРє-С‚ Рё РЅР° Р°РіРµРЅС‚Р°
     ldmRep.IsBillaNakl:= Sender = miBilla;
     ldmRep.IsOSNakl:=PrintOSNakl;
 
@@ -4811,9 +4811,9 @@ begin
     end;
 
 //    FDesignReport := ((IntfMegaAccessManager.GetUserName = 'DEREZA') OR (IntfMegaDBCommon.GetCountry = iccRussia));
-    // Для российских сетевиков, по наличию символа # в
-    // примечании документа, пишу в переменную отчёта
-    // строку вида - "заказ №ХХХХ"
+    // Р”Р»СЏ СЂРѕСЃСЃРёР№СЃРєРёС… СЃРµС‚РµРІРёРєРѕРІ, РїРѕ РЅР°Р»РёС‡РёСЋ СЃРёРјРІРѕР»Р° # РІ
+    // РїСЂРёРјРµС‡Р°РЅРёРё РґРѕРєСѓРјРµРЅС‚Р°, РїРёС€Сѓ РІ РїРµСЂРµРјРµРЅРЅСѓСЋ РѕС‚С‡С‘С‚Р°
+    // СЃС‚СЂРѕРєСѓ РІРёРґР° - "Р·Р°РєР°Р· в„–РҐРҐРҐРҐ"
     if ((IntfMegaDBCommon.GetCountry = iccrussia) or (IntfMegaDBCommon.GetCountry = kodRus)) then
     begin
       re:=TRegExpr.Create;
@@ -4821,16 +4821,16 @@ begin
 //        re.Expression:='\#\s*(\d+-\d+)(\s*\@(\d+))*';
 { ---------------- Changed by Lion in 04.02.2009 --------------- }
 //        re.Expression:='\#\s*([0-9\-]+)(\s*\@(\d+))*';
-        re.Expression:='\#\s*([-0-9A-Za-zА-Яа-я]+)(\s*\@(\d+))*';
+        re.Expression:='\#\s*([-0-9A-Za-zРђ-РЇР°-СЏ]+)(\s*\@(\d+))*';
 { ----------- End of changing by Lion in 04.02.2009 ----------- }
         if re.Exec(Trim(DocNakl.FieldByName('NOTES').AsString)) then
         begin
-//          frVariables.Variable['ZakazNo']:= ', заказ №' + re.Match[1];
+//          frVariables.Variable['ZakazNo']:= ', Р·Р°РєР°Р· в„–' + re.Match[1];
           frVariables.Variable['ZakazNo']:= re.Match[1];
           if (re.Match[3]='') then
              frVariables.Variable['KodOrder']:= ''
           else
-             frVariables.Variable['KodOrder']:= 'код поставщика  ' + re.Match[3];
+             frVariables.Variable['KodOrder']:= 'РєРѕРґ РїРѕСЃС‚Р°РІС‰РёРєР°  ' + re.Match[3];
         end
         else
         begin
@@ -4905,14 +4905,14 @@ begin
   CheckSelfExportState;
   if ((NOT aNaklSaved) AND ((IntfMegaDBCommon.GetCountry = iccRussia) OR (IntfMegaDBCommon.GetCountry = kodRUS))) then
   begin
-    showmessage('Документ не сохранён!');
+    showmessage('Р”РѕРєСѓРјРµРЅС‚ РЅРµ СЃРѕС…СЂР°РЅС‘РЅ!');
     exit;
   end
-  else // а для Украины проверка будет более хитро*ой
+  else // Р° РґР»СЏ РЈРєСЂР°РёРЅС‹ РїСЂРѕРІРµСЂРєР° Р±СѓРґРµС‚ Р±РѕР»РµРµ С…РёС‚СЂРѕ*РѕР№
   if (NOT aNaklSaved )or (PosModified) or (DocNakl.State in [dsEdit, dsInsert]) then
     if not SaveDoc then
       exit;
-{ 07.03.2009. Lion - Пока уберём эту проверку, а то некоторые нужные документы не печатаются
+{ 07.03.2009. Lion - РџРѕРєР° СѓР±РµСЂС‘Рј СЌС‚Сѓ РїСЂРѕРІРµСЂРєСѓ, Р° С‚Рѕ РЅРµРєРѕС‚РѕСЂС‹Рµ РЅСѓР¶РЅС‹Рµ РґРѕРєСѓРјРµРЅС‚С‹ РЅРµ РїРµС‡Р°С‚Р°СЋС‚СЃСЏ
   if not AllowAll
    and (DocNaklSTATE.Value<>6) and (DocNaklSTATE.Value<>5) and (DocNaklSTATE.Value<>1)
    and (DocNaklDK_TO.AsFloat<>999) and (DocNaklSTATE.Value<>20) and (DocNaklSTATE.Value<>8) then
@@ -4943,8 +4943,8 @@ begin
    begin
      if not self.isNaklProv then
      begin
-//       messageDlg('Документ не проведен!'#13#10+'Проведите, пожалуйста.',mtInformation,[mbOk],0);
-       Warning('Документ не проведен!'#13#10+'Проведите, пожалуйста.');
+//       messageDlg('Р”РѕРєСѓРјРµРЅС‚ РЅРµ РїСЂРѕРІРµРґРµРЅ!'#13#10+'РџСЂРѕРІРµРґРёС‚Рµ, РїРѕР¶Р°Р»СѓР№СЃС‚Р°.',mtInformation,[mbOk],0);
+       Warning('Р”РѕРєСѓРјРµРЅС‚ РЅРµ РїСЂРѕРІРµРґРµРЅ!'#13#10+'РџСЂРѕРІРµРґРёС‚Рµ, РїРѕР¶Р°Р»СѓР№СЃС‚Р°.');
        exit;
      end;
 (*    if not CheckRest(False) then
@@ -4957,11 +4957,11 @@ begin
       DocNaklSTATE.Value := 1;
     except
     on e:Exception do
-      Warning('Возникли ошибки при проставлении признака'#13#10+
-              '"Напечатан внутренний документ"(накладная красненькая):'#13#10+
+      Warning('Р’РѕР·РЅРёРєР»Рё РѕС€РёР±РєРё РїСЂРё РїСЂРѕСЃС‚Р°РІР»РµРЅРёРё РїСЂРёР·РЅР°РєР°'#13#10+
+              '"РќР°РїРµС‡Р°С‚Р°РЅ РІРЅСѓС‚СЂРµРЅРЅРёР№ РґРѕРєСѓРјРµРЅС‚"(РЅР°РєР»Р°РґРЅР°СЏ РєСЂР°СЃРЅРµРЅСЊРєР°СЏ):'#13#10+
               e.Message);
-//      messageDlg('Возникли ошибки при проставлении признака'#13#10+
-//                 '"Напечатан внутренний документ"(накладная красненькая):'#13#10+
+//      messageDlg('Р’РѕР·РЅРёРєР»Рё РѕС€РёР±РєРё РїСЂРё РїСЂРѕСЃС‚Р°РІР»РµРЅРёРё РїСЂРёР·РЅР°РєР°'#13#10+
+//                 '"РќР°РїРµС‡Р°С‚Р°РЅ РІРЅСѓС‚СЂРµРЅРЅРёР№ РґРѕРєСѓРјРµРЅС‚"(РЅР°РєР»Р°РґРЅР°СЏ РєСЂР°СЃРЅРµРЅСЊРєР°СЏ):'#13#10+
 //                 e.Message ,mtInformation,[mbOk],0);
     end;
    end;
@@ -4987,9 +4987,9 @@ begin
   PrintInternalDocRep := TPrintInternalDocRep.Create(Self);
   try
     If (IntfMegaDBCommon.GetCountry = iccUkraine) then
-      PrintInternalDocRep.NameDoc.Caption:='ВНУТРІШНІЙ ДОКУМЕНТ №'
+      PrintInternalDocRep.NameDoc.Caption:='Р’РќРЈРўР Р†РЁРќР†Р™ Р”РћРљРЈРњР•РќРў в„–'
      Else
-      PrintInternalDocRep.NameDoc.Caption:='Накладная на внутренний отпуск №';
+      PrintInternalDocRep.NameDoc.Caption:='РќР°РєР»Р°РґРЅР°СЏ РЅР° РІРЅСѓС‚СЂРµРЅРЅРёР№ РѕС‚РїСѓСЃРє в„–';
     PrintInternalDocRep.DocNakl.Transaction := DocNakl.Transaction;
     PrintInternalDocRep.DocPos.Transaction := DocNakl.Transaction;
     PrintInternalDocRep.Sum.Transaction := DocNakl.Transaction;
@@ -5002,7 +5002,7 @@ begin
 
     PrintInternalDocRep.NotPrinterSetup:=false;
     PrintInternalDocRep.Prepare;
-    PrintInternalDocRep.qlPageCount.Caption:='из ' +IntToStr(PrintInternalDocRep.QRPrinter.PageCount);
+    PrintInternalDocRep.qlPageCount.Caption:='РёР· ' +IntToStr(PrintInternalDocRep.QRPrinter.PageCount);
     PrintInternalDocRep.NotPrinterSetup:=true;
 
     PrintInternalDocRep.Print;
@@ -5028,7 +5028,7 @@ end;
 
 procedure TDocNaklForm.FillRestsExecute(Sender: TObject);
 begin
-  if Application.MessageBox('Сформировать остатки ?','Внимание',
+  if Application.MessageBox('РЎС„РѕСЂРјРёСЂРѕРІР°С‚СЊ РѕСЃС‚Р°С‚РєРё ?','Р’РЅРёРјР°РЅРёРµ',
    MB_YESNO+MB_ICONQUESTION+MB_DEFBUTTON2) = ID_NO then Exit;
   Query.Close;
   // Query.SQL.Text := 'EXECUTE PROCEDURE FillNaklRests(:RECID, :BASEID)';
@@ -5128,7 +5128,7 @@ procedure TDocNaklForm.Waiting(Sender: TObject; var Done: Boolean);
 begin
 //
  //StatusBar1.SimplePanel := True;
- //StatusBar1.SimpleText := 'Событие OnIdle';
+ //StatusBar1.SimpleText := 'РЎРѕР±С‹С‚РёРµ OnIdle';
  Done := true;
 end;
 
@@ -5157,7 +5157,7 @@ var
 
 begin
   if (NOT aNaklSaved ) or (PosModified) or (DocNakl.State in [dsEdit, dsInsert]) then
-   if (Application.MessageBox('Перед отправкой накладную необходимо сохранить. Сохранить накладную ?','Подтверждение', MB_YESNO+MB_ICONQUESTION+MB_DEFBUTTON1) = IDYES) then
+   if (Application.MessageBox('РџРµСЂРµРґ РѕС‚РїСЂР°РІРєРѕР№ РЅР°РєР»Р°РґРЅСѓСЋ РЅРµРѕР±С…РѕРґРёРјРѕ СЃРѕС…СЂР°РЅРёС‚СЊ. РЎРѕС…СЂР°РЅРёС‚СЊ РЅР°РєР»Р°РґРЅСѓСЋ ?','РџРѕРґС‚РІРµСЂР¶РґРµРЅРёРµ', MB_YESNO+MB_ICONQUESTION+MB_DEFBUTTON1) = IDYES) then
      begin
        if not SaveDoc then
          exit;
@@ -5167,7 +5167,7 @@ begin
    dmMegaReports.MyCreatePdf(10100111,DocNaklOperDate.Value,DocNaklRecID.asString+','+DocNaklBaseID.asString,PdfFile);
    Body:='Dear Customer:'#13#10#13#10+
          'Your invoice is attached. Please remit payment at earliest convenience.'#13#10#13#10+
-         'Thank you for your business – we appreciate it very much.'#13#10#13#10+
+         'Thank you for your business вЂ“ we appreciate it very much.'#13#10#13#10+
          'Sincerely,'#13#10#13#10+
          balDKName;
          //'Megapolis USA';
@@ -5205,15 +5205,15 @@ begin
    Query.Params.ByName['RECID'].Value := DocNaklRECID.Value;
    Query.Params.ByName['BASEID'].Value := DocNaklBASEID.Value;
    Query.ExecQuery;
-   Subject:='Подтверждение поставки '+Query.FieldByName('shortname_dk').AsString;
+   Subject:='РџРѕРґС‚РІРµСЂР¶РґРµРЅРёРµ РїРѕСЃС‚Р°РІРєРё '+Query.FieldByName('shortname_dk').AsString;
    email:=Query.FieldByName('email').AsString;
-   PathFile:=TempDir+'УДК_'+Query.FieldByName('kod_dk').AsString+'_'+DocNaklDOCNUMBER.AsString+'.csv';
+   PathFile:=TempDir+'РЈР”Рљ_'+Query.FieldByName('kod_dk').AsString+'_'+DocNaklDOCNUMBER.AsString+'.csv';
    AssignFile(f,PathFile);
    Rewrite(f);
    Writeln(f,Query.FieldByName('shortname_dk').AsString+';'+Query.FieldByName('kod_dk').AsString+';'+Query.FieldByName('docnumber').AsString+
    ';'+Query.FieldByName('name_op').AsString+';14;RN;'+FormatDateTime('dd.mm.yyyy',Query.FieldByName('docdate').AsDateTime)+';'+
     Query.FieldByName('doc_number').AsString+';'+Query.FieldByName('form_opl').AsString+';') ;
-    //+Query.FieldByName('outlet_number').AsString+';');  -- авион хотел, но перехотел - перешел на EDI
+    //+Query.FieldByName('outlet_number').AsString+';');  -- Р°РІРёРѕРЅ С…РѕС‚РµР», РЅРѕ РїРµСЂРµС…РѕС‚РµР» - РїРµСЂРµС€РµР» РЅР° EDI
     while not Query.Eof do
     begin
      Writeln(f,Query.FieldByName('local_kod').AsString+';'+Query.FieldByName('kolich').AsString+';'+ReplaceStr(Query.FieldByName('price_with_nds').AsString,',','.')+';'+
@@ -5231,7 +5231,7 @@ begin
   CloseFile(f);
 
    frmSendMail:=TfrmSendMail.Create(Application);
-   frmSendMail.SendMailMessage(email,'',Subject,'',PathFile,'[Ваша накладная '+DocNaklDOCNUMBER.AsString+' была прикреплена  к письму]',true,'','');
+   frmSendMail.SendMailMessage(email,'',Subject,'',PathFile,'[Р’Р°С€Р° РЅР°РєР»Р°РґРЅР°СЏ '+DocNaklDOCNUMBER.AsString+' Р±С‹Р»Р° РїСЂРёРєСЂРµРїР»РµРЅР°  Рє РїРёСЃСЊРјСѓ]',true,'','');
    frmSendMail.show;
 
 end;
@@ -5249,7 +5249,7 @@ begin
   //ow.AuthKey:='abcdefg';
   ws.CreateOrderWestern(ow);
   ow.Free;
-  ShowMessage('Данные отправленны');}
+  ShowMessage('Р”Р°РЅРЅС‹Рµ РѕС‚РїСЂР°РІР»РµРЅРЅС‹');}
 
 end;
 
@@ -5271,7 +5271,7 @@ begin
     DM.SharedQuery.ExecQuery;
     Table_Name := DM.SharedQuery.FieldByName('SUB_TABLE').AsString;
 
-    HandMethod := true; //что бы подтягивалась партия из расходной накладной
+    HandMethod := true; //С‡С‚Рѕ Р±С‹ РїРѕРґС‚СЏРіРёРІР°Р»Р°СЃСЊ РїР°СЂС‚РёСЏ РёР· СЂР°СЃС…РѕРґРЅРѕР№ РЅР°РєР»Р°РґРЅРѕР№
 
     if ((sender <> nil) and (Sender.ClassName<>'TAction'))
     and (False) // nirs 12.01.2023
@@ -5313,10 +5313,10 @@ begin
       if DM.mdsSharedQuery.FieldByName('PDV').Value='D' then K1:=1 else K1:=K;
       DocPosSource.Dataset.Append;
       DocPos.FieldByName('KOD_MATER').AsFloat := DM.mdsSharedQuery.FieldByName('KOD_MATER').AsFloat;
-{    // 14.07.2007, Игнат К,
-    // сделал изменение цен в документе, созданном из другого с статусом - реализация Ф2
-    // - делаю варварскую схему с выводом индикатива
-    //первое что делаю - после изменения ценности выключаю автоизменение позиций
+{    // 14.07.2007, РРіРЅР°С‚ Рљ,
+    // СЃРґРµР»Р°Р» РёР·РјРµРЅРµРЅРёРµ С†РµРЅ РІ РґРѕРєСѓРјРµРЅС‚Рµ, СЃРѕР·РґР°РЅРЅРѕРј РёР· РґСЂСѓРіРѕРіРѕ СЃ СЃС‚Р°С‚СѓСЃРѕРј - СЂРµР°Р»РёР·Р°С†РёСЏ Р¤2
+    // - РґРµР»Р°СЋ РІР°СЂРІР°СЂСЃРєСѓСЋ СЃС…РµРјСѓ СЃ РІС‹РІРѕРґРѕРј РёРЅРґРёРєР°С‚РёРІР°
+    //РїРµСЂРІРѕРµ С‡С‚Рѕ РґРµР»Р°СЋ - РїРѕСЃР»Рµ РёР·РјРµРЅРµРЅРёСЏ С†РµРЅРЅРѕСЃС‚Рё РІС‹РєР»СЋС‡Р°СЋ Р°РІС‚РѕРёР·РјРµРЅРµРЅРёРµ РїРѕР·РёС†РёР№
     if ((OPERSTATUS = iosRealizationF2) AND ((IntfMegaDBCommon.GetCountry = iccRussia) or (IntfMegaDBCommon.GetCountry = kodRUS))) then
     try
       noEvent := True;
@@ -5329,7 +5329,7 @@ begin
       finally
         noEvent := False;
       end;
-      // Индикатив там, по идее, уже выставился, менять ни к чему
+      // РРЅРґРёРєР°С‚РёРІ С‚Р°Рј, РїРѕ РёРґРµРµ, СѓР¶Рµ РІС‹СЃС‚Р°РІРёР»СЃСЏ, РјРµРЅСЏС‚СЊ РЅРё Рє С‡РµРјСѓ
       DocPos.FieldByName('PDV').Value := DM.SharedQuery.FieldByName('PDV').Value;
       DocPos.FieldByName('PARTY').Value := DM.SharedQuery.FieldByName('PARTY').Value;
       DocPos.Post;
@@ -5417,7 +5417,7 @@ begin
     DM.SharedQuery.ExecQuery;
     Table_Name := DM.SharedQuery.FieldByName('SUB_TABLE').AsString;
 
-    HandMethod := true; //что бы подтягивалась партия из расходной накладной
+    HandMethod := true; //С‡С‚Рѕ Р±С‹ РїРѕРґС‚СЏРіРёРІР°Р»Р°СЃСЊ РїР°СЂС‚РёСЏ РёР· СЂР°СЃС…РѕРґРЅРѕР№ РЅР°РєР»Р°РґРЅРѕР№
 
     if ((sender <> nil) and (Sender.ClassName<>'TAction')) then
        DM.mdsSharedQuery:= TMegaRDataSet(Sender)
@@ -5452,10 +5452,10 @@ begin
       if DM.mdsSharedQuery.FieldByName('PDV').Value='D' then K1:=1 else K1:=K;
       DocPosSource.Dataset.Append;
       DocPos.FieldByName('KOD_MATER').AsFloat := DM.mdsSharedQuery.FieldByName('KOD_MATER').AsFloat;
-{    // 14.07.2007, Игнат К,
-    // сделал изменение цен в документе, созданном из другого с статусом - реализация Ф2
-    // - делаю варварскую схему с выводом индикатива
-    //первое что делаю - после изменения ценности выключаю автоизменение позиций
+{    // 14.07.2007, РРіРЅР°С‚ Рљ,
+    // СЃРґРµР»Р°Р» РёР·РјРµРЅРµРЅРёРµ С†РµРЅ РІ РґРѕРєСѓРјРµРЅС‚Рµ, СЃРѕР·РґР°РЅРЅРѕРј РёР· РґСЂСѓРіРѕРіРѕ СЃ СЃС‚Р°С‚СѓСЃРѕРј - СЂРµР°Р»РёР·Р°С†РёСЏ Р¤2
+    // - РґРµР»Р°СЋ РІР°СЂРІР°СЂСЃРєСѓСЋ СЃС…РµРјСѓ СЃ РІС‹РІРѕРґРѕРј РёРЅРґРёРєР°С‚РёРІР°
+    //РїРµСЂРІРѕРµ С‡С‚Рѕ РґРµР»Р°СЋ - РїРѕСЃР»Рµ РёР·РјРµРЅРµРЅРёСЏ С†РµРЅРЅРѕСЃС‚Рё РІС‹РєР»СЋС‡Р°СЋ Р°РІС‚РѕРёР·РјРµРЅРµРЅРёРµ РїРѕР·РёС†РёР№
     if ((OPERSTATUS = iosRealizationF2) AND ((IntfMegaDBCommon.GetCountry = iccRussia) or (IntfMegaDBCommon.GetCountry = kodRUS))) then
     try
       noEvent := True;
@@ -5468,7 +5468,7 @@ begin
       finally
         noEvent := False;
       end;
-      // Индикатив там, по идее, уже выставился, менять ни к чему
+      // РРЅРґРёРєР°С‚РёРІ С‚Р°Рј, РїРѕ РёРґРµРµ, СѓР¶Рµ РІС‹СЃС‚Р°РІРёР»СЃСЏ, РјРµРЅСЏС‚СЊ РЅРё Рє С‡РµРјСѓ
       DocPos.FieldByName('PDV').Value := DM.SharedQuery.FieldByName('PDV').Value;
       DocPos.FieldByName('PARTY').Value := DM.SharedQuery.FieldByName('PARTY').Value;
       DocPos.Post;
@@ -5548,8 +5548,8 @@ begin
     if (DocNaklSTATE.Value=6) or (DocNaklSTATE.Value=5) then
       Nakl_transaction.RollbackRetaining;
 
-    // если документ не сохранен, и его провести(либо закомитить транзакцию в другом месте),
-    // то он сохранится(без проверок в функции SaveDoc) => делаем сохранение принужительно
+    // РµСЃР»Рё РґРѕРєСѓРјРµРЅС‚ РЅРµ СЃРѕС…СЂР°РЅРµРЅ, Рё РµРіРѕ РїСЂРѕРІРµСЃС‚Рё(Р»РёР±Рѕ Р·Р°РєРѕРјРёС‚РёС‚СЊ С‚СЂР°РЅР·Р°РєС†РёСЋ РІ РґСЂСѓРіРѕРј РјРµСЃС‚Рµ),
+    // С‚Рѕ РѕРЅ СЃРѕС…СЂР°РЅРёС‚СЃСЏ(Р±РµР· РїСЂРѕРІРµСЂРѕРє РІ С„СѓРЅРєС†РёРё SaveDoc) => РґРµР»Р°РµРј СЃРѕС…СЂР°РЅРµРЅРёРµ РїСЂРёРЅСѓР¶РёС‚РµР»СЊРЅРѕ
     if SaveDoc and (ShowError <> ID_RETRY)then
     begin
       if not Nakl_Transaction.Active then
@@ -5575,7 +5575,7 @@ begin
   F :=  TPriceLabelForm.Create(Self);
   F.RECID := DocNaklRECID.Value;
   F.BASEID := DocNaklBASEID.Value;
-  F.Caption := F.Caption + ' [из накладной] ';
+  F.Caption := F.Caption + ' [РёР· РЅР°РєР»Р°РґРЅРѕР№] ';
   F.Show;
 end;
 
@@ -5608,7 +5608,7 @@ end;
 procedure TDocNaklForm.DocNaklDK_CChange(Sender: TField);
 
 begin
-   DK_C_NAME_CE.Enabled   := not CheckDKfromOper(o_DK_C,sender,'Через');
+   DK_C_NAME_CE.Enabled   := not CheckDKfromOper(o_DK_C,sender,'Р§РµСЂРµР·');
    DK_C_ED.Enabled   := DK_C_NAME_CE.Enabled;
    Source.DataSet.FieldByName('DK_C_NAME').AsString:=IntfMegaCommon.GetShortNameDK(sender.AsFloat);
 
@@ -5658,9 +5658,9 @@ end;
 
 procedure TDocNaklForm.MakeDocExecute(Sender: TObject);
 begin
-  // Стояло проcто False, вплоть до 27.12.2005
-  // Игнат К.
-  // Чтоб создавать накладную из счёта-спецификации или из Инвойса на предоплату
+  // РЎС‚РѕСЏР»Рѕ РїСЂРѕcС‚Рѕ False, РІРїР»РѕС‚СЊ РґРѕ 27.12.2005
+  // РРіРЅР°С‚ Рљ.
+  // Р§С‚РѕР± СЃРѕР·РґР°РІР°С‚СЊ РЅР°РєР»Р°РґРЅСѓСЋ РёР· СЃС‡С‘С‚Р°-СЃРїРµС†РёС„РёРєР°С†РёРё РёР»Рё РёР· РРЅРІРѕР№СЃР° РЅР° РїСЂРµРґРѕРїР»Р°С‚Сѓ
   InternalMakeDoc((OPERSTATUS = iosInvoiceProf) OR (OPERSTATUS = iosInvoicePrePaid));
 end;
 
@@ -5698,7 +5698,7 @@ begin
   SB := Query.Fields[0].AsDouble - S0;
   CountInBox := Query.Fields[1].AsDouble;
   Brutto:=Query.Fields[2].AsDouble/1000;
-  BruttoMer:='кг.';
+  BruttoMer:='РєРі.';
   S :=  Sum.Fields[5].AsFloat - S0;
   SD :=  S - SB;
   DBGridEH1.Repaint;
@@ -5731,7 +5731,7 @@ begin
       MegaExecQuery(q);
 
       if q.FieldByNAme('exept').asInteger=0 then
-         Application.MessageBox('Признак базовой накладной по данной акции ликвидирован!', 'Внимание !', MB_OK + MB_ICONWARNING);
+         Application.MessageBox('РџСЂРёР·РЅР°Рє Р±Р°Р·РѕРІРѕР№ РЅР°РєР»Р°РґРЅРѕР№ РїРѕ РґР°РЅРЅРѕР№ Р°РєС†РёРё Р»РёРєРІРёРґРёСЂРѕРІР°РЅ!', 'Р’РЅРёРјР°РЅРёРµ !', MB_OK + MB_ICONWARNING);
       trans.Commit;
 
     except
@@ -5771,7 +5771,7 @@ begin
       MegaExecQuery(q);
 
       if q.FieldByNAme('exept').asInteger=0 then
-         Application.MessageBox('Признак базовой накладной по всем акциям ликвидирован!', 'Внимание !', MB_OK + MB_ICONWARNING);
+         Application.MessageBox('РџСЂРёР·РЅР°Рє Р±Р°Р·РѕРІРѕР№ РЅР°РєР»Р°РґРЅРѕР№ РїРѕ РІСЃРµРј Р°РєС†РёСЏРј Р»РёРєРІРёРґРёСЂРѕРІР°РЅ!', 'Р’РЅРёРјР°РЅРёРµ !', MB_OK + MB_ICONWARNING);
       trans.Commit;
 
     except
@@ -5828,7 +5828,7 @@ var
   D: Double;
   J, I: Integer;
 begin
-  if InputQuery('Введите наценку', 'Наценка %', S) then
+  if InputQuery('Р’РІРµРґРёС‚Рµ РЅР°С†РµРЅРєСѓ', 'РќР°С†РµРЅРєР° %', S) then
   begin
     D := StrToFloat(S);
     J:= -1;
@@ -5961,7 +5961,7 @@ begin
  if cbOpl.Checked then
  begin
    if ((not ((grBuhgalter in aIniParams.UserGroup)or(grKassir in aIniParams.UserGroup))) or
-       ((IntfMegaAccessManager.GetUserRole <> 'CORRECTOR') and (IntfMegaDBCommon.GetCountry=iccRussia)  ) )then // Рос - только корректор может ставить галочку
+       ((IntfMegaAccessManager.GetUserRole <> 'CORRECTOR') and (IntfMegaDBCommon.GetCountry=iccRussia)  ) )then // Р РѕСЃ - С‚РѕР»СЊРєРѕ РєРѕСЂСЂРµРєС‚РѕСЂ РјРѕР¶РµС‚ СЃС‚Р°РІРёС‚СЊ РіР°Р»РѕС‡РєСѓ
    begin
      OplCheckEnable:=false;
      cbOpl.Checked:= not cbOpl.Checked;
@@ -5969,7 +5969,7 @@ begin
      exit;
    end;
    DocNakl.Edit;
-   {если снимают признак делаем запись в табличку}
+   {РµСЃР»Рё СЃРЅРёРјР°СЋС‚ РїСЂРёР·РЅР°Рє РґРµР»Р°РµРј Р·Р°РїРёСЃСЊ РІ С‚Р°Р±Р»РёС‡РєСѓ}
    if grBuhgalter in aIniParams.UserGroup then  DocNaklSTATE.Value := idsBug;
    if grKassir in aIniParams.UserGroup then  DocNaklSTATE.Value := idsKassa;
 
@@ -6041,13 +6041,13 @@ begin
     CheckParentDoc;
   end;
   if (DocNaklOPERDATE.AsDateTime < Date) and (not IntfMegaDBCommon.IsOffice)  and   (DM.Money.DBParams.Values['user_name']<>'SYSDBA') then  begin
-    if Application.MessageBox('Дата документа меньше текущей, вы уверены сохраняя документ в прошлый период? ', 'Внимание!!!', MB_YESNO + MB_ICONERROR+MB_DEFBUTTON2)=IDNO then
+    if Application.MessageBox('Р”Р°С‚Р° РґРѕРєСѓРјРµРЅС‚Р° РјРµРЅСЊС€Рµ С‚РµРєСѓС‰РµР№, РІС‹ СѓРІРµСЂРµРЅС‹ СЃРѕС…СЂР°РЅСЏСЏ РґРѕРєСѓРјРµРЅС‚ РІ РїСЂРѕС€Р»С‹Р№ РїРµСЂРёРѕРґ? ', 'Р’РЅРёРјР°РЅРёРµ!!!', MB_YESNO + MB_ICONERROR+MB_DEFBUTTON2)=IDNO then
     begin
       Abort;
     end;
   end;
   if ((DocNaklFOplName.IsNull) and (not AlphaStarted)) then
-   if (mrCANCEL=Application.MessageBox('Не задана форма оплаты. Сохранение не возможно.!', 'Внимание!',MB_OK + MB_ICONERROR)) then
+   if (mrCANCEL=Application.MessageBox('РќРµ Р·Р°РґР°РЅР° С„РѕСЂРјР° РѕРїР»Р°С‚С‹. РЎРѕС…СЂР°РЅРµРЅРёРµ РЅРµ РІРѕР·РјРѕР¶РЅРѕ.!', 'Р’РЅРёРјР°РЅРёРµ!',MB_OK + MB_ICONERROR)) then
    begin
       Abort;
    end;
@@ -6058,7 +6058,7 @@ begin
   except
     on E:Exception do
     begin
-      Application.MessageBox(PChar(E.Message), PChar('Внимание!'), MB_OK + MB_ICONERROR);
+      Application.MessageBox(PChar(E.Message), PChar('Р’РЅРёРјР°РЅРёРµ!'), MB_OK + MB_ICONERROR);
       DocNakl.Cancel;
     end;
   end;
@@ -6086,7 +6086,7 @@ begin
      ) then
   begin
     DocNaklSTATE.NewValue:=idsBug;
-    Application.MessageBox(PChar('Снимать признак оплаты можно только пользователям с уровнем доступа(0,2,3,5), либо если документ является предварительным заказом(счетом) !'), PChar('Внимание!'), MB_OK + MB_ICONERROR);
+    Application.MessageBox(PChar('РЎРЅРёРјР°С‚СЊ РїСЂРёР·РЅР°Рє РѕРїР»Р°С‚С‹ РјРѕР¶РЅРѕ С‚РѕР»СЊРєРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏРј СЃ СѓСЂРѕРІРЅРµРј РґРѕСЃС‚СѓРїР°(0,2,3,5), Р»РёР±Рѕ РµСЃР»Рё РґРѕРєСѓРјРµРЅС‚ СЏРІР»СЏРµС‚СЃСЏ РїСЂРµРґРІР°СЂРёС‚РµР»СЊРЅС‹Рј Р·Р°РєР°Р·РѕРј(СЃС‡РµС‚РѕРј) !'), PChar('Р’РЅРёРјР°РЅРёРµ!'), MB_OK + MB_ICONERROR);
   end;
 
   if not (grKassir in aIniParams.UserGroup) then
@@ -6108,18 +6108,18 @@ begin
   if (DocNaklSTATE.OldValue = idsBug) and (DocNaklSTATE.NewValue=idsBug) then
   begin
     if not IntfMegaDBCommon.IsOffice then
-      raise Exception.Create('Изменение в документе запрещено. Снимите признак оплаты!');
+      raise Exception.Create('РР·РјРµРЅРµРЅРёРµ РІ РґРѕРєСѓРјРµРЅС‚Рµ Р·Р°РїСЂРµС‰РµРЅРѕ. РЎРЅРёРјРёС‚Рµ РїСЂРёР·РЅР°Рє РѕРїР»Р°С‚С‹!');
   end;
 
   if (DocNaklSTATE.OldValue = idsNotChange) and (DocNaklSTATE.NewValue<>idsNotChange) and
      (IntfMegaAccessManager.GetUserRole<>'CORRECTOR') then
   begin
-    raise Exception.Create('Изменение в документе запрещено!');
+    raise Exception.Create('РР·РјРµРЅРµРЅРёРµ РІ РґРѕРєСѓРјРµРЅС‚Рµ Р·Р°РїСЂРµС‰РµРЅРѕ!');
   end;
 
   if (DocNaklSTATE.OldValue = idsOFDogovor) and (DocNaklSTATE.NewValue=idsOFDogovor) then
   begin
-    raise Exception.Create('Изменение в документе запрещено. Подписан договор на аренду ОФ.');
+    raise Exception.Create('РР·РјРµРЅРµРЅРёРµ РІ РґРѕРєСѓРјРµРЅС‚Рµ Р·Р°РїСЂРµС‰РµРЅРѕ. РџРѕРґРїРёСЃР°РЅ РґРѕРіРѕРІРѕСЂ РЅР° Р°СЂРµРЅРґСѓ РћР¤.');
   end;
 
 end;
@@ -6141,7 +6141,7 @@ SelNaklPrnForm:TSelNaklPrnForm;
 begin
   if not (grKassir in aIniParams.UserGroup) then exit;
   // 12.05.2005
-  // Игнат К. (менял ini'шку)
+  // РРіРЅР°С‚ Рљ. (РјРµРЅСЏР» ini'С€РєСѓ)
   if ((aIniParams.Kassa) AND (DM.DocListBALANCE_KOD.AsString = aIniParams.Balance)) then
     PrnDir:=aIniParams.Path
   else
@@ -6150,13 +6150,13 @@ begin
 
   if (DocNaklSTATE.Value = 6) then
   begin
-   Application.MessageBox('Оплачено перечислением!', 'Внимание !', MB_OK + MB_ICONERROR);
+   Application.MessageBox('РћРїР»Р°С‡РµРЅРѕ РїРµСЂРµС‡РёСЃР»РµРЅРёРµРј!', 'Р’РЅРёРјР°РЅРёРµ !', MB_OK + MB_ICONERROR);
    exit;
   end;
 
   if (FileExists(PrnDir+'check.ok')) then
   begin
-   Application.MessageBox('Подождите пока печатается предыдущий чек или устраните ошибки ...', 'Внимание !', MB_OK + MB_ICONWARNING);
+   Application.MessageBox('РџРѕРґРѕР¶РґРёС‚Рµ РїРѕРєР° РїРµС‡Р°С‚Р°РµС‚СЃСЏ РїСЂРµРґС‹РґСѓС‰РёР№ С‡РµРє РёР»Рё СѓСЃС‚СЂР°РЅРёС‚Рµ РѕС€РёР±РєРё ...', 'Р’РЅРёРјР°РЅРёРµ !', MB_OK + MB_ICONWARNING);
    exit;
   end;
 
@@ -6164,10 +6164,10 @@ begin
   begin
    PosModified := False;
 
-   if Application.MessageBox('Попытка повторной печати чека!!! Продолжить? ', 'Внимание !', MB_YESNO + MB_ICONWARNING)=IDNO
+   if Application.MessageBox('РџРѕРїС‹С‚РєР° РїРѕРІС‚РѕСЂРЅРѕР№ РїРµС‡Р°С‚Рё С‡РµРєР°!!! РџСЂРѕРґРѕР»Р¶РёС‚СЊ? ', 'Р’РЅРёРјР°РЅРёРµ !', MB_YESNO + MB_ICONWARNING)=IDNO
    then  exit;
   end;
-  //убираем умножение на НДС(будет хранится как внесли с этой суммы будет браться ндс)
+  //СѓР±РёСЂР°РµРј СѓРјРЅРѕР¶РµРЅРёРµ РЅР° РќР”РЎ(Р±СѓРґРµС‚ С…СЂР°РЅРёС‚СЃСЏ РєР°Рє РІРЅРµСЃР»Рё СЃ СЌС‚РѕР№ СЃСѓРјРјС‹ Р±СѓРґРµС‚ Р±СЂР°С‚СЊСЃСЏ РЅРґСЃ)
   //if DocNaklNDSINSUMMA.Value=0 then
   //begin
  //   transport:=DocNaklTRANSPORT.Value*1.2;
@@ -6207,8 +6207,8 @@ var
    ipdv:integer;
 begin
 //
-//   if MessageDlg('Вы хотите напечатать чеки?', mtConfirmation, [mbYes, mbNo], 0) = IDYES then
-   if MessageDlg('Вы хотите напечатать чеки с акцизом?', mtConfirmation, [mbYes, mbNo], 0) = IDYES then
+//   if MessageDlg('Р’С‹ С…РѕС‚РёС‚Рµ РЅР°РїРµС‡Р°С‚Р°С‚СЊ С‡РµРєРё?', mtConfirmation, [mbYes, mbNo], 0) = IDYES then
+   if MessageDlg('Р’С‹ С…РѕС‚РёС‚Рµ РЅР°РїРµС‡Р°С‚Р°С‚СЊ С‡РµРєРё СЃ Р°РєС†РёР·РѕРј?', mtConfirmation, [mbYes, mbNo], 0) = IDYES then
    begin
      sumdoc:=0.0;
      sumbuf:=0.0;
@@ -6230,7 +6230,7 @@ begin
        if (verKassa=5) THEN
        begin
           case  DocPos.FieldByName('PDV').AsString[1] of
-          'А':ipdv :=1;
+          'Рђ':ipdv :=1;
           'B':ipdv :=3;
           else  ipdv :=1;
           end;
@@ -6248,15 +6248,15 @@ begin
          addsum:=SumSUMMARY.asfloat-sumdoc;
          if (verKassa=5) THEN
          begin
-           if DISCOUNT=0 then   fp.printRecSubtotalAdjustment(0,addsum)//датекс
-           else fp.printRecSubtotalAdjustment(addsum,0);//датекс новый
+           if DISCOUNT=0 then   fp.printRecSubtotalAdjustment(0,addsum)//РґР°С‚РµРєСЃ
+           else fp.printRecSubtotalAdjustment(addsum,0);//РґР°С‚РµРєСЃ РЅРѕРІС‹Р№
          end
      end;
-     if MessageBox(0, PChar('Печать чека на сумму '+floattostr(Round2(SumSUMMARY.asfloat))+' прошла успешно?'), 'Подтверждение', MB_ICONQUESTION or MB_YESNO)=IDYES then
+     if MessageBox(0, PChar('РџРµС‡Р°С‚СЊ С‡РµРєР° РЅР° СЃСѓРјРјСѓ '+floattostr(Round2(SumSUMMARY.asfloat))+' РїСЂРѕС€Р»Р° СѓСЃРїРµС€РЅРѕ?'), 'РџРѕРґС‚РІРµСЂР¶РґРµРЅРёРµ', MB_ICONQUESTION or MB_YESNO)=IDYES then
      begin
          if (verKassa=5) THEN
          begin
-            if MessageBox(0, PChar('Оплатить наличными? '), 'Подтверждение', MB_ICONQUESTION or MB_YESNO)=IDYES then
+            if MessageBox(0, PChar('РћРїР»Р°С‚РёС‚СЊ РЅР°Р»РёС‡РЅС‹РјРё? '), 'РџРѕРґС‚РІРµСЂР¶РґРµРЅРёРµ', MB_ICONQUESTION or MB_YESNO)=IDYES then
               LastErrorBool := FP.printRecTotal(0,  0)
             else
               LastErrorBool := FP.printRecTotal(0,  3);
@@ -6498,14 +6498,14 @@ begin
   begin
     if not CheckRest(False) then
     begin
-      id:=Application.MessageBox('Создать корректирующий документ?', 'Внимание - количество превышает остатки!', MB_YESNOCANCEL + MB_ICONQUESTION);
+      id:=Application.MessageBox('РЎРѕР·РґР°С‚СЊ РєРѕСЂСЂРµРєС‚РёСЂСѓСЋС‰РёР№ РґРѕРєСѓРјРµРЅС‚?', 'Р’РЅРёРјР°РЅРёРµ - РєРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРµРІС‹С€Р°РµС‚ РѕСЃС‚Р°С‚РєРё!', MB_YESNOCANCEL + MB_ICONQUESTION);
       case id of
       IDCANCEL: begin
                   CanClose:=false;
                   exit;
                 end;
       IDNO:     begin
-                  if Application.MessageBox('Документ будет сохранен с неправильными остатками!!!', 'Внимание!', MB_OKCANCEL + MB_ICONQUESTION) =IDCANCEL then
+                  if Application.MessageBox('Р”РѕРєСѓРјРµРЅС‚ Р±СѓРґРµС‚ СЃРѕС…СЂР°РЅРµРЅ СЃ РЅРµРїСЂР°РІРёР»СЊРЅС‹РјРё РѕСЃС‚Р°С‚РєР°РјРё!!!', 'Р’РЅРёРјР°РЅРёРµ!', MB_OKCANCEL + MB_ICONQUESTION) =IDCANCEL then
                   begin
                     CanClose:=false;
                     exit;
@@ -6527,13 +6527,13 @@ begin
   if not btSep.Down then DontCheckRest:=false;
  // if not CheckRest(False) then
  //   begin
-      id:=Application.MessageBox('Создать корректирующий документ?', 'Внимание - количество превышает остатки!', MB_YESNO + MB_ICONQUESTION);
+      id:=Application.MessageBox('РЎРѕР·РґР°С‚СЊ РєРѕСЂСЂРµРєС‚РёСЂСѓСЋС‰РёР№ РґРѕРєСѓРјРµРЅС‚?', 'Р’РЅРёРјР°РЅРёРµ - РєРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРµРІС‹С€Р°РµС‚ РѕСЃС‚Р°С‚РєРё!', MB_YESNO + MB_ICONQUESTION);
       case id of
       IDNO: begin
                   exit;
             end;
       IDYES:    begin
-                  ShowMessage('Вызов устаревшего метода DocNakl.btSepClick. Срочно обратитесь в Отдел Автоматизации!');
+                  ShowMessage('Р’С‹Р·РѕРІ СѓСЃС‚Р°СЂРµРІС€РµРіРѕ РјРµС‚РѕРґР° DocNakl.btSepClick. РЎСЂРѕС‡РЅРѕ РѕР±СЂР°С‚РёС‚РµСЃСЊ РІ РћС‚РґРµР» РђРІС‚РѕРјР°С‚РёР·Р°С†РёРё!');
                   AAMakeForm:=TAAMakeForm.Create(Self);
                   try
                     MakeSepRestExecute;
@@ -6595,7 +6595,7 @@ begin
     dmPrintInternalDoc.DocNakl.Transaction := DocNakl.Transaction;
     dmPrintInternalDoc.DocPos.Transaction := DocNakl.Transaction;
     dmPrintInternalDoc.Sum.Transaction := DocNakl.Transaction;
-//    // проверка на наличие лицензии
+//    // РїСЂРѕРІРµСЂРєР° РЅР° РЅР°Р»РёС‡РёРµ Р»РёС†РµРЅР·РёРё
 //    if (OPERSTATUS <> 4) or (IntfMegaDBCommon.GetParam('PR_NEW_NAKL_F2_AGENT','0') <> '1') then
 //     fLic:= True
 //    else
@@ -6633,7 +6633,7 @@ begin
     dmPrintInternalDoc.DocNakl.Transaction := DocNakl.Transaction;
     dmPrintInternalDoc.DocPos.Transaction := DocNakl.Transaction;
     dmPrintInternalDoc.Sum.Transaction := DocNakl.Transaction;
-    // проверка на наличие лицензии
+    // РїСЂРѕРІРµСЂРєР° РЅР° РЅР°Р»РёС‡РёРµ Р»РёС†РµРЅР·РёРё
     if (OPERSTATUS <> 4) or (IntfMegaDBCommon.GetParam('PR_NEW_NAKL_F2_AGENT','0') <> '1') then
      fLic:= True
     else
@@ -6715,7 +6715,7 @@ begin
   begin
     Query.Close;
     Query.SQL.Text:='select otsr, otsr_prior from sprav_dk where  KOD_DK=:KOD_DK';
-    if DocNaklDOCTYPE.AsString[1]='П' then Query.Params[0].AsDouble:=DocNaklDK_FROM.AsFloat
+    if DocNaklDOCTYPE.AsString[1]='Рџ' then Query.Params[0].AsDouble:=DocNaklDK_FROM.AsFloat
     else Query.Params[0].AsDouble:=DocNaklDK_TO.AsFloat;
     Query.ExecQuery;
     DK_OTSR:=Query.Fields[0].AsInteger;
@@ -6784,7 +6784,7 @@ var
   D: Double;
   I: Integer;
 begin
-  if InputQuery('Введите индикативную наценку', 'Индик. наценка %', S) then
+  if InputQuery('Р’РІРµРґРёС‚Рµ РёРЅРґРёРєР°С‚РёРІРЅСѓСЋ РЅР°С†РµРЅРєСѓ', 'РРЅРґРёРє. РЅР°С†РµРЅРєР° %', S) then
   begin
     D := StrToFloat(S);
     if DBGridEh1.SelectedRows.Count = 0 then
@@ -6898,7 +6898,7 @@ var
   D: Double;
   I: Integer;
 begin
-  if InputQuery('Введите наценку', 'Наценка %', S) then
+  if InputQuery('Р’РІРµРґРёС‚Рµ РЅР°С†РµРЅРєСѓ', 'РќР°С†РµРЅРєР° %', S) then
   begin
     D := StrToFloat(S);
     if DBGridEh1.SelectedRows.Count = 0 then
@@ -6945,7 +6945,7 @@ var
   balance2:string;
 //  stSCHET:string;
 begin
-  if InputQuery('Разделение по формам', 'Отправить в другую форму %', S) then
+  if InputQuery('Р Р°Р·РґРµР»РµРЅРёРµ РїРѕ С„РѕСЂРјР°Рј', 'РћС‚РїСЂР°РІРёС‚СЊ РІ РґСЂСѓРіСѓСЋ С„РѕСЂРјСѓ %', S) then
   begin
     proc := StrToFloat(S);
     if DocNaklBalance_KOD.AsString=IntTOStr(IntfMegaCommon.GetMainFirmBalanceKod) then
@@ -7240,7 +7240,7 @@ begin
 //  if DocNaklSTATE.Value <= 0 then DocNaklSTATE.Value := 1;
   PrintInternalDocRep := TPrintInternalDocRep.Create(Self);
   PrintInternalDocRep.NameDoc.Left:=PrintInternalDocRep.NameDoc.Left-5;
-  PrintInternalDocRep.NameDoc.Caption:='ПРОВЕРОЧНЫЙ ДОКУМЕНТ';
+  PrintInternalDocRep.NameDoc.Caption:='РџР РћР’Р•Р РћР§РќР«Р™ Р”РћРљРЈРњР•РќРў';
  //
   PrintInternalDocRep.NameDoc.Font.Style:=[fsItalic];
   PrintInternalDocRep.QRDBText2.Font.Style:=[fsItalic];
@@ -7279,7 +7279,7 @@ begin
   ///
   PrintInternalDocRep.NotPrinterSetup:=false;
   PrintInternalDocRep.Prepare;
-  PrintInternalDocRep.qlPageCount.Caption:='из ' +IntToStr(PrintInternalDocRep.QRPrinter.PageCount);
+  PrintInternalDocRep.qlPageCount.Caption:='РёР· ' +IntToStr(PrintInternalDocRep.QRPrinter.PageCount);
   PrintInternalDocRep.NotPrinterSetup:=true;
   ///
 
@@ -7360,8 +7360,8 @@ begin
     except
       on E: EXCEPTION do
       begin
-        Application.MessageBox(pchar(e.Message), 'Ошибка !', MB_OK + MB_ICONERROR);
-        // чистим dk_to
+        Application.MessageBox(pchar(e.Message), 'РћС€РёР±РєР° !', MB_OK + MB_ICONERROR);
+        // С‡РёСЃС‚РёРј dk_to
         DocNaklDK_TO.AsVariant:=null;
         DocNaklDK_TO_NAME.Value:='';
         DocNaklDK_C.AsVariant:=null;
@@ -7373,9 +7373,9 @@ begin
 
   //----------------------------------------
 
-  // если строка адреса пуста - и есть ссылка на торг точку
-  // пытаемся получить её название и адрес из
-  // объекта торговая точка
+  // РµСЃР»Рё СЃС‚СЂРѕРєР° Р°РґСЂРµСЃР° РїСѓСЃС‚Р° - Рё РµСЃС‚СЊ СЃСЃС‹Р»РєР° РЅР° С‚РѕСЂРі С‚РѕС‡РєСѓ
+  // РїС‹С‚Р°РµРјСЃСЏ РїРѕР»СѓС‡РёС‚СЊ РµС‘ РЅР°Р·РІР°РЅРёРµ Рё Р°РґСЂРµСЃ РёР·
+  // РѕР±СЉРµРєС‚Р° С‚РѕСЂРіРѕРІР°СЏ С‚РѕС‡РєР°
   if ((aSelTT.OutletAddress = '') and (aSelTT.OutletRecID <> 0)) then
   begin
     sObjTO:= TMegaObjTradeOutlet.Create(Self, Nakl_Transaction);
@@ -7401,8 +7401,8 @@ begin
   NaklOutletRecid:=aSelTT.OutletRecID;
   NaklOutletBaseid:=aSelTT.OutletBaseID;
 
-  // после изменения в delivery_location,
-  // может изменится ЦФО в накладной, проверяем эту возможность
+  // РїРѕСЃР»Рµ РёР·РјРµРЅРµРЅРёСЏ РІ delivery_location,
+  // РјРѕР¶РµС‚ РёР·РјРµРЅРёС‚СЃСЏ Р¦Р¤Рћ РІ РЅР°РєР»Р°РґРЅРѕР№, РїСЂРѕРІРµСЂСЏРµРј СЌС‚Сѓ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ
   AdrQuery.Close;
   AdrQuery.SQL.Text:= 'SELECT first 1 dn.CFO '+
     ' FROM DOC_NAKL dn '+
@@ -7412,8 +7412,8 @@ begin
   if (not AdrQuery.FN('CFO').IsNull ) and
      (AdrQuery.FN('CFO').AsInteger <> 0) and
      (AdrQuery.FN('CFO').AsInteger <> DocNaklCFO.AsInteger) and
-     (Ask('ЦФО накладной не соответствует ЦФО торговой точки.'#13#10+
-          'Изменить ЦФО в накланой?')= mrOk) then
+     (Ask('Р¦Р¤Рћ РЅР°РєР»Р°РґРЅРѕР№ РЅРµ СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓРµС‚ Р¦Р¤Рћ С‚РѕСЂРіРѕРІРѕР№ С‚РѕС‡РєРё.'#13#10+
+          'РР·РјРµРЅРёС‚СЊ Р¦Р¤Рћ РІ РЅР°РєР»Р°РЅРѕР№?')= mrOk) then
   begin
     DocNaklCFO.AsInteger := AdrQuery.FN('CFO').AsInteger;
   end;
@@ -7465,7 +7465,7 @@ begin
       scrA:=wk.GetKonturLisence({6663003127}  StrToFloat(DK_TO_ED.Text));
       ShowMessage(scrA);
   except
-      ShowMessage('APIFOCUSApi: че то пошле не так. :( ');
+      ShowMessage('APIFOCUSApi: С‡Рµ С‚Рѕ РїРѕС€Р»Рµ РЅРµ С‚Р°Рє. :( ');
   end;
 
 
@@ -7478,17 +7478,17 @@ begin
   btnCheckWithCol.Checked := not btnCheckWithCol.Checked;
   isAlphaCol:=False;
   if IntfMegaDBCommon.GetCountry=iccUkraine then
-    if Application.MessageBox('Хотите сравнить цены альфы?', 'Внимание',
+    if Application.MessageBox('РҐРѕС‚РёС‚Рµ СЃСЂР°РІРЅРёС‚СЊ С†РµРЅС‹ Р°Р»СЊС„С‹?', 'Р’РЅРёРјР°РЅРёРµ',
       MB_YESNO + MB_ICONQUESTION) = IDYES
        then  isAlphaCol := true;
 
 
   if btnCheckWithCol.Checked and
-     InputQuery('Сравнить цены с колонкой...', 'Номер колонки', S) and
+     InputQuery('РЎСЂР°РІРЅРёС‚СЊ С†РµРЅС‹ СЃ РєРѕР»РѕРЅРєРѕР№...', 'РќРѕРјРµСЂ РєРѕР»РѕРЅРєРё', S) and
      tryStrToInt(s,aCheckWithColNumber) then
   begin
     DBGridEh1.FieldColumns['COL_CHECK_WITH'].Visible := btnCheckWithCol.Checked;
-    DBGridEh1.FieldColumns['COL_CHECK_WITH'].Title.Caption := 'Кол.'+IntToStr(aCheckWithColNumber);
+    DBGridEh1.FieldColumns['COL_CHECK_WITH'].Title.Caption := 'РљРѕР».'+IntToStr(aCheckWithColNumber);
   end
   else
     DBGridEh1.FieldColumns['COL_CHECK_WITH'].Visible := btnCheckWithCol.Checked;
@@ -7538,7 +7538,7 @@ begin
                   DocNaklBALANCE_KOD.AsString + ', ''!!!'', 100, ' + Form1.ColDataCOL.AsString + ', '+
                   DocNaklDK_TO.AsString + ','+DocNaklCFO.asstring +', ' + IntToStr(NaklOutletRecid) + ', ' + IntToStr(NaklOutletBaseid)
     { ---------------- Added by Lion in 24.12.2008 --------------- }
-    {             Накладную нужно создавать по ценам региона           }
+    {             РќР°РєР»Р°РґРЅСѓСЋ РЅСѓР¶РЅРѕ СЃРѕР·РґР°РІР°С‚СЊ РїРѕ С†РµРЅР°Рј СЂРµРіРёРѕРЅР°           }
 //                  + liUtils.iif(Trim(DocNaklADDR_TO.asstring) = '', '', ', ' + DocNaklADDR_TO.asstring)
                   + liUtils.iif((Trim(DocNaklADDR_TO.asstring) = '') or (DocNaklCFO.asInteger = DocNaklADDR_TO.AsInteger), ' ,null ', ', ' + DocNaklADDR_TO.asstring)
     { ----------- End of changing by Lion in 24.12.2008 ----------- }
@@ -7550,7 +7550,7 @@ begin
                   DocNaklBALANCE_KOD.AsString + ', ''!!!'', 100, ' + Form1.ColDataCOL.AsString + ', '+
                   DocNaklDK_TO.AsString + ','+DocNaklCFO.asstring
       { ---------------- Added by Lion in 24.12.2008 --------------- }
-      {           Накладную нужно создавать по ценам региона - в Украине не нужно           }
+      {           РќР°РєР»Р°РґРЅСѓСЋ РЅСѓР¶РЅРѕ СЃРѕР·РґР°РІР°С‚СЊ РїРѕ С†РµРЅР°Рј СЂРµРіРёРѕРЅР° - РІ РЈРєСЂР°РёРЅРµ РЅРµ РЅСѓР¶РЅРѕ           }
       //              + liUtils.iif(Trim(DocNaklADDR_TO.asstring) = '', '', ', ' + DocNaklADDR_TO.asstring)
       { ----------- End of changing by Lion in 24.12.2008 ----------- }
                   + ')';
@@ -7594,8 +7594,8 @@ begin
           DocPosInd_SUMMA.Value := EditNaklPos.Ind_price.Value * DocPos.FieldByName('KOLICH').AsFloat;
           DocPos.FieldByName('STATE').Value := 100;
           DocPos.Post;
-          // считаем самую похожую колонку - btnShowCol.checked
-          // сравниваю с выбранной колонкой - btnCheckWithCol.checked
+          // СЃС‡РёС‚Р°РµРј СЃР°РјСѓСЋ РїРѕС…РѕР¶СѓСЋ РєРѕР»РѕРЅРєСѓ - btnShowCol.checked
+          // СЃСЂР°РІРЅРёРІР°СЋ СЃ РІС‹Р±СЂР°РЅРЅРѕР№ РєРѕР»РѕРЅРєРѕР№ - btnCheckWithCol.checked
           CalcColFordocNaklPosRecord;
 
         end;
@@ -7640,7 +7640,7 @@ var
   D: Double;
   I: Integer;
 begin
-  if InputQuery('Введите наценку ', 'Наценка c округлением до копейки %', S) then
+  if InputQuery('Р’РІРµРґРёС‚Рµ РЅР°С†РµРЅРєСѓ ', 'РќР°С†РµРЅРєР° c РѕРєСЂСѓРіР»РµРЅРёРµРј РґРѕ РєРѕРїРµР№РєРё %', S) then
   begin
     D := StrToFloat(S);
     if DBGridEh1.SelectedRows.Count = 0 then
@@ -7698,7 +7698,7 @@ begin
         fmStoragePlacement.ShowModal;
       end
         else
-          ShowMessage('Для документа с такой группой и кодом операции размещение на складе не разрешено!');
+          ShowMessage('Р”Р»СЏ РґРѕРєСѓРјРµРЅС‚Р° СЃ С‚Р°РєРѕР№ РіСЂСѓРїРїРѕР№ Рё РєРѕРґРѕРј РѕРїРµСЂР°С†РёРё СЂР°Р·РјРµС‰РµРЅРёРµ РЅР° СЃРєР»Р°РґРµ РЅРµ СЂР°Р·СЂРµС€РµРЅРѕ!');
 
 
 end;
@@ -7715,12 +7715,12 @@ begin
         DocPos.CloseOpen(true);
       end
          else
-          ShowMessage('Для документа с такой группой и кодом операции распределения со склада не разрешено!');
+          ShowMessage('Р”Р»СЏ РґРѕРєСѓРјРµРЅС‚Р° СЃ С‚Р°РєРѕР№ РіСЂСѓРїРїРѕР№ Рё РєРѕРґРѕРј РѕРїРµСЂР°С†РёРё СЂР°СЃРїСЂРµРґРµР»РµРЅРёСЏ СЃРѕ СЃРєР»Р°РґР° РЅРµ СЂР°Р·СЂРµС€РµРЅРѕ!');
          
 end;
 
 procedure TDocNaklForm.btnTRANSPORT_TIMESaveClick(Sender: TObject);
-var          //[gsa] 24-09-2019 добавления данные по накладной в базу.
+var          //[gsa] 24-09-2019 РґРѕР±Р°РІР»РµРЅРёСЏ РґР°РЅРЅС‹Рµ РїРѕ РЅР°РєР»Р°РґРЅРѕР№ РІ Р±Р°Р·Сѓ.
   str, DT:String;
   q: TMegaQuery;
 begin
@@ -7740,7 +7740,7 @@ begin
     finally
       q.Free;
     end;
-  ShowMessage('Инф.: Данные записаны.');
+  ShowMessage('РРЅС„.: Р”Р°РЅРЅС‹Рµ Р·Р°РїРёСЃР°РЅС‹.');
 
 end;
 
@@ -7784,7 +7784,7 @@ end;
 procedure TDocNaklForm.lblCFOOtgrClick(Sender: TObject);
 begin
   DocNakl.Open;
-  lblCFOOtgr.Caption:= Format('ЦФО отгрузки - %d', [
+  lblCFOOtgr.Caption:= Format('Р¦Р¤Рћ РѕС‚РіСЂСѓР·РєРё - %d', [
     VarToInt(fbExecQuery(Nakl_Transaction, 'select st.cfo from DISTR_GET_AGENT_AREA(%s, %s) dga '
      +' left join DISTR_GET_AREA_TERRIT(dga.area_recid, dga.area_baseid, %1:s) dgt on (1=1)'
      +' left join sprav_territory st on (st.recid=dgt.territ_recid and st.baseid=dgt.territ_baseid)',
@@ -7805,14 +7805,14 @@ begin
   fdsZayavka.Conditions.Apply;
   fdsZayavka.Open;
 *)
-  lbZayavka.Caption:= 'Заявка: ' + DocNaklZAYAVKA_ID.AsString;
+  lbZayavka.Caption:= 'Р—Р°СЏРІРєР°: ' + DocNaklZAYAVKA_ID.AsString;
 end;
 
 procedure TDocNaklForm.aTakeAccExecute(Sender: TObject);
 begin
   exit;
 //  if DM.UserAccess<>1 then exit;
-//  if Application.MessageBox('Забирая права, вы забираете всю ответственность за данную накладную', 'Внимание !', MB_YESNO + MB_ICONWARNING)=IDNO then exit;
+//  if Application.MessageBox('Р—Р°Р±РёСЂР°СЏ РїСЂР°РІР°, РІС‹ Р·Р°Р±РёСЂР°РµС‚Рµ РІСЃСЋ РѕС‚РІРµС‚СЃС‚РІРµРЅРЅРѕСЃС‚СЊ Р·Р° РґР°РЅРЅСѓСЋ РЅР°РєР»Р°РґРЅСѓСЋ', 'Р’РЅРёРјР°РЅРёРµ !', MB_YESNO + MB_ICONWARNING)=IDNO then exit;
 //  Query3.Close;
 //  Query3.SQL.Text:='delete from SYS_USER_DOC WHERE OPER=0 AND '+
 //   'BASEID='+DocNaklBASEID.AsString+' AND RECID='+DocNaklRECID.AsString+' AND TABLENAME='+#39+MainTableName+#39;
@@ -7830,7 +7830,7 @@ var
  dd:double;
 begin
   if (DM.UserAccess<>2) and (DM.UserAccess<>0) then exit;
-  if InputQuery('Проставление галочки:', 'Введите код доступа', S) then
+  if InputQuery('РџСЂРѕСЃС‚Р°РІР»РµРЅРёРµ РіР°Р»РѕС‡РєРё:', 'Р’РІРµРґРёС‚Рµ РєРѕРґ РґРѕСЃС‚СѓРїР°', S) then
   begin
       st:=MakeGalPassw(IntfMegaDBCommon.GetBaseID,DocNaklDK_TO.AsFloat,DocNaklOPERDATE.AsDateTime,DocNaklSUMMA1.AsFloat);
 {      st:=DateToStr(DocNaklOPERDATE.AsDateTime);
@@ -7844,7 +7844,7 @@ begin
       st:=System.Copy(st,1,8);  }
       if Trim(S)<>st then
       begin
-        Application.MessageBox('Код доступа неверен','Ошибка', MB_OK+MB_ICONERROR);
+        Application.MessageBox('РљРѕРґ РґРѕСЃС‚СѓРїР° РЅРµРІРµСЂРµРЅ','РћС€РёР±РєР°', MB_OK+MB_ICONERROR);
         exit;
       end else
       begin
@@ -7867,9 +7867,9 @@ var
   q: TMegaQuery;
 begin
   Result:=(DocNaklDK_TO.AsFloat=DM.DKTDM) or (DocNaklDK_TO.AsFloat=DM.DKPP)
-   or (DocNaklDK_TO.AsFloat=14) or (DocNaklDOCTYPE.AsString= 'РНа300')
-   or (DocNaklDOCTYPE.AsString= 'РНд300')
-   or (OPERSTATUS in [iosOutcomeToOtv,{iosSpecifciation,}iosRealization,iosPrintNakl,iosFinal]); //[gsa] 26-07-2019 не определаня переменя.
+   or (DocNaklDK_TO.AsFloat=14) or (DocNaklDOCTYPE.AsString= 'Р РќР°300')
+   or (DocNaklDOCTYPE.AsString= 'Р РќРґ300')
+   or (OPERSTATUS in [iosOutcomeToOtv,{iosSpecifciation,}iosRealization,iosPrintNakl,iosFinal]); //[gsa] 26-07-2019 РЅРµ РѕРїСЂРµРґРµР»Р°РЅСЏ РїРµСЂРµРјРµРЅСЏ.
   if not Result then
   begin
     q:= TMegaQuery.Create(Self);
@@ -7912,7 +7912,7 @@ begin
       MegaExecQuery(q);
 
       if q.FieldByNAme('except').asInteger>0 then
-         Application.MessageBox('По накладной созданы акционные накладные!', 'Внимание !', MB_OK + MB_ICONWARNING);
+         Application.MessageBox('РџРѕ РЅР°РєР»Р°РґРЅРѕР№ СЃРѕР·РґР°РЅС‹ Р°РєС†РёРѕРЅРЅС‹Рµ РЅР°РєР»Р°РґРЅС‹Рµ!', 'Р’РЅРёРјР°РЅРёРµ !', MB_OK + MB_ICONWARNING);
       trans.Commit;
 
     except
@@ -7996,12 +7996,12 @@ const
   cQueryGetIsRaskhod = 'select * from GET_ISRASKHOD( :GROUP_OPER, :KOD_OPER, :BALANCE_KOD, :OPERDATE)';
 
 begin
-  // Здравствуй Ж... Новый Год!
-  // начинаем с того, что закрываем возврат из возврата
-  // Игнат К.Г.
+  // Р—РґСЂР°РІСЃС‚РІСѓР№ Р–... РќРѕРІС‹Р№ Р“РѕРґ!
+  // РЅР°С‡РёРЅР°РµРј СЃ С‚РѕРіРѕ, С‡С‚Рѕ Р·Р°РєСЂС‹РІР°РµРј РІРѕР·РІСЂР°С‚ РёР· РІРѕР·РІСЂР°С‚Р°
+  // РРіРЅР°С‚ Рљ.Р“.
   // 2005-01-03
 
-  // Если в документе были изменения - сохраняю..
+  // Р•СЃР»Рё РІ РґРѕРєСѓРјРµРЅС‚Рµ Р±С‹Р»Рё РёР·РјРµРЅРµРЅРёСЏ - СЃРѕС…СЂР°РЅСЏСЋ..
   if ((PosModified) OR (DocNakl.State in [dsEdit, dsInsert])) AND ((OPERSTATUS = iosInvoicePrePaid)) then
     SaveDoc;
 
@@ -8011,7 +8011,7 @@ begin
   DM.SharedQuery.ExecQuery;
   lAutoperenos:=DM.SharedQuery.Fields[0].AsInteger = 1;
 
-  // Определяю, не приход ли этот документ
+  // РћРїСЂРµРґРµР»СЏСЋ, РЅРµ РїСЂРёС…РѕРґ Р»Рё СЌС‚РѕС‚ РґРѕРєСѓРјРµРЅС‚
   DM.SharedQuery.Close;
   DM.SharedQuery.SQL.Text:= cQueryGetIsRaskhod;
   DM.SharedQuery.Params.ByName['GROUP_OPER'].AsInteger:= DocNaklGROUP_OPER.AsInteger;
@@ -8023,16 +8023,16 @@ begin
   isVipChPriceReturnNakl := (DocNaklGROUP_OPER.AsInteger=77361000)and(DocNaklKOD_OPER.AsInteger=240003);
   isVipChPriceReturnNaklF2 := (DocNaklGROUP_OPER.AsInteger=300006300)and(DocNaklKOD_OPER.AsInteger=9964001);
 
-  // Если приход, тогда надо проверить, не возврат ли он?
+  // Р•СЃР»Рё РїСЂРёС…РѕРґ, С‚РѕРіРґР° РЅР°РґРѕ РїСЂРѕРІРµСЂРёС‚СЊ, РЅРµ РІРѕР·РІСЂР°С‚ Р»Рё РѕРЅ?
 
-   // Если оказалось, что действительно, возврат, тогда вон наХ..
+   // Р•СЃР»Рё РѕРєР°Р·Р°Р»РѕСЃСЊ, С‡С‚Рѕ РґРµР№СЃС‚РІРёС‚РµР»СЊРЅРѕ, РІРѕР·РІСЂР°С‚, С‚РѕРіРґР° РІРѕРЅ РЅР°РҐ..
    //if GetProvStatus = 2 then
    // i:=0;
-    // Но, Вон наХ..., говорим не сразу, для "на склад комисс.товара ВОЗВРАТ ЧЕРЕЗ (Цпд) (изм. цены)"
-    // всетаки разрешаем делать расход из возврата - "покупателю ЧЕРЕЗ + 20% НДС (изм.цены)"
-    // проверка на только "покупателю ЧЕРЕЗ + 20% НДС (изм.цены)"
+    // РќРѕ, Р’РѕРЅ РЅР°РҐ..., РіРѕРІРѕСЂРёРј РЅРµ СЃСЂР°Р·Сѓ, РґР»СЏ "РЅР° СЃРєР»Р°Рґ РєРѕРјРёСЃСЃ.С‚РѕРІР°СЂР° Р’РћР—Р’Р РђРў Р§Р•Р Р•Р— (Р¦РїРґ) (РёР·Рј. С†РµРЅС‹)"
+    // РІСЃРµС‚Р°РєРё СЂР°Р·СЂРµС€Р°РµРј РґРµР»Р°С‚СЊ СЂР°СЃС…РѕРґ РёР· РІРѕР·РІСЂР°С‚Р° - "РїРѕРєСѓРїР°С‚РµР»СЋ Р§Р•Р Р•Р— + 20% РќР”РЎ (РёР·Рј.С†РµРЅС‹)"
+    // РїСЂРѕРІРµСЂРєР° РЅР° С‚РѕР»СЊРєРѕ "РїРѕРєСѓРїР°С‚РµР»СЋ Р§Р•Р Р•Р— + 20% РќР”РЎ (РёР·Рј.С†РµРЅС‹)"
    // if not( isVipChPriceReturnNakl or isVipChPriceReturnNaklF2 )then
-   //   raise Exception.Create('Нельзя делать возврат из возврата!');
+   //   raise Exception.Create('РќРµР»СЊР·СЏ РґРµР»Р°С‚СЊ РІРѕР·РІСЂР°С‚ РёР· РІРѕР·РІСЂР°С‚Р°!');
 
   CopyPosExecute(nil);
 
@@ -8066,8 +8066,8 @@ begin
       Prov.Query.ExecQuery;
       lFormType:= Prov.Query.Fields[0].AsInteger;
 
-      // "Новая" привязка документов
-      // пока не категоричная
+      // "РќРѕРІР°СЏ" РїСЂРёРІСЏР·РєР° РґРѕРєСѓРјРµРЅС‚РѕРІ
+      // РїРѕРєР° РЅРµ РєР°С‚РµРіРѕСЂРёС‡РЅР°СЏ
       try
         Prov.Query.Close;
         Prov.Query.SQL.Text:= sInsertLinkDocNew;
@@ -8136,8 +8136,8 @@ begin
         Nakl.Query.ExecQuery;
         lFormType:= Nakl.Query.Fields[0].AsInteger;
 
-        // "Новая" привязка документов
-        // пока не категоричная
+        // "РќРѕРІР°СЏ" РїСЂРёРІСЏР·РєР° РґРѕРєСѓРјРµРЅС‚РѕРІ
+        // РїРѕРєР° РЅРµ РєР°С‚РµРіРѕСЂРёС‡РЅР°СЏ
         try
           Nakl.Query.Close;
           Nakl.Query.SQL.Text:= sInsertLinkDocNew;
@@ -8187,20 +8187,20 @@ begin
 
     if ((Nakl.OPERSTATUS = 2) and (GetProvStatus = 2)) then
 
-      // Но, Вон наХ..., говорим не сразу, для "на склад комисс.товара ВОЗВРАТ ЧЕРЕЗ (Цпд) (изм. цены)"
-      // всетаки разрешаем делать расход из возврата - "покупателю ЧЕРЕЗ + 20% НДС (изм.цены)"
-      // проверка на только "покупателю ЧЕРЕЗ + 20% НДС (изм.цены)"
+      // РќРѕ, Р’РѕРЅ РЅР°РҐ..., РіРѕРІРѕСЂРёРј РЅРµ СЃСЂР°Р·Сѓ, РґР»СЏ "РЅР° СЃРєР»Р°Рґ РєРѕРјРёСЃСЃ.С‚РѕРІР°СЂР° Р’РћР—Р’Р РђРў Р§Р•Р Р•Р— (Р¦РїРґ) (РёР·Рј. С†РµРЅС‹)"
+      // РІСЃРµС‚Р°РєРё СЂР°Р·СЂРµС€Р°РµРј РґРµР»Р°С‚СЊ СЂР°СЃС…РѕРґ РёР· РІРѕР·РІСЂР°С‚Р° - "РїРѕРєСѓРїР°С‚РµР»СЋ Р§Р•Р Р•Р— + 20% РќР”РЎ (РёР·Рј.С†РµРЅС‹)"
+      // РїСЂРѕРІРµСЂРєР° РЅР° С‚РѕР»СЊРєРѕ "РїРѕРєСѓРїР°С‚РµР»СЋ Р§Р•Р Р•Р— + 20% РќР”РЎ (РёР·Рј.С†РµРЅС‹)"
       if not( isVipChPriceReturnNakl or isVipChPriceReturnNaklF2 )then
-         raise Exception.Create('Нельзя делать возврат из возврата!');
+         raise Exception.Create('РќРµР»СЊР·СЏ РґРµР»Р°С‚СЊ РІРѕР·РІСЂР°С‚ РёР· РІРѕР·РІСЂР°С‚Р°!');
       Nakl.NotSetOtsr:=true;
       Nakl.NoOtsr:=true;
 
       Nakl.bSelTT:=not lAutoperenos;
-      //Для отгрузок из инвойсов, принудительно проставляю отправителя и получателя
-      //согласно исходного документа (вне зависимости от типа документа).
-      //Соответственно проверка на счет становиться вторичной...
+      //Р”Р»СЏ РѕС‚РіСЂСѓР·РѕРє РёР· РёРЅРІРѕР№СЃРѕРІ, РїСЂРёРЅСѓРґРёС‚РµР»СЊРЅРѕ РїСЂРѕСЃС‚Р°РІР»СЏСЋ РѕС‚РїСЂР°РІРёС‚РµР»СЏ Рё РїРѕР»СѓС‡Р°С‚РµР»СЏ
+      //СЃРѕРіР»Р°СЃРЅРѕ РёСЃС…РѕРґРЅРѕРіРѕ РґРѕРєСѓРјРµРЅС‚Р° (РІРЅРµ Р·Р°РІРёСЃРёРјРѕСЃС‚Рё РѕС‚ С‚РёРїР° РґРѕРєСѓРјРµРЅС‚Р°).
+      //РЎРѕРѕС‚РІРµС‚СЃС‚РІРµРЅРЅРѕ РїСЂРѕРІРµСЂРєР° РЅР° СЃС‡РµС‚ СЃС‚Р°РЅРѕРІРёС‚СЊСЃСЏ РІС‚РѕСЂРёС‡РЅРѕР№...
       //26.01.2006
-      //Игнат К.
+      //РРіРЅР°С‚ Рљ.
       if isVipChPriceReturnNakl or isVipChPriceReturnNaklF2  then
       begin
         Nakl.DocNaklDK_FROM.Value := DocNaklDK_TO.value;
@@ -8234,7 +8234,7 @@ begin
                 Nakl.DocNaklDK_TO.Value := DocNaklDK_FROM.Value;
           end;
 
-      // В России не работало создание документов адекватно ... внёс коррективы, надо проверить в украине
+      // Р’ Р РѕСЃСЃРёРё РЅРµ СЂР°Р±РѕС‚Р°Р»Рѕ СЃРѕР·РґР°РЅРёРµ РґРѕРєСѓРјРµРЅС‚РѕРІ Р°РґРµРєРІР°С‚РЅРѕ ... РІРЅС‘СЃ РєРѕСЂСЂРµРєС‚РёРІС‹, РЅР°РґРѕ РїСЂРѕРІРµСЂРёС‚СЊ РІ СѓРєСЂР°РёРЅРµ
 
       if ((Nakl.DocNaklDK_TO.IsNull) AND (IntfMegaDBCommon.GetCountry = iccRussia)) then
         Nakl.DK_FROM_CEButtonClick(Nakl.DK_TO_CE,0);
@@ -8255,7 +8255,7 @@ begin
         Nakl.DocNaklPRICETYPE_.Value := DocNaklPRICETYPE_.Value;
       if Nakl.DocNakl.State in [dsInsert,dsEdit] then
         Nakl.DocNakl.Post;
-  //    ShowMessage('Расход'+IntToStr(DocNaklRecId.AsInteger)+#13#10+'Приход'+Nakl.DocNaklRecId.Asstring);
+  //    ShowMessage('Р Р°СЃС…РѕРґ'+IntToStr(DocNaklRecId.AsInteger)+#13#10+'РџСЂРёС…РѕРґ'+Nakl.DocNaklRecId.Asstring);
       if not NoPos then
       begin
       Nakl.CheckPriceForbidden:=true;
@@ -8289,7 +8289,7 @@ begin
       Nakl.DocNaklOTSR.Value := DocNaklOTSR.Value;
       Nakl.DocNakl.Post;
       Nakl.DontCheckRest := True;
-      {тут добавил проверку на дату поскольку накладная может быть в закрытом периоде (Дереза Д.)}
+      {С‚СѓС‚ РґРѕР±Р°РІРёР» РїСЂРѕРІРµСЂРєСѓ РЅР° РґР°С‚Сѓ РїРѕСЃРєРѕР»СЊРєСѓ РЅР°РєР»Р°РґРЅР°СЏ РјРѕР¶РµС‚ Р±С‹С‚СЊ РІ Р·Р°РєСЂС‹С‚РѕРј РїРµСЂРёРѕРґРµ (Р”РµСЂРµР·Р° Р”.)}
       if (DocNaklSTATE.Value<>idsBug)  then
       if (DocNaklOperdate.value>=intfmegadbcommon.GetParam('UNLOCKDATE',intfIbCommon.getserverdate)) then
         begin
@@ -8353,7 +8353,7 @@ begin
         DM.ChangeQuery.Params.ByName['BASEID'].Value :=Nakl.DocNaklBASEID.Value;
         DM.ChangeQuery.ExecQuery;
 
-        // Если исходный документ - Инвойс.спецификация, и были сохранены - сохраняю..
+        // Р•СЃР»Рё РёСЃС…РѕРґРЅС‹Р№ РґРѕРєСѓРјРµРЅС‚ - РРЅРІРѕР№СЃ.СЃРїРµС†РёС„РёРєР°С†РёСЏ, Рё Р±С‹Р»Рё СЃРѕС…СЂР°РЅРµРЅС‹ - СЃРѕС…СЂР°РЅСЏСЋ..
 //        if (PosModified) AND ((OPERSTATUS = iosInvoiceProf) OR (OPERSTATUS = iosInvoicePrePaid))) then
 //        begin
         if DM.ChangeQuery.Transaction.InTransaction then
@@ -8368,9 +8368,9 @@ begin
         if Owner is  TDocListForm then TDocListForm(Owner).RefreshListExecute(Self);
       end;
     end;
-  // В начале процедуры все изменения были сохранены,
-  // но последний из постов таки переключил переменную-флажок в TRUE
-  // избавляюсь от этого принудительно
+  // Р’ РЅР°С‡Р°Р»Рµ РїСЂРѕС†РµРґСѓСЂС‹ РІСЃРµ РёР·РјРµРЅРµРЅРёСЏ Р±С‹Р»Рё СЃРѕС…СЂР°РЅРµРЅС‹,
+  // РЅРѕ РїРѕСЃР»РµРґРЅРёР№ РёР· РїРѕСЃС‚РѕРІ С‚Р°РєРё РїРµСЂРµРєР»СЋС‡РёР» РїРµСЂРµРјРµРЅРЅСѓСЋ-С„Р»Р°Р¶РѕРє РІ TRUE
+  // РёР·Р±Р°РІР»СЏСЋСЃСЊ РѕС‚ СЌС‚РѕРіРѕ РїСЂРёРЅСѓРґРёС‚РµР»СЊРЅРѕ
   PosModified := False;
 end;
 
@@ -8381,7 +8381,7 @@ begin
     and (ssCtrl in Shift)
     and (ssAlt in Shift)
     and (ssShift in Shift)
-  then  // условие для возможности редактирования отчёта
+  then  // СѓСЃР»РѕРІРёРµ РґР»СЏ РІРѕР·РјРѕР¶РЅРѕСЃС‚Рё СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ РѕС‚С‡С‘С‚Р°
   begin
     FDesignReport:= True;
   end;
@@ -8437,7 +8437,7 @@ begin
      DBGridEH1.Columns[28].Visible:=True;
   end;
 
-  // подсвечиваю если не совпадает с выбранной колонкой
+  // РїРѕРґСЃРІРµС‡РёРІР°СЋ РµСЃР»Рё РЅРµ СЃРѕРІРїР°РґР°РµС‚ СЃ РІС‹Р±СЂР°РЅРЅРѕР№ РєРѕР»РѕРЅРєРѕР№
   if btnCheckWithCol.checked and (not DocPosCOL_CHECK_WITH.asBoolean)then
     Background := $008A8DFF;
 
@@ -8463,7 +8463,7 @@ procedure TDocNaklForm.areg_restExecute(Sender: TObject);
 var
 s1,s2,s3,s4:string;
 begin
-  if InputQuery('Введите код базы', 'код базы %', s1) then
+  if InputQuery('Р’РІРµРґРёС‚Рµ РєРѕРґ Р±Р°Р·С‹', 'РєРѕРґ Р±Р°Р·С‹ %', s1) then
   begin
     Query.Transaction.Active:=true;
     Query.Close;
@@ -8500,7 +8500,7 @@ begin
   DK_C_ED.Properties.ReadOnly:= not lDKCAllowEdit;
   if DK_C_ED.Properties.ReadOnly then
   begin
-    DK_C_ED.Hint:= '|Редактирование запрещено. Торговый агент автоматически выбирается из справочника районов';
+    DK_C_ED.Hint:= '|Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ Р·Р°РїСЂРµС‰РµРЅРѕ. РўРѕСЂРіРѕРІС‹Р№ Р°РіРµРЅС‚ Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё РІС‹Р±РёСЂР°РµС‚СЃСЏ РёР· СЃРїСЂР°РІРѕС‡РЅРёРєР° СЂР°Р№РѕРЅРѕРІ';
   end
   else begin
     DK_C_ED.Hint:= '';
@@ -8510,7 +8510,7 @@ begin
 
   if DK_C_NAME_CE.Properties.ReadOnly then
   begin
-    DK_C_NAME_CE.Hint:= '|Редактирование запрещено. Торговый агент автоматически выбирается из справочника районов';
+    DK_C_NAME_CE.Hint:= '|Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ Р·Р°РїСЂРµС‰РµРЅРѕ. РўРѕСЂРіРѕРІС‹Р№ Р°РіРµРЅС‚ Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё РІС‹Р±РёСЂР°РµС‚СЃСЏ РёР· СЃРїСЂР°РІРѕС‡РЅРёРєР° СЂР°Р№РѕРЅРѕРІ';
   end
   else begin
     DK_C_ED.Hint:= '';
@@ -8537,9 +8537,9 @@ const
     '';
  }
 
-// Изменение от 24.07.2003 Бехтеренко Ю.
-// Новая схема с ТТ.
-// 2008-12-27 Филимонов - МегаНовая схема дистрибуции
+// РР·РјРµРЅРµРЅРёРµ РѕС‚ 24.07.2003 Р‘РµС…С‚РµСЂРµРЅРєРѕ Р®.
+// РќРѕРІР°СЏ СЃС…РµРјР° СЃ РўРў.
+// 2008-12-27 Р¤РёР»РёРјРѕРЅРѕРІ - РњРµРіР°РќРѕРІР°СЏ СЃС…РµРјР° РґРёСЃС‚СЂРёР±СѓС†РёРё
   sQueryText =
       ' SELECT dga.kod_dk kod_dk, dga.shortname_dk shortname_dk '+
       '  from distr_select_tt_distr_info(:date, null, null, null, null, null, :OUTLET_RECID, :OUTLET_BASEID, :BRAND_CASE_ID,null,null,null,null,null,null,null,null,null,1,0,null,1,null,1) dst '+
@@ -8586,15 +8586,15 @@ begin
             ) then
         begin
 //        ShowMessage(
-//          'Клиенту не сопоставлен торговый агент'#13#10+
-//          '  (Операцию можно произвести через "Дистрибуция/Состав района" в Money)'#13#10+
-//          'или ЦФО Клиента не соответствует вашей базе '
+//          'РљР»РёРµРЅС‚Сѓ РЅРµ СЃРѕРїРѕСЃС‚Р°РІР»РµРЅ С‚РѕСЂРіРѕРІС‹Р№ Р°РіРµРЅС‚'#13#10+
+//          '  (РћРїРµСЂР°С†РёСЋ РјРѕР¶РЅРѕ РїСЂРѕРёР·РІРµСЃС‚Рё С‡РµСЂРµР· "Р”РёСЃС‚СЂРёР±СѓС†РёСЏ/РЎРѕСЃС‚Р°РІ СЂР°Р№РѕРЅР°" РІ Money)'#13#10+
+//          'РёР»Рё Р¦Р¤Рћ РљР»РёРµРЅС‚Р° РЅРµ СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓРµС‚ РІР°С€РµР№ Р±Р°Р·Рµ '
 //         );
         // Source.DataSet.FieldByName('DK_TO').AsVariant:=null;
           Source.DataSet.Cancel;
-          raise exception.Create('Клиенту не сопоставлен торговый агент'#13#10+
-            '  (Операцию можно произвести через "Дистрибуция/Состав района" в Money)'#13#10+
-            'или ЦФО Клиента не соответствует вашей базе ')
+          raise exception.Create('РљР»РёРµРЅС‚Сѓ РЅРµ СЃРѕРїРѕСЃС‚Р°РІР»РµРЅ С‚РѕСЂРіРѕРІС‹Р№ Р°РіРµРЅС‚'#13#10+
+            '  (РћРїРµСЂР°С†РёСЋ РјРѕР¶РЅРѕ РїСЂРѕРёР·РІРµСЃС‚Рё С‡РµСЂРµР· "Р”РёСЃС‚СЂРёР±СѓС†РёСЏ/РЎРѕСЃС‚Р°РІ СЂР°Р№РѕРЅР°" РІ Money)'#13#10+
+            'РёР»Рё Р¦Р¤Рћ РљР»РёРµРЅС‚Р° РЅРµ СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓРµС‚ РІР°С€РµР№ Р±Р°Р·Рµ ')
         end;
     finally
       q.Free;
@@ -8608,16 +8608,16 @@ begin
   and (DocNaklDK_C.IsNull) then
   begin
     Raise Exception.Create(
-      'Печать невозможна'#13+
-      'Клиенту не присвоен торговый агент'#13+
-      'Присвоить необходимо через справочник районов в MoneyR'#13+
+      'РџРµС‡Р°С‚СЊ РЅРµРІРѕР·РјРѕР¶РЅР°'#13+
+      'РљР»РёРµРЅС‚Сѓ РЅРµ РїСЂРёСЃРІРѕРµРЅ С‚РѕСЂРіРѕРІС‹Р№ Р°РіРµРЅС‚'#13+
+      'РџСЂРёСЃРІРѕРёС‚СЊ РЅРµРѕР±С…РѕРґРёРјРѕ С‡РµСЂРµР· СЃРїСЂР°РІРѕС‡РЅРёРє СЂР°Р№РѕРЅРѕРІ РІ MoneyR'#13+
       ''
     );
   end;
-  //Печать накладной(Не ЛВИ) с примечанием
+  //РџРµС‡Р°С‚СЊ РЅР°РєР»Р°РґРЅРѕР№(РќРµ Р›Р’Р) СЃ РїСЂРёРјРµС‡Р°РЅРёРµРј
   N105.Visible:= printNaklIf_different_Addr or
                             (DocNaklADDR_FROM.Value=DocNaklADDR_TO.Value);
-  //Печать накладной(Не ЛВИ) без примечания
+  //РџРµС‡Р°С‚СЊ РЅР°РєР»Р°РґРЅРѕР№(РќРµ Р›Р’Р) Р±РµР· РїСЂРёРјРµС‡Р°РЅРёСЏ
   N95.Visible:= N105.Visible;
 end;
 
@@ -8626,11 +8626,11 @@ begin
 
 end;
 
-(* Рефакторинг процедуры 27.02.2006г. задачу поставил Хоренко
+(* Р РµС„Р°РєС‚РѕСЂРёРЅРі РїСЂРѕС†РµРґСѓСЂС‹ 27.02.2006Рі. Р·Р°РґР°С‡Сѓ РїРѕСЃС‚Р°РІРёР» РҐРѕСЂРµРЅРєРѕ
 procedure TDocNaklForm.SetRules;
 begin
     case OPERSTATUS of
-      iosReturnToProvider:  //Возврат поставщику
+      iosReturnToProvider:  //Р’РѕР·РІСЂР°С‚ РїРѕСЃС‚Р°РІС‰РёРєСѓ
         begin
           LOCKPRICE:=ilptLockPriceNot;
           FORCEPRICE:=true;
@@ -8659,7 +8659,7 @@ begin
             ClientDK:=DocNaklDK_TO.AsFloat;
           end
         end;
-      iosReturnFromClient:  //Возврат от покупателя
+      iosReturnFromClient:  //Р’РѕР·РІСЂР°С‚ РѕС‚ РїРѕРєСѓРїР°С‚РµР»СЏ
         begin
           LOCKPRICE:=ilptLockPriceColKop;
           FORCEPRICE:=true;
@@ -8678,7 +8678,7 @@ begin
             DefaultPrice:=0;
           end;
         end;
-      iosTrailerBreak:  //перевозчику товар в БОЙ
+      iosTrailerBreak:  //РїРµСЂРµРІРѕР·С‡РёРєСѓ С‚РѕРІР°СЂ РІ Р‘РћР™
         begin
           LOCKPRICE:=ilptLockPriceColKop;
           FORCEPRICE:=true;
@@ -8686,7 +8686,7 @@ begin
           DefaultPrice:=iptSpecial;
           ClientDK:=DocNaklDK_FROM.AsFloat;
         end;
-      iosTrailerBrak:  //перевозчику БРАК товара
+      iosTrailerBrak:  //РїРµСЂРµРІРѕР·С‡РёРєСѓ Р‘Р РђРљ С‚РѕРІР°СЂР°
         begin
           LOCKPRICE:=ilptLockPriceColKop;
           FORCEPRICE:=true;
@@ -8694,7 +8694,7 @@ begin
           DefaultPrice:=iptSpecial;
           ClientDK:=DocNaklDK_FROM.AsFloat;
         end;
-      iosTrailerNotAll:  //перевозчику НЕДОСТАЧА
+      iosTrailerNotAll:  //РїРµСЂРµРІРѕР·С‡РёРєСѓ РќР•Р”РћРЎРўРђР§Рђ
         begin
           LOCKPRICE:=ilptLockPriceColKop;
           FORCEPRICE:=true;
@@ -8702,7 +8702,7 @@ begin
           DefaultPrice:=iptSpecial;
           ClientDK:=DocNaklDK_FROM.AsFloat;
         end;
-      iosBreakToDostavka:  //19-бой при доставке
+      iosBreakToDostavka:  //19-Р±РѕР№ РїСЂРё РґРѕСЃС‚Р°РІРєРµ
         begin
           LOCKPRICE:=ilptLockPriceColKop;
           FORCEPRICE:=true;
@@ -8710,7 +8710,7 @@ begin
           DefaultPrice:=iptSpecial;
           ClientDK:=DocNaklDK_FROM.AsFloat;
         end;
-      iosBreakToSkald:  //18-бой на складе
+      iosBreakToSkald:  //18-Р±РѕР№ РЅР° СЃРєР»Р°РґРµ
         begin
           LOCKPRICE:=ilptLockPriceColKop;
           FORCEPRICE:=true;
@@ -8718,7 +8718,7 @@ begin
           DefaultPrice:=iptSpecial;
           ClientDK:=DocNaklDK_FROM.AsFloat;
         end;
-      iosRealizationF1,iosPrePay:  //Реализация Ф1 или со Скидкой при допсоглашении "Работа по предоплате"
+      iosRealizationF1,iosPrePay:  //Р РµР°Р»РёР·Р°С†РёСЏ Р¤1 РёР»Рё СЃРѕ РЎРєРёРґРєРѕР№ РїСЂРё РґРѕРїСЃРѕРіР»Р°С€РµРЅРёРё "Р Р°Р±РѕС‚Р° РїРѕ РїСЂРµРґРѕРїР»Р°С‚Рµ"
         begin
           LOCKPRICE:=ilptLockPriceCol;//ilptLockPriceColKop;
           FORCEPRICE:=true;
@@ -8736,7 +8736,7 @@ begin
             DefaultPrice:=0;
           end;
         end;
-      iosRealizationF2:  //Реализация Ф2
+      iosRealizationF2:  //Р РµР°Р»РёР·Р°С†РёСЏ Р¤2
         begin
           LOCKPRICE:=ilptLockPriceCol;//ilptLockPriceColKop;
           FORCEPRICE:=true;
@@ -8755,7 +8755,7 @@ begin
             DefaultPrice:=0;
           end;
         end;
-      iosBrends:  //Реализация рекламных материалов
+      iosBrends:  //Р РµР°Р»РёР·Р°С†РёСЏ СЂРµРєР»Р°РјРЅС‹С… РјР°С‚РµСЂРёР°Р»РѕРІ
         begin
           LOCKPRICE:=ilptLockPriceCol;//ilptLockPriceColKop;
           FORCEPRICE:=true;
@@ -8773,7 +8773,7 @@ begin
             DefaultPrice:=0;
           end;
         end;
-      iosInternalMove:  //Внутреннее перемещение
+      iosInternalMove:  //Р’РЅСѓС‚СЂРµРЅРЅРµРµ РїРµСЂРµРјРµС‰РµРЅРёРµ
         begin
           LOCKPRICE:=ilptLockPriceColKop;
           FORCEPRICE:=true;
@@ -8792,7 +8792,7 @@ begin
             DefaultPrice:=0;
           end;
         end;
-      iosIncomeFromProvider:  //Приход от поставщика
+      iosIncomeFromProvider:  //РџСЂРёС…РѕРґ РѕС‚ РїРѕСЃС‚Р°РІС‰РёРєР°
         begin
           LOCKPRICE:=ilptLockPriceKop;
           FORCEPRICE:=true;
@@ -8800,7 +8800,7 @@ begin
           DefaultPrice:=iptZak1;
           ClientDK:=DocNaklDK_FROM.AsFloat;
         end;
-      iosIncomeFromRoad:  //Приход из пути
+      iosIncomeFromRoad:  //РџСЂРёС…РѕРґ РёР· РїСѓС‚Рё
         begin
           LOCKPRICE:=ilptLockPriceColKop;
           FORCEPRICE:=true;
@@ -8818,7 +8818,7 @@ begin
             DefaultPrice:=0;
           end;
         end;
-      iosOutcomeToRoad:  //Уход в путь
+      iosOutcomeToRoad:  //РЈС…РѕРґ РІ РїСѓС‚СЊ
         begin
           LOCKPRICE:=ilptLockPriceKop;
           FORCEPRICE:=true;
@@ -8867,16 +8867,16 @@ begin
 
 procedure TDocNaklForm.SetRules;
 
-  //  Измененная процедура (27.02.2006г.) задачу поставил Хоренко
-  //  убрал отмену контроля цены для БОЯ и КОНЕЧНОГО ПОТРЕБИТЕЛЯ
+  //  РР·РјРµРЅРµРЅРЅР°СЏ РїСЂРѕС†РµРґСѓСЂР° (27.02.2006Рі.) Р·Р°РґР°С‡Сѓ РїРѕСЃС‚Р°РІРёР» РҐРѕСЂРµРЅРєРѕ
+  //  СѓР±СЂР°Р» РѕС‚РјРµРЅСѓ РєРѕРЅС‚СЂРѕР»СЏ С†РµРЅС‹ РґР»СЏ Р‘РћРЇ Рё РљРћРќР•Р§РќРћР“Рћ РџРћРўР Р•Р‘РРўР•Р›РЇ
   procedure ChechDK_TO;
   begin
     if (DocNaklDK_TO.AsFloat=DM.DKTDM)
      or (
       (Source.DataSet.FieldByName('DK_TO_BASEID').AsVariant<>NULL)
        and (Source.DataSet.FieldByName('DK_TO_BASEID').AsInteger=0)
-       AND (DocNaklDK_TO.AsFloat<>999{Конечный потребитель})
-       AND (DocNaklDK_TO.AsFloat<>1017{Бой})
+       AND (DocNaklDK_TO.AsFloat<>999{РљРѕРЅРµС‡РЅС‹Р№ РїРѕС‚СЂРµР±РёС‚РµР»СЊ})
+       AND (DocNaklDK_TO.AsFloat<>1017{Р‘РѕР№})
        )
      or (DocNaklDK_TO.AsFloat=DM.DKPP) or (DocNaklDK_TO.AsFloat=14)
      or (DocNaklDK_TO.AsFloat=IntfMegaCommon.GetBalanceDK(
@@ -8894,7 +8894,7 @@ procedure TDocNaklForm.SetRules;
 
 begin
   case OPERSTATUS of
-    iosReturnToProvider,iosOutcomeToOtv:  //Возврат поставщику
+    iosReturnToProvider,iosOutcomeToOtv:  //Р’РѕР·РІСЂР°С‚ РїРѕСЃС‚Р°РІС‰РёРєСѓ
       begin
         LOCKPRICE:=ilptLockPriceNot;
         FORCEPRICE:=true;
@@ -8913,7 +8913,7 @@ begin
           ClientDK:=DocNaklDK_TO.AsFloat;
         end
       end;
-    iosReturnFromClient,iosReturnFromKomis:  //Возврат от покупателя
+    iosReturnFromClient,iosReturnFromKomis:  //Р’РѕР·РІСЂР°С‚ РѕС‚ РїРѕРєСѓРїР°С‚РµР»СЏ
       begin
         LOCKPRICE:=ilptLockPriceColKop;
         FORCEPRICE:=true;
@@ -8922,11 +8922,11 @@ begin
         ClientDK:=DocNaklDK_FROM.AsFloat;
         ChechDK_TO;
       end;
-     iosTrailerBreak,     //перевозчику товар в БОЙ
-     iosTrailerBrak,     //перевозчику БРАК товара
-     iosTrailerNotAll,   //перевозчику НЕДОСТАЧА
-     iosBreakToDostavka, //19-бой при доставке
-     iosBreakToSkald:    //18-бой на складе
+     iosTrailerBreak,     //РїРµСЂРµРІРѕР·С‡РёРєСѓ С‚РѕРІР°СЂ РІ Р‘РћР™
+     iosTrailerBrak,     //РїРµСЂРµРІРѕР·С‡РёРєСѓ Р‘Р РђРљ С‚РѕРІР°СЂР°
+     iosTrailerNotAll,   //РїРµСЂРµРІРѕР·С‡РёРєСѓ РќР•Р”РћРЎРўРђР§Рђ
+     iosBreakToDostavka, //19-Р±РѕР№ РїСЂРё РґРѕСЃС‚Р°РІРєРµ
+     iosBreakToSkald:    //18-Р±РѕР№ РЅР° СЃРєР»Р°РґРµ
       begin
         LOCKPRICE:=ilptLockPriceColKop;
         FORCEPRICE:=true;
@@ -8947,7 +8947,7 @@ begin
 
       end;
 
-     iosRealizationF1,iosPrePay,iosIndikativ:  //Реализация Ф1 или со Скидкой при допсоглашении "Работа по предоплате"
+     iosRealizationF1,iosPrePay,iosIndikativ:  //Р РµР°Р»РёР·Р°С†РёСЏ Р¤1 РёР»Рё СЃРѕ РЎРєРёРґРєРѕР№ РїСЂРё РґРѕРїСЃРѕРіР»Р°С€РµРЅРёРё "Р Р°Р±РѕС‚Р° РїРѕ РїСЂРµРґРѕРїР»Р°С‚Рµ"
       begin
         LOCKPRICE:=ilptLockPriceCol;
         FORCEPRICE:=true;
@@ -8958,7 +8958,7 @@ begin
         if (DocNaklDK_TO.AsFloat=DM.DKTDM)
         or ((Source.DataSet.FieldByName('DK_TO_BASEID').AsVariant<>NULL) and (Source.DataSet.FieldByName('DK_TO_BASEID').AsInteger=0) AND (DocNaklDK_TO.AsFloat<>999))
         or (DocNaklDK_TO.AsFloat=DM.DKPP) or (DocNaklDK_TO.AsFloat=14) or (DocNaklDK_TO.AsFloat=42735405)
-        or (DocNaklDK_TO.AsFloat=40235755) // для ВДГ //add new nirs 08_07_2025
+        or (DocNaklDK_TO.AsFloat=40235755) // РґР»СЏ Р’Р”Р“ //add new nirs 08_07_2025
         {or (DocNaklDK_TO.AsFloat=999)} or (DocNaklDK_TO.AsFloat=1017) then
         begin
           LOCKPRICE:=ilptLockPriceNot;
@@ -8967,7 +8967,7 @@ begin
           DefaultPrice:=0;
         end;
       end;
-    iosRealizationF2:  //Реализация Ф2
+    iosRealizationF2:  //Р РµР°Р»РёР·Р°С†РёСЏ Р¤2
       begin
         LOCKPRICE:=ilptLockPriceCol;//ilptLockPriceColKop;
         FORCEPRICE:=true;
@@ -8976,7 +8976,7 @@ begin
         ClientDK:=DocNaklDK_TO.AsFloat;
         ChechDK_TO;
       end;
-    iosBrends:  //Реализация рекламных материалов
+    iosBrends:  //Р РµР°Р»РёР·Р°С†РёСЏ СЂРµРєР»Р°РјРЅС‹С… РјР°С‚РµСЂРёР°Р»РѕРІ
       begin
         LOCKPRICE:=ilptLockPriceCol;//ilptLockPriceColKop;
         FORCEPRICE:=true;
@@ -8985,7 +8985,7 @@ begin
         ClientDK:=DocNaklDK_TO.AsFloat;
         ChechDK_TO;
       end;
-    iosInternalMove:  //Внутреннее перемещение
+    iosInternalMove:  //Р’РЅСѓС‚СЂРµРЅРЅРµРµ РїРµСЂРµРјРµС‰РµРЅРёРµ
       begin
         LOCKPRICE:=ilptLockPriceColKop;
         FORCEPRICE:=true;
@@ -8994,7 +8994,7 @@ begin
         ClientDK:=DocNaklDK_TO.AsFloat;
         ChechDK_TO;
       end;
-    iosIncomeFromProvider:  //Приход от поставщика
+    iosIncomeFromProvider:  //РџСЂРёС…РѕРґ РѕС‚ РїРѕСЃС‚Р°РІС‰РёРєР°
       begin
         LOCKPRICE:=ilptLockPriceKop;
         FORCEPRICE:=true;
@@ -9002,7 +9002,7 @@ begin
         DefaultPrice:=iptZak1;
         ClientDK:=DocNaklDK_FROM.AsFloat;
       end;
-    iosIncomeFromRoad,iosImportIncomeFromRoad:  //Приход из пути
+    iosIncomeFromRoad,iosImportIncomeFromRoad:  //РџСЂРёС…РѕРґ РёР· РїСѓС‚Рё
       begin
         LOCKPRICE:=ilptLockPriceColKop;
         FORCEPRICE:=true;
@@ -9011,7 +9011,7 @@ begin
         ClientDK:=DocNaklDK_FROM.AsFloat;
         ChechDK_TO;
       end;
-    iosOutcomeToRoad:  //Уход в путь
+    iosOutcomeToRoad:  //РЈС…РѕРґ РІ РїСѓС‚СЊ
       begin
         LOCKPRICE:=ilptLockPriceKop;
         FORCEPRICE:=true;
@@ -9051,7 +9051,7 @@ begin
     AllowPrice:=[0];
     DefaultPrice:=0;
   end;
-  // показываем галочку только для экспорта (инвойс на предоплату УСД)
+  // РїРѕРєР°Р·С‹РІР°РµРј РіР°Р»РѕС‡РєСѓ С‚РѕР»СЊРєРѕ РґР»СЏ СЌРєСЃРїРѕСЂС‚Р° (РёРЅРІРѕР№СЃ РЅР° РїСЂРµРґРѕРїР»Р°С‚Сѓ РЈРЎР”)
   cbPallete.Visible := (IntfMegaDBCommon.GetParam('WORK_VED', '0')='1')
 //  ((DocNaklBASEID.AsInteger=215)or
 //                         (IntfMegaDBCommon.GetBaseID=215))
@@ -9074,13 +9074,13 @@ begin
   nac:=0;
 
 { ----------------- Added by Lion in 08.01.2009 ---------------- }
-{  Не проверять цены в ценовой колонке для таких вот документов  }
-  if OPERSTATUS in [iosReturnFromClient,   //Возврат от покупателя
-                    //iosIncomeFromProvider, //Приход от поставщика
-                    iosIncomeFromRoad,     //Приход из пути
-                    iosImportIncomeFromRoad,     //импорт Приход из пути
-                    iosBreakToDostavka,    //бой при доставке
-                    iosBreakToSkald        //бой на складе
+{  РќРµ РїСЂРѕРІРµСЂСЏС‚СЊ С†РµРЅС‹ РІ С†РµРЅРѕРІРѕР№ РєРѕР»РѕРЅРєРµ РґР»СЏ С‚Р°РєРёС… РІРѕС‚ РґРѕРєСѓРјРµРЅС‚РѕРІ  }
+  if OPERSTATUS in [iosReturnFromClient,   //Р’РѕР·РІСЂР°С‚ РѕС‚ РїРѕРєСѓРїР°С‚РµР»СЏ
+                    //iosIncomeFromProvider, //РџСЂРёС…РѕРґ РѕС‚ РїРѕСЃС‚Р°РІС‰РёРєР°
+                    iosIncomeFromRoad,     //РџСЂРёС…РѕРґ РёР· РїСѓС‚Рё
+                    iosImportIncomeFromRoad,     //РёРјРїРѕСЂС‚ РџСЂРёС…РѕРґ РёР· РїСѓС‚Рё
+                    iosBreakToDostavka,    //Р±РѕР№ РїСЂРё РґРѕСЃС‚Р°РІРєРµ
+                    iosBreakToSkald        //Р±РѕР№ РЅР° СЃРєР»Р°РґРµ
                    ]
   then
   begin
@@ -9123,7 +9123,7 @@ begin
     Result:=true;
     exit;
   end;
- //закоментировал. менялась цена на сандоре (17.06.2006)
+ //Р·Р°РєРѕРјРµРЅС‚РёСЂРѕРІР°Р». РјРµРЅСЏР»Р°СЃСЊ С†РµРЅР° РЅР° СЃР°РЅРґРѕСЂРµ (17.06.2006)
 //  if (DocPosSource.DataSet.FieldByName('PRICE_KOL').AsInteger<>0) and
 //   (DocNaklPRICETYPE_.AsInteger in [iptSpecial,iptSpecialP])
 //  then
@@ -9196,7 +9196,7 @@ begin
         DocNaklPRICETYPE_.AsString + ', ' + InVal.dataBinding.Field.AsString + ', '+
         FloatToStr(ClientDK) + ','+DocNaklCFO.asstring +', ' + IntToStr(NaklOutletRecid) + ', ' + IntToStr(NaklOutletBaseid)
    { ---------------- Added by Lion in 24.12.2008 --------------- }
-   {           Накладную нужно создавать по ценам региона           }
+   {           РќР°РєР»Р°РґРЅСѓСЋ РЅСѓР¶РЅРѕ СЃРѕР·РґР°РІР°С‚СЊ РїРѕ С†РµРЅР°Рј СЂРµРіРёРѕРЅР°           }
 //        + liUtils.iif(Trim(DocNaklADDR_TO.asstring) = '', '', ', ' + DocNaklADDR_TO.asstring)
         + liUtils.iif((Trim(DocNaklADDR_TO.asstring) = '') or (DocNaklCFO.asInteger = DocNaklADDR_TO.AsInteger), ' ,null ', ', ' + DocNaklADDR_TO.asstring)
    { ----------- End of changing by Lion in 24.12.2008 ----------- }
@@ -9209,7 +9209,7 @@ begin
         DocNaklPRICETYPE_.AsString + ', ' + InVal.dataBinding.Field.AsString + ', '+
         FloatToStr(ClientDK) + ','+DocNaklCFO.asstring
    { ---------------- Added by Lion in 24.12.2008 --------------- }
-   {           Накладную нужно создавать по ценам региона - в Украине не нужно           }
+   {           РќР°РєР»Р°РґРЅСѓСЋ РЅСѓР¶РЅРѕ СЃРѕР·РґР°РІР°С‚СЊ РїРѕ С†РµРЅР°Рј СЂРµРіРёРѕРЅР° - РІ РЈРєСЂР°РёРЅРµ РЅРµ РЅСѓР¶РЅРѕ           }
    //      + liUtils.iif(Trim(DocNaklADDR_TO.asstring) = '', '', ', ' + DocNaklADDR_TO.asstring)
    { ----------- End of changing by Lion in 24.12.2008 ----------- }
         + ')';
@@ -9231,7 +9231,7 @@ begin
       Result:=true;
       if (DocPosPRICEWPDV.Value>(dd+kop+nac)) or (DocPosPRICEWPDV.Value<(dd-kop)) then Result:=false;
       If   (((Query.FieldIndex['IND_'] >= 0) and  (Query.FieldByName('IND_').AsInteger<>0))
-         or ((Query.FieldIndex['IND1'] >= 0) and  (Query.FieldByName('IND1').AsDouble<>0))) //для ПЛВЗ пропускаем
+         or ((Query.FieldIndex['IND1'] >= 0) and  (Query.FieldByName('IND1').AsDouble<>0))) //РґР»СЏ РџР›Р’Р— РїСЂРѕРїСѓСЃРєР°РµРј
          and  (DocPosKolich.Value <> 0)  or (DocPosIND.AsInteger=1) then
         begin
           if (DocPosIND_SUMMA.Value / DocPosKolich.Value>(ddi+kop+nac)) or (DocPosIND_SUMMA.Value / DocPosKolich.Value<(ddi-kop))
@@ -9251,7 +9251,7 @@ begin
                 if (DocPosPRICEWPDV.Value>(dd+kop+nac)) or (DocPosPRICEWPDV.Value<(dd-kop)) then Result:=false;
         end;
 
-  //возможность добавлять товар с ценой меньше закупочной на ЛВЗ
+  //РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ РґРѕР±Р°РІР»СЏС‚СЊ С‚РѕРІР°СЂ СЃ С†РµРЅРѕР№ РјРµРЅСЊС€Рµ Р·Р°РєСѓРїРѕС‡РЅРѕР№ РЅР° Р›Р’Р—
   if (DocPosPRICEWPDV.Value<>dd) and (((IntfMegaDBCommon.GetBaseID in [60, 215]) or (IntfMegaDBCommon.GetParam('WORK_VED', '0')='1')) or
                                      (((IntfMegaAccessManager.GetUserRole='BUHGALTER_SUPPLIER') or (IntfMegaAccessManager.GetUserRole='BUHGALTER_ON_SUPPLIER') or (IntfMegaAccessManager.GetUserRole='BUHGALTER_ON_ASSETS') or (IntfMegaAccessManager.GetUserRole='CORRECTOR'))
                                           and (IntfMegaDBCommon.GetCountry=iccRussia) and (OPERSTATUS=iosIncomeFromProvider))) then
@@ -9306,14 +9306,14 @@ begin
   if (Query.RecordCount=0) and (DM.DKPP<>DocNaklDK_FROM.AsFloat) and (DM.DKTDM<>DocNaklDK_FROM.AsFloat) and (not IntfMegaDBCommon.IsOffice) then
   begin
     raise exception.Create(
-      'Сохранение накладной невозможно'#13+
-      'Создавайте возвратный документ из расходной накладной');
+      'РЎРѕС…СЂР°РЅРµРЅРёРµ РЅР°РєР»Р°РґРЅРѕР№ РЅРµРІРѕР·РјРѕР¶РЅРѕ'#13+
+      'РЎРѕР·РґР°РІР°Р№С‚Рµ РІРѕР·РІСЂР°С‚РЅС‹Р№ РґРѕРєСѓРјРµРЅС‚ РёР· СЂР°СЃС…РѕРґРЅРѕР№ РЅР°РєР»Р°РґРЅРѕР№');
   end
   else
     if (Query.RecordCount=0) AND (GetProvStatus = iosRealization) then
       raise exception.Create(
-          'Сохранение накладной невозможно'#13+
-          'Создавайте этот документ из инвойса на преодплату!');
+          'РЎРѕС…СЂР°РЅРµРЅРёРµ РЅР°РєР»Р°РґРЅРѕР№ РЅРµРІРѕР·РјРѕР¶РЅРѕ'#13+
+          'РЎРѕР·РґР°РІР°Р№С‚Рµ СЌС‚РѕС‚ РґРѕРєСѓРјРµРЅС‚ РёР· РёРЅРІРѕР№СЃР° РЅР° РїСЂРµРѕРґРїР»Р°С‚Сѓ!');
 end;
 
 procedure TDocNaklForm.aCreateOplDocNoPosExecute(Sender: TObject);
@@ -9331,7 +9331,7 @@ begin
 //   if not (DM.UserAccess in [2,4]) then exit;
    if btTransit.Down then
    begin
-     if Application.MessageBox('Вы уверенны, что по данной накладной не было погрузочно-разгрузочных работ ?', 'Внимание !', MB_YESNO + MB_ICONQUESTION)=ID_NO
+     if Application.MessageBox('Р’С‹ СѓРІРµСЂРµРЅРЅС‹, С‡С‚Рѕ РїРѕ РґР°РЅРЅРѕР№ РЅР°РєР»Р°РґРЅРѕР№ РЅРµ Р±С‹Р»Рѕ РїРѕРіСЂСѓР·РѕС‡РЅРѕ-СЂР°Р·РіСЂСѓР·РѕС‡РЅС‹С… СЂР°Р±РѕС‚ ?', 'Р’РЅРёРјР°РЅРёРµ !', MB_YESNO + MB_ICONQUESTION)=ID_NO
      then begin
        btTransit.Down:=false;
        exit;
@@ -9347,7 +9347,7 @@ begin
      Query4.Transaction.CommitRetaining;
    end else
    begin
-     if Application.MessageBox('Вы уверенны, что по данной накладной были погрузочно-разнрузочные работы ?', 'Внимание !', MB_YESNO + MB_ICONQUESTION)=ID_NO
+     if Application.MessageBox('Р’С‹ СѓРІРµСЂРµРЅРЅС‹, С‡С‚Рѕ РїРѕ РґР°РЅРЅРѕР№ РЅР°РєР»Р°РґРЅРѕР№ Р±С‹Р»Рё РїРѕРіСЂСѓР·РѕС‡РЅРѕ-СЂР°Р·РЅСЂСѓР·РѕС‡РЅС‹Рµ СЂР°Р±РѕС‚С‹ ?', 'Р’РЅРёРјР°РЅРёРµ !', MB_YESNO + MB_ICONQUESTION)=ID_NO
      then begin
        btTransit.Down:=true;
        exit;
@@ -9402,7 +9402,7 @@ begin
       q.ExecQuery;
       if q.Fields[0].AsDateTime < Date then
       begin
-        Raise Exception.Create('У данного дебитора просрочен или отсутствует договор');
+        Raise Exception.Create('РЈ РґР°РЅРЅРѕРіРѕ РґРµР±РёС‚РѕСЂР° РїСЂРѕСЃСЂРѕС‡РµРЅ РёР»Рё РѕС‚СЃСѓС‚СЃС‚РІСѓРµС‚ РґРѕРіРѕРІРѕСЂ');
       end;
 
     finally
@@ -9415,7 +9415,7 @@ procedure TDocNaklForm.CheckTradeOutlet_Name(aDialog: TMegaSelDKDialog);
 begin
   if Trim(aDialog.OutletName) = '' then
   begin
-    raise Exception.Create('Не задано название торговой точки');
+    raise Exception.Create('РќРµ Р·Р°РґР°РЅРѕ РЅР°Р·РІР°РЅРёРµ С‚РѕСЂРіРѕРІРѕР№ С‚РѕС‡РєРё');
   end;
 end;
 
@@ -9469,7 +9469,7 @@ begin
     begin
       if q.FieldByName('category').IsNull then
       begin
-        Raise Exception.Create('Не задана категория торговой точки');
+        Raise Exception.Create('РќРµ Р·Р°РґР°РЅР° РєР°С‚РµРіРѕСЂРёСЏ С‚РѕСЂРіРѕРІРѕР№ С‚РѕС‡РєРё');
       end;
     end;
 
@@ -9520,22 +9520,22 @@ begin
 
     q.ExecQuery;
 
-    // для возвратов подтягиваю ТТ из расходной накалдной
+    // РґР»СЏ РІРѕР·РІСЂР°С‚РѕРІ РїРѕРґС‚СЏРіРёРІР°СЋ РўРў РёР· СЂР°СЃС…РѕРґРЅРѕР№ РЅР°РєР°Р»РґРЅРѕР№
     if (q.FieldByname('TT_FROM_LINK_DOC').AsInteger = 1) and
        (not q.FieldByname('storecid').isNull) then
-      lbOutletInfo.Caption:= 'Возврат с ТТ '
+      lbOutletInfo.Caption:= 'Р’РѕР·РІСЂР°С‚ СЃ РўРў '
      else
       lbOutletInfo.Caption:= '';
 
     lbOutletInfo.Caption:= lbOutletInfo.Caption+
       q.FieldByname('stoname').AsString+' ('+
       q.FieldByname('nas_p_name').AsString+', '+
-      q.FieldByname('sdaaddress').AsString+'), кат: '+q.FieldByname('CAT_NAME').AsString;
+      q.FieldByname('sdaaddress').AsString+'), РєР°С‚: '+q.FieldByname('CAT_NAME').AsString;
 
     lbOutletInfo.Hint:= lbOutletInfo.Caption;  
 
     pnKeytAddress.Visible:=(q.FieldByname('category').AsInteger=iocK_Keyt);
-    lblKeytAddress.Caption:='Адрес доставки (кейт. компания): '+
+    lblKeytAddress.Caption:='РђРґСЂРµСЃ РґРѕСЃС‚Р°РІРєРё (РєРµР№С‚. РєРѕРјРїР°РЅРёСЏ): '+
       q.FieldByname('keyt_name').AsString+' ('+
       q.FieldByname('keyt_address').AsString+')';
 
@@ -9578,7 +9578,7 @@ procedure TDocNaklForm.DocPosBeforeDelete(DataSet: TDataSet);
 begin
 {
    if (DocPosSource.DataSet.FieldByName('PRICE_KOL').AsInteger<>0)
-   // add by ZIS 23.05.03 исключаем изменение кол-ва в возвратах
+   // add by ZIS 23.05.03 РёСЃРєР»СЋС‡Р°РµРј РёР·РјРµРЅРµРЅРёРµ РєРѕР»-РІР° РІ РІРѕР·РІСЂР°С‚Р°С…
    and not( (DocNaklDK_TO.AsFloat=DM.DKTDM) or (DocNaklDK_TO.AsFloat=DM.DKPP))
 }
    if(not( (DocNaklDK_TO.AsFloat=DM.DKTDM) or (DocNaklDK_TO.AsFloat=DM.DKPP)))
@@ -9628,7 +9628,7 @@ begin
 
 //  if IntfMegaDBCommon.IsOffice then
 //    lSM.Host := 'mail.office.meganet';
-  lSM.SetSMTPLoginByID(3); // устанавливаю хост/логин/пароль для SMTP
+  lSM.SetSMTPLoginByID(3); // СѓСЃС‚Р°РЅР°РІР»РёРІР°СЋ С…РѕСЃС‚/Р»РѕРіРёРЅ/РїР°СЂРѕР»СЊ РґР»СЏ SMTP
 
   if aDNForm=nil
   then begin
@@ -9640,7 +9640,7 @@ begin
     qrEnakl_:=aDNForm.qrEnakl;
 
   try
-    // определяем торговую точку и параметры по ней
+    // РѕРїСЂРµРґРµР»СЏРµРј С‚РѕСЂРіРѕРІСѓСЋ С‚РѕС‡РєСѓ Рё РїР°СЂР°РјРµС‚СЂС‹ РїРѕ РЅРµР№
 //    outlet:=DocNakl.GetOutlet(false);
 //    if outlet.RecID = 0 then
     qrEnakl_.Close;
@@ -9653,7 +9653,7 @@ begin
     qrEnakl_.ParamByName('baseid').AsInteger:= aBaseID;
     qrEnakl_.Open;
     if (qrEnakl_.FieldByName('EMAIL').IsNull) or (qrEnakl_.FieldByName('EMAIL').AsString = '') then
-     raise Exception.Create('Для накладной не заполнены параметры электронной накладной.');
+     raise Exception.Create('Р”Р»СЏ РЅР°РєР»Р°РґРЅРѕР№ РЅРµ Р·Р°РїРѕР»РЅРµРЅС‹ РїР°СЂР°РјРµС‚СЂС‹ СЌР»РµРєС‚СЂРѕРЅРЅРѕР№ РЅР°РєР»Р°РґРЅРѕР№.');
 
     lForm     :=qrEnakl_.FieldByName('KOD_ENAKL').AsInteger;
     lOPERDATE :=qrEnakl_.FieldByName('OPERDATE').asDateTime;
@@ -9693,14 +9693,14 @@ begin
         qrEnakl_.ParamByName('AKOD_ENAKL').AsInteger:=lForm;
         qrEnakl_.Open;
         if qrEnakl_.IsEmpty then
-          raise exception.Create('Не заполнен формат электронной накладной.');
+          raise exception.Create('РќРµ Р·Р°РїРѕР»РЅРµРЅ С„РѕСЂРјР°С‚ СЌР»РµРєС‚СЂРѕРЅРЅРѕР№ РЅР°РєР»Р°РґРЅРѕР№.');
         while not qrEnakl_.eof do begin
           if qrEnakl_.FieldByName('STR_LINE').AsString<>'' then
             lEnaklTxt.Add(qrEnakl_.FieldByName('STR_LINE').AsString);
           qrEnakl_.Next;
         end;
 
-      // шлем письмо
+      // С€Р»РµРј РїРёСЃСЊРјРѕ
       datetimetostring(lDt,'yyyymmdd',lOPERDATE);
       lDt:=lDt+'_';
       if lBalance=77 then
@@ -9730,10 +9730,10 @@ begin
     try
       lSM.SendEmail;
       if aShowInfo then
-        Info('Накладная успешно отправлена.');
+        Info('РќР°РєР»Р°РґРЅР°СЏ СѓСЃРїРµС€РЅРѕ РѕС‚РїСЂР°РІР»РµРЅР°.');
     except
       on e:Exception do
-        liUtils.Error('Не удалось отправить накладную !'+#13+#10+' ошибка - [' + e.Message + ']');
+        liUtils.Error('РќРµ СѓРґР°Р»РѕСЃСЊ РѕС‚РїСЂР°РІРёС‚СЊ РЅР°РєР»Р°РґРЅСѓСЋ !'+#13+#10+' РѕС€РёР±РєР° - [' + e.Message + ']');
     end;
   finally
     if aDNForm=nil then
@@ -9783,9 +9783,9 @@ begin
   lSM:=TMegaSendMail.Create(self);
 //  if IntfMegaDBCommon.IsOffice then
 //    lSM.Host := 'mail.office.meganet';
-  lSM.SetSMTPLoginByID(3); // устанавливаю хост/логин/пароль для SMTP
+  lSM.SetSMTPLoginByID(3); // СѓСЃС‚Р°РЅР°РІР»РёРІР°СЋ С…РѕСЃС‚/Р»РѕРіРёРЅ/РїР°СЂРѕР»СЊ РґР»СЏ SMTP
   try
-    // определяем торговую точку и параметры по ней
+    // РѕРїСЂРµРґРµР»СЏРµРј С‚РѕСЂРіРѕРІСѓСЋ С‚РѕС‡РєСѓ Рё РїР°СЂР°РјРµС‚СЂС‹ РїРѕ РЅРµР№
 //    outlet:=DocNakl.GetOutlet(false);
 //    if outlet.RecID = 0 then
     qrEnakl.Close;
@@ -9796,7 +9796,7 @@ begin
     qrEnakl.ParamByName('baseid').AsInteger:= DocNaklBaseID.Value;
     qrEnakl.Open;
     if (qrEnakl.FieldByName('EMAIL').IsNull) or (qrEnakl.FieldByName('EMAIL').AsString = '') then
-     raise Exception.Create('Для накладной не заполнены параметры электронной накладной.');
+     raise Exception.Create('Р”Р»СЏ РЅР°РєР»Р°РґРЅРѕР№ РЅРµ Р·Р°РїРѕР»РЅРµРЅС‹ РїР°СЂР°РјРµС‚СЂС‹ СЌР»РµРєС‚СЂРѕРЅРЅРѕР№ РЅР°РєР»Р°РґРЅРѕР№.');
     lForm:=qrEnakl.FieldByName('KOD_ENAKL').AsInteger;
     if IntfMegaAccessManager.GetUserName='ZIN'
       then  lEmail:='zubrilin.i@khortitsa.com'
@@ -9825,8 +9825,8 @@ begin
          ' WHERE KOD_ENAKL=%d order by INSERT_ORDER',[lForm]);
         qrEnakl.Open;
         if qrEnakl.IsEmpty then
-          raise exception.Create('Не заполнен формат электронной накладной.');
-        // формируем текст
+          raise exception.Create('РќРµ Р·Р°РїРѕР»РЅРµРЅ С„РѕСЂРјР°С‚ СЌР»РµРєС‚СЂРѕРЅРЅРѕР№ РЅР°РєР»Р°РґРЅРѕР№.');
+        // С„РѕСЂРјРёСЂСѓРµРј С‚РµРєСЃС‚
         DocPosForENakl.active:=false;
         DocPosForENakl.active:=true;
         DocPosForENakl.First;
@@ -9868,7 +9868,7 @@ begin
           lEnaklTxt.Add(lPos);
           DocPosForENakl.Next;
         end;
-        // заполним информайию заголовка
+        // Р·Р°РїРѕР»РЅРёРј РёРЅС„РѕСЂРјР°Р№РёСЋ Р·Р°РіРѕР»РѕРІРєР°
         qrEnakl.First;
         while not qrEnakl.Eof do
         begin
@@ -9898,7 +9898,7 @@ begin
           end;
           qrEnakl.Next;
         end;
-      // шлем письмо
+      // С€Р»РµРј РїРёСЃСЊРјРѕ
       datetimetostring(lDt,'yyyymmdd',Source.DataSet.FieldByName('OPERDATE').AsDateTime);
       lDt:=lDt+'_';
       if docNaklBalance_kod.asinteger=77 then
@@ -9926,10 +9926,10 @@ begin
     try
       lSM.SendEmail;
       if aShowInfo then
-        Info('Накладная успешно отправлена.');
+        Info('РќР°РєР»Р°РґРЅР°СЏ СѓСЃРїРµС€РЅРѕ РѕС‚РїСЂР°РІР»РµРЅР°.');
     except
       on e:Exception do
-        liUtils.Error('Не удалось отправить накладную !'+#13+#10+' ошибка - [' + e.Message + ']');
+        liUtils.Error('РќРµ СѓРґР°Р»РѕСЃСЊ РѕС‚РїСЂР°РІРёС‚СЊ РЅР°РєР»Р°РґРЅСѓСЋ !'+#13+#10+' РѕС€РёР±РєР° - [' + e.Message + ']');
     end;
   finally
     listAddr.Free;
@@ -9995,7 +9995,7 @@ procedure TDocNaklForm.SetPriceCol(aCol, aAllPrice: integer);
 var
   lSc: integer;
 begin
-  // проставить по всем позициям колонку
+  // РїСЂРѕСЃС‚Р°РІРёС‚СЊ РїРѕ РІСЃРµРј РїРѕР·РёС†РёСЏРј РєРѕР»РѕРЅРєСѓ
   lSc:=Screen.Cursor;
   Screen.Cursor:=crHourGlass;
   try
@@ -10066,7 +10066,7 @@ end;
 
 procedure TDocNaklForm.DocNaklBeforeEdit(DataSet: TDataSet);
 begin
- btnPriceCols.Caption:='Колонки';
+ btnPriceCols.Caption:='РљРѕР»РѕРЅРєРё';
 end;
   {
 procedure TDocNaklForm.ExportToWMS(isSort:boolean);
@@ -10090,11 +10090,11 @@ begin
  lstBaseid:= TStringList.Create;
  fNaklIsSort:= IsSortNakl(DocNaklRECID.AsInteger,DocNaklBASEID.AsInteger) = 1;
  if (isSort and not fNaklIsSort)  then
-   MessageDlg('Накладная не является сортировочной!',  mtError, [mbOK], 0);
+   MessageDlg('РќР°РєР»Р°РґРЅР°СЏ РЅРµ СЏРІР»СЏРµС‚СЃСЏ СЃРѕСЂС‚РёСЂРѕРІРѕС‡РЅРѕР№!',  mtError, [mbOK], 0);
  xsdt1:= TXSDateTime.Create();
  try
    if (fNaklIsSort) and (not isSort)  then
-    begin   // выгружаем накладные, включенные в эту сортировку
+    begin   // РІС‹РіСЂСѓР¶Р°РµРј РЅР°РєР»Р°РґРЅС‹Рµ, РІРєР»СЋС‡РµРЅРЅС‹Рµ РІ СЌС‚Сѓ СЃРѕСЂС‚РёСЂРѕРІРєСѓ
       qSortNakl.Close;
       qSortNakl.ParamByName('RECID').asInteger:= DocNaklRECID.AsInteger;
       qSortNakl.ParamByName('BASEID').asInteger:= DocNaklBASEID.AsInteger;
@@ -10107,7 +10107,7 @@ begin
        end;
     end
   else
-  begin    // выгружаем текущую накладную (либо просто накладную либо всю сортировку как "большой заказ")
+  begin    // РІС‹РіСЂСѓР¶Р°РµРј С‚РµРєСѓС‰СѓСЋ РЅР°РєР»Р°РґРЅСѓСЋ (Р»РёР±Рѕ РїСЂРѕСЃС‚Рѕ РЅР°РєР»Р°РґРЅСѓСЋ Р»РёР±Рѕ РІСЃСЋ СЃРѕСЂС‚РёСЂРѕРІРєСѓ РєР°Рє "Р±РѕР»СЊС€РѕР№ Р·Р°РєР°Р·")
     lstRecid.Add(IntToStr(DocNaklRECID.AsInteger));
     lstBaseid.Add(IntToStr(DocNaklBASEID.AsInteger));
   end ;
@@ -10159,32 +10159,32 @@ begin
      begin
        if not DM.trMainWShort.Active then DM.trMainWShort.Active:= True;
           fbExecQuery(DM.trMainWShort, 'UPDATE OR INSERT INTO NAKL_ADDITION_PROP (NAKL_RECID, NAKL_BASEID, WMS_IMPORT_STATUS) VALUES (%d, %d, %d)',
-                      [lstRecid[j], lstBaseid[j], Res.State]);  //ошибка вставки
+                      [lstRecid[j], lstBaseid[j], Res.State]);  //РѕС€РёР±РєР° РІСЃС‚Р°РІРєРё
        DM.trMainWShort.Commit;
       if lstRecid.Count > 1 then
-        sMessage:= sMessage + FloatToStr(dNumb) + ' - ошибка при передачи накладной в WMS!'+Res.DescriptionError +#13#10
+        sMessage:= sMessage + FloatToStr(dNumb) + ' - РѕС€РёР±РєР° РїСЂРё РїРµСЂРµРґР°С‡Рё РЅР°РєР»Р°РґРЅРѕР№ РІ WMS!'+Res.DescriptionError +#13#10
        else
-       MessageDlg('Произошла ошибка при передачи накладной в WMS!'+Res.DescriptionError,  mtError,
+       MessageDlg('РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР° РїСЂРё РїРµСЂРµРґР°С‡Рё РЅР°РєР»Р°РґРЅРѕР№ РІ WMS!'+Res.DescriptionError,  mtError,
         [mbOK], 0);
      end
     else
      begin
        if not DM.trMainWShort.Active then DM.trMainWShort.Active:= True;
           fbExecQuery(DM.trMainWShort, 'UPDATE OR INSERT INTO NAKL_ADDITION_PROP (NAKL_RECID, NAKL_BASEID, WMS_IMPORT_STATUS) VALUES (%d, %d, %d)',
-                      [StrToInt(lstRecid[j]), StrToInt(lstBaseid[j]), Res.State]);  //ошибка вставки
+                      [StrToInt(lstRecid[j]), StrToInt(lstBaseid[j]), Res.State]);  //РѕС€РёР±РєР° РІСЃС‚Р°РІРєРё
        DM.trMainWShort.Commit;
        if lstRecid.Count < 2 then
-        MessageDlg('Накладная выгружена успешно!',  mtInformation, [mbOK], 0);
+        MessageDlg('РќР°РєР»Р°РґРЅР°СЏ РІС‹РіСЂСѓР¶РµРЅР° СѓСЃРїРµС€РЅРѕ!',  mtInformation, [mbOK], 0);
      end;
    end;
    if sMessage <> '' then
     MessageDlg(sMessage,  mtInformation, [mbOK], 0)
    else
     if lstRecid.Count > 1 then
-     MessageDlg('Накладная выгружена успешно!',  mtInformation, [mbOK], 0)
+     MessageDlg('РќР°РєР»Р°РґРЅР°СЏ РІС‹РіСЂСѓР¶РµРЅР° СѓСЃРїРµС€РЅРѕ!',  mtInformation, [mbOK], 0)
     else
      if lstRecid.Count = 0 then
-      MessageDlg('Нет накладных, включенных в сортировку!',  mtInformation, [mbOK], 0)
+      MessageDlg('РќРµС‚ РЅР°РєР»Р°РґРЅС‹С…, РІРєР»СЋС‡РµРЅРЅС‹С… РІ СЃРѕСЂС‚РёСЂРѕРІРєСѓ!',  mtInformation, [mbOK], 0)
   finally
     FreeAndNil(lstRecid);
     FreeAndNil(lstBaseid);
@@ -10208,13 +10208,13 @@ begin
  i := 0; sMessage:= '';
  fNaklIsSort:= IsSortNakl(DocNaklRECID.AsInteger,DocNaklBASEID.AsInteger) = 1;
  if (not fNaklIsSort)  then
-  Abort('Накладная не является сортировочной!');
+  Abort('РќР°РєР»Р°РґРЅР°СЏ РЅРµ СЏРІР»СЏРµС‚СЃСЏ СЃРѕСЂС‚РёСЂРѕРІРѕС‡РЅРѕР№!');
  ws:= GetWMSWebServiceSoap;
  lstRecid:= TStringList.Create;
  lstBaseid:= TStringList.Create;
  xsdt1:= TXSDateTime.Create();
  try
-    // выгружаем текущую накладную (либо просто накладную либо всю сортировку как "большой заказ")
+    // РІС‹РіСЂСѓР¶Р°РµРј С‚РµРєСѓС‰СѓСЋ РЅР°РєР»Р°РґРЅСѓСЋ (Р»РёР±Рѕ РїСЂРѕСЃС‚Рѕ РЅР°РєР»Р°РґРЅСѓСЋ Р»РёР±Рѕ РІСЃСЋ СЃРѕСЂС‚РёСЂРѕРІРєСѓ РєР°Рє "Р±РѕР»СЊС€РѕР№ Р·Р°РєР°Р·")
     lstRecid.Add(IntToStr(DocNaklRECID.AsInteger));
     lstBaseid.Add(IntToStr(DocNaklBASEID.AsInteger));
    for j:=0 to lstRecid.Count-1 do
@@ -10260,29 +10260,29 @@ begin
      begin
        if not DM.trMainWShort.Active then DM.trMainWShort.Active:= True;
           fbExecQuery(DM.trMainWShort, 'UPDATE OR INSERT INTO NAKL_ADDITION_PROP (NAKL_RECID, NAKL_BASEID, WMS_IMPORT_STATUS) VALUES (%d, %d, %d)',
-                      [lstRecid[j], lstBaseid[j], Res.State]);  //ошибка вставки
+                      [lstRecid[j], lstBaseid[j], Res.State]);  //РѕС€РёР±РєР° РІСЃС‚Р°РІРєРё
        DM.trMainWShort.Commit;
       if lstRecid.Count > 1 then
-        sMessage:= sMessage + FloatToStr(dNumb) + ' - ошибка при передачи накладной в WMS!'+Res.DescriptionError +#13#10
+        sMessage:= sMessage + FloatToStr(dNumb) + ' - РѕС€РёР±РєР° РїСЂРё РїРµСЂРµРґР°С‡Рё РЅР°РєР»Р°РґРЅРѕР№ РІ WMS!'+Res.DescriptionError +#13#10
        else
-       MessageDlg('Произошла ошибка при передачи накладной в WMS!'+Res.DescriptionError,  mtError,
+       MessageDlg('РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР° РїСЂРё РїРµСЂРµРґР°С‡Рё РЅР°РєР»Р°РґРЅРѕР№ РІ WMS!'+Res.DescriptionError,  mtError,
         [mbOK], 0);
      end
     else
      begin
        if not DM.trMainWShort.Active then DM.trMainWShort.Active:= True;
           fbExecQuery(DM.trMainWShort, 'UPDATE OR INSERT INTO NAKL_ADDITION_PROP (NAKL_RECID, NAKL_BASEID, WMS_IMPORT_STATUS) VALUES (%d, %d, %d)',
-                      [StrToInt(lstRecid[j]), StrToInt(lstBaseid[j]), Res.State]);  //ошибка вставки
+                      [StrToInt(lstRecid[j]), StrToInt(lstBaseid[j]), Res.State]);  //РѕС€РёР±РєР° РІСЃС‚Р°РІРєРё
        DM.trMainWShort.Commit;
        if lstRecid.Count < 2 then
-        MessageDlg('Накладная выгружена успешно!',  mtInformation, [mbOK], 0);
+        MessageDlg('РќР°РєР»Р°РґРЅР°СЏ РІС‹РіСЂСѓР¶РµРЅР° СѓСЃРїРµС€РЅРѕ!',  mtInformation, [mbOK], 0);
      end;
    end;
    if sMessage <> '' then
     MessageDlg(sMessage,  mtInformation, [mbOK], 0)
    else
     if lstRecid.Count > 1 then
-     MessageDlg('Накладная выгружена успешно!',  mtInformation, [mbOK], 0);
+     MessageDlg('РќР°РєР»Р°РґРЅР°СЏ РІС‹РіСЂСѓР¶РµРЅР° СѓСЃРїРµС€РЅРѕ!',  mtInformation, [mbOK], 0);
   finally
     FreeAndNil(lstRecid);
     FreeAndNil(lstBaseid);
@@ -10296,7 +10296,7 @@ var sMessage: string;
 begin
  //  ExportToWMSSort(true);  1
   sMessage:= ExportToWMSSort(DocNaklRECID.AsInteger, DocNaklBASEID.AsInteger, true);
-  if sMessage = '' then sMessage:= 'Завершено успешно';
+  if sMessage = '' then sMessage:= 'Р—Р°РІРµСЂС€РµРЅРѕ СѓСЃРїРµС€РЅРѕ';
   MessageDlg(sMessage,  mtInformation,[mbOK], 0);
 end;
 
@@ -10305,7 +10305,7 @@ var sMessage: string;
 begin
 //  ExportToWMS(false);      2
   sMessage:= ExportToWMS(DocNaklRECID.AsInteger, DocNaklBASEID.AsInteger, false);
-  if sMessage = '' then sMessage:= 'Завершено успешно';
+  if sMessage = '' then sMessage:= 'Р—Р°РІРµСЂС€РµРЅРѕ СѓСЃРїРµС€РЅРѕ';
   MessageDlg(sMessage,  mtInformation,[mbOK], 0);
 end;
 
@@ -10318,7 +10318,7 @@ procedure TDocNaklForm.PrintRecPriceExecute(Sender: TObject);
 var
   ldmRep: TdmPrintNakl2;
 begin
-  // проверки на возможность печати
+  // РїСЂРѕРІРµСЂРєРё РЅР° РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ РїРµС‡Р°С‚Рё
   if  not AllowAll
   and (DocNaklSTATE.Value<>idsBug)
   and (DocNaklSTATE.Value<>idsKassa)
@@ -10334,7 +10334,7 @@ begin
     exit;
   end;
 
-  //-- тоже проверка
+  //-- С‚РѕР¶Рµ РїСЂРѕРІРµСЂРєР°
   if (DocNaklSTATE.Value <= 0) and (not IntfMegaDBCommon.IsOffice) then
   begin
     DocNakl.Edit;
@@ -10386,7 +10386,7 @@ begin
   if (DocNaklBASEID.Value<>1) and (DocNaklBASEID.Value<>231) then
   begin
 { ---------------- Changed by Lion in 24.09.2008 --------------- }
-//    Error('Нельзя отправлять документ, созданный в региональной базе !');
+//    Error('РќРµР»СЊР·СЏ РѕС‚РїСЂР°РІР»СЏС‚СЊ РґРѕРєСѓРјРµРЅС‚, СЃРѕР·РґР°РЅРЅС‹Р№ РІ СЂРµРіРёРѕРЅР°Р»СЊРЅРѕР№ Р±Р°Р·Рµ !');
 //    exit;
     Region:= 999999;
 { ----------- End of changing by Lion in 24.09.2008 ----------- }
@@ -10399,7 +10399,7 @@ begin
   t.StartTransaction;
   try
     if (DocNaklRECID.Value=0) or (DocNaklBASEID.Value=0) {or (DocNaklCFO.AsInteger<2)} then exit;
-   // if (Application.MessageBox('Отправить в регион?','Подтверждение', MB_YESNO+MB_ICONQUESTION) = IDYES) then
+   // if (Application.MessageBox('РћС‚РїСЂР°РІРёС‚СЊ РІ СЂРµРіРёРѕРЅ?','РџРѕРґС‚РІРµСЂР¶РґРµРЅРёРµ', MB_YESNO+MB_ICONQUESTION) = IDYES) then
     if ((Region = -1) or (IntfMegaAccessManager.GetUserAccess = iuaSystem)) then
     begin
       frmSelRegion := TfrmSendToRegion.Create(Self);
@@ -10459,7 +10459,7 @@ begin
         end;
         MegaExecQuery(q);
         if t.InTransaction then t.Commit;
-        Info('Накладная поставлена на отправку.');
+        Info('РќР°РєР»Р°РґРЅР°СЏ РїРѕСЃС‚Р°РІР»РµРЅР° РЅР° РѕС‚РїСЂР°РІРєСѓ.');
     end;
   finally
     t.Free;
@@ -10571,18 +10571,18 @@ begin
     1:
     begin
         ToolButton1.ImageIndex:= 39;
-        ToolButton1.Hint:= 'Имеется полностью оформленный оригинал документа.';
+        ToolButton1.Hint:= 'РРјРµРµС‚СЃСЏ РїРѕР»РЅРѕСЃС‚СЊСЋ РѕС„РѕСЂРјР»РµРЅРЅС‹Р№ РѕСЂРёРіРёРЅР°Р» РґРѕРєСѓРјРµРЅС‚Р°.';
     end;
     -1:
     begin
         ToolButton1.ImageIndex := 14;
-        //ToolButton1.Hint:= 'Документ отсутствует либо оформлен неправильно!';
+        //ToolButton1.Hint:= 'Р”РѕРєСѓРјРµРЅС‚ РѕС‚СЃСѓС‚СЃС‚РІСѓРµС‚ Р»РёР±Рѕ РѕС„РѕСЂРјР»РµРЅ РЅРµРїСЂР°РІРёР»СЊРЅРѕ!';
         ToolButton1.Hint:=GetNaklPervComment
     end;
     else
     begin
         ToolButton1.ImageIndex := 15;
-        ToolButton1.Hint:= 'Наличие оригинального документа не проверено!';
+        ToolButton1.Hint:= 'РќР°Р»РёС‡РёРµ РѕСЂРёРіРёРЅР°Р»СЊРЅРѕРіРѕ РґРѕРєСѓРјРµРЅС‚Р° РЅРµ РїСЂРѕРІРµСЂРµРЅРѕ!';
     end;
   end;
 end;
@@ -10613,7 +10613,7 @@ procedure TDocNaklForm.printNaclOFExecute(Sender: TObject);
 var
   ldmRep: TdmPrintNakl2;
 begin
-  // проверки на возможность печати
+  // РїСЂРѕРІРµСЂРєРё РЅР° РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ РїРµС‡Р°С‚Рё
   ldmRep:= TdmPrintNakl2.Create(Self);
   try
     ldmRep.PrepareReport(
@@ -10741,7 +10741,7 @@ begin
    Sum.Open;
 end;
 
-procedure TDocNaklForm.gPastClick(Sender: TObject); //[gsa:07092020] вставить данные
+procedure TDocNaklForm.gPastClick(Sender: TObject); //[gsa:07092020] РІСЃС‚Р°РІРёС‚СЊ РґР°РЅРЅС‹Рµ
 var
   str:string;
   q:TMegaQuery;
@@ -10752,7 +10752,7 @@ begin
   q:=nil; trans:=nil;
 
   if str='' then exit;
-   if Ask('Друзя, если наклданая новая, сохраните её перед вставкой позици. \n Вставить скопированую позицию ?') = mrYes then
+   if Ask('Р”СЂСѓР·СЏ, РµСЃР»Рё РЅР°РєР»РґР°РЅР°СЏ РЅРѕРІР°СЏ, СЃРѕС…СЂР°РЅРёС‚Рµ РµС‘ РїРµСЂРµРґ РІСЃС‚Р°РІРєРѕР№ РїРѕР·РёС†Рё. \n Р’СЃС‚Р°РІРёС‚СЊ СЃРєРѕРїРёСЂРѕРІР°РЅСѓСЋ РїРѕР·РёС†РёСЋ ?') = mrYes then
    begin
   // gDNP.WriteAtom('execute procedure DNP_COPYPASTROWS('+DocPosRECID.Text+','+DocPosBASEID.Text+',:InRecId,:InBaseId)');
       try
@@ -10793,17 +10793,17 @@ end;
 
 procedure TDocNaklForm.CreateVozvrat(aKod: integer);
 {****************************************************************************
-*  Создание возвратных накладных                                            *
-*   aKod = 0 - из шаблона                                                   *
-*   aKod = 1 - накладная ЧП                                                 *
+*  РЎРѕР·РґР°РЅРёРµ РІРѕР·РІСЂР°С‚РЅС‹С… РЅР°РєР»Р°РґРЅС‹С…                                            *
+*   aKod = 0 - РёР· С€Р°Р±Р»РѕРЅР°                                                   *
+*   aKod = 1 - РЅР°РєР»Р°РґРЅР°СЏ Р§Рџ                                                 *
 *****************************************************************************}
 var
   lSc: integer;
   s: string;
 begin
   case aKod of
-    0: s:='Создать возвратные накладные из шаблона ?';
-    1: s:='Создать возвратную накладную ?'
+    0: s:='РЎРѕР·РґР°С‚СЊ РІРѕР·РІСЂР°С‚РЅС‹Рµ РЅР°РєР»Р°РґРЅС‹Рµ РёР· С€Р°Р±Р»РѕРЅР° ?';
+    1: s:='РЎРѕР·РґР°С‚СЊ РІРѕР·РІСЂР°С‚РЅСѓСЋ РЅР°РєР»Р°РґРЅСѓСЋ ?'
   end;
   if not (Ask(s) = mrYes) then exit;
   lSc:=Screen.Cursor;
@@ -10827,7 +10827,7 @@ begin
     end;
     try
       qrEnakl.Open;
-      if Ask('Сохранить изменения ?') = mrYes then
+      if Ask('РЎРѕС…СЂР°РЅРёС‚СЊ РёР·РјРµРЅРµРЅРёСЏ ?') = mrYes then
       begin
         if Nakl_Transaction.InTransaction then Nakl_Transaction.CommitRetaining;
           Refresh_NaklPos;
@@ -10839,7 +10839,7 @@ begin
     except
       on E: Exception do
       begin
-        Application.MessageBox(pchar(E.Message), 'Ошибка !', MB_OK + MB_ICONERROR);
+        Application.MessageBox(pchar(E.Message), 'РћС€РёР±РєР° !', MB_OK + MB_ICONERROR);
         if Nakl_Transaction.InTransaction then Nakl_Transaction.RollbackRetaining;
         Refresh_NaklPos;
       end;
@@ -10860,7 +10860,7 @@ var
 begin
   if (OPERSTATUS<>iosReturnClient) then
   begin
-      Application.MessageBox('Печать ТТН возможно только для операций со статусом "Возврат клиент"', 'Внимание !', MB_OK + MB_ICONWARNING);
+      Application.MessageBox('РџРµС‡Р°С‚СЊ РўРўРќ РІРѕР·РјРѕР¶РЅРѕ С‚РѕР»СЊРєРѕ РґР»СЏ РѕРїРµСЂР°С†РёР№ СЃРѕ СЃС‚Р°С‚СѓСЃРѕРј "Р’РѕР·РІСЂР°С‚ РєР»РёРµРЅС‚"', 'Р’РЅРёРјР°РЅРёРµ !', MB_OK + MB_ICONWARNING);
       Exit;
   end;
   //FPrinting:= True;
@@ -10906,7 +10906,7 @@ var
   ldmRep: TdmPrintNakl2;
 begin
   CheckSelfExportState;
-  // проверки на возможность печати
+  // РїСЂРѕРІРµСЂРєРё РЅР° РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ РїРµС‡Р°С‚Рё
   if  not AllowAll
   and (DocNaklSTATE.Value<>idsBug)
   and (DocNaklSTATE.Value<>idsKassa)
@@ -10923,7 +10923,7 @@ begin
     exit;
   end;
 
-  //-- тоже проверка
+  //-- С‚РѕР¶Рµ РїСЂРѕРІРµСЂРєР°
   if (DocNaklSTATE.Value <= 0) and (not IntfMegaDBCommon.IsOffice) then
   begin
     DocNakl.Edit;
@@ -10966,7 +10966,7 @@ end;
 
 
 function TDocNaklForm.CheckSubDiller(aDk: double): boolean;
-{ Проверка субдиллеров }
+{ РџСЂРѕРІРµСЂРєР° СЃСѓР±РґРёР»Р»РµСЂРѕРІ }
 begin
   Result:=false;
 end;
@@ -11041,7 +11041,7 @@ begin
     q.ExecQuery;
 
     if q.FieldByName('deliv_time').AsString ='' then
-      if q.FieldByName('desireddeliverytime').asString = '' then edDelivTime.Text := 'Любое'
+      if q.FieldByName('desireddeliverytime').asString = '' then edDelivTime.Text := 'Р›СЋР±РѕРµ'
        else edDelivTime.Text := GetDecodeDeliveryTime( q.FieldByName('desireddeliverytime').asString)
      else edDelivTime.Text := GetDecodeDeliveryTime(q.FieldByName('deliv_time').AsString);
 
@@ -11059,10 +11059,10 @@ var
   vcom : integer;
 begin
   FP := CreateOleObject('ArtSoft.FiscalPrinter');
-  ncom:=strtoint(aIniParams.GetIniParam('KASSA','COM')) ; // номер СОМ-порта
-  vcom:=strtoint(aIniParams.GetIniParam('KASSA','RATE')); // скорость обмена
+  ncom:=strtoint(aIniParams.GetIniParam('KASSA','COM')) ; // РЅРѕРјРµСЂ РЎРћРњ-РїРѕСЂС‚Р°
+  vcom:=strtoint(aIniParams.GetIniParam('KASSA','RATE')); // СЃРєРѕСЂРѕСЃС‚СЊ РѕР±РјРµРЅР°
 
-  FP.start(protokol); //это протокл датекс
+  FP.start(protokol); //СЌС‚Рѕ РїСЂРѕС‚РѕРєР» РґР°С‚РµРєСЃ
   //FP.OpenPort('COM'+aIniParams.GetIniParam('KASSA','COM'), 3);
   FP.OpenPort('COM'+aIniParams.GetIniParam('KASSA','COM'), 0);
  // FP.OpenPort(ncom, vcom);
@@ -11080,7 +11080,7 @@ procedure TDocNaklForm.FillShowCaseExecute(Sender: TObject);
 var
   lSc: integer;
 begin
-  if Application.MessageBox('Сформировать накладную на витрину ?','Внимание', MB_YESNO+MB_ICONQUESTION+MB_DEFBUTTON2) = ID_NO then Exit;
+  if Application.MessageBox('РЎС„РѕСЂРјРёСЂРѕРІР°С‚СЊ РЅР°РєР»Р°РґРЅСѓСЋ РЅР° РІРёС‚СЂРёРЅСѓ ?','Р’РЅРёРјР°РЅРёРµ', MB_YESNO+MB_ICONQUESTION+MB_DEFBUTTON2) = ID_NO then Exit;
   lSc:=Screen.Cursor;
   Screen.Cursor:=crHourGlass;
   try
@@ -11100,7 +11100,7 @@ begin
   end;
 end;
 
-//Шестаков Г.С. - Генерация номера документа
+//РЁРµСЃС‚Р°РєРѕРІ Р“.РЎ. - Р“РµРЅРµСЂР°С†РёСЏ РЅРѕРјРµСЂР° РґРѕРєСѓРјРµРЅС‚Р°
 function TDocNaklForm.GetNewDocNaklNumber: integer;
 var q1,q2:TMegaQuery;
     MaxNumber,BeforeMaxNumber:integer;
@@ -11212,8 +11212,8 @@ var
   aBASEIDPart : string;
   aSelByBaseID : boolean;
 begin
-  // DocNaklPos.state должен быть dsEdit
-  // считаем самую похожую колонку - btnShowCol.checked
+  // DocNaklPos.state РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ dsEdit
+  // СЃС‡РёС‚Р°РµРј СЃР°РјСѓСЋ РїРѕС…РѕР¶СѓСЋ РєРѕР»РѕРЅРєСѓ - btnShowCol.checked
   aSelByBaseID := IntfMegaDBCommon.IsOffice  or (IntfMegaDBCommon.GetParam('WORK_VED', '0')='1');
 
   if btnShowCol.Checked then
@@ -11246,7 +11246,7 @@ begin
     Query3.Close;
   end;
 
-  // сравниваю с выбранной колонкой - btnCheckWithCol.checked
+  // СЃСЂР°РІРЅРёРІР°СЋ СЃ РІС‹Р±СЂР°РЅРЅРѕР№ РєРѕР»РѕРЅРєРѕР№ - btnCheckWithCol.checked
   if btnCheckWithCol.checked then
   begin
     Query3.Close;
@@ -11363,9 +11363,9 @@ begin
    Query.Params.ByName['RECID'].Value := DocNaklRECID.Value;
    Query.Params.ByName['BASEID'].Value := DocNaklBASEID.Value;
    Query.ExecQuery;
- //  Subject:='Подтверждение поставки '+Query.FieldByName('shortname_dk').AsString;
+ //  Subject:='РџРѕРґС‚РІРµСЂР¶РґРµРЅРёРµ РїРѕСЃС‚Р°РІРєРё '+Query.FieldByName('shortname_dk').AsString;
  //  email:=Query.FieldByName('email').AsString;
-//   PathFile:=TempDir+'УДК_'+Query.FieldByName('kod_dk').AsString+'_'+DocNaklDOCNUMBER.AsString+'.csv';
+//   PathFile:=TempDir+'РЈР”Рљ_'+Query.FieldByName('kod_dk').AsString+'_'+DocNaklDOCNUMBER.AsString+'.csv';
    AssignFile(f,PathFile);
    Rewrite(f);
    Writeln(f,Query.FieldByName('shortname_dk').AsString+';'+Query.FieldByName('kod_dk').AsString+';'+Query.FieldByName('docnumber').AsString+
@@ -11388,7 +11388,7 @@ begin
   CloseFile(f);
 
    frmSendMail:=TfrmSendMail.Create(Application);
-   frmSendMail.SendMailMessage(email,'',Subject,'',PathFile,'[Ваша накладная '+DocNaklDOCNUMBER.AsString+' была прикреплена  к письму]',true,'','');
+   frmSendMail.SendMailMessage(email,'',Subject,'',PathFile,'[Р’Р°С€Р° РЅР°РєР»Р°РґРЅР°СЏ '+DocNaklDOCNUMBER.AsString+' Р±С‹Р»Р° РїСЂРёРєСЂРµРїР»РµРЅР°  Рє РїРёСЃСЊРјСѓ]',true,'','');
    frmSendMail.show;
 
 end;
@@ -11400,15 +11400,15 @@ var
 begin
      lSc:=Screen.Cursor;
      Screen.Cursor:=crHourGlass;
-     //Печать писем для Римик
-     //Письмо для Метро
+     //РџРµС‡Р°С‚СЊ РїРёСЃРµРј РґР»СЏ Р РёРјРёРє
+     //РџРёСЃСЊРјРѕ РґР»СЏ РњРµС‚СЂРѕ
       if (pos('32049199',FloatToStr(DocNaklDK_TO.AsFloat))<>0)
       or (pos('32049199',FloatToStr(DocNaklDK_FROM.AsFloat))<>0)
       or (pos('35030945',FloatToStr(DocNaklDK_TO.AsFloat))<>0)
       or (pos('35030945',FloatToStr(DocNaklDK_FROM.AsFloat))<>0)
       or (pos('25288083',FloatToStr(DocNaklDK_TO.AsFloat))<>0)
-      or (pos('25288083',FloatToStr(DocNaklDK_FROM.AsFloat))<>0) then//Код ОКПО МЕТРО
-      //25288083 билла
+      or (pos('25288083',FloatToStr(DocNaklDK_FROM.AsFloat))<>0) then//РљРѕРґ РћРљРџРћ РњР•РўР Рћ
+      //25288083 Р±РёР»Р»Р°
       begin
         {dsNote_m.Close;
         dsNote_m.Params.ByName['zmc_recid'].AsInteger:=DocNaklRECID.AsInteger;
@@ -11416,9 +11416,9 @@ begin
         dsNote_m.Open;
         dmMegaReports.SetFrxDataSet(dsNote_m,'NOTE') ; }
 
-        if pos('ЗМЦ',DocNaklDOCTYPE.AsString)<>0 then
+        if pos('Р—РњР¦',DocNaklDOCTYPE.AsString)<>0 then
           begin
-            // корректировка по цене
+            // РєРѕСЂСЂРµРєС‚РёСЂРѕРІРєР° РїРѕ С†РµРЅРµ
             if ((pos('35030945',FloatToStr(DocNaklDK_TO.AsFloat))<>0)
                 or (pos('35030945',FloatToStr(DocNaklDK_FROM.AsFloat))<>0)
                 ) then
@@ -11432,7 +11432,7 @@ begin
           end
          else
           begin
-            // корректировка по колличеству
+            // РєРѕСЂСЂРµРєС‚РёСЂРѕРІРєР° РїРѕ РєРѕР»Р»РёС‡РµСЃС‚РІСѓ
             if ((pos('35030945',FloatToStr(DocNaklDK_TO.AsFloat))<>0)
                 or (pos('35030945',FloatToStr(DocNaklDK_FROM.AsFloat))<>0)
                 or (pos('25288083',FloatToStr(DocNaklDK_FROM.AsFloat))<>0)
@@ -11451,10 +11451,10 @@ begin
           dmMegaReports.MyShow(27, Now(), IntToStr(ReportPageIndex)+ ','+IntToStr(DM.DocListSource.DataSet.FieldByName('RECID').AsInteger)+','+IntToStr(DM.DocListSource.DataSet.FieldByName('BASEID').AsInteger));
 
       end
-      //Письмо для Биллы и остальных
+      //РџРёСЃСЊРјРѕ РґР»СЏ Р‘РёР»Р»С‹ Рё РѕСЃС‚Р°Р»СЊРЅС‹С…
       else
       //if (pos('25288083',FloatToStr(dm.DocListDK_TO.AsFloat))<>0) then
-      if pos('ЗМЦ',DocNaklDOCTYPE.AsString)<>0 then
+      if pos('Р—РњР¦',DocNaklDOCTYPE.AsString)<>0 then
       begin
          If FDesignReport Then
           dmMegaReports.MyDesign(62, DocNaklOPERDATE.Value, [DocNaklRECID.AsInteger,DocNaklBASEID.AsInteger],2)
@@ -11483,21 +11483,21 @@ begin
       DocPos.DisableControls;
       if not Clipboard.HasFormat(CF_TEXT) then
       begin
-         Application.MessageBox('Буфер обмена не содержит текст !','Ошибка!', MB_ICONERROR);
+         Application.MessageBox('Р‘СѓС„РµСЂ РѕР±РјРµРЅР° РЅРµ СЃРѕРґРµСЂР¶РёС‚ С‚РµРєСЃС‚ !','РћС€РёР±РєР°!', MB_ICONERROR);
          exit;
       end;
       Buf.Text:=Clipboard.asText;
       for i:=0 to Buf.Count-1 do
       begin
         s:=trim(Buf.Strings[i])+#09;
-        s1:=Copy2SymbDel(s,#09); // код ценности
+        s1:=Copy2SymbDel(s,#09); // РєРѕРґ С†РµРЅРЅРѕСЃС‚Рё
         System.delete(s,1,1);
         lKod_:=strtofloatdef(s1,0);
-        s1:=Copy2SymbDel(s,#09); // сумма
+        s1:=Copy2SymbDel(s,#09); // СЃСѓРјРјР°
         System.delete(s,1,1);
         lSumma_:=strtofloatdef(s1,0);
 
-        s1:=Copy2SymbDel(s,#09); // КОЛИЧЕСТВО
+        s1:=Copy2SymbDel(s,#09); // РљРћР›РР§Р•РЎРўР’Рћ
         lKoich_:=strtofloatdef(s1,0);
         if lKoich_=0 then lKoich_:=1;
 
@@ -11559,12 +11559,12 @@ begin
     DocPos.EnableControls;
     StopWait;
   end;
-  Application.MessageBox(pchar('обработано '+intToStr(i)+' строк. ошибок при вскавке '+intToStr(iCntErr)+'.'),
-                         'операция завершена');
+  Application.MessageBox(pchar('РѕР±СЂР°Р±РѕС‚Р°РЅРѕ '+intToStr(i)+' СЃС‚СЂРѕРє. РѕС€РёР±РѕРє РїСЂРё РІСЃРєР°РІРєРµ '+intToStr(iCntErr)+'.'),
+                         'РѕРїРµСЂР°С†РёСЏ Р·Р°РІРµСЂС€РµРЅР°');
 end;
 
 procedure TDocNaklForm.ActPasteFromExcelUpdate(Sender: TObject);
-begin // только для Приобретение/списание Осн.Фондов
+begin // С‚РѕР»СЊРєРѕ РґР»СЏ РџСЂРёРѕР±СЂРµС‚РµРЅРёРµ/СЃРїРёСЃР°РЅРёРµ РћСЃРЅ.Р¤РѕРЅРґРѕРІ
    TAction(Sender).Enabled:= (OPERSTATUS = iosOFPurchasingWriteOff)or
                              (IntfMegaDBCommon.GetBaseID=216);
 end;
@@ -11627,7 +11627,7 @@ function  TDocNaklForm.GetProvStatus : integer;
 begin
   if FProvStatus=-1 then
   begin
-    //получение статуса операции
+    //РїРѕР»СѓС‡РµРЅРёРµ СЃС‚Р°С‚СѓСЃР° РѕРїРµСЂР°С†РёРё
     Query.Close;
     Query.SQL.Text:='select iif(sos.parent_status is null,so.status, parent_status) from sprav_oper so left join sprav_oper_status sos on (sos.status=so.status)  where  group_oper = '+
     IntToStr(Source.DataSet.FieldByName('GROUP_OPER').AsInteger)+' and kod_oper ='+
@@ -11665,7 +11665,7 @@ begin
   begin
     if VarToInt(DocNaklDG_RECID.Value) = 0 then Exit;
 
-    if Ask('Отвязать ГТД от накладной?') <> idYes then Exit;
+    if Ask('РћС‚РІСЏР·Р°С‚СЊ Р“РўР” РѕС‚ РЅР°РєР»Р°РґРЅРѕР№?') <> idYes then Exit;
 
     CheckAllowChangeByNaklState;
 
@@ -11715,8 +11715,8 @@ procedure TDocNaklForm.actPrintSpravBExecute(Sender: TObject);
 var
   ldmRep: TdmPrintNakl2;
 begin
-  // проверки на возможность печати
-  // Без проверок - всё равно работает только для России
+  // РїСЂРѕРІРµСЂРєРё РЅР° РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ РїРµС‡Р°С‚Рё
+  // Р‘РµР· РїСЂРѕРІРµСЂРѕРє - РІСЃС‘ СЂР°РІРЅРѕ СЂР°Р±РѕС‚Р°РµС‚ С‚РѕР»СЊРєРѕ РґР»СЏ Р РѕСЃСЃРёРё
   if (DocNaklSTATE.Value <= 0) and (not IntfMegaDBCommon.IsOffice) then
   begin
     DocNakl.Edit;
@@ -11788,7 +11788,7 @@ end;
 procedure TDocNaklForm.MegaSelCFOtoChange(Sender: TObject);
 begin
   if DocPos.Active and (DocPos.RecordCount > 0) and (not fSetAddr) and
-     (Application.MessageBox('Изменить цены в документе?','Подтверждение', MB_YESNO+MB_ICONQUESTION+MB_DEFBUTTON2) = IDYES) then
+     (Application.MessageBox('РР·РјРµРЅРёС‚СЊ С†РµРЅС‹ РІ РґРѕРєСѓРјРµРЅС‚Рµ?','РџРѕРґС‚РІРµСЂР¶РґРµРЅРёРµ', MB_YESNO+MB_ICONQUESTION+MB_DEFBUTTON2) = IDYES) then
     UpdatePosPrices;
 end;
 
@@ -11804,8 +11804,8 @@ end;
 procedure TDocNaklForm.MenuItem5_Torg2Click(Sender: TObject);
 var
   ldmRep: TdmPrintNakl2R;
-begin // подготовка к печати "Акт об установленных расхождениях по количеству .."
-      // унифицированная форма "Торг-2"
+begin // РїРѕРґРіРѕС‚РѕРІРєР° Рє РїРµС‡Р°С‚Рё "РђРєС‚ РѕР± СѓСЃС‚Р°РЅРѕРІР»РµРЅРЅС‹С… СЂР°СЃС…РѕР¶РґРµРЅРёСЏС… РїРѕ РєРѕР»РёС‡РµСЃС‚РІСѓ .."
+      // СѓРЅРёС„РёС†РёСЂРѕРІР°РЅРЅР°СЏ С„РѕСЂРјР° "РўРѕСЂРі-2"
    if (IntfMegaDBCommon.GetCountry <> iccRussia) then exit;
 
   if fmAktTorg2Params = nil then
@@ -11829,8 +11829,8 @@ end;
 
 procedure TDocNaklForm.actPrintTorg15Execute(Sender: TObject);
 var  ldmRep: TdmPrintNakl2R;
-begin // подготовка к печати "Акт о порче, бое, ломе товарно-материальных ценностей"
-      // унифицированная форма "Торг-15"
+begin // РїРѕРґРіРѕС‚РѕРІРєР° Рє РїРµС‡Р°С‚Рё "РђРєС‚ Рѕ РїРѕСЂС‡Рµ, Р±РѕРµ, Р»РѕРјРµ С‚РѕРІР°СЂРЅРѕ-РјР°С‚РµСЂРёР°Р»СЊРЅС‹С… С†РµРЅРЅРѕСЃС‚РµР№"
+      // СѓРЅРёС„РёС†РёСЂРѕРІР°РЅРЅР°СЏ С„РѕСЂРјР° "РўРѕСЂРі-15"
    if (IntfMegaDBCommon.GetCountry <> iccRussia) then exit;
 
   ldmRep:= TdmPrintNakl2R.Create(Self);
@@ -11843,8 +11843,8 @@ end;
 
 procedure TDocNaklForm.actPrintTorg16Execute(Sender: TObject);
 var  ldmRep: TdmPrintNakl2R;
-begin // подготовка к печати "Акт о списании товаров"
-      // унифицированная форма "Торг-16"
+begin // РїРѕРґРіРѕС‚РѕРІРєР° Рє РїРµС‡Р°С‚Рё "РђРєС‚ Рѕ СЃРїРёСЃР°РЅРёРё С‚РѕРІР°СЂРѕРІ"
+      // СѓРЅРёС„РёС†РёСЂРѕРІР°РЅРЅР°СЏ С„РѕСЂРјР° "РўРѕСЂРі-16"
    if (IntfMegaDBCommon.GetCountry <> iccRussia) then exit;
 
   ldmRep:= TdmPrintNakl2R.Create(Self);
@@ -11859,7 +11859,7 @@ procedure TDocNaklForm.PrintIntNaklExecute(Sender: TObject);
 var
     ldmRep1: TdmPrintNakl2;
 begin
-      //накладная на внутреннее перемещение
+      //РЅР°РєР»Р°РґРЅР°СЏ РЅР° РІРЅСѓС‚СЂРµРЅРЅРµРµ РїРµСЂРµРјРµС‰РµРЅРёРµ
       if  not AllowAll
       and (DocNaklSTATE.Value<>idsBug)
       and (DocNaklSTATE.Value<>idsKassa)
@@ -11921,7 +11921,7 @@ end;
 procedure TDocNaklForm.PrintSoprDocToTN(tt:smallint);
 var
   ldmRep:TdmPrintNakl2;
-begin //печать справки к ТТН РАЗДЕЛ Б
+begin //РїРµС‡Р°С‚СЊ СЃРїСЂР°РІРєРё Рє РўРўРќ Р РђР—Р”Р•Р› Р‘
   ldmRep:= TdmPrintNakl2.Create(Self);
   try
     ldmRep.PrepareReport(
@@ -12063,15 +12063,15 @@ end;
 
 procedure TDocNaklForm.actPrintMarkTaraExecute(Sender: TObject);
 begin
-//проверяем зафиксирована накладная или нет (заполнена наша табличка)
+//РїСЂРѕРІРµСЂСЏРµРј Р·Р°С„РёРєСЃРёСЂРѕРІР°РЅР° РЅР°РєР»Р°РґРЅР°СЏ РёР»Рё РЅРµС‚ (Р·Р°РїРѕР»РЅРµРЅР° РЅР°С€Р° С‚Р°Р±Р»РёС‡РєР°)
 
   if (DocNaklEGAIS_FIX_NUM_STR.IsNull) or (DocNaklEGAIS_FIX_NUM_STR.asString='') then
   begin
-    if Application.MessageBox('У данной накладной отсутсвует номер фиксации в ЕГАИС! '
-      + #13#10 + 'Либо накладная еще не была выгружен в ЕГАИС, ' + #13#10 +
-      'либо по накладной не были загружены данные из ЕГАИС. ' + #13#10 +
-      'Выгрузить данные можно в форме "Список документов". ' + #13#10 +
-      'Хотите попробовать загрузить номер фиксации из ЕГАИС?', 'Внимание',
+    if Application.MessageBox('РЈ РґР°РЅРЅРѕР№ РЅР°РєР»Р°РґРЅРѕР№ РѕС‚СЃСѓС‚СЃРІСѓРµС‚ РЅРѕРјРµСЂ С„РёРєСЃР°С†РёРё РІ Р•Р“РђРРЎ! '
+      + #13#10 + 'Р›РёР±Рѕ РЅР°РєР»Р°РґРЅР°СЏ РµС‰Рµ РЅРµ Р±С‹Р»Р° РІС‹РіСЂСѓР¶РµРЅ РІ Р•Р“РђРРЎ, ' + #13#10 +
+      'Р»РёР±Рѕ РїРѕ РЅР°РєР»Р°РґРЅРѕР№ РЅРµ Р±С‹Р»Рё Р·Р°РіСЂСѓР¶РµРЅС‹ РґР°РЅРЅС‹Рµ РёР· Р•Р“РђРРЎ. ' + #13#10 +
+      'Р’С‹РіСЂСѓР·РёС‚СЊ РґР°РЅРЅС‹Рµ РјРѕР¶РЅРѕ РІ С„РѕСЂРјРµ "РЎРїРёСЃРѕРє РґРѕРєСѓРјРµРЅС‚РѕРІ". ' + #13#10 +
+      'РҐРѕС‚РёС‚Рµ РїРѕРїСЂРѕР±РѕРІР°С‚СЊ Р·Р°РіСЂСѓР·РёС‚СЊ РЅРѕРјРµСЂ С„РёРєСЃР°С†РёРё РёР· Р•Р“РђРРЎ?', 'Р’РЅРёРјР°РЅРёРµ',
       MB_YESNO + MB_ICONWARNING) = IDYES then
     begin
       if not conEgais.Connected then conEgais.Connected:=true;
@@ -12088,12 +12088,12 @@ begin
       end
       else
       begin
-         Info('В базе ЕГАИС отсутсвуют данные о документе с номером: ' + DocNaklDOCNUMBER.AsString);
+         Info('Р’ Р±Р°Р·Рµ Р•Р“РђРРЎ РѕС‚СЃСѓС‚СЃРІСѓСЋС‚ РґР°РЅРЅС‹Рµ Рѕ РґРѕРєСѓРјРµРЅС‚Рµ СЃ РЅРѕРјРµСЂРѕРј: ' + DocNaklDOCNUMBER.AsString);
          Exit;
       end;
     end;
   end;
-// проверяем чтобы были заполнены все даты розлива
+// РїСЂРѕРІРµСЂСЏРµРј С‡С‚РѕР±С‹ Р±С‹Р»Рё Р·Р°РїРѕР»РЅРµРЅС‹ РІСЃРµ РґР°С‚С‹ СЂРѕР·Р»РёРІР°
     dm.SharedQuery.Close;
     dm.SharedQuery.SQL.Text :=
       'SELECT count(*) CNT   '#13#10+
@@ -12106,7 +12106,7 @@ begin
     dm.SharedQuery.ExecQuery;
     if dm.SharedQuery.FN('CNT').AsInteger >0 then
     begin
-       Warning('В документе есть позиции без указания даты розлива! Укажите дату розлива и повторите попытку. ');
+       Warning('Р’ РґРѕРєСѓРјРµРЅС‚Рµ РµСЃС‚СЊ РїРѕР·РёС†РёРё Р±РµР· СѓРєР°Р·Р°РЅРёСЏ РґР°С‚С‹ СЂРѕР·Р»РёРІР°! РЈРєР°Р¶РёС‚Рµ РґР°С‚Сѓ СЂРѕР·Р»РёРІР° Рё РїРѕРІС‚РѕСЂРёС‚Рµ РїРѕРїС‹С‚РєСѓ. ');
        dm.SharedQuery.Close;
        exit;
     end;
@@ -12118,14 +12118,14 @@ begin
 end;
 
 procedure TDocNaklForm.aSetKolPrecentExecute(Sender: TObject);
-// изменение колличества ценностей в накладной
+// РёР·РјРµРЅРµРЅРёРµ РєРѕР»Р»РёС‡РµСЃС‚РІР° С†РµРЅРЅРѕСЃС‚РµР№ РІ РЅР°РєР»Р°РґРЅРѕР№
 var
   S: String;
   D: Double;
   KL: Double;
   I: Integer;
 begin
-  if InputQuery('Введите процент изменения количества', '% изменения', S) then
+  if InputQuery('Р’РІРµРґРёС‚Рµ РїСЂРѕС†РµРЅС‚ РёР·РјРµРЅРµРЅРёСЏ РєРѕР»РёС‡РµСЃС‚РІР°', '% РёР·РјРµРЅРµРЅРёСЏ', S) then
   begin
     D := StrToFloat(S);
     if DBGridEh1.SelectedRows.Count = 0 then
@@ -12226,8 +12226,8 @@ var
   re: TRegExpr;
   rep: TfrReport;
 begin
-  // в связи с особенностями реализации многопоточности в fr3
-  // не даем закрыть накладную(а сворачиваем), пока она не допечатается
+  // РІ СЃРІСЏР·Рё СЃ РѕСЃРѕР±РµРЅРЅРѕСЃС‚СЏРјРё СЂРµР°Р»РёР·Р°С†РёРё РјРЅРѕРіРѕРїРѕС‚РѕС‡РЅРѕСЃС‚Рё РІ fr3
+  // РЅРµ РґР°РµРј Р·Р°РєСЂС‹С‚СЊ РЅР°РєР»Р°РґРЅСѓСЋ(Р° СЃРІРѕСЂР°С‡РёРІР°РµРј), РїРѕРєР° РѕРЅР° РЅРµ РґРѕРїРµС‡Р°С‚Р°РµС‚СЃСЏ
   aCanFreeForm := false;
   ldmRep:= TdmPrintNakl2.Create(Self);
   try
@@ -12235,16 +12235,16 @@ begin
       DocNaklRecID.Value, DocNaklBaseID.Value,
       IntfDBProvider.GetDB , Nakl_Transaction, False);
 
-    // Для российских сетевиков, по наличию символа # в
-    // примечании документа, пишу в переменную отчёта
-    // строку вида - "заказ №ХХХХ"
+    // Р”Р»СЏ СЂРѕСЃСЃРёР№СЃРєРёС… СЃРµС‚РµРІРёРєРѕРІ, РїРѕ РЅР°Р»РёС‡РёСЋ СЃРёРјРІРѕР»Р° # РІ
+    // РїСЂРёРјРµС‡Р°РЅРёРё РґРѕРєСѓРјРµРЅС‚Р°, РїРёС€Сѓ РІ РїРµСЂРµРјРµРЅРЅСѓСЋ РѕС‚С‡С‘С‚Р°
+    // СЃС‚СЂРѕРєСѓ РІРёРґР° - "Р·Р°РєР°Р· в„–РҐРҐРҐРҐ"
     if ((IntfMegaDBCommon.GetCountry = iccrussia) or (IntfMegaDBCommon.GetCountry = kodRus)) then
     begin
       re:=TRegExpr.Create;
       try
 { ---------------- Changed by Lion in 04.02.2009 --------------- }
 //        re.Expression:='\#\s*([0-9\-]+)(\s*\@(\d+))*';
-        re.Expression:='\#\s*([-0-9A-Za-zА-Яа-я]+)(\s*\@(\d+))*';
+        re.Expression:='\#\s*([-0-9A-Za-zРђ-РЇР°-СЏ]+)(\s*\@(\d+))*';
 { ----------- End of changing by Lion in 04.02.2009 ----------- }
         if re.Exec(Trim(DocNakl.FieldByName('NOTES').AsString)) then
         begin
@@ -12252,7 +12252,7 @@ begin
           if (re.Match[3]='') then
              frVariables.Variable['KodOrder']:= ''
           else
-             frVariables.Variable['KodOrder']:= 'код поставщика  ' + re.Match[3];
+             frVariables.Variable['KodOrder']:= 'РєРѕРґ РїРѕСЃС‚Р°РІС‰РёРєР°  ' + re.Match[3];
         end
         else
         begin
@@ -12288,8 +12288,8 @@ end;
 
 procedure TDocNaklForm.actPrintMETROExecute(Sender: TObject);
 begin
-  // Никаких проверок
-  //Накладаная для МЕТРО
+  // РќРёРєР°РєРёС… РїСЂРѕРІРµСЂРѕРє
+  //РќР°РєР»Р°РґР°РЅР°СЏ РґР»СЏ РњР•РўР Рћ
   PrintReport('frNaklrMetro');
 end;
 
@@ -12312,9 +12312,9 @@ begin
   //DocNakl.edit;
   state_:=DocNaklSTATE.AsInteger;
   //DocNaklSTATE.AsInteger:=0;
- // DocNaklNOTES.AsString:='№1';
+ // DocNaklNOTES.AsString:='в„–1';
   //DocNakl.SafePost;
-  if InputQuery('Разделение по накладным', 'Отправить в другую накладную %', S) then
+  if InputQuery('Р Р°Р·РґРµР»РµРЅРёРµ РїРѕ РЅР°РєР»Р°РґРЅС‹Рј', 'РћС‚РїСЂР°РІРёС‚СЊ РІ РґСЂСѓРіСѓСЋ РЅР°РєР»Р°РґРЅСѓСЋ %', S) then
   begin
     proc := StrToFloat(S);
    { if DocNaklBalance_KOD.AsString='77' then
@@ -12352,8 +12352,8 @@ begin
     Nakl.DocNaklDK_TO.Value := DocNaklDK_TO.Value;
     Nakl.DocNaklDK_C.AsVariant := DocNaklDK_C.AsVariant;
     Nakl.DocNaklNACENKA_.Value := DocNaklNACENKA_.Value;
-    Nakl.DocNaklNOTES.Value := DocNaklNOTES.Value+' (№2)';
-    //DocNaklNOTES.asString := DocNaklNOTES.asString+' (№1)';
+    Nakl.DocNaklNOTES.Value := DocNaklNOTES.Value+' (в„–2)';
+    //DocNaklNOTES.asString := DocNaklNOTES.asString+' (в„–1)';
     Nakl.DocNaklPRICETYPE_.Value := DocNaklPRICETYPE_.Value;
     Nakl.DocNaklDOCDATE.AsDateTime:=DocNaklDOCDATE.AsDateTime;
 //    Nakl.DocNaklTRIGGER_OFF.Value := DocNaklTRIGGER_OFF.Value;
@@ -12464,7 +12464,7 @@ begin
      DocNakl.Transaction.Commit;
     end else begin
      {DocNakl.Edit;
-     DocNaklNOTES.asString := DocNaklNOTES.asString+' (№1)';
+     DocNaklNOTES.asString := DocNaklNOTES.asString+' (в„–1)';
      DocNakl.Post;}
      PosModified:=false;
      DocNakl.ConfirmPost:=false;
@@ -12497,17 +12497,17 @@ var
   AllPrice: integer;
 begin
   //if not IntfMegaDBCommon.IsOffice then exit;
-  if not InputQuery('Проставить цену в накладной по колонке', 'колонка №', S)
+  if not InputQuery('РџСЂРѕСЃС‚Р°РІРёС‚СЊ С†РµРЅСѓ РІ РЅР°РєР»Р°РґРЅРѕР№ РїРѕ РєРѕР»РѕРЅРєРµ', 'РєРѕР»РѕРЅРєР° в„–', S)
    then exit;
   try
     NewCol:=StrToInt(S);
   except
-    liUtils.Error('Неверно задана колонка !');
+    liUtils.Error('РќРµРІРµСЂРЅРѕ Р·Р°РґР°РЅР° РєРѕР»РѕРЅРєР° !');
     exit;
   end;
-  case Windows.MessageBox(0, pChar('Выставить ВСЕ (в т.ч. инд.) цены в накладной по колонке '+inttostr(NewCol)+
-     ' для ЦФО '+DocNaklCFO.AsString),
-     'Цены по колонке', MB_ICONQUESTION or MB_YESNOCANCEL or MB_DEFBUTTON3)
+  case Windows.MessageBox(0, pChar('Р’С‹СЃС‚Р°РІРёС‚СЊ Р’РЎР• (РІ С‚.С‡. РёРЅРґ.) С†РµРЅС‹ РІ РЅР°РєР»Р°РґРЅРѕР№ РїРѕ РєРѕР»РѕРЅРєРµ '+inttostr(NewCol)+
+     ' РґР»СЏ Р¦Р¤Рћ '+DocNaklCFO.AsString),
+     'Р¦РµРЅС‹ РїРѕ РєРѕР»РѕРЅРєРµ', MB_ICONQUESTION or MB_YESNOCANCEL or MB_DEFBUTTON3)
   of
     mrYes: AllPrice:=1;
     mrNo: AllPrice:=0;
@@ -12555,8 +12555,8 @@ end;
 
 procedure TDocNaklForm.ItemTorg3Click(Sender: TObject);
 var  ldmRep: TdmPrintNakl2R;
-begin // подготовка к печати "Акт ОБ УСТАНОВЛЕННОМ РАСХОЖДЕНИИ ПО КОЛИЧЕСТВУ И КАЧЕСТВУ ПРИ ПРИЕМКЕ ИМПОРТНЫХ ТОВАРОВ"
-      // унифицированная форма "Торг-3"
+begin // РїРѕРґРіРѕС‚РѕРІРєР° Рє РїРµС‡Р°С‚Рё "РђРєС‚ РћР‘ РЈРЎРўРђРќРћР’Р›Р•РќРќРћРњ Р РђРЎРҐРћР–Р”Р•РќРР РџРћ РљРћР›РР§Р•РЎРўР’РЈ Р РљРђР§Р•РЎРўР’РЈ РџР Р РџР РР•РњРљР• РРњРџРћР РўРќР«РҐ РўРћР’РђР РћР’"
+      // СѓРЅРёС„РёС†РёСЂРѕРІР°РЅРЅР°СЏ С„РѕСЂРјР° "РўРѕСЂРі-3"
    if (IntfMegaDBCommon.GetCountry <> iccRussia) then exit;
 
   ldmRep:= TdmPrintNakl2R.Create(Self);
@@ -12572,7 +12572,7 @@ procedure TDocNaklForm.N40Click(Sender: TObject);
 var
   ldmRep: TdmPrintNakl2;
 begin
-  // проверки на возможность печати
+  // РїСЂРѕРІРµСЂРєРё РЅР° РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ РїРµС‡Р°С‚Рё
   if  not AllowAll
   and (DocNaklSTATE.Value<>idsBug)
   and (DocNaklSTATE.Value<>idsKassa)
@@ -12589,7 +12589,7 @@ begin
     exit;
   end;
 
-  //-- тоже проверка
+  //-- С‚РѕР¶Рµ РїСЂРѕРІРµСЂРєР°
 //  if (DocNaklSTATE.Value <= 0) and (not IntfMegaDBCommon.IsOffice) then
   if (DocNaklSTATE.Value <= 0) and (not IntfMegaDBCommon.IsOffice) then
 
@@ -12606,7 +12606,7 @@ begin
       IntfDBProvider.GetDB , Nakl_Transaction, False);
 
     if not ldmRep.IsMETRONakl then begin
-     if Application.MessageBox('Дебитор не является "МЭТРО..". Печать?','ВНИМАНИЕ!',MB_OKCANCEL+MB_ICONQUESTION)=IDCANCEL
+     if Application.MessageBox('Р”РµР±РёС‚РѕСЂ РЅРµ СЏРІР»СЏРµС‚СЃСЏ "РњР­РўР Рћ..". РџРµС‡Р°С‚СЊ?','Р’РќРРњРђРќРР•!',MB_OKCANCEL+MB_ICONQUESTION)=IDCANCEL
          then abort;
     end;
 
@@ -12644,7 +12644,7 @@ var
   ProcessKod : Integer;
 begin
 {$IFDEF D10+}
-  // стартовать процесс возвратной накладной
+  // СЃС‚Р°СЂС‚РѕРІР°С‚СЊ РїСЂРѕС†РµСЃСЃ РІРѕР·РІСЂР°С‚РЅРѕР№ РЅР°РєР»Р°РґРЅРѕР№
   with GetCommonModulesBusinessProcessesSoap(true) do
     try
       ProcessKod := CreateDocAndStartBusinessProcessAgreementOfProductionReturn3(
@@ -12657,25 +12657,25 @@ begin
       except
       on E: Exception do
         begin
-          liUtils.Error('Не удалось установить признак '#13#10+
-                     'согласования возврата на накладной. '#13#10+
-                     'текст ошибки'#13#10+e.Message);
+          liUtils.Error('РќРµ СѓРґР°Р»РѕСЃСЊ СѓСЃС‚Р°РЅРѕРІРёС‚СЊ РїСЂРёР·РЅР°Рє '#13#10+
+                     'СЃРѕРіР»Р°СЃРѕРІР°РЅРёСЏ РІРѕР·РІСЂР°С‚Р° РЅР° РЅР°РєР»Р°РґРЅРѕР№. '#13#10+
+                     'С‚РµРєСЃС‚ РѕС€РёР±РєРё'#13#10+e.Message);
         end;
       end;
 
 
-      Info('Стартовал процесс #'+IntToStr(ProcessKod));
+      Info('РЎС‚Р°СЂС‚РѕРІР°Р» РїСЂРѕС†РµСЃСЃ #'+IntToStr(ProcessKod));
     except
       on E:Exception do
       begin
-        liUtils.Error('При создании процесса возникли ошибки:'#13#10+e.Message);
+        liUtils.Error('РџСЂРё СЃРѕР·РґР°РЅРёРё РїСЂРѕС†РµСЃСЃР° РІРѕР·РЅРёРєР»Рё РѕС€РёР±РєРё:'#13#10+e.Message);
       end;
     end;
 {$ENDIF}
 end;
 
 procedure TDocNaklForm.actStartBPContragentVIPExecute(Sender: TObject);
-var  // Стартовать бизнес-процесс согласования VIP
+var  // РЎС‚Р°СЂС‚РѕРІР°С‚СЊ Р±РёР·РЅРµСЃ-РїСЂРѕС†РµСЃСЃ СЃРѕРіР»Р°СЃРѕРІР°РЅРёСЏ VIP
   ProcessKod : string;
   locTerritoryCFO,lAreaID,lOutletRecid,lOutletBaseid: integer;
 begin
@@ -12727,17 +12727,17 @@ begin
 
 
     if(ProcessKod<>'') then
-//      MessageDlg(format('Бизнес-процесс стартовал успешно'#13#10'Информация:'#13#10'%s',
+//      MessageDlg(format('Р‘РёР·РЅРµСЃ-РїСЂРѕС†РµСЃСЃ СЃС‚Р°СЂС‚РѕРІР°Р» СѓСЃРїРµС€РЅРѕ'#13#10'РРЅС„РѕСЂРјР°С†РёСЏ:'#13#10'%s',
           MessageDlg(format('%s',
                         [ProcessKod]), mtInformation, [mbOk], 0);
 //    if(ProcessKod>0) then
-//        Info(format('Стартовал процесс #%8.0f'#13#10+
-//                    'Детали доступны в 1С web-интерфейс.',
+//        Info(format('РЎС‚Р°СЂС‚РѕРІР°Р» РїСЂРѕС†РµСЃСЃ #%8.0f'#13#10+
+//                    'Р”РµС‚Р°Р»Рё РґРѕСЃС‚СѓРїРЅС‹ РІ 1РЎ web-РёРЅС‚РµСЂС„РµР№СЃ.',
 //                    [ProcessKod]));
   except
     on E:Exception do
     begin
-      liUtils.Error('При создании процесса возникли ошибки:'#13#10+e.Message);
+      liUtils.Error('РџСЂРё СЃРѕР·РґР°РЅРёРё РїСЂРѕС†РµСЃСЃР° РІРѕР·РЅРёРєР»Рё РѕС€РёР±РєРё:'#13#10+e.Message);
     end;
   end;
 end;
@@ -12752,8 +12752,8 @@ var
   ProcessKod: double;
 begin
   frm := TfmDialogBPCustom.Create(Application);
-  frm.Caption := 'Бизнес-процесс согласования продукции в подотчет';
-  frm.lbCaption.Caption := 'Стартовать бизнес-процесс согласования продукции в подотчет';
+  frm.Caption := 'Р‘РёР·РЅРµСЃ-РїСЂРѕС†РµСЃСЃ СЃРѕРіР»Р°СЃРѕРІР°РЅРёСЏ РїСЂРѕРґСѓРєС†РёРё РІ РїРѕРґРѕС‚С‡РµС‚';
+  frm.lbCaption.Caption := 'РЎС‚Р°СЂС‚РѕРІР°С‚СЊ Р±РёР·РЅРµСЃ-РїСЂРѕС†РµСЃСЃ СЃРѕРіР»Р°СЃРѕРІР°РЅРёСЏ РїСЂРѕРґСѓРєС†РёРё РІ РїРѕРґРѕС‚С‡РµС‚';
   frm.lbLink.Hint := cBPUrl;
 
   if frm.ShowModal = mrOk then
@@ -12762,11 +12762,11 @@ begin
     try
       ProcessKod := StartBusinessProcessFinanceCoordinationOfGettingProductOnCredit(
           DocNaklRECID.ASInteger, DocNaklBASEID.ASInteger,frm.aNotes,  IntfMegaAccessManager.GetUserKodDK );
-      Info('Стартовал процесс #'+FloatToStr(ProcessKod));
+      Info('РЎС‚Р°СЂС‚РѕРІР°Р» РїСЂРѕС†РµСЃСЃ #'+FloatToStr(ProcessKod));
     except
       on E:Exception do
       begin
-        liUtils.Error('При создании процесса возникли ошибки:'#13#10+e.Message);
+        liUtils.Error('РџСЂРё СЃРѕР·РґР°РЅРёРё РїСЂРѕС†РµСЃСЃР° РІРѕР·РЅРёРєР»Рё РѕС€РёР±РєРё:'#13#10+e.Message);
       end;
     end;
   end;
@@ -12789,13 +12789,13 @@ begin
                      );
 
     if(ProcessKod>0) then
-        MessageDlg(format('Стартовал процесс #%8.0f'#13#10+
-                          'Детали доступны в 1С web-интерфейс.',
+        MessageDlg(format('РЎС‚Р°СЂС‚РѕРІР°Р» РїСЂРѕС†РµСЃСЃ #%8.0f'#13#10+
+                          'Р”РµС‚Р°Р»Рё РґРѕСЃС‚СѓРїРЅС‹ РІ 1РЎ web-РёРЅС‚РµСЂС„РµР№СЃ.',
                           [ProcessKod]), mtInformation, [mbOk], 0);
   except
     on E:Exception do
     begin
-      MessageDlg('При создании процесса возникли ошибки:'#13#10+e.Message, mtError, [mbOk], 0);
+      MessageDlg('РџСЂРё СЃРѕР·РґР°РЅРёРё РїСЂРѕС†РµСЃСЃР° РІРѕР·РЅРёРєР»Рё РѕС€РёР±РєРё:'#13#10+e.Message, mtError, [mbOk], 0);
     end;
   end;
 end;
@@ -12819,7 +12819,7 @@ begin
   except
     on E:Exception do
     begin
-      MessageDlg('При создании процесса возникли ошибки:'#13#10+e.Message, mtError, [mbOk], 0);
+      MessageDlg('РџСЂРё СЃРѕР·РґР°РЅРёРё РїСЂРѕС†РµСЃСЃР° РІРѕР·РЅРёРєР»Рё РѕС€РёР±РєРё:'#13#10+e.Message, mtError, [mbOk], 0);
     end;
   end;
 end;
@@ -12862,7 +12862,7 @@ begin
 end;
 
 procedure TDocNaklForm.actPrintActRExecute(Sender: TObject);
-begin // "Акт о выполненных работах (услугах)" Россия
+begin // "РђРєС‚ Рѕ РІС‹РїРѕР»РЅРµРЅРЅС‹С… СЂР°Р±РѕС‚Р°С… (СѓСЃР»СѓРіР°С…)" Р РѕСЃСЃРёСЏ
      DocPOS.SafePost;
      DocNakl.SafePost;
 
@@ -12904,7 +12904,7 @@ begin
         'where ldo.parent_recid='+DocNaklRecID.AsString+' and ldo.parent_baseid='+DocNaklBaseID.AsString+
         ' and (so.status in ('+IntToStr(iosTrailerBreak)+','+IntToStr(iosTrailerBrak)+','+IntToStr(iosTrailerNotAll)+','+IntToStr(iosBreakManufact)+')'#13#10+
         ' or (so.kod_oper='+IntToStr(iotCarrierGoodsBreak)+' and so.group_oper='+IntToStr(igotCarrierGoodsBreak)+') '#13#10+
-//претензии
+//РїСЂРµС‚РµРЅР·РёРё
         ' or (so.kod_oper=3740000 and so.group_oper=772811000) '#13#10+
         ' or (so.kod_oper=374000 and so.group_oper=77024000) )';
   Query.ExecQuery;
@@ -12912,13 +12912,13 @@ begin
   if not (Query.FieldByName('DocsCount').AsInteger>0)
   then
     begin
-      ShowMessage('Для данного документа нет связанных документов боя, брака и недостачи');
+      ShowMessage('Р”Р»СЏ РґР°РЅРЅРѕРіРѕ РґРѕРєСѓРјРµРЅС‚Р° РЅРµС‚ СЃРІСЏР·Р°РЅРЅС‹С… РґРѕРєСѓРјРµРЅС‚РѕРІ Р±РѕСЏ, Р±СЂР°РєР° Рё РЅРµРґРѕСЃС‚Р°С‡Рё');
       exit;
     end;
 
   ldmRep:= TdmPrintNakl2.Create(Self);
   try
-////Форма заполнения перевозчика и ТТН
+////Р¤РѕСЂРјР° Р·Р°РїРѕР»РЅРµРЅРёСЏ РїРµСЂРµРІРѕР·С‡РёРєР° Рё РўРўРќ
     fmActBreakTrailer:=TfmActBreakTrailer.Create(Self);
     if fmActBreakTrailer.ShowModal=mrOk then
     begin
@@ -12968,7 +12968,7 @@ begin
       DISCOUNT :=StrToInt(aIniParams.GetIniParam('KASSA','DISCOUNT','0'));
       verKassa :=StrToInt(aIniParams.GetIniParam('KASSA','VER'));
       if not  InitializeComPort2 then
-        MessageDlg('Порт не инициализирован!!!', mtError, [mbOK], 0)
+        MessageDlg('РџРѕСЂС‚ РЅРµ РёРЅРёС†РёР°Р»РёР·РёСЂРѕРІР°РЅ!!!', mtError, [mbOK], 0)
       else
         PrintCheckPos;
 
@@ -12995,7 +12995,7 @@ end;
 
 procedure TDocNaklForm.actGovQualityExecute(Sender: TObject);
 begin
-  // Печать реестра свидетельств прохождения госконтроля качества.
+  // РџРµС‡Р°С‚СЊ СЂРµРµСЃС‚СЂР° СЃРІРёРґРµС‚РµР»СЊСЃС‚РІ РїСЂРѕС…РѕР¶РґРµРЅРёСЏ РіРѕСЃРєРѕРЅС‚СЂРѕР»СЏ РєР°С‡РµСЃС‚РІР°.
   dmMegaReports.MyShow(705,DocNaklOperDate.Value,DocNaklRecID.asString+','+DocNaklBaseID.asString);
 end;
 
@@ -13043,7 +13043,7 @@ var sMessage: string;
 begin
  //  ExportToWMSSort(true);  1
   sMessage:= ImportFromWMS(DocNaklRECID.AsInteger, DocNaklBASEID.AsInteger);
-  if sMessage = '' then sMessage:= 'Завершено успешно';
+  if sMessage = '' then sMessage:= 'Р—Р°РІРµСЂС€РµРЅРѕ СѓСЃРїРµС€РЅРѕ';
    MessageDlg(sMessage,  mtInformation,[mbOK], 0);
 end;
 
@@ -13074,7 +13074,7 @@ begin
 
 //  DM.SharedQuery.Transaction.CommitRetaining;
   mdsDocOrderSklad.Close;
-  mdsDocOrderSklad.ParamByName('TYPE_ORDER').asInteger:=typeorder;  // 02.08.2021 - здесь нужно тип наряда - из накладной могут создавать наряд на комплектацию и потом на стикеровку
+  mdsDocOrderSklad.ParamByName('TYPE_ORDER').asInteger:=typeorder;  // 02.08.2021 - Р·РґРµСЃСЊ РЅСѓР¶РЅРѕ С‚РёРї РЅР°СЂСЏРґР° - РёР· РЅР°РєР»Р°РґРЅРѕР№ РјРѕРіСѓС‚ СЃРѕР·РґР°РІР°С‚СЊ РЅР°СЂСЏРґ РЅР° РєРѕРјРїР»РµРєС‚Р°С†РёСЋ Рё РїРѕС‚РѕРј РЅР° СЃС‚РёРєРµСЂРѕРІРєСѓ
   mdsDocOrderSklad.Open;
   fm:=TfmDocOrderSkladPos.Create(self);
   fm.DOCRECNO:=mdsDocOrderSkladRECID.value;
@@ -13119,19 +13119,19 @@ procedure TDocNaklForm.actExportOrderToWMSExecute(Sender: TObject);
 var sMessage: string;
 begin
   sMessage:= ExportToWMS(DocNaklRECID.AsInteger, DocNaklBASEID.AsInteger, true);
-  if sMessage = '' then sMessage:= 'Завершено успешно';
+  if sMessage = '' then sMessage:= 'Р—Р°РІРµСЂС€РµРЅРѕ СѓСЃРїРµС€РЅРѕ';
   MessageDlg(sMessage,  mtInformation,[mbOK], 0);
 end;
 
 procedure TDocNaklForm.aktSubRentExecute(Sender: TObject);
 begin
-  // Договор с Субарендатором
+  // Р”РѕРіРѕРІРѕСЂ СЃ РЎСѓР±Р°СЂРµРЅРґР°С‚РѕСЂРѕРј
   dmMegaReports.MyShow(16,DocNaklOperDate.Value,DocNaklRECID.AsString+','+DocNaklBASEID.AsString);
 end;
 
 procedure TDocNaklForm.actSubRent_ListExecute(Sender: TObject);
 begin
-  //печать акта приёма передач суб.аренды
+  //РїРµС‡Р°С‚СЊ Р°РєС‚Р° РїСЂРёС‘РјР° РїРµСЂРµРґР°С‡ СЃСѓР±.Р°СЂРµРЅРґС‹
    dmMegaReports.MyShow(10,DocNaklOperDate.value,DocNaklRECID.AsString+','+DocNaklBASEID.AsString);
 end;
 
@@ -13145,7 +13145,7 @@ var
   ldmRep: TdmPrintNakl2;
   re: TRegExpr;
 begin
-  // Никаких проверок
+  // РќРёРєР°РєРёС… РїСЂРѕРІРµСЂРѕРє
   //frNaklrReal
 
   ldmRep:= TdmPrintNakl2.Create(Self);
@@ -13171,7 +13171,7 @@ begin
 end;
 
 procedure TDocNaklForm.actNaklPosSplitExecute(Sender: TObject);
-//Хазов С. 27-04-2005
+//РҐР°Р·РѕРІ РЎ. 27-04-2005
 var
   InStr: string;
   iInStr: integer;
@@ -13182,17 +13182,17 @@ begin
   Screen.Cursor:=crHourGlass;
   try
     GetRestSplit;
-    iInStr:=StrToIntDef(InputBox('Разбивка позиции', 'Введите новое количество (ед.)', ''),0);
+    iInStr:=StrToIntDef(InputBox('Р Р°Р·Р±РёРІРєР° РїРѕР·РёС†РёРё', 'Р’РІРµРґРёС‚Рµ РЅРѕРІРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ (РµРґ.)', ''),0);
     if ((iInStr<=0) or (iInStr>=DocPosKOLICH.Value)) then
     begin
-      ShowMessage('Разбить проводку не возможно. Укажите другое количество');
+      ShowMessage('Р Р°Р·Р±РёС‚СЊ РїСЂРѕРІРѕРґРєСѓ РЅРµ РІРѕР·РјРѕР¶РЅРѕ. РЈРєР°Р¶РёС‚Рµ РґСЂСѓРіРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ');
       Exit;
     end;
     if trSplitNakl.InTransaction then trSplitNakl.CommitRetaining
      else trSplitNakl.StartTransaction;
     if DocPosBaseID.asInteger=intfMegaDBCommon.GetBaseID then
     begin
-      //ShowMessage('Для офисной базы разбить проводку можно вручную');
+      //ShowMessage('Р”Р»СЏ РѕС„РёСЃРЅРѕР№ Р±Р°Р·С‹ СЂР°Р·Р±РёС‚СЊ РїСЂРѕРІРѕРґРєСѓ РјРѕР¶РЅРѕ РІСЂСѓС‡РЅСѓСЋ');
       NaklSplitQ.Close;
       NaklSplitQ.SQL.Text:='Execute procedure NAKL_POS_SPLIT ('+DocPosBaseID.asString+','+DocPosRecID.AsString+','+inttostr(iInStr)+')';
       NaklSplitQ.ExecQuery;
@@ -13216,9 +13216,9 @@ procedure TDocNaklForm.aSetOFDogovorExecute(Sender: TObject);
 begin
   if (DocNaklSTATE.Value<>idsOFDogovor) then
   begin
-    if MessageBox(0, 'Вносим отметку о наличии договора аренды.'+#13+#10+
-     'Изменения в накладной будут блокированы.'+#13+#10+
-     'Вы уверены ?', 'ВНИМАНИЕ !', MB_ICONQUESTION or MB_YESNO or MB_DEFBUTTON2)<>mrYes
+    if MessageBox(0, 'Р’РЅРѕСЃРёРј РѕС‚РјРµС‚РєСѓ Рѕ РЅР°Р»РёС‡РёРё РґРѕРіРѕРІРѕСЂР° Р°СЂРµРЅРґС‹.'+#13+#10+
+     'РР·РјРµРЅРµРЅРёСЏ РІ РЅР°РєР»Р°РґРЅРѕР№ Р±СѓРґСѓС‚ Р±Р»РѕРєРёСЂРѕРІР°РЅС‹.'+#13+#10+
+     'Р’С‹ СѓРІРµСЂРµРЅС‹ ?', 'Р’РќРРњРђРќРР• !', MB_ICONQUESTION or MB_YESNO or MB_DEFBUTTON2)<>mrYes
     then exit;
     if not (DocNakl.State in [dsInsert, dsEdit]) then DocNakl.Edit;
     DocNaklSTATE.Value:=idsOFDogovor;
@@ -13226,8 +13226,8 @@ begin
   else begin
     if (DocNaklSTATE.Value=idsOFDogovor) then
     begin
-      if MessageBox(0, 'Снять отметку о наличии договора аренды.'+#13+#10+
-       'Вы уверены ?', 'ВНИМАНИЕ !', MB_ICONQUESTION or MB_YESNO or MB_DEFBUTTON2)<>mrYes
+      if MessageBox(0, 'РЎРЅСЏС‚СЊ РѕС‚РјРµС‚РєСѓ Рѕ РЅР°Р»РёС‡РёРё РґРѕРіРѕРІРѕСЂР° Р°СЂРµРЅРґС‹.'+#13+#10+
+       'Р’С‹ СѓРІРµСЂРµРЅС‹ ?', 'Р’РќРРњРђРќРР• !', MB_ICONQUESTION or MB_YESNO or MB_DEFBUTTON2)<>mrYes
       then exit;
       if not (DocNakl.State in [dsInsert, dsEdit]) then DocNakl.Edit;
       DocNaklSTATE.Value:=-1;
@@ -13281,7 +13281,7 @@ var
 begin
   //
   q:=nil; trans:=nil;
-  if(IDYES<>Application.MessageBox('Хотите провести скидку в данной накладной?', '', MB_YESNO + MB_ICONQUESTION))
+  if(IDYES<>Application.MessageBox('РҐРѕС‚РёС‚Рµ РїСЂРѕРІРµСЃС‚Рё СЃРєРёРґРєСѓ РІ РґР°РЅРЅРѕР№ РЅР°РєР»Р°РґРЅРѕР№?', '', MB_YESNO + MB_ICONQUESTION))
   then exit;
   try
     q:=TMegaQuery.Create(Self);
@@ -13324,16 +13324,16 @@ end;
 
 procedure TDocNaklForm.actAllowNotCheckForNewTTExecute(Sender: TObject);
 begin
-  if(IDYES<>Application.MessageBox('Отключить проверку ассортимента новой точки для документа?', '', MB_YESNO + MB_ICONQUESTION))
+  if(IDYES<>Application.MessageBox('РћС‚РєР»СЋС‡РёС‚СЊ РїСЂРѕРІРµСЂРєСѓ Р°СЃСЃРѕСЂС‚РёРјРµРЅС‚Р° РЅРѕРІРѕР№ С‚РѕС‡РєРё РґР»СЏ РґРѕРєСѓРјРµРЅС‚Р°?', '', MB_YESNO + MB_ICONQUESTION))
   then exit;
   try
-    if(NaklOutletRecid=0) then raise Exception.Create('В документе не задана торговая точка!');
+    if(NaklOutletRecid=0) then raise Exception.Create('Р’ РґРѕРєСѓРјРµРЅС‚Рµ РЅРµ Р·Р°РґР°РЅР° С‚РѕСЂРіРѕРІР°СЏ С‚РѕС‡РєР°!');
 
     AllowNotCheckForNewTT(NaklOutletRecid, NaklOutletBaseid);
-    MessageBox(Self.Handle, PChar('Для данного документа проверка отключена!'), PChar(''), MB_OK + MB_ICONINFORMATION);
+    MessageBox(Self.Handle, PChar('Р”Р»СЏ РґР°РЅРЅРѕРіРѕ РґРѕРєСѓРјРµРЅС‚Р° РїСЂРѕРІРµСЂРєР° РѕС‚РєР»СЋС‡РµРЅР°!'), PChar(''), MB_OK + MB_ICONINFORMATION);
   except
     on E:Exception do
-      Application.MessageBox(PChar(E.Message), PChar('Ошибка!'), MB_OK + MB_ICONERROR);
+      Application.MessageBox(PChar(E.Message), PChar('РћС€РёР±РєР°!'), MB_OK + MB_ICONERROR);
   end;
 end;
 
@@ -13374,20 +13374,20 @@ end;
 
 procedure TDocNaklForm.actCheckBaseNaklExecute(Sender: TObject);
 begin
-// акция по Хортице
+// Р°РєС†РёСЏ РїРѕ РҐРѕСЂС‚РёС†Рµ
 
   CheckNaklBase(1);
 end;
 
 procedure TDocNaklForm.actCheckBaseNaklFeodosiaClick(Sender: TObject);
 begin
-  //феодосия
+  //С„РµРѕРґРѕСЃРёСЏ
   CheckNaklBase(4);
 end;
 
 procedure TDocNaklForm.actCheckBaseNaklOKZClick(Sender: TObject);
 begin
-  //окз
+  //РѕРєР·
   CheckNaklBase(5);
 end;
 
@@ -13404,13 +13404,13 @@ end;
 
 procedure TDocNaklForm.actCheckBaseNakl_blgExecute(Sender: TObject);
 begin
-//акция по благову
+//Р°РєС†РёСЏ РїРѕ Р±Р»Р°РіРѕРІСѓ
   CheckNaklBase(3);
 end;
 
 procedure TDocNaklForm.actCheckBaseNakl_medExecute(Sender: TObject);
 begin
-//акция по медовухе
+//Р°РєС†РёСЏ РїРѕ РјРµРґРѕРІСѓС…Рµ
   CheckNaklBase(2);
 end;
 
@@ -13423,7 +13423,7 @@ NextCheckFlag:=False;
 end;
 
 procedure TDocNaklForm.GetRestSplit;
-//Хазов С. 10-05-2005 - Показывает остатки по счетам для текущей позиции
+//РҐР°Р·РѕРІ РЎ. 10-05-2005 - РџРѕРєР°Р·С‹РІР°РµС‚ РѕСЃС‚Р°С‚РєРё РїРѕ СЃС‡РµС‚Р°Рј РґР»СЏ С‚РµРєСѓС‰РµР№ РїРѕР·РёС†РёРё
 var
   Res: string;
   lSc: integer;
@@ -13451,7 +13451,7 @@ begin
     Res:='';
     while not NaklSplitQ.EOF do
     begin
-      Res:=Res+'Остаток по счёту '+NaklSplitQ.FieldByName('SCHET').AsString+' = '+
+      Res:=Res+'РћСЃС‚Р°С‚РѕРє РїРѕ СЃС‡С‘С‚Сѓ '+NaklSplitQ.FieldByName('SCHET').AsString+' = '+
        NaklSplitQ.FieldByName('REST').AsString+#13#10;
       NaklSplitQ.next;
     end;
@@ -13509,7 +13509,7 @@ var
   end;
 
 begin
-  //печать акта приёма передач суб.аренды
+  //РїРµС‡Р°С‚СЊ Р°РєС‚Р° РїСЂРёС‘РјР° РїРµСЂРµРґР°С‡ СЃСѓР±.Р°СЂРµРЅРґС‹
   ldmRep:= TdmPrintNakl2.Create(Self);
   try
 
@@ -13562,7 +13562,7 @@ begin
     frVariables.Variable['oper_date']:= DateToStringRu(DocNaklOPERDATE.AsDateTime);
     frVariables.Variable['doc_date']:= DateToStringRu(DocNaklDOCDATE.AsDateTime);
     frVariables.Variable['aFIO']:= GetFIO(aTA);
-    frVariables.Variable['NUM_DOC']:= aNumber + '-ТА';
+    frVariables.Variable['NUM_DOC']:= aNumber + '-РўРђ';
     if FDesignReport then
     begin
       lDMRep.frDogovor.DesignReport;
@@ -13574,7 +13574,7 @@ begin
 
     frVariables.Variable['FIO']:= aSV;
     frVariables.Variable['aFIO']:= GetFIO(aSV);
-    frVariables.Variable['NUM_DOC']:= aNumber + '-СВ';
+    frVariables.Variable['NUM_DOC']:= aNumber + '-РЎР’';
     if FDesignReport then
     begin
       lDMRep.frDogovor.DesignReport;
@@ -13586,7 +13586,7 @@ begin
 
     frVariables.Variable['FIO']:= aDir;
     frVariables.Variable['aFIO']:= GetFIO(aDir);
-    frVariables.Variable['NUM_DOC']:= aNumber + '-ДР';
+    frVariables.Variable['NUM_DOC']:= aNumber + '-Р”Р ';
     if FDesignReport then
     begin
       lDMRep.frDogovor.DesignReport;
@@ -13616,7 +13616,7 @@ try
   dmMegaReports.MyCreateXLS(3105, Now(), DocNaklRecID.AsString+','+DocNaklBaseID.AsString);
 finally
   Screen.Cursor := iCurScreenState;
-  MessageBox(handle,'Выгрузка данных в файл завершена','Выгрузка данных',MB_OK);
+  MessageBox(handle,'Р’С‹РіСЂСѓР·РєР° РґР°РЅРЅС‹С… РІ С„Р°Р№Р» Р·Р°РІРµСЂС€РµРЅР°','Р’С‹РіСЂСѓР·РєР° РґР°РЅРЅС‹С…',MB_OK);
 end;
 end;
 
@@ -13663,7 +13663,7 @@ end;
 procedure TDocNaklForm.actPrintInvoiceExecute(Sender: TObject);
 begin
 //  dmMegaReports.MyShow(54,DocNaklOperDate.Value,DocNaklRecID.asString+','+DocNaklBaseID.asString+',801');
-// [gsa] 22112019 обнови
+// [gsa] 22112019 РѕР±РЅРѕРІРё
    if OPERSTATUS in [iosRealization, iosInvoicePrePaid, iosInvoiceForPay] then begin
        DM.SharedQuery.Close;
        DM.SharedQuery.SQL.Text:='select LEFT_SIGN, LEFT_SIGN_NAME , RIGHT_SIGN ,RIGHT_SIGN_NAME from DOC_SPECIFICATION where RECID=:recid AND BASEID=:baseid AND FORMTYPE=:formtype';
@@ -13675,7 +13675,7 @@ begin
           (DM.SharedQuery.FieldByName('RIGHT_SIGN').AsString<>'') //or (DM.SharedQuery.FieldByName('RIGHT_SIGN_NAME').AsString<>'')
        then
           if not(DocNaklSTATE.Value in [idsBug,idsKassa]) then begin
-             Application.MessageBox('На документе не стоит отметка об оплате.','Ошибка!',MB_OK);
+             Application.MessageBox('РќР° РґРѕРєСѓРјРµРЅС‚Рµ РЅРµ СЃС‚РѕРёС‚ РѕС‚РјРµС‚РєР° РѕР± РѕРїР»Р°С‚Рµ.','РћС€РёР±РєР°!',MB_OK);
              exit;
           end;
     end;
@@ -13686,7 +13686,7 @@ procedure TDocNaklForm.actPrintSubRent_StronoExecute(Sender: TObject);
 var
    ldmRep: TdmPrintNakl2;
 begin
-  //печать акта приёма передач суб.аренды(сторно)
+  //РїРµС‡Р°С‚СЊ Р°РєС‚Р° РїСЂРёС‘РјР° РїРµСЂРµРґР°С‡ СЃСѓР±.Р°СЂРµРЅРґС‹(СЃС‚РѕСЂРЅРѕ)
   ldmRep:= TdmPrintNakl2.Create(Self);
   try
     ldmRep.DocNakl.Transaction := DocNakl.Transaction;
@@ -13722,7 +13722,7 @@ end;
 procedure TDocNaklForm.N91Click(Sender: TObject);
 var
   ldmRep:TdmPrintNakl2;
-begin //печать справки к ТТН РАЗДЕЛ Б
+begin //РїРµС‡Р°С‚СЊ СЃРїСЂР°РІРєРё Рє РўРўРќ Р РђР—Р”Р•Р› Р‘
   ldmRep:= TdmPrintNakl2.Create(Self);
   try
     ldmRep.PrepareReport(
@@ -13775,14 +13775,14 @@ begin
 end;
 
 function TDocNaklForm.CheckAndMakeIfDocNeedSogl(aQuiet : Boolean): Boolean;
-// Игнат К.Г.
+// РРіРЅР°С‚ Рљ.Р“.
 // 2005-11-28
-//  В рамках задачи - "согласование возврата арендованного холодильника"
+//  Р’ СЂР°РјРєР°С… Р·Р°РґР°С‡Рё - "СЃРѕРіР»Р°СЃРѕРІР°РЅРёРµ РІРѕР·РІСЂР°С‚Р° Р°СЂРµРЅРґРѕРІР°РЅРЅРѕРіРѕ С…РѕР»РѕРґРёР»СЊРЅРёРєР°"
 const
   cQueryGetIsRaskhod = 'select RESULT from PROC_CHECK_IF_STATUS_STORNO_TT( :GROUP_OPER, :KOD_OPER)';
 begin
-  // начинаем с того, что проверяем операцию документа на
-  // "возвратность арендованного" из ТТ
+  // РЅР°С‡РёРЅР°РµРј СЃ С‚РѕРіРѕ, С‡С‚Рѕ РїСЂРѕРІРµСЂСЏРµРј РѕРїРµСЂР°С†РёСЋ РґРѕРєСѓРјРµРЅС‚Р° РЅР°
+  // "РІРѕР·РІСЂР°С‚РЅРѕСЃС‚СЊ Р°СЂРµРЅРґРѕРІР°РЅРЅРѕРіРѕ" РёР· РўРў
   DM.SharedQuery.Close;
   DM.SharedQuery.SQL.Text:= cQueryGetIsRaskhod;
   DM.SharedQuery.Params.ByName['GROUP_OPER'].AsDouble:= DocNaklGROUP_OPER.AsFloat;
@@ -13790,7 +13790,7 @@ begin
   DM.SharedQuery.ExecQuery;
   if DM.SharedQuery.FieldByName('RESULT').AsInteger > 0 then
   begin
-    // Проверяю на возможность печати, если холодильники....
+    // РџСЂРѕРІРµСЂСЏСЋ РЅР° РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ РїРµС‡Р°С‚Рё, РµСЃР»Рё С…РѕР»РѕРґРёР»СЊРЅРёРєРё....
     Query3.Close;
     Query3.SQL.Text := 'select RESULT from proc_check_nakl_can_print(' + DocNaklRECID.AsString + ', ' + DocNaklBASEID.AsString + ')';
     Query3.Prepare;
@@ -13799,34 +13799,34 @@ begin
       -2 :begin
             Query3.Close;
             if (GetProvStatus=22) then
-              Query3.SQL.Text := 'select RECID, BASEID from PROC_MAKE_REFRIGERATOR_SOGL(' + DocNaklRECID.AsString + ', ' + DocNaklBASEID.AsString + ','+ quotedstr('Клиент: (' + DocNaklDK_FROM.AsString + ') ' + Trim(DocNaklDK_FROM_NAME.AsString) + ' точка: ' + Trim(lbOutletInfo.Caption) + '. Примечание документа:' + Trim(DocNaklNotes.AsString)) + ')'
+              Query3.SQL.Text := 'select RECID, BASEID from PROC_MAKE_REFRIGERATOR_SOGL(' + DocNaklRECID.AsString + ', ' + DocNaklBASEID.AsString + ','+ quotedstr('РљР»РёРµРЅС‚: (' + DocNaklDK_FROM.AsString + ') ' + Trim(DocNaklDK_FROM_NAME.AsString) + ' С‚РѕС‡РєР°: ' + Trim(lbOutletInfo.Caption) + '. РџСЂРёРјРµС‡Р°РЅРёРµ РґРѕРєСѓРјРµРЅС‚Р°:' + Trim(DocNaklNotes.AsString)) + ')'
             else
               if (GetProvStatus=iosOFSubarenda) then
-                Query3.SQL.Text := 'select RECID, BASEID from PROC_MAKE_REFRIGERATOR_SOGL(' + DocNaklRECID.AsString + ', ' + DocNaklBASEID.AsString + ','+ quotedstr('Клиент: (' + DocNaklDK_TO.AsString + ') ' + Trim(DocNaklDK_TO_NAME.AsString) + ' точка: ' + Trim(lbOutletInfo.Caption) + '. Примечание документа:' + Trim(DocNaklNotes.AsString)) + ')'
+                Query3.SQL.Text := 'select RECID, BASEID from PROC_MAKE_REFRIGERATOR_SOGL(' + DocNaklRECID.AsString + ', ' + DocNaklBASEID.AsString + ','+ quotedstr('РљР»РёРµРЅС‚: (' + DocNaklDK_TO.AsString + ') ' + Trim(DocNaklDK_TO_NAME.AsString) + ' С‚РѕС‡РєР°: ' + Trim(lbOutletInfo.Caption) + '. РџСЂРёРјРµС‡Р°РЅРёРµ РґРѕРєСѓРјРµРЅС‚Р°:' + Trim(DocNaklNotes.AsString)) + ')'
               else
-                Query3.SQL.Text := 'select RECID, BASEID from PROC_MAKE_REFRIGERATOR_SOGL(' + DocNaklRECID.AsString + ', ' + DocNaklBASEID.AsString + ','+quotedstr('Накладная №' + DocNaklDOCNUMBER.AsString + ' от ' + Trim(DocNaklOPERDATE.AsString) + ' т.точка: ' + Trim(lbOutletInfo.Caption) + '. Примечание документа:' + Trim(DocNaklNotes.AsString)) + ')';
+                Query3.SQL.Text := 'select RECID, BASEID from PROC_MAKE_REFRIGERATOR_SOGL(' + DocNaklRECID.AsString + ', ' + DocNaklBASEID.AsString + ','+quotedstr('РќР°РєР»Р°РґРЅР°СЏ в„–' + DocNaklDOCNUMBER.AsString + ' РѕС‚ ' + Trim(DocNaklOPERDATE.AsString) + ' С‚.С‚РѕС‡РєР°: ' + Trim(lbOutletInfo.Caption) + '. РџСЂРёРјРµС‡Р°РЅРёРµ РґРѕРєСѓРјРµРЅС‚Р°:' + Trim(DocNaklNotes.AsString)) + ')';
             Query3.Prepare;
             Query3.ExecQuery;
-            // Теперь его надо отправить в офис...
+            // РўРµРїРµСЂСЊ РµРіРѕ РЅР°РґРѕ РѕС‚РїСЂР°РІРёС‚СЊ РІ РѕС„РёСЃ...
             if not (Query3.EOF AND Query3.BOF) then
             begin
               Query3.Transaction.CommitRetaining;
               TSendSoglForm.Create(Self, ' Where (ds.RECID = ' + IntToStr(Query3.FieldbyName('RECID').AsInteger) + ' AND ds.BASEID = ' + IntToStr(Query3.FieldByName('BASEID').AsInteger) + ') ');
               if (not aQuiet) then
-                Warning('Печать невозможна, без согласования с отделом продаж центрального офиса!' + #13#10 + 'Документ "согласование" подготовлен и отправлен, ожидайте решения.');
+                Warning('РџРµС‡Р°С‚СЊ РЅРµРІРѕР·РјРѕР¶РЅР°, Р±РµР· СЃРѕРіР»Р°СЃРѕРІР°РЅРёСЏ СЃ РѕС‚РґРµР»РѕРј РїСЂРѕРґР°Р¶ С†РµРЅС‚СЂР°Р»СЊРЅРѕРіРѕ РѕС„РёСЃР°!' + #13#10 + 'Р”РѕРєСѓРјРµРЅС‚ "СЃРѕРіР»Р°СЃРѕРІР°РЅРёРµ" РїРѕРґРіРѕС‚РѕРІР»РµРЅ Рё РѕС‚РїСЂР°РІР»РµРЅ, РѕР¶РёРґР°Р№С‚Рµ СЂРµС€РµРЅРёСЏ.');
             end
             else
               if (not aQuiet) then
-                Warning('Печать невозможна, без согласования с отделом продаж центрального офиса!' + #13#10 + 'Документ "согласование" подготовлен НО НЕ ОТПРАВЛЕН, СРОЧНО обратитесь в службу поддержки!');
+                Warning('РџРµС‡Р°С‚СЊ РЅРµРІРѕР·РјРѕР¶РЅР°, Р±РµР· СЃРѕРіР»Р°СЃРѕРІР°РЅРёСЏ СЃ РѕС‚РґРµР»РѕРј РїСЂРѕРґР°Р¶ С†РµРЅС‚СЂР°Р»СЊРЅРѕРіРѕ РѕС„РёСЃР°!' + #13#10 + 'Р”РѕРєСѓРјРµРЅС‚ "СЃРѕРіР»Р°СЃРѕРІР°РЅРёРµ" РїРѕРґРіРѕС‚РѕРІР»РµРЅ РќРћ РќР• РћРўРџР РђР’Р›Р•Рќ, РЎР РћР§РќРћ РѕР±СЂР°С‚РёС‚РµСЃСЊ РІ СЃР»СѓР¶Р±Сѓ РїРѕРґРґРµСЂР¶РєРё!');
             Result := False;
          end;
-         // -1 :MessageDlg('Накладная не содержит холодильников!', mtWarning, [mbOK], 0);
+         // -1 :MessageDlg('РќР°РєР»Р°РґРЅР°СЏ РЅРµ СЃРѕРґРµСЂР¶РёС‚ С…РѕР»РѕРґРёР»СЊРЅРёРєРѕРІ!', mtWarning, [mbOK], 0);
       0 : begin
             if (not aQuiet) then
-              Warning('Документ не согласован в отделе продаж центрального офиса!' + #13#10 + 'Печать документов запрещена.');
+              Warning('Р”РѕРєСѓРјРµРЅС‚ РЅРµ СЃРѕРіР»Р°СЃРѕРІР°РЅ РІ РѕС‚РґРµР»Рµ РїСЂРѕРґР°Р¶ С†РµРЅС‚СЂР°Р»СЊРЅРѕРіРѕ РѕС„РёСЃР°!' + #13#10 + 'РџРµС‡Р°С‚СЊ РґРѕРєСѓРјРµРЅС‚РѕРІ Р·Р°РїСЂРµС‰РµРЅР°.');
             Result := False;
           end;
-      // Иначе, если результат процедуры -1, 1 или более, тогда всё ОК ->
+      // РРЅР°С‡Рµ, РµСЃР»Рё СЂРµР·СѓР»СЊС‚Р°С‚ РїСЂРѕС†РµРґСѓСЂС‹ -1, 1 РёР»Рё Р±РѕР»РµРµ, С‚РѕРіРґР° РІСЃС‘ РћРљ ->
       else Result := True;
     end;
   end
@@ -13926,19 +13926,19 @@ var
   i:integer;
   lmsm: TMakeScriptManager;
 begin
-   if Ask('Вы хотите экспортировать накладную в офис?')= mrYes
+   if Ask('Р’С‹ С…РѕС‚РёС‚Рµ СЌРєСЃРїРѕСЂС‚РёСЂРѕРІР°С‚СЊ РЅР°РєР»Р°РґРЅСѓСЋ РІ РѕС„РёСЃ?')= mrYes
    then
    begin
 { ----------------- Added by Lion in 26.06.2008 ---------------- }
      if not SaveDoc then
-       Abort('Накладная не сохранена, поэтому экспорт не выполнен.');
+       Abort('РќР°РєР»Р°РґРЅР°СЏ РЅРµ СЃРѕС…СЂР°РЅРµРЅР°, РїРѕСЌС‚РѕРјСѓ СЌРєСЃРїРѕСЂС‚ РЅРµ РІС‹РїРѕР»РЅРµРЅ.');
 { ----------- End of addition by Lion in 26.06.2008 ----------- }
      try
-       //делаю скрипт на инсерт в накладную
+       //РґРµР»Р°СЋ СЃРєСЂРёРїС‚ РЅР° РёРЅСЃРµСЂС‚ РІ РЅР°РєР»Р°РґРЅСѓСЋ
        if docnakl.State in [dsEdit,dsInsert] then docnakl.Post;
 
        lmsm:= TMakeScriptManager.Create(TMegaBase(DocNakl.database),docnakl.Transaction);
-       //позиции
+       //РїРѕР·РёС†РёРё
        if not RemoteBase.Connected then
        begin
          RemoteBase.DBName:=IntfMegaDBCommon.GetParam('OFFICE_BASE','dbs.office.meganet:/db/base.gdb');
@@ -13954,11 +13954,11 @@ begin
        Ins2Office.ExecQuery;
        if Ins2Office.FieldByName('CNT').AsInteger>0 then
        begin
-         if (IntfMegaDBCommon.GetCountry<>iccRussia ) then   // по пиьсму от Харченко И от 16.02.2016
-            raise  exception.Create('Экспорт накладной невозможен! Данный документ является родительским для другого!')
+         if (IntfMegaDBCommon.GetCountry<>iccRussia ) then   // РїРѕ РїРёСЊСЃРјСѓ РѕС‚ РҐР°СЂС‡РµРЅРєРѕ Р РѕС‚ 16.02.2016
+            raise  exception.Create('Р­РєСЃРїРѕСЂС‚ РЅР°РєР»Р°РґРЅРѕР№ РЅРµРІРѕР·РјРѕР¶РµРЅ! Р”Р°РЅРЅС‹Р№ РґРѕРєСѓРјРµРЅС‚ СЏРІР»СЏРµС‚СЃСЏ СЂРѕРґРёС‚РµР»СЊСЃРєРёРј РґР»СЏ РґСЂСѓРіРѕРіРѕ!')
          else
             begin
-              if Ask('Вы хотите удалить дочерний(счет-фактуры, корректировки и пр.) документ?')= mrYes then
+              if Ask('Р’С‹ С…РѕС‚РёС‚Рµ СѓРґР°Р»РёС‚СЊ РґРѕС‡РµСЂРЅРёР№(СЃС‡РµС‚-С„Р°РєС‚СѓСЂС‹, РєРѕСЂСЂРµРєС‚РёСЂРѕРІРєРё Рё РїСЂ.) РґРѕРєСѓРјРµРЅС‚?')= mrYes then
               begin
                  Ins2Office.Close;
                  Ins2Office.SQL.text:=sqlDeleteChild;
@@ -13969,15 +13969,15 @@ begin
             end;
        end;
 {
-       //============ Нельзя удалять накладные, на них может быть внешний ключ в doc_trans_nakl_pos
+       //============ РќРµР»СЊР·СЏ СѓРґР°Р»СЏС‚СЊ РЅР°РєР»Р°РґРЅС‹Рµ, РЅР° РЅРёС… РјРѕР¶РµС‚ Р±С‹С‚СЊ РІРЅРµС€РЅРёР№ РєР»СЋС‡ РІ doc_trans_nakl_pos
        Ins2Office.Close;
        Ins2Office.SQL.text:=sqlDel;
        Ins2Office.Params.ByName['RECID'].asinteger:=DocNaklRECID.asinteger;
        Ins2Office.Params.ByName['BASEID'].asinteger:=DocNaklBASEID.asinteger;
        Ins2Office.ExecQuery;
-       //============= Правильнее апдейт накладной или вставка если ее еще нет в офисе
+       //============= РџСЂР°РІРёР»СЊРЅРµРµ Р°РїРґРµР№С‚ РЅР°РєР»Р°РґРЅРѕР№ РёР»Рё РІСЃС‚Р°РІРєР° РµСЃР»Рё РµРµ РµС‰Рµ РЅРµС‚ РІ РѕС„РёСЃРµ
        }
-       //Проверка есть ли в офисе
+       //РџСЂРѕРІРµСЂРєР° РµСЃС‚СЊ Р»Рё РІ РѕС„РёСЃРµ
        Ins2Office.Close;
        Ins2Office.SQL.text:=sqlCheckOfficeNakl;
        Ins2Office.Params.ByName['RECID'].asinteger:=DocNaklRECID.asinteger;
@@ -13985,12 +13985,12 @@ begin
        Ins2Office.ExecQuery;
        if Ins2Office.FieldByName('CNT').AsInteger>0 then
        begin
-        //Есть - Апдейт
+        //Р•СЃС‚СЊ - РђРїРґРµР№С‚
         insStr:=lmsm.GenScript('DOC_NAKL',DocNaklRECID.asstring+'|'+DocNaklBASEID.asstring,'U');
         Ins2Office.Close;
         Ins2Office.SQL.text:=insStr;
         Ins2Office.ExecQuery;
-        // по задаче  https://tms.khortitsa.com/issue/7144
+        // РїРѕ Р·Р°РґР°С‡Рµ  https://tms.khortitsa.com/issue/7144
         if (IntfMegaDBCommon.GetCountry=iccRussia ) then
         begin
           DM.SharedQuery.Close;
@@ -14031,7 +14031,7 @@ begin
             DM.SharedQuery.FieldByName('BASEID').asstring);
             DM.SharedQuery.Next;
           end;
-          //переливаем связку с основной накладной если была
+          //РїРµСЂРµР»РёРІР°РµРј СЃРІСЏР·РєСѓ СЃ РѕСЃРЅРѕРІРЅРѕР№ РЅР°РєР»Р°РґРЅРѕР№ РµСЃР»Рё Р±С‹Р»Р°
           DM.SharedQuery.Close;
           DM.SharedQuery.SQL.Text:=sqlGetLinkDocOpl;
           DM.SharedQuery.ParamByName('RECID').asInteger := DocNaklRECID.asInteger;
@@ -14055,12 +14055,12 @@ begin
        end
        else
        begin
-        //Нет - вставка
+        //РќРµС‚ - РІСЃС‚Р°РІРєР°
         insStr:=lmsm.GenScript('DOC_NAKL',DocNaklRECID.asstring+'|'+docnaklbaseid.asstring,'I');
         Ins2Office.Close;
         Ins2Office.SQL.text:=insStr;
         Ins2Office.ExecQuery;
-        // по задаче  https://tms.khortitsa.com/issue/7144
+        // РїРѕ Р·Р°РґР°С‡Рµ  https://tms.khortitsa.com/issue/7144
         if (IntfMegaDBCommon.GetCountry=iccRussia ) then
         begin
           DM.SharedQuery.Close;
@@ -14101,7 +14101,7 @@ begin
             DM.SharedQuery.FieldByName('BASEID').asstring);
             DM.SharedQuery.Next;
           end;
-          //переливаем связку с основной накладной если была
+          //РїРµСЂРµР»РёРІР°РµРј СЃРІСЏР·РєСѓ СЃ РѕСЃРЅРѕРІРЅРѕР№ РЅР°РєР»Р°РґРЅРѕР№ РµСЃР»Рё Р±С‹Р»Р°
           DM.SharedQuery.Close;
           DM.SharedQuery.SQL.Text:=sqlGetLinkDocOpl;
           DM.SharedQuery.ParamByName('RECID').asInteger := DocNaklRECID.asInteger;
@@ -14136,7 +14136,7 @@ begin
        begin
 
        end;       
-       //Удалить позиции из офиса
+       //РЈРґР°Р»РёС‚СЊ РїРѕР·РёС†РёРё РёР· РѕС„РёСЃР°
        Ins2Office.Close;
        Ins2Office.SQL.text:=sqlDelNaklPos;
        Ins2Office.Params.ByName['RECID'].asinteger:=DocNaklRECID.asinteger;
@@ -14144,7 +14144,7 @@ begin
        Ins2Office.ExecQuery;
        if (IntfMegaDBCommon.GetCountry=iccRussia ) then
        begin
-         //Удалить позиции pdv_nakl_pos из офиса
+         //РЈРґР°Р»РёС‚СЊ РїРѕР·РёС†РёРё pdv_nakl_pos РёР· РѕС„РёСЃР°
          Ins2Office.Close;
          Ins2Office.SQL.text:=sqlDelPdvPos;
          DM.SharedQuery.Close;
@@ -14160,11 +14160,11 @@ begin
            DM.SharedQuery.Next;
          end;
        end;
-       //вставка позиций накладной в офис
+       //РІСЃС‚Р°РІРєР° РїРѕР·РёС†РёР№ РЅР°РєР»Р°РґРЅРѕР№ РІ РѕС„РёСЃ
        selNaklPos2Office.active:=false;
        selNaklPos2Office.Active:=true;
        if selNaklPos2Office.RecordCount=0 then
-         raise  exception.Create('Экспорт накладной невозможен! Отсутсвуют позиции!');
+         raise  exception.Create('Р­РєСЃРїРѕСЂС‚ РЅР°РєР»Р°РґРЅРѕР№ РЅРµРІРѕР·РјРѕР¶РµРЅ! РћС‚СЃСѓС‚СЃРІСѓСЋС‚ РїРѕР·РёС†РёРё!');
        selNaklPos2Office.First;
        while  not selNaklPos2Office.Eof do
        begin
@@ -14177,7 +14177,7 @@ begin
           selNaklpos2Office.Fields.FieldByName('BASEID').asstring);
          selNaklPos2Office.Next;
        end;
-       // по задаче  https://tms.khortitsa.com/issue/7144
+       // РїРѕ Р·Р°РґР°С‡Рµ  https://tms.khortitsa.com/issue/7144
        if (IntfMegaDBCommon.GetCountry=iccRussia ) then
         begin
           DM.SharedQuery.Close;
@@ -14196,7 +14196,7 @@ begin
             DM.SharedQuery.Next;
           end;
         end;
-       //изменяем статус для блокировки данной накладной
+       //РёР·РјРµРЅСЏРµРј СЃС‚Р°С‚СѓСЃ РґР»СЏ Р±Р»РѕРєРёСЂРѕРІРєРё РґР°РЅРЅРѕР№ РЅР°РєР»Р°РґРЅРѕР№
        if ((IntfMegaAccessManager.GetUserRole<>'CORRECTOR') and (IntfMegaAccessManager.GetUserName<>'SYSDBA') )then
        begin
          docnakl.Edit;
@@ -14221,14 +14221,14 @@ begin
          end;
        end;
        ChangeSysProtokol('DOC_NAKL',DocNaklRECID.AsString+'|'+DocNaklBASEID.asstring);
-       //для того чтобы при закрытии не спрашивала!!!
+       //РґР»СЏ С‚РѕРіРѕ С‡С‚РѕР±С‹ РїСЂРё Р·Р°РєСЂС‹С‚РёРё РЅРµ СЃРїСЂР°С€РёРІР°Р»Р°!!!
        PosModified:=false;
        if RemoteTransaction.Active then
           RemoteTransaction.commitRetaining;
 
        Nakl_Transaction.CommitRetaining;
 
-       Info('Импорт накладной завершен!');
+       Info('РРјРїРѕСЂС‚ РЅР°РєР»Р°РґРЅРѕР№ Р·Р°РІРµСЂС€РµРЅ!');
        Close;
      except
        lmsm.free;
@@ -14268,7 +14268,7 @@ begin
   qAkcis.ParamByName('BASEID').Value := DOCNAKLBaseId.Value;
   qAkcis.ExecQuery;
 
-  ShowMessage('Сумма акцизного сбора по накладной: '+Format('%.2f',[qAkcis.FieldByName('RESULT').AsFloat])+' грн.');
+  ShowMessage('РЎСѓРјРјР° Р°РєС†РёР·РЅРѕРіРѕ СЃР±РѕСЂР° РїРѕ РЅР°РєР»Р°РґРЅРѕР№: '+Format('%.2f',[qAkcis.FieldByName('RESULT').AsFloat])+' РіСЂРЅ.');
 
 end;
 
@@ -14305,32 +14305,32 @@ begin
   v:= fbExecQuery(Tran, Checksql, [NaklRecid, NaklBaseId]);
   Result:= VarToInt(v[3], True, stNotMarked);
   case Result of
-    stRejected: liUtils.Abort('Бизнес процесс на самовывоз данной накладной отклонён!');
-    stAccepted: liUtils.Abort('Накладная уже помечена на самовывоз. Бизнес процесс на самовывоз данной накладной утверждён!');
-    stPending: liUtils.Abort('Накладная уже помечена на самовывоз. Идёт процесс утверждения бизнес процесса на самовывоз данной накладной!');
+    stRejected: liUtils.Abort('Р‘РёР·РЅРµСЃ РїСЂРѕС†РµСЃСЃ РЅР° СЃР°РјРѕРІС‹РІРѕР· РґР°РЅРЅРѕР№ РЅР°РєР»Р°РґРЅРѕР№ РѕС‚РєР»РѕРЅС‘РЅ!');
+    stAccepted: liUtils.Abort('РќР°РєР»Р°РґРЅР°СЏ СѓР¶Рµ РїРѕРјРµС‡РµРЅР° РЅР° СЃР°РјРѕРІС‹РІРѕР·. Р‘РёР·РЅРµСЃ РїСЂРѕС†РµСЃСЃ РЅР° СЃР°РјРѕРІС‹РІРѕР· РґР°РЅРЅРѕР№ РЅР°РєР»Р°РґРЅРѕР№ СѓС‚РІРµСЂР¶РґС‘РЅ!');
+    stPending: liUtils.Abort('РќР°РєР»Р°РґРЅР°СЏ СѓР¶Рµ РїРѕРјРµС‡РµРЅР° РЅР° СЃР°РјРѕРІС‹РІРѕР·. РРґС‘С‚ РїСЂРѕС†РµСЃСЃ СѓС‚РІРµСЂР¶РґРµРЅРёСЏ Р±РёР·РЅРµСЃ РїСЂРѕС†РµСЃСЃР° РЅР° СЃР°РјРѕРІС‹РІРѕР· РґР°РЅРЅРѕР№ РЅР°РєР»Р°РґРЅРѕР№!');
   end;
 
   FillChar(OD, SizeOf(OD), #0);
   OD.Source:= cSelfExportTypes;
-  OD.FieldNames:= 'NAME:"Тип самовывоза",200;';
-  OD.Title:= 'Выбор типа';
+  OD.FieldNames:= 'NAME:"РўРёРї СЃР°РјРѕРІС‹РІРѕР·Р°",200;';
+  OD.Title:= 'Р’С‹Р±РѕСЂ С‚РёРїР°';
   OD.REadOnly:=true;
   OD.KeyFields:='ID;NAME';
   OD.SelectMode:=true;
   if(not TfmUFV.Execute(OD))
-  then begin Warning('Необходимо указать тип самовывоза'); exit; end;
+  then begin Warning('РќРµРѕР±С…РѕРґРёРјРѕ СѓРєР°Р·Р°С‚СЊ С‚РёРї СЃР°РјРѕРІС‹РІРѕР·Р°'); exit; end;
   lSelfExportTypeId := VarToInt(OD.SelectedItem[0]);
   lSelfExportTypeName := VarToStr(OD.SelectedItem[1]);
 
-  if Ask('Вы хотите поставить на накладной признак "'+lSelfExportTypeName+'"?') = IDYES then
+  if Ask('Р’С‹ С…РѕС‚РёС‚Рµ РїРѕСЃС‚Р°РІРёС‚СЊ РЅР° РЅР°РєР»Р°РґРЅРѕР№ РїСЂРёР·РЅР°Рє "'+lSelfExportTypeName+'"?') = IDYES then
   begin
-    if not Dialogsr.InputQuery('Комментарий к БП', 'Укажите причину самовывоза', Note) then
-      liUtils.Abort('Причина должна быть указана! Операция отменена.');
+    if not Dialogsr.InputQuery('РљРѕРјРјРµРЅС‚Р°СЂРёР№ Рє Р‘Рџ', 'РЈРєР°Р¶РёС‚Рµ РїСЂРёС‡РёРЅСѓ СЃР°РјРѕРІС‹РІРѕР·Р°', Note) then
+      liUtils.Abort('РџСЂРёС‡РёРЅР° РґРѕР»Р¶РЅР° Р±С‹С‚СЊ СѓРєР°Р·Р°РЅР°! РћРїРµСЂР°С†РёСЏ РѕС‚РјРµРЅРµРЅР°.');
 
     BRAND_CASE_ID:= VarToInt(v[0]);
     NaklOutletRecid:= VarToInt(v[1]);
     NaklOutletBaseid:= VarToInt(v[2]);
-    { Старт БП }
+    { РЎС‚Р°СЂС‚ Р‘Рџ }
     with GetICommonModulesBusinessProcesses(true) do
     try
       ProcessKod:= StartBusinessProcessDistributionSelfTransportationEx(
@@ -14343,11 +14343,11 @@ begin
           IntfMegaAccessManager.GetUserKodDK,
           Note
           );
-      { Запись признака старта БП - Теперь этот признак записывает бизнес-процесс }
+      { Р—Р°РїРёСЃСЊ РїСЂРёР·РЅР°РєР° СЃС‚Р°СЂС‚Р° Р‘Рџ - РўРµРїРµСЂСЊ СЌС‚РѕС‚ РїСЂРёР·РЅР°Рє Р·Р°РїРёСЃС‹РІР°РµС‚ Р±РёР·РЅРµСЃ-РїСЂРѕС†РµСЃСЃ }
       //fbExecQuery(Tran, Inssql, [NaklRECID, NaklBASEID, stPending, StrEx(ProcessKod, 0)]);
       Result:= stPending;
     except
-      liUtils.Abort('При старте бизнес-процесса возникли ошибки:'#13#10 + ExceptMsg);
+      liUtils.Abort('РџСЂРё СЃС‚Р°СЂС‚Рµ Р±РёР·РЅРµСЃ-РїСЂРѕС†РµСЃСЃР° РІРѕР·РЅРёРєР»Рё РѕС€РёР±РєРё:'#13#10 + ExceptMsg);
     end;
   end;
 end;
@@ -14355,9 +14355,9 @@ end;
 
 procedure TDocNaklForm.actSelfExportExecute(Sender: TObject);
 begin
-  Abort('БП самовывоз отключен по указанию фин. директора!');//по указанию Сухины Ю. 26.12.2011
+  Abort('Р‘Рџ СЃР°РјРѕРІС‹РІРѕР· РѕС‚РєР»СЋС‡РµРЅ РїРѕ СѓРєР°Р·Р°РЅРёСЋ С„РёРЅ. РґРёСЂРµРєС‚РѕСЂР°!');//РїРѕ СѓРєР°Р·Р°РЅРёСЋ РЎСѓС…РёРЅС‹ Р®. 26.12.2011
   //if DocNaklDOC_INHERITED.asinteger <> 1 then
-  //  Abort('На самовывоз можно помечать ТОЛЬКО накладные!');
+  //  Abort('РќР° СЃР°РјРѕРІС‹РІРѕР· РјРѕР¶РЅРѕ РїРѕРјРµС‡Р°С‚СЊ РўРћР›Р¬РљРћ РЅР°РєР»Р°РґРЅС‹Рµ!');
  // SelfExportState:= SetSelfExport(DocNaklRECID.AsInteger, DocNaklBASEID.AsInteger, Nakl_Transaction);
 end;
 
@@ -14372,9 +14372,9 @@ var
   ProcessKod : Double;
   Note: string;
 begin
-  if Ask('Вы хотите поставить на накладной признак "Самовывоз"?')= IDYES then
+  if Ask('Р’С‹ С…РѕС‚РёС‚Рµ РїРѕСЃС‚Р°РІРёС‚СЊ РЅР° РЅР°РєР»Р°РґРЅРѕР№ РїСЂРёР·РЅР°Рє "РЎР°РјРѕРІС‹РІРѕР·"?')= IDYES then
   begin
-    if not Dialogsr.InputQuery('Комментарий к БП', 'Укажите причину самовывоза', Note) then Exit;
+    if not Dialogsr.InputQuery('РљРѕРјРјРµРЅС‚Р°СЂРёР№ Рє Р‘Рџ', 'РЈРєР°Р¶РёС‚Рµ РїСЂРёС‡РёРЅСѓ СЃР°РјРѕРІС‹РІРѕР·Р°', Note) then Exit;
     try
      qSelfNakl.close;
      qSelfNakl.SQL.Text:=Inssql;
@@ -14387,8 +14387,8 @@ begin
       begin
          if (E is EFIBInterbaseError and (EFIBInterbaseError(E).sqlcode = -803)) then
          begin
-           Abort('Данная накладная уже помечена как "Самовывоз".');
-//           if Ask('Данная накладная уже помечена как "Самовывоз".'+#13+#10+' Вы хотите удалить признак самовывоз (Да/Нет)?') = IDYES then
+           Abort('Р”Р°РЅРЅР°СЏ РЅР°РєР»Р°РґРЅР°СЏ СѓР¶Рµ РїРѕРјРµС‡РµРЅР° РєР°Рє "РЎР°РјРѕРІС‹РІРѕР·".');
+//           if Ask('Р”Р°РЅРЅР°СЏ РЅР°РєР»Р°РґРЅР°СЏ СѓР¶Рµ РїРѕРјРµС‡РµРЅР° РєР°Рє "РЎР°РјРѕРІС‹РІРѕР·".'+#13+#10+' Р’С‹ С…РѕС‚РёС‚Рµ СѓРґР°Р»РёС‚СЊ РїСЂРёР·РЅР°Рє СЃР°РјРѕРІС‹РІРѕР· (Р”Р°/РќРµС‚)?') = IDYES then
 //           begin
 //             qSelfNakl.close;
 //             qSelfNakl.SQL.Text:=DelSql;
@@ -14410,7 +14410,7 @@ begin
     if docnakl.state=dsbrowse then
        Nakl_Transaction.CommitRetaining;
 
-    { Старт БП }
+    { РЎС‚Р°СЂС‚ Р‘Рџ }
     with GetICommonModulesBusinessProcesses(true) do
     try
       ProcessKod:= StartBusinessProcessDistributionSelfTransportation(
@@ -14422,7 +14422,7 @@ begin
           IntfMegaAccessManager.GetUserKodDK,
           Note
           );
-      { Запись признака старта БП }
+      { Р—Р°РїРёСЃСЊ РїСЂРёР·РЅР°РєР° СЃС‚Р°СЂС‚Р° Р‘Рџ }
       qSelfNakl.close;
       qSelfNakl.SQL.Text:= Updsql;
       qSelfNakl.ParamByName('BP_STATE').value:= 0;
@@ -14433,7 +14433,7 @@ begin
       if docnakl.state=dsbrowse then
          Nakl_Transaction.CommitRetaining;
     except
-      liUtils.Error('При старте бизнес-процесса возникли ошибки:'#13#10 + ExceptMsg);
+      liUtils.Error('РџСЂРё СЃС‚Р°СЂС‚Рµ Р±РёР·РЅРµСЃ-РїСЂРѕС†РµСЃСЃР° РІРѕР·РЅРёРєР»Рё РѕС€РёР±РєРё:'#13#10 + ExceptMsg);
     end;
   end;
 end;
@@ -14461,14 +14461,14 @@ end;
 
 procedure TDocNaklForm.SetGridColumnNames;
 begin
-  DBGridEH1.FieldColumns['Price1_'].Title.Caption   := 'Цена, ' + Source.DataSet.FieldByName('V_NAME').AsString;
-  DBGridEH1.FieldColumns['Summa2'].Title.Caption    := 'Сумма, ' + Source.DataSet.FieldByName('V_NAME').AsString;
-  DBGridEH1.FieldColumns['Price2_'].Title.Caption   := 'Цена, ' + Source.DataSet.FieldByName('V1_NAME').AsString;
-  DBGridEH1.FieldColumns['Summa3'].Title.Caption    := 'Сумма, ' + Source.DataSet.FieldByName('V1_NAME').AsString;
-  DBGridEH1.FieldColumns['PRICEWPDV'].Title.Caption := 'Цена с НДС, ' + Source.DataSet.FieldByName('V1_NAME').AsString;
-  DBGridEH1.FieldColumns['SUMMAWPDV'].Title.Caption := 'Сумма с НДС, ' + Source.DataSet.FieldByName('V1_NAME').AsString;
-  DBGridEH1.FieldColumns['EXCISE'].Title.Caption    := 'Ставка акциза, ' + Source.DataSet.FieldByName('V_NAME').AsString;
-  DBGridEH1.FieldColumns['EXCISE_SUM'].Title.Caption:= 'Сумма акциза, ' + Source.DataSet.FieldByName('V_NAME').AsString;
+  DBGridEH1.FieldColumns['Price1_'].Title.Caption   := 'Р¦РµРЅР°, ' + Source.DataSet.FieldByName('V_NAME').AsString;
+  DBGridEH1.FieldColumns['Summa2'].Title.Caption    := 'РЎСѓРјРјР°, ' + Source.DataSet.FieldByName('V_NAME').AsString;
+  DBGridEH1.FieldColumns['Price2_'].Title.Caption   := 'Р¦РµРЅР°, ' + Source.DataSet.FieldByName('V1_NAME').AsString;
+  DBGridEH1.FieldColumns['Summa3'].Title.Caption    := 'РЎСѓРјРјР°, ' + Source.DataSet.FieldByName('V1_NAME').AsString;
+  DBGridEH1.FieldColumns['PRICEWPDV'].Title.Caption := 'Р¦РµРЅР° СЃ РќР”РЎ, ' + Source.DataSet.FieldByName('V1_NAME').AsString;
+  DBGridEH1.FieldColumns['SUMMAWPDV'].Title.Caption := 'РЎСѓРјРјР° СЃ РќР”РЎ, ' + Source.DataSet.FieldByName('V1_NAME').AsString;
+  DBGridEH1.FieldColumns['EXCISE'].Title.Caption    := 'РЎС‚Р°РІРєР° Р°РєС†РёР·Р°, ' + Source.DataSet.FieldByName('V_NAME').AsString;
+  DBGridEH1.FieldColumns['EXCISE_SUM'].Title.Caption:= 'РЎСѓРјРјР° Р°РєС†РёР·Р°, ' + Source.DataSet.FieldByName('V_NAME').AsString;
 end;
 
 procedure TDocNaklForm.actPrintInvoiceUpdate(Sender: TObject);
@@ -14480,7 +14480,7 @@ begin
      (TAction(Sender) = actPrintInvoice_Rekl) then
      TAction(Sender).Enabled:=DocNaklSTATE.Value in [idsBug,idsKassa];
 
-  //[gsa] 251119 тест доступа к пункту под меню новый отчет
+  //[gsa] 251119 С‚РµСЃС‚ РґРѕСЃС‚СѓРїР° Рє РїСѓРЅРєС‚Сѓ РїРѕРґ РјРµРЅСЋ РЅРѕРІС‹Р№ РѕС‚С‡РµС‚
   if IntfMegaAccessManager.GetUserRole = 'SALE_EXPORT_SPECIALIST' then
           actPrintInvoice.Enabled:=true;
 
@@ -14503,7 +14503,7 @@ begin
 end;
 
 function TDocNaklForm.CheckFromSubDog_ToNacenka:boolean;
-begin //процедура проверяет возможность установки наценки при наличии дополнения к договору
+begin //РїСЂРѕС†РµРґСѓСЂР° РїСЂРѕРІРµСЂСЏРµС‚ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ СѓСЃС‚Р°РЅРѕРІРєРё РЅР°С†РµРЅРєРё РїСЂРё РЅР°Р»РёС‡РёРё РґРѕРїРѕР»РЅРµРЅРёСЏ Рє РґРѕРіРѕРІРѕСЂСѓ
       // =idvSubDogovorPrePay
    result:=true;
    exit;
@@ -14563,7 +14563,7 @@ begin
       MegaExecQuery(q);
 
       if q.FieldByNAme('exept').asInteger=0 then
-         Application.MessageBox('Накладная помечена как базовая!', 'Внимание !', MB_OK + MB_ICONWARNING);
+         Application.MessageBox('РќР°РєР»Р°РґРЅР°СЏ РїРѕРјРµС‡РµРЅР° РєР°Рє Р±Р°Р·РѕРІР°СЏ!', 'Р’РЅРёРјР°РЅРёРµ !', MB_OK + MB_ICONWARNING);
       trans.Commit;
 
     except
@@ -14579,7 +14579,7 @@ end;
 procedure TDocNaklForm.cxButton3Click(Sender: TObject);
 begin
  //
-  Application.MessageBox('Программа выполнила недопустимую операцию и будет закрыта!', 'Внимание !', MB_OK + MB_ICONWARNING);
+  Application.MessageBox('РџСЂРѕРіСЂР°РјРјР° РІС‹РїРѕР»РЅРёР»Р° РЅРµРґРѕРїСѓСЃС‚РёРјСѓСЋ РѕРїРµСЂР°С†РёСЋ Рё Р±СѓРґРµС‚ Р·Р°РєСЂС‹С‚Р°!', 'Р’РЅРёРјР°РЅРёРµ !', MB_OK + MB_ICONWARNING);
   application.Terminate;
 end;
 
@@ -14611,9 +14611,9 @@ begin
     if (DocNaklSTATE.OldValue = idsKassa) or (DocNaklSTATE.OldValue = idsBug) or ((DocNaklSTATE.OldValue = idsOFDogovor) and not (grBuhgalter in aIniParams.UserGroup)) then
       if (SumVpl=0) or (SumVpl<>Sum.FieldByName('SUMMARY').AsFloat) then
         exit;
-    if (DocNaklSTATE.OldValue=idsBug) and not (grBuhgalter in aIniParams.UserGroup) and ((DocNaklDOCTYPE.AsString[1]='Р') or (DocNaklDOCTYPE.AsString[1]='д')) then
+    if (DocNaklSTATE.OldValue=idsBug) and not (grBuhgalter in aIniParams.UserGroup) and ((DocNaklDOCTYPE.AsString[1]='Р ') or (DocNaklDOCTYPE.AsString[1]='Рґ')) then
       exit;
-    {проверка итогового нуля для пересортицы}
+    {РїСЂРѕРІРµСЂРєР° РёС‚РѕРіРѕРІРѕРіРѕ РЅСѓР»СЏ РґР»СЏ РїРµСЂРµСЃРѕСЂС‚РёС†С‹}
     if (IntfMegaAccessManager.GetUserName<>'SYSDBA')
       and ((DocNaklDK_TO.AsFloat=14) or (DocNaklDK_FROM.AsFloat=14))
       and (not IntfMegaDBCommon.IsOffice)
@@ -14622,7 +14622,7 @@ begin
       //and (IntfMegaDBCommon.GetParam('SLICH_VED_USE','0')<>'1')
       then
     begin
-      Application.MessageBox(pchar(exept), 'Внимание !', MB_OK + MB_ICONWARNING);
+      Application.MessageBox(pchar(exept), 'Р’РЅРёРјР°РЅРёРµ !', MB_OK + MB_ICONWARNING);
       Result := False;
       exit;
     end;
@@ -14634,7 +14634,7 @@ begin
     if MegaSelCFOto.Enabled and (MegaSelCFOto.Value = MegaSelCFOfrom.Value) and (not MegaSelCFOfrom.ShowWithHistory)
     and ActiveControl.CanFocus then
     begin
-      liUtils.Error('Адрес "Куда" должен отличаться от адреса "Откуда"!');
+      liUtils.Error('РђРґСЂРµСЃ "РљСѓРґР°" РґРѕР»Р¶РµРЅ РѕС‚Р»РёС‡Р°С‚СЊСЃСЏ РѕС‚ Р°РґСЂРµСЃР° "РћС‚РєСѓРґР°"!');
       ActiveControl:= MegaSelCFOto;
       Result:= False;
       Exit;
@@ -14648,7 +14648,7 @@ begin
       Exit;
     end;
   end;
-// !!! тест  SaveAddr;
+// !!! С‚РµСЃС‚  SaveAddr;
   if PosModified then
   begin
     DocNakl.Edit;
@@ -14662,7 +14662,7 @@ begin
              begin
                if AlphaStarted then
                begin
-                 if Application.MessageBox('Отложить накладную?','Внимание', MB_YESNO+MB_ICONQUESTION+MB_DEFBUTTON2) <> IDYES then
+                 if Application.MessageBox('РћС‚Р»РѕР¶РёС‚СЊ РЅР°РєР»Р°РґРЅСѓСЋ?','Р’РЅРёРјР°РЅРёРµ', MB_YESNO+MB_ICONQUESTION+MB_DEFBUTTON2) <> IDYES then
                  begin
                    Result := False;
                    Exit;
@@ -14683,23 +14683,23 @@ begin
                  if (IntfMegaAccessManager.GetUserRole <> 'CORRECTOR') and
                     (IntfMegaAccessManager.GetUserName <> 'SYSDBA') then
                  begin
-                   Application.MessageBox('Накладная включена в проведенную сортировочную партию. Сохранение не возможно.', 'Внимание !', MB_OK + MB_ICONERROR);
+                   Application.MessageBox('РќР°РєР»Р°РґРЅР°СЏ РІРєР»СЋС‡РµРЅР° РІ РїСЂРѕРІРµРґРµРЅРЅСѓСЋ СЃРѕСЂС‚РёСЂРѕРІРѕС‡РЅСѓСЋ РїР°СЂС‚РёСЋ. РЎРѕС…СЂР°РЅРµРЅРёРµ РЅРµ РІРѕР·РјРѕР¶РЅРѕ.', 'Р’РЅРёРјР°РЅРёРµ !', MB_OK + MB_ICONERROR);
                    Result := False;
                    exit;
                  end;
 
-             //Проверка формы оплаты
+             //РџСЂРѕРІРµСЂРєР° С„РѕСЂРјС‹ РѕРїР»Р°С‚С‹
              if (DocNaklFOplName.IsNull)then
-               if (mrCANCEL=Application.MessageBox('Не задана форма оплаты. Сохранение не возможно.!', 'Внимание!',MB_OK + MB_ICONERROR)) then
+               if (mrCANCEL=Application.MessageBox('РќРµ Р·Р°РґР°РЅР° С„РѕСЂРјР° РѕРїР»Р°С‚С‹. РЎРѕС…СЂР°РЅРµРЅРёРµ РЅРµ РІРѕР·РјРѕР¶РЅРѕ.!', 'Р’РЅРёРјР°РЅРёРµ!',MB_OK + MB_ICONERROR)) then
                begin
                  Result := false;
                  exit;
                end;
-             //Проверка проставления адреса откуда
+             //РџСЂРѕРІРµСЂРєР° РїСЂРѕСЃС‚Р°РІР»РµРЅРёСЏ Р°РґСЂРµСЃР° РѕС‚РєСѓРґР°
              if ((OPERSTATUS in [iosIncomeFromProvider,iosIncomeFromRoad,iosImportIncomeFromRoad])
                            and (DocNaklADDR_FROM.AsInteger=DocNaklCFO.AsInteger)) then
-               if (mrCANCEL=Application.MessageBox('Не задан адрес откуда.'+#13#10+'Сохранить?',
-                               'Предупреждение', MB_ICONWARNING or MB_OKCANCEL)) then
+               if (mrCANCEL=Application.MessageBox('РќРµ Р·Р°РґР°РЅ Р°РґСЂРµСЃ РѕС‚РєСѓРґР°.'+#13#10+'РЎРѕС…СЂР°РЅРёС‚СЊ?',
+                               'РџСЂРµРґСѓРїСЂРµР¶РґРµРЅРёРµ', MB_ICONWARNING or MB_OKCANCEL)) then
                begin
                  Result := false;
                  exit;
@@ -14713,13 +14713,13 @@ begin
                begin
                  if  CreateNaklCopy2CHP(doctype,group_oper,kod_oper) then
                  Begin
-                     Application.MessageBox(PChar('!!!Сформирована ПРИХОДНАЯ накладная в балансе 300. Необходимо проверить соответствие!!!'),Pchar('Внимание'),MB_OK+MB_ICONINFORMATION);
+                     Application.MessageBox(PChar('!!!РЎС„РѕСЂРјРёСЂРѕРІР°РЅР° РџР РРҐРћР”РќРђРЇ РЅР°РєР»Р°РґРЅР°СЏ РІ Р±Р°Р»Р°РЅСЃРµ 300. РќРµРѕР±С…РѕРґРёРјРѕ РїСЂРѕРІРµСЂРёС‚СЊ СЃРѕРѕС‚РІРµС‚СЃС‚РІРёРµ!!!'),Pchar('Р’РЅРёРјР°РЅРёРµ'),MB_OK+MB_ICONINFORMATION);
                  end;    
-                 //!!!Сформирована ПРИХОДНАЯ накладная в балансе 300. Необходимо проверить соответствие!!!
+                 //!!!РЎС„РѕСЂРјРёСЂРѕРІР°РЅР° РџР РРҐРћР”РќРђРЇ РЅР°РєР»Р°РґРЅР°СЏ РІ Р±Р°Р»Р°РЅСЃРµ 300. РќРµРѕР±С…РѕРґРёРјРѕ РїСЂРѕРІРµСЂРёС‚СЊ СЃРѕРѕС‚РІРµС‚СЃС‚РІРёРµ!!!
                end;
              end;
              //
-             //Проверка суммы для накладных боя (не должна превышать 1000 грн.)
+             //РџСЂРѕРІРµСЂРєР° СЃСѓРјРјС‹ РґР»СЏ РЅР°РєР»Р°РґРЅС‹С… Р±РѕСЏ (РЅРµ РґРѕР»Р¶РЅР° РїСЂРµРІС‹С€Р°С‚СЊ 1000 РіСЂРЅ.)
              if (IsBreakNakl) then
              begin
                if (IntfMegaAccessManager.GetUserRole <> 'CORRECTOR') and
@@ -14727,16 +14727,16 @@ begin
                begin
                  if (IntfMegaDBCommon.GetCountry=iccUkraine) and (DocNaklSUMMA1.AsFloat>1000) then
                  begin
-                   MessageBox(0, 'Сумма превышает предельно допустимую (1000 грн.).'+#13+#10+
-                                 'Списание боя необходимо произвести в балансе Мегаполиса на расчет по претензиям.',
-                              'Сохранение', MB_ICONSTOP or MB_OK);
+                   MessageBox(0, 'РЎСѓРјРјР° РїСЂРµРІС‹С€Р°РµС‚ РїСЂРµРґРµР»СЊРЅРѕ РґРѕРїСѓСЃС‚РёРјСѓСЋ (1000 РіСЂРЅ.).'+#13+#10+
+                                 'РЎРїРёСЃР°РЅРёРµ Р±РѕСЏ РЅРµРѕР±С…РѕРґРёРјРѕ РїСЂРѕРёР·РІРµСЃС‚Рё РІ Р±Р°Р»Р°РЅСЃРµ РњРµРіР°РїРѕР»РёСЃР° РЅР° СЂР°СЃС‡РµС‚ РїРѕ РїСЂРµС‚РµРЅР·РёСЏРј.',
+                              'РЎРѕС…СЂР°РЅРµРЅРёРµ', MB_ICONSTOP or MB_OK);
                    Result := false;
                    exit;
                  end;
                end;
              end;
 
-             // проверяем чтобы долг ДК был не больше гривны
+             // РїСЂРѕРІРµСЂСЏРµРј С‡С‚РѕР±С‹ РґРѕР»Рі Р”Рљ Р±С‹Р» РЅРµ Р±РѕР»СЊС€Рµ РіСЂРёРІРЅС‹
              if ((IntfMegaDBCommon.GetCountry = iccUkraine)or(IntfMegaDBCommon.GetCountry = kodUKR))
                 and(DocNaklBALANCE_KOD.AsInteger = IntfMegaCommon.GetMainFirmBalanceKod)
                 and ufmReturnsMake.isReturnsControl
@@ -14751,19 +14751,19 @@ begin
                               DocNakl.Database, DocNakl.Transaction, self );
                  if DKdolg <-1 then
                  begin
-                   liUtils.Error('Невозможно сохранить накладную: Сумма в накладной превышает сальдо клиента.'+#13+#10+
-                          Format('Долг клиента составляет %8.2f грн.'#13#10,[DKdolg])+
-                          'Обратитесь в отдел учета и анализа дебиторской задолженности.');
+                   liUtils.Error('РќРµРІРѕР·РјРѕР¶РЅРѕ СЃРѕС…СЂР°РЅРёС‚СЊ РЅР°РєР»Р°РґРЅСѓСЋ: РЎСѓРјРјР° РІ РЅР°РєР»Р°РґРЅРѕР№ РїСЂРµРІС‹С€Р°РµС‚ СЃР°Р»СЊРґРѕ РєР»РёРµРЅС‚Р°.'+#13+#10+
+                          Format('Р”РѕР»Рі РєР»РёРµРЅС‚Р° СЃРѕСЃС‚Р°РІР»СЏРµС‚ %8.2f РіСЂРЅ.'#13#10,[DKdolg])+
+                          'РћР±СЂР°С‚РёС‚РµСЃСЊ РІ РѕС‚РґРµР» СѓС‡РµС‚Р° Рё Р°РЅР°Р»РёР·Р° РґРµР±РёС‚РѕСЂСЃРєРѕР№ Р·Р°РґРѕР»Р¶РµРЅРЅРѕСЃС‚Рё.');
                    Result := false;
                    exit;
                  end;
                end;
 
-             //(2011-01-12 Филимонов) Не разрешаем сохранение без позиций
+             //(2011-01-12 Р¤РёР»РёРјРѕРЅРѕРІ) РќРµ СЂР°Р·СЂРµС€Р°РµРј СЃРѕС…СЂР°РЅРµРЅРёРµ Р±РµР· РїРѕР·РёС†РёР№
              if((DocPos.RecordCount = 0) and (OPERSTATUS in [iosRealizationF1,iosRealizationF2]))
              then begin
-               liUtils.Error('В документе должна быть хотя бы одна позиция!'+#13#10+
-                             'Сохранение документа не допустимо!');
+               liUtils.Error('Р’ РґРѕРєСѓРјРµРЅС‚Рµ РґРѕР»Р¶РЅР° Р±С‹С‚СЊ С…РѕС‚СЏ Р±С‹ РѕРґРЅР° РїРѕР·РёС†РёСЏ!'+#13#10+
+                             'РЎРѕС…СЂР°РЅРµРЅРёРµ РґРѕРєСѓРјРµРЅС‚Р° РЅРµ РґРѕРїСѓСЃС‚РёРјРѕ!');
                Result := false;
                exit;
              end;
@@ -14796,19 +14796,19 @@ begin
   //******************************************************************************
   if (NaklPervChange or NaklContractChange) then
   begin
-    if IDYES=MessageBox(Application.Handle,'Сохранить изменения?','Закрытие формы.',MB_APPLMODAL+MB_YESNO+MB_ICONQUESTION) then
+    if IDYES=MessageBox(Application.Handle,'РЎРѕС…СЂР°РЅРёС‚СЊ РёР·РјРµРЅРµРЅРёСЏ?','Р—Р°РєСЂС‹С‚РёРµ С„РѕСЂРјС‹.',MB_APPLMODAL+MB_YESNO+MB_ICONQUESTION) then
     begin
       if not IntfMegaDBCommon.IsOffice and not InExport
          and Assigned(DocNaklSENDED_TO_OFFICE)
          and (VarToInt(DocNaklSENDED_TO_OFFICE.Value) <> 1)
          and (VarToInt(DocNaklZAYAVKA_ID.Value) <> 0) then
       begin
-        if Ask('Вы связали накладную на бой с заявкой на транспорт.'#13#10
-              +'Для того чтобы данные в ЦО были актуальны необходимо обязательно выполнить экспорт накладной в ЦО.'
-              +'Если по каким-то причинам отправка данных в офис невозможна, а накладную нужно сохранить - нажмите "Нет", однако сделайте экспорт как только появится возможность.',
-              True, 'Внимание') <> idNo then Abort;
+        if Ask('Р’С‹ СЃРІСЏР·Р°Р»Рё РЅР°РєР»Р°РґРЅСѓСЋ РЅР° Р±РѕР№ СЃ Р·Р°СЏРІРєРѕР№ РЅР° С‚СЂР°РЅСЃРїРѕСЂС‚.'#13#10
+              +'Р”Р»СЏ С‚РѕРіРѕ С‡С‚РѕР±С‹ РґР°РЅРЅС‹Рµ РІ Р¦Рћ Р±С‹Р»Рё Р°РєС‚СѓР°Р»СЊРЅС‹ РЅРµРѕР±С…РѕРґРёРјРѕ РѕР±СЏР·Р°С‚РµР»СЊРЅРѕ РІС‹РїРѕР»РЅРёС‚СЊ СЌРєСЃРїРѕСЂС‚ РЅР°РєР»Р°РґРЅРѕР№ РІ Р¦Рћ.'
+              +'Р•СЃР»Рё РїРѕ РєР°РєРёРј-С‚Рѕ РїСЂРёС‡РёРЅР°Рј РѕС‚РїСЂР°РІРєР° РґР°РЅРЅС‹С… РІ РѕС„РёСЃ РЅРµРІРѕР·РјРѕР¶РЅР°, Р° РЅР°РєР»Р°РґРЅСѓСЋ РЅСѓР¶РЅРѕ СЃРѕС…СЂР°РЅРёС‚СЊ - РЅР°Р¶РјРёС‚Рµ "РќРµС‚", РѕРґРЅР°РєРѕ СЃРґРµР»Р°Р№С‚Рµ СЌРєСЃРїРѕСЂС‚ РєР°Рє С‚РѕР»СЊРєРѕ РїРѕСЏРІРёС‚СЃСЏ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ.',
+              True, 'Р’РЅРёРјР°РЅРёРµ') <> idNo then Abort;
       end;
-      // тихонечко делаем согласование
+      // С‚РёС…РѕРЅРµС‡РєРѕ РґРµР»Р°РµРј СЃРѕРіР»Р°СЃРѕРІР°РЅРёРµ
       CheckAndMakeIfDocNeedSogl(True);
       Nakl_Transaction.CommitRetaining;
     end;
@@ -14870,7 +14870,7 @@ begin
     DocPos.ConfirmPost:=false;
     DocPos.ConfirmDelete:=false;
     while not frmListSplit.cdsListNakl.eof do
-    //if InputQuery('Разделение по накладным', 'Отправить в другую накладную %', S) then
+    //if InputQuery('Р Р°Р·РґРµР»РµРЅРёРµ РїРѕ РЅР°РєР»Р°РґРЅС‹Рј', 'РћС‚РїСЂР°РІРёС‚СЊ РІ РґСЂСѓРіСѓСЋ РЅР°РєР»Р°РґРЅСѓСЋ %', S) then
     begin
       proc := frmListSplit.cdsListNaklpercent.asinteger; //StrToFloat(S);
       balance2:=DocNaklBALANCE_KOD.AsString;
@@ -14896,8 +14896,8 @@ begin
         Nakl.DocNaklDK_TO.Value := DocNaklDK_TO.Value;
         Nakl.DocNaklDK_C.AsVariant := DocNaklDK_C.AsVariant;
         Nakl.DocNaklNACENKA_.Value := DocNaklNACENKA_.Value;
-        Nakl.DocNaklNOTES.Value := frmListSplit.cdsListNaklnotes.asString;//DocNaklNOTES.Value+' (№2)';
-        //DocNaklNOTES.asString := DocNaklNOTES.asString+' (№1)';
+        Nakl.DocNaklNOTES.Value := frmListSplit.cdsListNaklnotes.asString;//DocNaklNOTES.Value+' (в„–2)';
+        //DocNaklNOTES.asString := DocNaklNOTES.asString+' (в„–1)';
         Nakl.DocNaklPRICETYPE_.Value := DocNaklPRICETYPE_.Value;
         Nakl.DocNaklDOCDATE.AsDateTime:=DocNaklDOCDATE.AsDateTime;
     //    Nakl.DocNaklTRIGGER_OFF.Value := DocNaklTRIGGER_OFF.Value;
@@ -14993,7 +14993,7 @@ begin
      DocNakl.Transaction.Commit;
     end else begin
      {DocNakl.Edit;
-     DocNaklNOTES.asString := DocNaklNOTES.asString+' (№1)';
+     DocNaklNOTES.asString := DocNaklNOTES.asString+' (в„–1)';
      DocNakl.Post;}
      PosModified:=false;
      DocNakl.ConfirmPost:=false;
@@ -15023,7 +15023,7 @@ end;
 
 procedure TDocNaklForm.actSplitPosByRestsExecute(Sender: TObject);
 begin
-  // если в sprav_oper стоит статус SPLIT_BY_RESTS
+  // РµСЃР»Рё РІ sprav_oper СЃС‚РѕРёС‚ СЃС‚Р°С‚СѓСЃ SPLIT_BY_RESTS
   Query.Close;
   Query.SQL.Text :=
     'execute procedure REMAKE_PROV_NAKL_SPLIT_BY_RESTS('+
@@ -15042,11 +15042,11 @@ end;
 procedure TDocNaklForm.actSplitPosByRestsUpdate(Sender: TObject);
 begin
   try
-  // если в sprav_oper стоит статус SPLIT_BY_RESTS, тогда можно делить позиции
+  // РµСЃР»Рё РІ sprav_oper СЃС‚РѕРёС‚ СЃС‚Р°С‚СѓСЃ SPLIT_BY_RESTS, С‚РѕРіРґР° РјРѕР¶РЅРѕ РґРµР»РёС‚СЊ РїРѕР·РёС†РёРё
   if (IntfMegaDBCommon.GetCountry=iccRussia) or IsPartUchet  then
     Exit;
 
-  // если в sprav_oper стоит статус SPLIT_BY_RESTS, тогда можно делить позиции
+  // РµСЃР»Рё РІ sprav_oper СЃС‚РѕРёС‚ СЃС‚Р°С‚СѓСЃ SPLIT_BY_RESTS, С‚РѕРіРґР° РјРѕР¶РЅРѕ РґРµР»РёС‚СЊ РїРѕР·РёС†РёРё
   Query.Close;
   Query.SQL.Text :=
     'SELECT coalesce(so.SPLIT_BY_RESTS,0) SPLIT_BY_RESTS from sprav_oper so'+
@@ -15089,7 +15089,7 @@ begin
 //          (DM.SharedQuery.FieldByName('RIGHT_SIGN').AsString<>'') //or (DM.SharedQuery.FieldByName('RIGHT_SIGN_NAME').AsString<>'')
 //       then
 //          if not(DocNaklSTATE.Value in [idsBug,idsKassa]) then begin
-//             Application.MessageBox('На документе не стоит отметка об оплате.','Ошибка!',MB_OK);
+//             Application.MessageBox('РќР° РґРѕРєСѓРјРµРЅС‚Рµ РЅРµ СЃС‚РѕРёС‚ РѕС‚РјРµС‚РєР° РѕР± РѕРїР»Р°С‚Рµ.','РћС€РёР±РєР°!',MB_OK);
 //             exit;
 //          end;
 //    end;
@@ -15111,7 +15111,7 @@ begin
           (DM.SharedQuery.FieldByName('RIGHT_SIGN').AsString<>'') //or (DM.SharedQuery.FieldByName('RIGHT_SIGN_NAME').AsString<>'')
        then
           if not(DocNaklSTATE.Value in [idsBug,idsKassa]) then begin
-             Application.MessageBox('На документе не стоит отметка об оплате.','Ошибка!',MB_OK);
+             Application.MessageBox('РќР° РґРѕРєСѓРјРµРЅС‚Рµ РЅРµ СЃС‚РѕРёС‚ РѕС‚РјРµС‚РєР° РѕР± РѕРїР»Р°С‚Рµ.','РћС€РёР±РєР°!',MB_OK);
              exit;
           end;
     end;
@@ -15131,7 +15131,7 @@ begin
           (DM.SharedQuery.FieldByName('RIGHT_SIGN').AsString<>'') //or (DM.SharedQuery.FieldByName('RIGHT_SIGN_NAME').AsString<>'')
        then
           if not(DocNaklSTATE.Value in [idsBug,idsKassa]) then begin
-             Application.MessageBox('На документе не стоит отметка об оплате.','Ошибка!',MB_OK);
+             Application.MessageBox('РќР° РґРѕРєСѓРјРµРЅС‚Рµ РЅРµ СЃС‚РѕРёС‚ РѕС‚РјРµС‚РєР° РѕР± РѕРїР»Р°С‚Рµ.','РћС€РёР±РєР°!',MB_OK);
              exit;
           end;
     end;
@@ -15195,7 +15195,7 @@ begin
   lcbZayavka.Enabled:= (UpperCase(IntfMegaAccessManager.GetUserRole) = 'DEVELOPER');
 { ----------- End of addition by Lion in 11.06.2008 ----------- }
 
-  // это нужно чтобы нельзя было закрыть форму, пока в ней что-то делается, например внутренний документ
+  // СЌС‚Рѕ РЅСѓР¶РЅРѕ С‡С‚РѕР±С‹ РЅРµР»СЊР·СЏ Р±С‹Р»Рѕ Р·Р°РєСЂС‹С‚СЊ С„РѕСЂРјСѓ, РїРѕРєР° РІ РЅРµР№ С‡С‚Рѕ-С‚Рѕ РґРµР»Р°РµС‚СЃСЏ, РЅР°РїСЂРёРјРµСЂ РІРЅСѓС‚СЂРµРЅРЅРёР№ РґРѕРєСѓРјРµРЅС‚
   aCanFreeForm := true;
 
   tbSertificat.Visible:= IsRussia and (IntfMegaDBCommon.IsOffice or (IntfMegaDBCommon.GetBaseID = 240) or IsDebug);
@@ -15219,7 +15219,7 @@ begin
   connectString:= ReplaceStr(connectString,'db_egais','db-egais.'+ReplaceStr(rxStrUtils.ExtractWord(1,DM.Money.DBName,[':']),'db.',''));
   conEgais.ConnectionString := connectString;
 
-   //----[gsa] 24-09-2019 права на поля с временем
+   //----[gsa] 24-09-2019 РїСЂР°РІР° РЅР° РїРѕР»СЏ СЃ РІСЂРµРјРµРЅРµРј
   if ((UpperCase(IntfMegaAccessManager.GetUserRole) = 'DEVELOPER')
         or (UpperCase(IntfMegaAccessManager.GetUserRole) = 'DISP_DOSTAVKA')
         or (UpperCase(IntfMegaAccessManager.GetUserRole) = 'TRANSPORT_AUDIT')) then
@@ -15244,7 +15244,7 @@ function TDocNaklForm.ShowError:integer;
 begin
   result:=ID_OK;
   if fErrLink then begin
-    result:=Application.MessageBox(pChar(sErrLink),'Ошибка при "связывании" документов.!',MB_RETRYCANCEL+MB_ICONERROR);
+    result:=Application.MessageBox(pChar(sErrLink),'РћС€РёР±РєР° РїСЂРё "СЃРІСЏР·С‹РІР°РЅРёРё" РґРѕРєСѓРјРµРЅС‚РѕРІ.!',MB_RETRYCANCEL+MB_ICONERROR);
   end;
 end;
 
@@ -15290,7 +15290,7 @@ begin
 //
   if FIsStickering=-1 then
   begin
-    //получение статуса операции
+    //РїРѕР»СѓС‡РµРЅРёРµ СЃС‚Р°С‚СѓСЃР° РѕРїРµСЂР°С†РёРё
     Query.Close;
     Query.SQL.Text:='select  coalesce(IS_STICKERING,0) IS_STICKERING from sprav_dk_addition_prop where kod_dk= '+
     FloatToStr(Source.DataSet.FieldByName('DK_TO').AsFloat);
@@ -15305,7 +15305,7 @@ function TDocNaklForm.isNaklProv: boolean;
 //  sSql='SELECT STATUS FROM CHECK_PROV_DOC_NEW(:FORMTYPE,:RECID, :BASEID)';
 //var
 //   q: TMegaQuery;
-//begin // проведена накладная (CHECK_PROV_DOC_NEW)
+//begin // РїСЂРѕРІРµРґРµРЅР° РЅР°РєР»Р°РґРЅР°СЏ (CHECK_PROV_DOC_NEW)
 //   q := TMegaQuery.Create(self);
 //   try
 //     q.Database := DocNakl.Database;
@@ -15315,7 +15315,7 @@ function TDocNaklForm.isNaklProv: boolean;
 //     q.Params.ByName['BASEID'].Value:=DocNaklBASEID.Value;
 //     q.Params.ByName['FORMTYPE'].Value:=DocNaklDOC_INHERITED.Value;
 //     q.ExecQuery;
-//     result := q.FN('STATUS').Asinteger = 1 ; // 1- проеведен -1- непроеведен
+//     result := q.FN('STATUS').Asinteger = 1 ; // 1- РїСЂРѕРµРІРµРґРµРЅ -1- РЅРµРїСЂРѕРµРІРµРґРµРЅ
 //
 //   finally
 //      q.Free;
@@ -15389,7 +15389,7 @@ end;
 
 procedure TDocNaklForm.actUnCheckBaseNakl_allClick(Sender: TObject);
 begin
-//снимаем признак по всем акциям
+//СЃРЅРёРјР°РµРј РїСЂРёР·РЅР°Рє РїРѕ РІСЃРµРј Р°РєС†РёСЏРј
 
   UnCheckNaklBaseAll;
 end;
@@ -15449,12 +15449,12 @@ begin
        q_e.Transaction.CommitRetaining;
 
 { ----------------- Added by Lion in 02.06.2009 ---------------- }
-{ Раньше было написано так, что необходимо было сохранять накладную
-  после разнесения ЕГАИСОВ, однако сохранение происходит ооочень долго
-  поэтому можно сделать автокоммит - чтобы ускорить разнесение.
-  Однако это оставляет лазейку, выраженную в том, что после этого
-  накладная будет фактически сохранена (то что касается её позиций)
-  и все проверки, которые делаются при сохранении не отработают
+{ Р Р°РЅСЊС€Рµ Р±С‹Р»Рѕ РЅР°РїРёСЃР°РЅРѕ С‚Р°Рє, С‡С‚Рѕ РЅРµРѕР±С…РѕРґРёРјРѕ Р±С‹Р»Рѕ СЃРѕС…СЂР°РЅСЏС‚СЊ РЅР°РєР»Р°РґРЅСѓСЋ
+  РїРѕСЃР»Рµ СЂР°Р·РЅРµСЃРµРЅРёСЏ Р•Р“РђРРЎРћР’, РѕРґРЅР°РєРѕ СЃРѕС…СЂР°РЅРµРЅРёРµ РїСЂРѕРёСЃС…РѕРґРёС‚ РѕРѕРѕС‡РµРЅСЊ РґРѕР»РіРѕ
+  РїРѕСЌС‚РѕРјСѓ РјРѕР¶РЅРѕ СЃРґРµР»Р°С‚СЊ Р°РІС‚РѕРєРѕРјРјРёС‚ - С‡С‚РѕР±С‹ СѓСЃРєРѕСЂРёС‚СЊ СЂР°Р·РЅРµСЃРµРЅРёРµ.
+  РћРґРЅР°РєРѕ СЌС‚Рѕ РѕСЃС‚Р°РІР»СЏРµС‚ Р»Р°Р·РµР№РєСѓ, РІС‹СЂР°Р¶РµРЅРЅСѓСЋ РІ С‚РѕРј, С‡С‚Рѕ РїРѕСЃР»Рµ СЌС‚РѕРіРѕ
+  РЅР°РєР»Р°РґРЅР°СЏ Р±СѓРґРµС‚ С„Р°РєС‚РёС‡РµСЃРєРё СЃРѕС…СЂР°РЅРµРЅР° (С‚Рѕ С‡С‚Рѕ РєР°СЃР°РµС‚СЃСЏ РµС‘ РїРѕР·РёС†РёР№)
+  Рё РІСЃРµ РїСЂРѕРІРµСЂРєРё, РєРѕС‚РѕСЂС‹Рµ РґРµР»Р°СЋС‚СЃСЏ РїСЂРё СЃРѕС…СЂР°РЅРµРЅРёРё РЅРµ РѕС‚СЂР°Р±РѕС‚Р°СЋС‚
 }
 //     DocNakl.Edit;
 //     DocNaklRecId.Value := DocNaklRecId.Value;
@@ -15475,7 +15475,7 @@ end;
 
 procedure TDocNaklForm.actUpdateNakl2EgaisUpdate(Sender: TObject);
 begin
-  TAction(Sender).Enabled := (FindPart('ПСРТ',DocNaklDocType.AsString) >0{DocNaklDOCTYPE.asstring='ПСРТ'}) and (IntfMegaDBCommon.GetCountry=iccRussia);
+  TAction(Sender).Enabled := (FindPart('РџРЎР Рў',DocNaklDocType.AsString) >0{DocNaklDOCTYPE.asstring='РџРЎР Рў'}) and (IntfMegaDBCommon.GetCountry=iccRussia);
 end;
 
 procedure TDocNaklForm.actUpdateNarExecute(Sender: TObject);
@@ -15618,7 +15618,7 @@ end;
 
 procedure TDocNaklForm.actPrinRealRusExecute(Sender: TObject);
 begin
-  // Никаких проверок
+  // РќРёРєР°РєРёС… РїСЂРѕРІРµСЂРѕРє
   //frNaklrReal
   PrintReport('frNaklrReal');
 end;
@@ -15628,15 +15628,15 @@ procedure TDocNaklForm.dsNote_mCalcFields(DataSet: TDataSet);
     S,S2 : String;
     F : Double;
   Begin
-    // общая сумма прописью
-    if pos('ЗМЦ',DocNaklDOCTYPE.AsString)<>0 then
+    // РѕР±С‰Р°СЏ СЃСѓРјРјР° РїСЂРѕРїРёСЃСЊСЋ
+    if pos('Р—РњР¦',DocNaklDOCTYPE.AsString)<>0 then
       F := Sum.Fields[5].AsFloat
      Else
       F := -Sum.Fields[5].AsFloat;
 
     If (F < 0) Then
       Begin
-        S := 'мінус ';
+        S := 'РјС–РЅСѓСЃ ';
         F := -F;
       End
      Else
@@ -15644,10 +15644,10 @@ procedure TDocNaklForm.dsNote_mCalcFields(DataSet: TDataSet);
     S := S + String(AnsiStrLower(PChar(ToWord.ValutaToWordUA(F,2,1))));
     S := TRIM(S);
 
-    if system.Copy(S,Length(S)-3,4) = 'коп.' Then
+    if system.Copy(S,Length(S)-3,4) = 'РєРѕРї.' Then
       Begin
-        S[Length(S)] := 'і';
-        S := S + 'йок';
+        S[Length(S)] := 'С–';
+        S := S + 'Р№РѕРє';
       End;
 
     dsNote_m.FieldByName('TotalSumAsString').AsString := AnsiUpperFirstChar(S);
@@ -15661,7 +15661,7 @@ var
   flic: boolean;
 begin
   CheckSelfExportState;
-  // проверки на возможность печати
+  // РїСЂРѕРІРµСЂРєРё РЅР° РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ РїРµС‡Р°С‚Рё
   if  (not AllowAll)
   and (DocNaklSTATE.Value<>idsBug)
   and (DocNaklSTATE.Value<>idsKassa)
@@ -15678,7 +15678,7 @@ begin
     exit;
   end;
 
-  //-- тоже проверка
+  //-- С‚РѕР¶Рµ РїСЂРѕРІРµСЂРєР°
 //  if (DocNaklSTATE.Value <= 0) and (not IntfMegaDBCommon.IsOffice) then
   if (DocNaklSTATE.Value <= 0) and (not IntfMegaDBCommon.IsOffice) then
 
@@ -15688,14 +15688,14 @@ begin
   end;
 
 { ---------------- Changed by Petc.O in 06.11.2008 --------------- }
-  // всвязи с особенностями реализации многопоточности в fr3
-  // не даем закрыть накладную(а сворачиваем), пока она не допечатается
+  // РІСЃРІСЏР·Рё СЃ РѕСЃРѕР±РµРЅРЅРѕСЃС‚СЏРјРё СЂРµР°Р»РёР·Р°С†РёРё РјРЅРѕРіРѕРїРѕС‚РѕС‡РЅРѕСЃС‚Рё РІ fr3
+  // РЅРµ РґР°РµРј Р·Р°РєСЂС‹С‚СЊ РЅР°РєР»Р°РґРЅСѓСЋ(Р° СЃРІРѕСЂР°С‡РёРІР°РµРј), РїРѕРєР° РѕРЅР° РЅРµ РґРѕРїРµС‡Р°С‚Р°РµС‚СЃСЏ
   aCanFreeForm := true;
 { ----------- End of changing by Petc.O in 06.11.2008 ----------- }
   //
   ldmRep:= TdmPrintNakl2.Create(Self);
-  // проверяю, если на дебиторе выставлена галочка "печать с учетом возвратов",
-  // то делаю видимым пункт "Печать накладной с учетом возвратов"
+  // РїСЂРѕРІРµСЂСЏСЋ, РµСЃР»Рё РЅР° РґРµР±РёС‚РѕСЂРµ РІС‹СЃС‚Р°РІР»РµРЅР° РіР°Р»РѕС‡РєР° "РїРµС‡Р°С‚СЊ СЃ СѓС‡РµС‚РѕРј РІРѕР·РІСЂР°С‚РѕРІ",
+  // С‚Рѕ РґРµР»Р°СЋ РІРёРґРёРјС‹Рј РїСѓРЅРєС‚ "РџРµС‡Р°С‚СЊ РЅР°РєР»Р°РґРЅРѕР№ СЃ СѓС‡РµС‚РѕРј РІРѕР·РІСЂР°С‚РѕРІ"
 
   try
     ldmRep.IsBillaNakl:= Sender = miBilla;
@@ -15720,7 +15720,7 @@ begin
      fLic:= DM.GetLic(DocNakl.FieldByName('DK_TO').AsFloat, DocNakl.FieldByName('OPERDATE').AsDateTime);
     frVariables.Variable['fLic']:= fLic;
     frVariables.Variable['not_agent']:= true;
-    frVariables.Variable['statePrint999']:=0; //все стр., 1 только КП, -1 без КП
+    frVariables.Variable['statePrint999']:=0; //РІСЃРµ СЃС‚СЂ., 1 С‚РѕР»СЊРєРѕ РљРџ, -1 Р±РµР· РљРџ
     if FDesignReport then
     begin
       lDMRep.frNakl_f2_withheader.DesignReport;
@@ -15748,7 +15748,7 @@ begin
           frVariables.Variable['IsOtv']:= False;
         end;
        frVariables.Variable['fLic']:= true;
-       frVariables.Variable['not_agent']:= false; //на агента
+       frVariables.Variable['not_agent']:= false; //РЅР° Р°РіРµРЅС‚Р°
        if FDesignReport then
         begin
           lDMRep.frNakl_f2_withheader.DesignReport;
@@ -15776,8 +15776,8 @@ end;
 procedure TDocNaklForm.actPrintActRekl_RuExecute(Sender: TObject);
 var
   ldmRep: TdmPrintNakl2R;
-begin // подготовка к печати "Акт о списании товаров"
-      // унифицированная форма "Торг-16"
+begin // РїРѕРґРіРѕС‚РѕРІРєР° Рє РїРµС‡Р°С‚Рё "РђРєС‚ Рѕ СЃРїРёСЃР°РЅРёРё С‚РѕРІР°СЂРѕРІ"
+      // СѓРЅРёС„РёС†РёСЂРѕРІР°РЅРЅР°СЏ С„РѕСЂРјР° "РўРѕСЂРі-16"
   ldmRep:= TdmPrintNakl2R.Create(Self);
   try
     ldmRep.Torg16_RShowReport(DocNaklRecID.Value,DocNaklBaseID.Value);
@@ -15792,10 +15792,10 @@ begin
 end;
 
 
-// Лейбов Е. - Для нового партионного учета. Если в накладной выбрали дату партии - подобрать партии с этой датой
-// Если значение Party_RecID, Party_BaseID соответствуют установленным значениям Даты и Номера партии - ничего не делается
-// Иначе производится автоматический подбор подходящих партий с этой датой и номером с учетом механизма FIFO и VIP
-// Если необходимо - позиция накладной разбивается на несколько
+// Р›РµР№Р±РѕРІ Р•. - Р”Р»СЏ РЅРѕРІРѕРіРѕ РїР°СЂС‚РёРѕРЅРЅРѕРіРѕ СѓС‡РµС‚Р°. Р•СЃР»Рё РІ РЅР°РєР»Р°РґРЅРѕР№ РІС‹Р±СЂР°Р»Рё РґР°С‚Сѓ РїР°СЂС‚РёРё - РїРѕРґРѕР±СЂР°С‚СЊ РїР°СЂС‚РёРё СЃ СЌС‚РѕР№ РґР°С‚РѕР№
+// Р•СЃР»Рё Р·РЅР°С‡РµРЅРёРµ Party_RecID, Party_BaseID СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓСЋС‚ СѓСЃС‚Р°РЅРѕРІР»РµРЅРЅС‹Рј Р·РЅР°С‡РµРЅРёСЏРј Р”Р°С‚С‹ Рё РќРѕРјРµСЂР° РїР°СЂС‚РёРё - РЅРёС‡РµРіРѕ РЅРµ РґРµР»Р°РµС‚СЃСЏ
+// РРЅР°С‡Рµ РїСЂРѕРёР·РІРѕРґРёС‚СЃСЏ Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРёР№ РїРѕРґР±РѕСЂ РїРѕРґС…РѕРґСЏС‰РёС… РїР°СЂС‚РёР№ СЃ СЌС‚РѕР№ РґР°С‚РѕР№ Рё РЅРѕРјРµСЂРѕРј СЃ СѓС‡РµС‚РѕРј РјРµС…Р°РЅРёР·РјР° FIFO Рё VIP
+// Р•СЃР»Рё РЅРµРѕР±С…РѕРґРёРјРѕ - РїРѕР·РёС†РёСЏ РЅР°РєР»Р°РґРЅРѕР№ СЂР°Р·Р±РёРІР°РµС‚СЃСЏ РЅР° РЅРµСЃРєРѕР»СЊРєРѕ
 procedure TDocNaklForm.SplitNakl2PartyNew;
 var
   Party_RecID, Party_BaseID: Integer;
@@ -15938,7 +15938,7 @@ begin
       on e: Exception do
         if IntfMegaAccessManager.GetUserRole = 'DEVELOPER' then
           ShowMessage(e.message);
-      // Ну где же вы?
+      // РќСѓ РіРґРµ Р¶Рµ РІС‹?
     end;
     mdRestParty.next;
   end;
@@ -15964,9 +15964,9 @@ begin
     mdRestParty.open;
 end;
 
-// Используется в накладной "Возврат от покупателей"
+// РСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РІ РЅР°РєР»Р°РґРЅРѕР№ "Р’РѕР·РІСЂР°С‚ РѕС‚ РїРѕРєСѓРїР°С‚РµР»РµР№"
 procedure TDocNaklForm.GetLinkDocParty;
-//определение партий по связанному документу
+//РѕРїСЂРµРґРµР»РµРЅРёРµ РїР°СЂС‚РёР№ РїРѕ СЃРІСЏР·Р°РЅРЅРѕРјСѓ РґРѕРєСѓРјРµРЅС‚Сѓ
 const
    selSqlLinkParty= ' select dp.number NUMBER,dp.num_party_egais, dnp.kolich KOLICH,dp.date_part,dn.operdate, dg.docnumber, dp.gtd_num4, dp.recid, dp.baseid, dp.ukp '+
                     ' from link_doc_opl ldo '+
@@ -15990,7 +15990,7 @@ begin
 end;
 
 procedure TDocNaklForm.GetDocParty(Date: TDatetime);
-// оперделение партий по остаткам продукции
+// РѕРїРµСЂРґРµР»РµРЅРёРµ РїР°СЂС‚РёР№ РїРѕ РѕСЃС‚Р°С‚РєР°Рј РїСЂРѕРґСѓРєС†РёРё
 const
    selSqlDocParty='select grp.number_PARTY NUMBER,dp.num_party_egais, sum(grp.kolich_party) KOLICH,dp.date_part,dp.operdate, dg.docnumber, dp.gtd_num4, dp.ukp, 0 recid, 0 baseid '+
                   ' from  GET_REST_PARTY(:KOD_MATER,:SCHET_REST) grp '+
@@ -16021,7 +16021,7 @@ begin
 end;
 
 procedure TDocNaklForm.CheckTypeOperParty(Date: TDateTime);
-//оперделяем какие партии отображать
+//РѕРїРµСЂРґРµР»СЏРµРј РєР°РєРёРµ РїР°СЂС‚РёРё РѕС‚РѕР±СЂР°Р¶Р°С‚СЊ
 begin
   if OPERSTATUS = iosReturnFromClient then
       GetLinkDocParty
@@ -16065,7 +16065,7 @@ begin
     if (DocNaklSTATE.OldValue = idsBug) and (DocNaklSTATE.NewValue=idsBug) then
     begin
       if not IntfMegaDBCommon.IsOffice then
-        raise Exception.Create('Изменение в документе запрещено. Снимите признак оплаты!');
+        raise Exception.Create('РР·РјРµРЅРµРЅРёРµ РІ РґРѕРєСѓРјРµРЅС‚Рµ Р·Р°РїСЂРµС‰РµРЅРѕ. РЎРЅРёРјРёС‚Рµ РїСЂРёР·РЅР°Рє РѕРїР»Р°С‚С‹!');
     end
     else
     begin
@@ -16077,7 +16077,7 @@ begin
   end;
 end;
 
-{ Пересортица, Приход из пути, Приход от поставщика, OPERSTATUS = 0 }
+{ РџРµСЂРµСЃРѕСЂС‚РёС†Р°, РџСЂРёС…РѕРґ РёР· РїСѓС‚Рё, РџСЂРёС…РѕРґ РѕС‚ РїРѕСЃС‚Р°РІС‰РёРєР°, OPERSTATUS = 0 }
 procedure TDocNaklForm.GetAllParty(date_party: TDateTime;kod_mater:double);
 const
    selSqlDocParty='select dp.number,dp.num_party_egais,dp.kolich,dp.date_part,dp.operdate, dg.docnumber, dp.gtd_num4, '
@@ -16206,7 +16206,7 @@ var
   flic: boolean;
 begin
   CheckSelfExportState;
-  // проверки на возможность печати
+  // РїСЂРѕРІРµСЂРєРё РЅР° РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ РїРµС‡Р°С‚Рё
   if  (not AllowAll)
   and (DocNaklSTATE.Value<>idsBug)
   and (DocNaklSTATE.Value<>idsKassa)
@@ -16223,7 +16223,7 @@ begin
     exit;
   end;
 
-  //-- тоже проверка
+  //-- С‚РѕР¶Рµ РїСЂРѕРІРµСЂРєР°
 //  if (DocNaklSTATE.Value <= 0) and (not IntfMegaDBCommon.IsOffice) then
   if (DocNaklSTATE.Value <= 0) and (not IntfMegaDBCommon.IsOffice) then
 
@@ -16233,14 +16233,14 @@ begin
   end;
 
 { ---------------- Changed by Petc.O in 06.11.2008 --------------- }
-  // всвязи с особенностями реализации многопоточности в fr3
-  // не даем закрыть накладную(а сворачиваем), пока она не допечатается
+  // РІСЃРІСЏР·Рё СЃ РѕСЃРѕР±РµРЅРЅРѕСЃС‚СЏРјРё СЂРµР°Р»РёР·Р°С†РёРё РјРЅРѕРіРѕРїРѕС‚РѕС‡РЅРѕСЃС‚Рё РІ fr3
+  // РЅРµ РґР°РµРј Р·Р°РєСЂС‹С‚СЊ РЅР°РєР»Р°РґРЅСѓСЋ(Р° СЃРІРѕСЂР°С‡РёРІР°РµРј), РїРѕРєР° РѕРЅР° РЅРµ РґРѕРїРµС‡Р°С‚Р°РµС‚СЃСЏ
   aCanFreeForm := true;
 { ----------- End of changing by Petc.O in 06.11.2008 ----------- }
   //
   ldmRep:= TdmPrintNakl2.Create(Self);
-  // проверяю, если на дебиторе выставлена галочка "печать с учетом возвратов",
-  // то делаю видимым пункт "Печать накладной с учетом возвратов"
+  // РїСЂРѕРІРµСЂСЏСЋ, РµСЃР»Рё РЅР° РґРµР±РёС‚РѕСЂРµ РІС‹СЃС‚Р°РІР»РµРЅР° РіР°Р»РѕС‡РєР° "РїРµС‡Р°С‚СЊ СЃ СѓС‡РµС‚РѕРј РІРѕР·РІСЂР°С‚РѕРІ",
+  // С‚Рѕ РґРµР»Р°СЋ РІРёРґРёРјС‹Рј РїСѓРЅРєС‚ "РџРµС‡Р°С‚СЊ РЅР°РєР»Р°РґРЅРѕР№ СЃ СѓС‡РµС‚РѕРј РІРѕР·РІСЂР°С‚РѕРІ"
 
   try
     ldmRep.IsBillaNakl:= Sender = miBilla;
@@ -16265,7 +16265,7 @@ begin
      fLic:= DM.GetLic(DocNakl.FieldByName('DK_TO').AsFloat, DocNakl.FieldByName('OPERDATE').AsDateTime);
     frVariables.Variable['fLic']:= fLic;
     frVariables.Variable['not_agent']:= true;
-    frVariables.Variable['statePrint999']:=0; //все стр., 1 только КП, -1 без КП
+    frVariables.Variable['statePrint999']:=0; //РІСЃРµ СЃС‚СЂ., 1 С‚РѕР»СЊРєРѕ РљРџ, -1 Р±РµР· РљРџ
     if FDesignReport then
     begin
       lDMRep.frNakl_f2_withoutheader.DesignReport;
@@ -16293,7 +16293,7 @@ begin
           frVariables.Variable['IsOtv']:= False;
         end;
        frVariables.Variable['fLic']:= true;
-       frVariables.Variable['not_agent']:= false; //на агента
+       frVariables.Variable['not_agent']:= false; //РЅР° Р°РіРµРЅС‚Р°
        if FDesignReport then
         begin
           lDMRep.frNakl_f2_withoutheader.DesignReport;
@@ -16364,7 +16364,7 @@ begin
 //  dlg := TfmSelCfoForPrint.create(self);
 //  if dlg.ShowModal <> mrOk then exit;
 //  if dlg.pcfo <= 0 then begin
-//    ShowMessage('Не вибрано ЦФО');
+//    ShowMessage('РќРµ РІРёР±СЂР°РЅРѕ Р¦Р¤Рћ');
 //    Exit;
 //  end;
 //  dmMegaReports.MyShow(317,Now(),DocNaklRECID.asString+','+DocNaklBASEID.asString+','+IntToStr(dlg.pcfo));
@@ -16396,14 +16396,14 @@ begin
   end;
 
 { ---------------- Changed by Petc.O in 06.11.2008 --------------- }
-  // всвязи с особенностями реализации многопоточности в fr3
-  // не даем закрыть накладную(а сворачиваем), пока она не допечатается
+  // РІСЃРІСЏР·Рё СЃ РѕСЃРѕР±РµРЅРЅРѕСЃС‚СЏРјРё СЂРµР°Р»РёР·Р°С†РёРё РјРЅРѕРіРѕРїРѕС‚РѕС‡РЅРѕСЃС‚Рё РІ fr3
+  // РЅРµ РґР°РµРј Р·Р°РєСЂС‹С‚СЊ РЅР°РєР»Р°РґРЅСѓСЋ(Р° СЃРІРѕСЂР°С‡РёРІР°РµРј), РїРѕРєР° РѕРЅР° РЅРµ РґРѕРїРµС‡Р°С‚Р°РµС‚СЃСЏ
   aCanFreeForm := false;
 { ----------- End of changing by Petc.O in 06.11.2008 ----------- }
   //
   ldmRep:= TdmPrintNakl2.Create(Self);
-  // проверяю, если на дебиторе выставлена галочка "печать с учетом возвратов",
-  // то делаю видимым пункт "Печать накладной с учетом возвратов"
+  // РїСЂРѕРІРµСЂСЏСЋ, РµСЃР»Рё РЅР° РґРµР±РёС‚РѕСЂРµ РІС‹СЃС‚Р°РІР»РµРЅР° РіР°Р»РѕС‡РєР° "РїРµС‡Р°С‚СЊ СЃ СѓС‡РµС‚РѕРј РІРѕР·РІСЂР°С‚РѕРІ",
+  // С‚Рѕ РґРµР»Р°СЋ РІРёРґРёРјС‹Рј РїСѓРЅРєС‚ "РџРµС‡Р°С‚СЊ РЅР°РєР»Р°РґРЅРѕР№ СЃ СѓС‡РµС‚РѕРј РІРѕР·РІСЂР°С‚РѕРІ"
   if (Sender = PrintNaklWithVozvrat) And (DocNaklDK_TO_PRINT_WITH_VOZVRAT.AsInteger = 1){} Then
     Begin
       ldmRep.PrintNaklWithVozvrat := True;
@@ -16435,9 +16435,9 @@ begin
     end;
 
 //    FDesignReport := ((IntfMegaAccessManager.GetUserName = 'DEREZA') OR (IntfMegaDBCommon.GetCountry = iccRussia));
-    // Для российских сетевиков, по наличию символа # в
-    // примечании документа, пишу в переменную отчёта
-    // строку вида - "заказ №ХХХХ"
+    // Р”Р»СЏ СЂРѕСЃСЃРёР№СЃРєРёС… СЃРµС‚РµРІРёРєРѕРІ, РїРѕ РЅР°Р»РёС‡РёСЋ СЃРёРјРІРѕР»Р° # РІ
+    // РїСЂРёРјРµС‡Р°РЅРёРё РґРѕРєСѓРјРµРЅС‚Р°, РїРёС€Сѓ РІ РїРµСЂРµРјРµРЅРЅСѓСЋ РѕС‚С‡С‘С‚Р°
+    // СЃС‚СЂРѕРєСѓ РІРёРґР° - "Р·Р°РєР°Р· в„–РҐРҐРҐРҐ"
 
     if FDesignReport then
     begin
@@ -16493,7 +16493,7 @@ var
  ldmRep: TdmPrintNakl2;
   re: TRegExpr;
 begin
-  // проверки на возможность печати
+  // РїСЂРѕРІРµСЂРєРё РЅР° РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ РїРµС‡Р°С‚Рё
   if  (not AllowAll)
   and (DocNaklSTATE.Value<>idsBug)
   and (DocNaklSTATE.Value<>idsKassa)
@@ -16510,7 +16510,7 @@ begin
     exit;
   end;
 
-  //-- тоже проверка
+  //-- С‚РѕР¶Рµ РїСЂРѕРІРµСЂРєР°
 //  if (DocNaklSTATE.Value <= 0) and (not IntfMegaDBCommon.IsOffice) then
   if (DocNaklSTATE.Value <= 0) and (not IntfMegaDBCommon.IsOffice) then
 
@@ -16521,8 +16521,8 @@ begin
 
   //
   ldmRep:= TdmPrintNakl2.Create(Self);
-  // проверяю, если на дебиторе выставлена галочка "печать с учетом возвратов",
-  // то делаю видимым пункт "Печать накладной с учетом возвратов"
+  // РїСЂРѕРІРµСЂСЏСЋ, РµСЃР»Рё РЅР° РґРµР±РёС‚РѕСЂРµ РІС‹СЃС‚Р°РІР»РµРЅР° РіР°Р»РѕС‡РєР° "РїРµС‡Р°С‚СЊ СЃ СѓС‡РµС‚РѕРј РІРѕР·РІСЂР°С‚РѕРІ",
+  // С‚Рѕ РґРµР»Р°СЋ РІРёРґРёРјС‹Рј РїСѓРЅРєС‚ "РџРµС‡Р°С‚СЊ РЅР°РєР»Р°РґРЅРѕР№ СЃ СѓС‡РµС‚РѕРј РІРѕР·РІСЂР°С‚РѕРІ"
   if (Sender = PrintNaklWithVozvrat) And (DocNaklDK_TO_PRINT_WITH_VOZVRAT.AsInteger = 1){} Then
     Begin
       ldmRep.PrintNaklWithVozvrat := True;
@@ -16546,9 +16546,9 @@ begin
     end;
 
 //    FDesignReport := ((IntfMegaAccessManager.GetUserName = 'DEREZA') OR (IntfMegaDBCommon.GetCountry = iccRussia));
-    // Для российских сетевиков, по наличию символа # в
-    // примечании документа, пишу в переменную отчёта
-    // строку вида - "заказ №ХХХХ"
+    // Р”Р»СЏ СЂРѕСЃСЃРёР№СЃРєРёС… СЃРµС‚РµРІРёРєРѕРІ, РїРѕ РЅР°Р»РёС‡РёСЋ СЃРёРјРІРѕР»Р° # РІ
+    // РїСЂРёРјРµС‡Р°РЅРёРё РґРѕРєСѓРјРµРЅС‚Р°, РїРёС€Сѓ РІ РїРµСЂРµРјРµРЅРЅСѓСЋ РѕС‚С‡С‘С‚Р°
+    // СЃС‚СЂРѕРєСѓ РІРёРґР° - "Р·Р°РєР°Р· в„–РҐРҐРҐРҐ"
     if ((IntfMegaDBCommon.GetCountry = iccrussia) or (IntfMegaDBCommon.GetCountry = kodRus)) then
     begin
       re:=TRegExpr.Create;
@@ -16556,16 +16556,16 @@ begin
 //        re.Expression:='\#\s*(\d+-\d+)(\s*\@(\d+))*';
 { ---------------- Changed by Lion in 04.02.2009 --------------- }
 //        re.Expression:='\#\s*([0-9\-]+)(\s*\@(\d+))*';
-        re.Expression:='\#\s*([-0-9A-Za-zА-Яа-я]+)(\s*\@(\d+))*';
+        re.Expression:='\#\s*([-0-9A-Za-zРђ-РЇР°-СЏ]+)(\s*\@(\d+))*';
 { ----------- End of changing by Lion in 04.02.2009 ----------- }
         if re.Exec(Trim(DocNakl.FieldByName('NOTES').AsString)) then
         begin
-//          frVariables.Variable['ZakazNo']:= ', заказ №' + re.Match[1];
+//          frVariables.Variable['ZakazNo']:= ', Р·Р°РєР°Р· в„–' + re.Match[1];
           frVariables.Variable['ZakazNo']:= re.Match[1];
           if (re.Match[3]='') then
              frVariables.Variable['KodOrder']:= ''
           else
-             frVariables.Variable['KodOrder']:= 'код поставщика  ' + re.Match[3];
+             frVariables.Variable['KodOrder']:= 'РєРѕРґ РїРѕСЃС‚Р°РІС‰РёРєР°  ' + re.Match[3];
         end
         else
         begin
@@ -16623,8 +16623,8 @@ var
   Res: objectResponse;
 begin
   frm := TfmDialogBPCustom.Create(Application);
-  frm.Caption := 'Бизнес-процесс на снятие блокировки с ТТ по перегрузу';
-  frm.lbCaption.Caption := 'Стартовать бизнес-процесс на снятие блокировки с ТТ по перегрузу';
+  frm.Caption := 'Р‘РёР·РЅРµСЃ-РїСЂРѕС†РµСЃСЃ РЅР° СЃРЅСЏС‚РёРµ Р±Р»РѕРєРёСЂРѕРІРєРё СЃ РўРў РїРѕ РїРµСЂРµРіСЂСѓР·Сѓ';
+  frm.lbCaption.Caption := 'РЎС‚Р°СЂС‚РѕРІР°С‚СЊ Р±РёР·РЅРµСЃ-РїСЂРѕС†РµСЃСЃ РЅР° СЃРЅСЏС‚РёРµ Р±Р»РѕРєРёСЂРѕРІРєРё СЃ РўРў РїРѕ РїРµСЂРµРіСЂСѓР·Сѓ';
 
   if frm.ShowModal = mrOk then
   begin
@@ -16646,7 +16646,7 @@ begin
     except
       on E:Exception do
       begin
-        liUtils.Error('При создании процесса возникли ошибки:'#13#10+e.Message);
+        liUtils.Error('РџСЂРё СЃРѕР·РґР°РЅРёРё РїСЂРѕС†РµСЃСЃР° РІРѕР·РЅРёРєР»Рё РѕС€РёР±РєРё:'#13#10+e.Message);
       end;
     end;
   end;
@@ -16661,7 +16661,7 @@ end;
 procedure TDocNaklForm.G1Click(Sender: TObject);
 begin
   dmMegaReports.MyShow(3191, Now(), DocNaklRecID.asString + ',' + DocNaklBaseID.asString + ', 0');
-  //[gsa] 120419 добавил для клиента еще одну часть  в отчет,
+  //[gsa] 120419 РґРѕР±Р°РІРёР» РґР»СЏ РєР»РёРµРЅС‚Р° РµС‰Рµ РѕРґРЅСѓ С‡Р°СЃС‚СЊ  РІ РѕС‚С‡РµС‚,
 end;
 
 procedure TDocNaklForm.G3Click(Sender: TObject);
@@ -16671,7 +16671,7 @@ end;
 
 procedure TDocNaklForm.gCopyClick(Sender: TObject);
 begin
-//[gsa;07092020] скопировать в буфер данные
+//[gsa;07092020] СЃРєРѕРїРёСЂРѕРІР°С‚СЊ РІ Р±СѓС„РµСЂ РґР°РЅРЅС‹Рµ
  gDNP:=gDocNP.Create;
  gDNP.WriteAtom('execute procedure DNP_COPYPASTROWS('+DocPosRECID.Text+','+DocPosBASEID.Text+',:InRecId,:InBaseId)');
  gPast.Enabled:=gDnp.fill;
@@ -16692,29 +16692,29 @@ begin
     1: begin
          EDIDoc:= CreateEDIInvoice(DocNaklRECID.AsInteger, DocNaklBASEID.AsInteger);
          if (EDIDoc.doc = '') then
-           Warning('Нет заказа EDI по этой накладной.');
+           Warning('РќРµС‚ Р·Р°РєР°Р·Р° EDI РїРѕ СЌС‚РѕР№ РЅР°РєР»Р°РґРЅРѕР№.');
          if (EDIDoc.invoice_send) then
-           Warning('Счёт EDI по этой накладной уже отправлен.');
+           Warning('РЎС‡С‘С‚ EDI РїРѕ СЌС‚РѕР№ РЅР°РєР»Р°РґРЅРѕР№ СѓР¶Рµ РѕС‚РїСЂР°РІР»РµРЅ.');
          if EDIDoc.invoice_required then
-           Warning('Счёт EDI по этой накладной не требуется.');
+           Warning('РЎС‡С‘С‚ EDI РїРѕ СЌС‚РѕР№ РЅР°РєР»Р°РґРЅРѕР№ РЅРµ С‚СЂРµР±СѓРµС‚СЃСЏ.');
        end;
     2: begin
          EDIDoc:= CreateEDIOrdrSP(DocNaklRECID.AsInteger, DocNaklBASEID.AsInteger);
          if (EDIDoc.doc = '') then
-           Warning('Нет заказа EDI по этой накладной.');
+           Warning('РќРµС‚ Р·Р°РєР°Р·Р° EDI РїРѕ СЌС‚РѕР№ РЅР°РєР»Р°РґРЅРѕР№.');
          if (EDIDoc.ordrsp_send) then
-           Warning('Подтверждение заказа EDI по этой накладной уже отправлено.');
+           Warning('РџРѕРґС‚РІРµСЂР¶РґРµРЅРёРµ Р·Р°РєР°Р·Р° EDI РїРѕ СЌС‚РѕР№ РЅР°РєР»Р°РґРЅРѕР№ СѓР¶Рµ РѕС‚РїСЂР°РІР»РµРЅРѕ.');
          if EDIDoc.ordrsp_required then
-           Warning('Подтверждение заказа EDI по этой накладной не требуется.');
+           Warning('РџРѕРґС‚РІРµСЂР¶РґРµРЅРёРµ Р·Р°РєР°Р·Р° EDI РїРѕ СЌС‚РѕР№ РЅР°РєР»Р°РґРЅРѕР№ РЅРµ С‚СЂРµР±СѓРµС‚СЃСЏ.');
        end;
     3: begin
          EDIDoc:= CreateEDIDesadv(DocNaklRECID.AsInteger{1256380}, DocNaklBASEID.AsInteger{216});
          if (EDIDoc.doc = '') then
-           Warning('Нет заказа EDI по этой накладной.');
+           Warning('РќРµС‚ Р·Р°РєР°Р·Р° EDI РїРѕ СЌС‚РѕР№ РЅР°РєР»Р°РґРЅРѕР№.');
          if (EDIDoc.desadv_send) then
-           Warning('Уведомление об отгрузке EDI по этой накладной уже отправлено.');
+           Warning('РЈРІРµРґРѕРјР»РµРЅРёРµ РѕР± РѕС‚РіСЂСѓР·РєРµ EDI РїРѕ СЌС‚РѕР№ РЅР°РєР»Р°РґРЅРѕР№ СѓР¶Рµ РѕС‚РїСЂР°РІР»РµРЅРѕ.');
          if EDIDoc.desadv_required then
-           Warning('Уведомление об отгрузке EDI по этой накладной не требуется.');
+           Warning('РЈРІРµРґРѕРјР»РµРЅРёРµ РѕР± РѕС‚РіСЂСѓР·РєРµ EDI РїРѕ СЌС‚РѕР№ РЅР°РєР»Р°РґРЅРѕР№ РЅРµ С‚СЂРµР±СѓРµС‚СЃСЏ.');
        end;
   end;
 end;
@@ -16739,7 +16739,7 @@ end;
 
 procedure TDocNaklForm.N116Click(Sender: TObject);
 begin
-// печать чека для чп. страшное дело.
+// РїРµС‡Р°С‚СЊ С‡РµРєР° РґР»СЏ С‡Рї. СЃС‚СЂР°С€РЅРѕРµ РґРµР»Рѕ.
   dmMegaReports.MyShow(200632, Now(), DocNaklRECID.AsString + ',' + DocNaklBASEID.AsString);
 end;
 
@@ -16748,8 +16748,8 @@ var
    s,notes:string;
 begin
   //
-  InputQuery('Введите сумму', 'Сумма', S);
-  InputQuery('Введите примечание', 'Текст', notes);
+  InputQuery('Р’РІРµРґРёС‚Рµ СЃСѓРјРјСѓ', 'РЎСѓРјРјР°', S);
+  InputQuery('Р’РІРµРґРёС‚Рµ РїСЂРёРјРµС‡Р°РЅРёРµ', 'РўРµРєСЃС‚', notes);
   dmMegaReports.MyShow(200633, Now(), s + ',' + notes);
 end;
 
@@ -16762,14 +16762,14 @@ begin
 
 
 { ---------------- Changed by Petc.O in 06.11.2008 --------------- }
-  // всвязи с особенностями реализации многопоточности в fr3
-  // не даем закрыть накладную(а сворачиваем), пока она не допечатается
+  // РІСЃРІСЏР·Рё СЃ РѕСЃРѕР±РµРЅРЅРѕСЃС‚СЏРјРё СЂРµР°Р»РёР·Р°С†РёРё РјРЅРѕРіРѕРїРѕС‚РѕС‡РЅРѕСЃС‚Рё РІ fr3
+  // РЅРµ РґР°РµРј Р·Р°РєСЂС‹С‚СЊ РЅР°РєР»Р°РґРЅСѓСЋ(Р° СЃРІРѕСЂР°С‡РёРІР°РµРј), РїРѕРєР° РѕРЅР° РЅРµ РґРѕРїРµС‡Р°С‚Р°РµС‚СЃСЏ
   aCanFreeForm := false;
 { ----------- End of changing by Petc.O in 06.11.2008 ----------- }
   //
   ldmRep:= TdmPrintNakl2.Create(Self);
-  // проверяю, если на дебиторе выставлена галочка "печать с учетом возвратов",
-  // то делаю видимым пункт "Печать накладной с учетом возвратов"
+  // РїСЂРѕРІРµСЂСЏСЋ, РµСЃР»Рё РЅР° РґРµР±РёС‚РѕСЂРµ РІС‹СЃС‚Р°РІР»РµРЅР° РіР°Р»РѕС‡РєР° "РїРµС‡Р°С‚СЊ СЃ СѓС‡РµС‚РѕРј РІРѕР·РІСЂР°С‚РѕРІ",
+  // С‚Рѕ РґРµР»Р°СЋ РІРёРґРёРјС‹Рј РїСѓРЅРєС‚ "РџРµС‡Р°С‚СЊ РЅР°РєР»Р°РґРЅРѕР№ СЃ СѓС‡РµС‚РѕРј РІРѕР·РІСЂР°С‚РѕРІ"
   if (Sender = PrintNaklWithVozvrat) And (DocNaklDK_TO_PRINT_WITH_VOZVRAT.AsInteger = 1){} Then
     Begin
       ldmRep.PrintNaklWithVozvrat := True;
@@ -16800,9 +16800,9 @@ begin
     end;
 
 //    FDesignReport := ((IntfMegaAccessManager.GetUserName = 'DEREZA') OR (IntfMegaDBCommon.GetCountry = iccRussia));
-    // Для российских сетевиков, по наличию символа # в
-    // примечании документа, пишу в переменную отчёта
-    // строку вида - "заказ №ХХХХ"
+    // Р”Р»СЏ СЂРѕСЃСЃРёР№СЃРєРёС… СЃРµС‚РµРІРёРєРѕРІ, РїРѕ РЅР°Р»РёС‡РёСЋ СЃРёРјРІРѕР»Р° # РІ
+    // РїСЂРёРјРµС‡Р°РЅРёРё РґРѕРєСѓРјРµРЅС‚Р°, РїРёС€Сѓ РІ РїРµСЂРµРјРµРЅРЅСѓСЋ РѕС‚С‡С‘С‚Р°
+    // СЃС‚СЂРѕРєСѓ РІРёРґР° - "Р·Р°РєР°Р· в„–РҐРҐРҐРҐ"
 
     if FDesignReport then
     begin
@@ -16865,13 +16865,13 @@ var
    dt1,summa,dt2,dt3,number,dt4,dt5:string;
 begin
   //
-  InputQuery('Введите дату и время (1)', 'Дата/Время', dt1);
-  InputQuery('Введите Сумму', 'Сумма', summa);
-  InputQuery('Введите дату и время (2)', 'Дата/Время', dt2);
-  InputQuery('Введите дату и время (3)', 'Дата/Время', dt3);
-  InputQuery('Введите номер Z-отчета и дату (4)', 'Номер/Дата', number);
-  InputQuery('Введите время (5)', 'Время', dt4);
-  InputQuery('Введите дату и время (6)', 'Дата/Время', dt5);
+  InputQuery('Р’РІРµРґРёС‚Рµ РґР°С‚Сѓ Рё РІСЂРµРјСЏ (1)', 'Р”Р°С‚Р°/Р’СЂРµРјСЏ', dt1);
+  InputQuery('Р’РІРµРґРёС‚Рµ РЎСѓРјРјСѓ', 'РЎСѓРјРјР°', summa);
+  InputQuery('Р’РІРµРґРёС‚Рµ РґР°С‚Сѓ Рё РІСЂРµРјСЏ (2)', 'Р”Р°С‚Р°/Р’СЂРµРјСЏ', dt2);
+  InputQuery('Р’РІРµРґРёС‚Рµ РґР°С‚Сѓ Рё РІСЂРµРјСЏ (3)', 'Р”Р°С‚Р°/Р’СЂРµРјСЏ', dt3);
+  InputQuery('Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ Z-РѕС‚С‡РµС‚Р° Рё РґР°С‚Сѓ (4)', 'РќРѕРјРµСЂ/Р”Р°С‚Р°', number);
+  InputQuery('Р’РІРµРґРёС‚Рµ РІСЂРµРјСЏ (5)', 'Р’СЂРµРјСЏ', dt4);
+  InputQuery('Р’РІРµРґРёС‚Рµ РґР°С‚Сѓ Рё РІСЂРµРјСЏ (6)', 'Р”Р°С‚Р°/Р’СЂРµРјСЏ', dt5);
   dmMegaReports.MyShow(200636, Now(), dt1 + ',' + summa+','+dt2+','+dt3+','+number+','+dt4+','+dt5);
 end;
 
@@ -16884,8 +16884,8 @@ end;
 procedure TDocNaklForm.Torg2ForClientClick(Sender: TObject);
 var
   ldmRep: TdmPrintNakl2R;
-begin // подготовка к печати "Акт об установленных расхождениях по количеству .."
-      // унифицированная форма "Торг-2"
+begin // РїРѕРґРіРѕС‚РѕРІРєР° Рє РїРµС‡Р°С‚Рё "РђРєС‚ РѕР± СѓСЃС‚Р°РЅРѕРІР»РµРЅРЅС‹С… СЂР°СЃС…РѕР¶РґРµРЅРёСЏС… РїРѕ РєРѕР»РёС‡РµСЃС‚РІСѓ .."
+      // СѓРЅРёС„РёС†РёСЂРѕРІР°РЅРЅР°СЏ С„РѕСЂРјР° "РўРѕСЂРі-2"
    if (IntfMegaDBCommon.GetCountry <> iccRussia) then exit;
 
   //if fmAktTorg2Params = nil then
@@ -16910,7 +16910,7 @@ begin // подготовка к печати "Акт об установленных расхождениях по количеству ..
   end;
 end;
 
-// инициализация механизма перехвата исключений
+// РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РјРµС…Р°РЅРёР·РјР° РїРµСЂРµС…РІР°С‚Р° РёСЃРєР»СЋС‡РµРЅРёР№
 {initialization
 
   JclStackTrackingOptions := JclStackTrackingOptions + [stExceptFrame];
