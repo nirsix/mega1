@@ -1,7 +1,7 @@
 object DocNaklForm: TDocNaklForm
   Left = 198
   Top = 105
-  Caption = 'Документ'
+  Caption = 'Р”РѕРєСѓРјРµРЅС‚'
   ClientHeight = 695
   ClientWidth = 1183
   Color = clBtnFace
@@ -9,7 +9,7 @@ object DocNaklForm: TDocNaklForm
   Constraints.MinWidth = 787
   ParentFont = True
   FormStyle = fsMDIChild
-  HelpFile = 'Документ.Накладная.aspx'
+  HelpFile = 'Р”РѕРєСѓРјРµРЅС‚.РќР°РєР»Р°РґРЅР°СЏ.aspx'
   KeyPreview = True
   OldCreateOrder = True
   Position = poDesigned
@@ -38,7 +38,7 @@ object DocNaklForm: TDocNaklForm
       Top = 5
       Width = 74
       Height = 25
-      Caption = 'Разделение'
+      Caption = 'Р Р°Р·РґРµР»РµРЅРёРµ'
       Flat = True
       Visible = False
       OnClick = btSepClick
@@ -86,7 +86,7 @@ object DocNaklForm: TDocNaklForm
       Top = 5
       Width = 76
       Height = 25
-      Caption = 'Скидка !'
+      Caption = 'РЎРєРёРґРєР° !'
       TabOrder = 6
       Visible = False
       OnClick = BitBtn7Click
@@ -320,7 +320,7 @@ object DocNaklForm: TDocNaklForm
         Height = 13
         Alignment = taRightJustify
         AutoSize = False
-        Caption = 'НАКЛАДНАЯ № '
+        Caption = 'РќРђРљР›РђР”РќРђРЇ в„– '
         FocusControl = DOCNUMBER
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -336,12 +336,12 @@ object DocNaklForm: TDocNaklForm
         Height = 13
         Alignment = taRightJustify
         AutoSize = False
-        Caption = 'от'
+        Caption = 'РѕС‚'
       end
       object RxLabel1: TcxLabel
         Left = 604
         Top = 4
-        Caption = 'Курс:'
+        Caption = 'РљСѓСЂСЃ:'
         ParentFont = False
         Style.Font.Charset = RUSSIAN_CHARSET
         Style.Font.Color = clWindowText
@@ -353,7 +353,7 @@ object DocNaklForm: TDocNaklForm
       object RxLabel8: TcxLabel
         Left = 444
         Top = 4
-        Caption = 'Расчеты в:'
+        Caption = 'Р Р°СЃС‡РµС‚С‹ РІ:'
         ParentFont = False
         Style.Font.Charset = RUSSIAN_CHARSET
         Style.Font.Color = clWindowText
@@ -464,7 +464,7 @@ object DocNaklForm: TDocNaklForm
       object RxLabel3: TcxLabel
         Left = 6
         Top = 7
-        Caption = '&От кого:'
+        Caption = '&РћС‚ РєРѕРіРѕ:'
         FocusControl = DK_FROM_CE
         ParentFont = False
         Style.Font.Charset = RUSSIAN_CHARSET
@@ -520,7 +520,7 @@ object DocNaklForm: TDocNaklForm
         Height = 25
         Orientation = mpHorizontal
         LeftComboPos = 0
-        LabelCaption = 'Адрес'
+        LabelCaption = 'РђРґСЂРµСЃ'
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -11
@@ -559,7 +559,7 @@ object DocNaklForm: TDocNaklForm
       object RxLabel4: TcxLabel
         Left = 7
         Top = 3
-        Caption = 'К&ому:'
+        Caption = 'Рљ&РѕРјСѓ:'
         FocusControl = DK_TO_CE
         ParentFont = False
         Style.Font.Charset = RUSSIAN_CHARSET
@@ -616,7 +616,7 @@ object DocNaklForm: TDocNaklForm
         Height = 25
         Orientation = mpHorizontal
         LeftComboPos = 0
-        LabelCaption = 'Адрес'
+        LabelCaption = 'РђРґСЂРµСЃ'
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -11
@@ -663,14 +663,14 @@ object DocNaklForm: TDocNaklForm
         Top = 3
         Width = 121
         Height = 13
-        Hint = 'Автор документа'
+        Hint = 'РђРІС‚РѕСЂ РґРѕРєСѓРјРµРЅС‚Р°'
         DataField = 'DOC_CREATOR'
         DataSource = Source
       end
       object RxLabel2: TcxLabel
         Left = 7
         Top = 1
-        Caption = '&Форма оплаты:'
+        Caption = '&Р¤РѕСЂРјР° РѕРїР»Р°С‚С‹:'
         FocusControl = FOplName
         ParentFont = False
         Style.Font.Charset = RUSSIAN_CHARSET
@@ -683,7 +683,7 @@ object DocNaklForm: TDocNaklForm
       object RxLabel5: TcxLabel
         Left = 120
         Top = 1
-        Caption = '&Цена:'
+        Caption = '&Р¦РµРЅР°:'
         FocusControl = PriceType
         ParentFont = False
         Style.Font.Charset = RUSSIAN_CHARSET
@@ -709,7 +709,7 @@ object DocNaklForm: TDocNaklForm
       object RxLabel7: TcxLabel
         Left = 350
         Top = 1
-        Caption = 'Приме&чание:'
+        Caption = 'РџСЂРёРјРµ&С‡Р°РЅРёРµ:'
         ParentFont = False
         Style.Font.Charset = RUSSIAN_CHARSET
         Style.Font.Color = clWindowText
@@ -721,7 +721,7 @@ object DocNaklForm: TDocNaklForm
       object RxLabel10: TcxLabel
         Left = 804
         Top = 4
-        Caption = 'Отгр'
+        Caption = 'РћС‚РіСЂ'
         ParentFont = False
         Style.Font.Charset = RUSSIAN_CHARSET
         Style.Font.Color = clWindowText
@@ -733,7 +733,7 @@ object DocNaklForm: TDocNaklForm
       object RxLabel11: TcxLabel
         Left = 715
         Top = 4
-        Caption = 'Отср'
+        Caption = 'РћС‚СЃСЂ'
         ParentFont = False
         Style.Font.Charset = RUSSIAN_CHARSET
         Style.Font.Color = clWindowText
@@ -745,7 +745,7 @@ object DocNaklForm: TDocNaklForm
       object RxLabel13: TcxLabel
         Left = 2
         Top = 39
-        Caption = 'Торг.точка'
+        Caption = 'РўРѕСЂРі.С‚РѕС‡РєР°'
         FocusControl = FOplName
         ParentFont = False
         Style.Font.Charset = RUSSIAN_CHARSET
@@ -758,7 +758,7 @@ object DocNaklForm: TDocNaklForm
       object RxLabel14: TcxLabel
         Left = 542
         Top = 1
-        Caption = 'Жел.время дост:'
+        Caption = 'Р–РµР».РІСЂРµРјСЏ РґРѕСЃС‚:'
         ParentFont = False
         Style.Font.Charset = RUSSIAN_CHARSET
         Style.Font.Color = clWindowText
@@ -796,7 +796,7 @@ object DocNaklForm: TDocNaklForm
         Top = 20
         Width = 27
         Height = 17
-        Hint = 'Отгрузка разрешена'
+        Hint = 'РћС‚РіСЂСѓР·РєР° СЂР°Р·СЂРµС€РµРЅР°'
         TabStop = False
         Color = clBtnFace
         ParentColor = False
@@ -820,7 +820,7 @@ object DocNaklForm: TDocNaklForm
         Top = 41
         Width = 92
         Height = 16
-        Caption = 'ценовые колонки'
+        Caption = 'С†РµРЅРѕРІС‹Рµ РєРѕР»РѕРЅРєРё'
         TabOrder = 8
         TabStop = False
         OnClick = btnPriceColsClick
@@ -830,9 +830,9 @@ object DocNaklForm: TDocNaklForm
         Top = 41
         Width = 92
         Height = 16
-        Hint = 'Непредставленные бренды <F10>'
+        Hint = 'РќРµРїСЂРµРґСЃС‚Р°РІР»РµРЅРЅС‹Рµ Р±СЂРµРЅРґС‹ <F10>'
         Action = aBrands
-        Caption = 'Бренды'
+        Caption = 'Р‘СЂРµРЅРґС‹'
         ParentShowHint = False
         ShowHint = True
         TabOrder = 19
@@ -859,11 +859,11 @@ object DocNaklForm: TDocNaklForm
         Left = 353
         Top = 19
         Hint = 
-          'Примечание. '#13#10'- чтобы указать номер заказа клиента, выделите его' +
-          ' символом '#39'#'#39';'#13#10'- чтобы указать номер поставщика в системе клиен' +
-          'та, поставьте перед ним символ '#39'@'#39';'#13#10'Например,  если надо указат' +
-          'ь в накладной номер заказа 12 и код поставщика 5389, в примечани' +
-          'и должна быть такая строка:'#13#10'"  #12 @5389 "'
+          'РџСЂРёРјРµС‡Р°РЅРёРµ. '#13#10'- С‡С‚РѕР±С‹ СѓРєР°Р·Р°С‚СЊ РЅРѕРјРµСЂ Р·Р°РєР°Р·Р° РєР»РёРµРЅС‚Р°, РІС‹РґРµР»РёС‚Рµ РµРіРѕ' +
+          ' СЃРёРјРІРѕР»РѕРј '#39'#'#39';'#13#10'- С‡С‚РѕР±С‹ СѓРєР°Р·Р°С‚СЊ РЅРѕРјРµСЂ РїРѕСЃС‚Р°РІС‰РёРєР° РІ СЃРёСЃС‚РµРјРµ РєР»РёРµРЅ' +
+          'С‚Р°, РїРѕСЃС‚Р°РІСЊС‚Рµ РїРµСЂРµРґ РЅРёРј СЃРёРјРІРѕР» '#39'@'#39';'#13#10'РќР°РїСЂРёРјРµСЂ,  РµСЃР»Рё РЅР°РґРѕ СѓРєР°Р·Р°С‚' +
+          'СЊ РІ РЅР°РєР»Р°РґРЅРѕР№ РЅРѕРјРµСЂ Р·Р°РєР°Р·Р° 12 Рё РєРѕРґ РїРѕСЃС‚Р°РІС‰РёРєР° 5389, РІ РїСЂРёРјРµС‡Р°РЅРё' +
+          'Рё РґРѕР»Р¶РЅР° Р±С‹С‚СЊ С‚Р°РєР°СЏ СЃС‚СЂРѕРєР°:'#13#10'"  #12 @5389 "'
         DataBinding.DataField = 'NOTES'
         DataBinding.DataSource = Source
         TabOrder = 11
@@ -903,7 +903,7 @@ object DocNaklForm: TDocNaklForm
       object cbPallete: TcxDBCheckBox
         Left = 215
         Top = 59
-        Caption = 'Отгрузка с паллетами'
+        Caption = 'РћС‚РіСЂСѓР·РєР° СЃ РїР°Р»Р»РµС‚Р°РјРё'
         DataBinding.DataField = 'USE_PALLETE'
         DataBinding.DataSource = Source
         ParentFont = False
@@ -927,7 +927,7 @@ object DocNaklForm: TDocNaklForm
       object cxlReal_Otsr: TcxLabel
         Left = 750
         Top = 4
-        Caption = 'Отср ТА'
+        Caption = 'РћС‚СЃСЂ РўРђ'
         ParentFont = False
         Style.Font.Charset = RUSSIAN_CHARSET
         Style.Font.Color = clWindowText
@@ -968,8 +968,8 @@ object DocNaklForm: TDocNaklForm
           Top = 3
           Width = 36
           Height = 13
-          Hint = 'Заявка на транспорт - должна подтягиваться автоматически'
-          Caption = 'Заявка'
+          Hint = 'Р—Р°СЏРІРєР° РЅР° С‚СЂР°РЅСЃРїРѕСЂС‚ - РґРѕР»Р¶РЅР° РїРѕРґС‚СЏРіРёРІР°С‚СЊСЃСЏ Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё'
+          Caption = 'Р—Р°СЏРІРєР°'
           Layout = tlCenter
         end
         object lcbZayavka: TcxDBExtLookupComboBox
@@ -994,8 +994,8 @@ object DocNaklForm: TDocNaklForm
       object chkIsBanket: TcxDBCheckBox
         Left = 371
         Top = 59
-        Hint = 'Банкет, сезонный, новогдний'
-        Caption = 'Банкет'
+        Hint = 'Р‘Р°РЅРєРµС‚, СЃРµР·РѕРЅРЅС‹Р№, РЅРѕРІРѕРіРґРЅРёР№'
+        Caption = 'Р‘Р°РЅРєРµС‚'
         DataBinding.DataField = 'IS_BANKET'
         DataBinding.DataSource = Source
         Properties.Alignment = taLeftJustify
@@ -1011,7 +1011,7 @@ object DocNaklForm: TDocNaklForm
       object cbdbDontUseSpecPrice: TcxDBCheckBox
         Left = 0
         Top = 59
-        Caption = 'Не использовать акционные цены'
+        Caption = 'РќРµ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ Р°РєС†РёРѕРЅРЅС‹Рµ С†РµРЅС‹'
         DataBinding.DataField = 'DONT_USE_SPEC_PRICE'
         DataBinding.DataSource = Source
         Properties.Alignment = taLeftJustify
@@ -1025,7 +1025,7 @@ object DocNaklForm: TDocNaklForm
       object cxLabel3: TcxLabel
         Left = 291
         Top = 1
-        Caption = 'Скидка, %'
+        Caption = 'РЎРєРёРґРєР°, %'
         FocusControl = cxDBse_PercentDiscount
         ParentFont = False
         Style.Font.Charset = RUSSIAN_CHARSET
@@ -1054,7 +1054,7 @@ object DocNaklForm: TDocNaklForm
         Top = 28
         Width = 163
         Height = 49
-        Caption = 'Время подачи ТС'
+        Caption = 'Р’СЂРµРјСЏ РїРѕРґР°С‡Рё РўРЎ'
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -1189,7 +1189,7 @@ object DocNaklForm: TDocNaklForm
       object chkIncludeOkom: TcxDBCheckBox
         Left = 440
         Top = 60
-        Caption = 'Вкл в ОКОМ'
+        Caption = 'Р’РєР» РІ РћРљРћРњ'
         DataBinding.DataField = 'is_included'
         DataBinding.DataSource = dsIncludedOkom
         Properties.ImmediatePost = True
@@ -1204,7 +1204,7 @@ object DocNaklForm: TDocNaklForm
         Top = 41
         Width = 75
         Height = 16
-        Caption = 'Вексель'
+        Caption = 'Р’РµРєСЃРµР»СЊ'
         TabOrder = 28
         OnClick = btnVekselAddClick
       end
@@ -1226,7 +1226,7 @@ object DocNaklForm: TDocNaklForm
       object RxLabel9: TcxLabel
         Left = 7
         Top = 3
-        Caption = 'Через:'
+        Caption = 'Р§РµСЂРµР·:'
         FocusControl = DK_C_NAME_CE
         ParentFont = False
         Style.Font.Charset = RUSSIAN_CHARSET
@@ -1290,7 +1290,7 @@ object DocNaklForm: TDocNaklForm
       object RxLabel15: TcxLabel
         Left = 8
         Top = 0
-        Caption = 'Номер грузовой таможенной декларации'
+        Caption = 'РќРѕРјРµСЂ РіСЂСѓР·РѕРІРѕР№ С‚Р°РјРѕР¶РµРЅРЅРѕР№ РґРµРєР»Р°СЂР°С†РёРё'
         FocusControl = DK_C_NAME_CE
         ParentFont = False
         Style.Font.Charset = RUSSIAN_CHARSET
@@ -1348,7 +1348,7 @@ object DocNaklForm: TDocNaklForm
           Top = 6
           Width = 36
           Height = 13
-          Caption = 'Cклад:'
+          Caption = 'CРєР»Р°Рґ:'
           Visible = False
         end
         object DBEdit5: TcxDBTextEdit
@@ -1366,9 +1366,9 @@ object DocNaklForm: TDocNaklForm
         object RxLabel12: TcxLabel
           Left = 261
           Top = 4
-          Hint = 'Транспортные услуги'
+          Hint = 'РўСЂР°РЅСЃРїРѕСЂС‚РЅС‹Рµ СѓСЃР»СѓРіРё'
           Anchors = [akTop, akRight]
-          Caption = 'Тран.:'
+          Caption = 'РўСЂР°РЅ.:'
           FocusControl = DK_FROM_CE
           ParentFont = False
           Style.Font.Charset = RUSSIAN_CHARSET
@@ -1395,8 +1395,8 @@ object DocNaklForm: TDocNaklForm
         object cxLabelEgaisCode: TcxLabel
           Left = 80
           Top = 4
-          Hint = 'Код дебитора в системе ЕГАИС'
-          Caption = 'ТТ ФСРАР'
+          Hint = 'РљРѕРґ РґРµР±РёС‚РѕСЂР° РІ СЃРёСЃС‚РµРјРµ Р•Р“РђРРЎ'
+          Caption = 'РўРў Р¤РЎР РђР '
           ParentFont = False
           Style.BorderStyle = ebsNone
           Style.Font.Charset = RUSSIAN_CHARSET
@@ -1409,7 +1409,7 @@ object DocNaklForm: TDocNaklForm
         object cxDBTextEditEgaisCode: TcxDBTextEdit
           Left = 139
           Top = 2
-          Hint = 'Код дебитора в системе ЕГАИС'
+          Hint = 'РљРѕРґ РґРµР±РёС‚РѕСЂР° РІ СЃРёСЃС‚РµРјРµ Р•Р“РђРРЎ'
           DataBinding.DataField = 'EGAIS_KOD_DK'
           DataBinding.DataSource = Source
           Properties.ReadOnly = True
@@ -1432,7 +1432,7 @@ object DocNaklForm: TDocNaklForm
           Height = 25
           Orientation = mpHorizontal
           LeftComboPos = 0
-          LabelCaption = 'Фокус-группа'
+          LabelCaption = 'Р¤РѕРєСѓСЃ-РіСЂСѓРїРїР°'
           Font.Charset = RUSSIAN_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
@@ -1462,7 +1462,7 @@ object DocNaklForm: TDocNaklForm
           Height = 25
           Orientation = mpHorizontal
           LeftComboPos = 0
-          LabelCaption = '&Договор'
+          LabelCaption = '&Р”РѕРіРѕРІРѕСЂ'
           Font.Charset = RUSSIAN_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
@@ -1497,7 +1497,7 @@ object DocNaklForm: TDocNaklForm
       object cxLabel2: TcxLabel
         Left = 755
         Top = 2
-        Caption = 'Там. сто-сть'
+        Caption = 'РўР°Рј. СЃС‚Рѕ-СЃС‚СЊ'
         ParentFont = False
         Style.Font.Charset = RUSSIAN_CHARSET
         Style.Font.Color = clWindowText
@@ -1518,7 +1518,7 @@ object DocNaklForm: TDocNaklForm
       object cxLblEgais: TcxLabel
         Left = 959
         Top = 2
-        Caption = 'Рег.№ ЕГАИС'
+        Caption = 'Р РµРі.в„– Р•Р“РђРРЎ'
       end
     end
     object pnKeytAddress: TPanel
@@ -1534,7 +1534,7 @@ object DocNaklForm: TDocNaklForm
         Top = 0
         Width = 176
         Height = 13
-        Caption = 'Адрес доставки (кейт. компания):'
+        Caption = 'РђРґСЂРµСЃ РґРѕСЃС‚Р°РІРєРё (РєРµР№С‚. РєРѕРјРїР°РЅРёСЏ):'
       end
     end
   end
@@ -1557,7 +1557,7 @@ object DocNaklForm: TDocNaklForm
       Width = 83
       Height = 17
       AutoSize = False
-      Caption = '&Дата операции'
+      Caption = '&Р”Р°С‚Р° РѕРїРµСЂР°С†РёРё'
       WordWrap = True
     end
     object Label6: TLabel
@@ -1566,7 +1566,7 @@ object DocNaklForm: TDocNaklForm
       Width = 129
       Height = 13
       AutoSize = False
-      Caption = 'Операция по докумен&ту'
+      Caption = 'РћРїРµСЂР°С†РёСЏ РїРѕ РґРѕРєСѓРјРµРЅ&С‚Сѓ'
     end
     object lblCFOOtgr: TLabel
       Left = 235
@@ -1574,8 +1574,8 @@ object DocNaklForm: TDocNaklForm
       Width = 284
       Height = 13
       Cursor = crHandPoint
-      Hint = 'ЦФО отгрузки - щелкните мышкой для обновления'
-      Caption = '< ЦФО отгрузки - щелкните мышкой для обновления >'
+      Hint = 'Р¦Р¤Рћ РѕС‚РіСЂСѓР·РєРё - С‰РµР»РєРЅРёС‚Рµ РјС‹С€РєРѕР№ РґР»СЏ РѕР±РЅРѕРІР»РµРЅРёСЏ'
+      Caption = '< Р¦Р¤Рћ РѕС‚РіСЂСѓР·РєРё - С‰РµР»РєРЅРёС‚Рµ РјС‹С€РєРѕР№ РґР»СЏ РѕР±РЅРѕРІР»РµРЅРёСЏ >'
       Font.Charset = RUSSIAN_CHARSET
       Font.Color = clGray
       Font.Height = -11
@@ -1713,7 +1713,7 @@ object DocNaklForm: TDocNaklForm
           Footer.Font.Name = 'MS Sans Serif'
           Footer.Font.Style = [fsBold]
           Footers = <>
-          Title.Caption = 'Код ЕАН'
+          Title.Caption = 'РљРѕРґ Р•РђРќ'
           Title.TitleButton = True
           Width = 84
         end
@@ -1723,7 +1723,7 @@ object DocNaklForm: TDocNaklForm
           EditButtons = <>
           FieldName = 'ARTICUL_PARTNER'
           Footers = <>
-          Title.Caption = 'Артикул'
+          Title.Caption = 'РђСЂС‚РёРєСѓР»'
           Width = 80
         end
         item
@@ -1732,7 +1732,7 @@ object DocNaklForm: TDocNaklForm
           EditButtons = <>
           FieldName = 'PDV'
           Footers = <>
-          Title.Caption = 'Н Д С'
+          Title.Caption = 'Рќ Р” РЎ'
           Title.TitleButton = True
           Width = 11
         end
@@ -1747,7 +1747,7 @@ object DocNaklForm: TDocNaklForm
           Footer.Font.Name = 'MS Sans Serif'
           Footer.Font.Style = [fsBold]
           Footers = <>
-          Title.Caption = 'Наименование'
+          Title.Caption = 'РќР°РёРјРµРЅРѕРІР°РЅРёРµ'
           Title.TitleButton = True
           Width = 184
         end
@@ -1757,7 +1757,7 @@ object DocNaklForm: TDocNaklForm
           EditButtons = <>
           FieldName = 'ED_IZM'
           Footers = <>
-          Title.Caption = 'Изм.'
+          Title.Caption = 'РР·Рј.'
           Title.TitleButton = True
           Width = 33
         end
@@ -1768,7 +1768,7 @@ object DocNaklForm: TDocNaklForm
           EditButtons = <>
           FieldName = 'KOLICH'
           Footers = <>
-          Title.Caption = 'Количество|ед.'
+          Title.Caption = 'РљРѕР»РёС‡РµСЃС‚РІРѕ|РµРґ.'
           Title.TitleButton = True
           Width = 61
         end
@@ -1784,7 +1784,7 @@ object DocNaklForm: TDocNaklForm
               FieldName = 'Boxcount'
               ValueType = fvtSum
             end>
-          Title.Caption = 'Количество|ящ.'
+          Title.Caption = 'РљРѕР»РёС‡РµСЃС‚РІРѕ|СЏС‰.'
           Title.TitleButton = True
           Width = 34
         end
@@ -1796,7 +1796,7 @@ object DocNaklForm: TDocNaklForm
           FieldName = 'COL_CHECK_WITH'
           Footers = <>
           ReadOnly = True
-          Title.Caption = 'Кол15'
+          Title.Caption = 'РљРѕР»15'
           Title.TitleButton = True
           Title.Orientation = tohVertical
           Visible = False
@@ -1808,7 +1808,7 @@ object DocNaklForm: TDocNaklForm
           EditButtons = <>
           FieldName = 'COL'
           Footers = <>
-          Title.Caption = 'К'
+          Title.Caption = 'Рљ'
           Title.TitleButton = True
           Visible = False
           Width = 17
@@ -1819,7 +1819,7 @@ object DocNaklForm: TDocNaklForm
           EditButtons = <>
           FieldName = 'Price1_'
           Footers = <>
-          Title.Caption = 'Цена'
+          Title.Caption = 'Р¦РµРЅР°'
           Title.TitleButton = True
           Width = 60
         end
@@ -1829,7 +1829,7 @@ object DocNaklForm: TDocNaklForm
           EditButtons = <>
           FieldName = 'Summa2'
           Footers = <>
-          Title.Caption = 'Сумма'
+          Title.Caption = 'РЎСѓРјРјР°'
           Title.TitleButton = True
           Width = 70
         end
@@ -1847,7 +1847,7 @@ object DocNaklForm: TDocNaklForm
           EditButtons = <>
           FieldName = 'Price2_'
           Footers = <>
-          Title.Caption = 'Цена'
+          Title.Caption = 'Р¦РµРЅР°'
           Title.TitleButton = True
           Width = 47
         end
@@ -1857,7 +1857,7 @@ object DocNaklForm: TDocNaklForm
           EditButtons = <>
           FieldName = 'Summa3'
           Footers = <>
-          Title.Caption = 'Сумма'
+          Title.Caption = 'РЎСѓРјРјР°'
           Title.TitleButton = True
           Width = 81
         end
@@ -1868,7 +1868,7 @@ object DocNaklForm: TDocNaklForm
           EditButtons = <>
           FieldName = 'PRICEWPDV'
           Footers = <>
-          Title.Caption = 'Цена с НДС'
+          Title.Caption = 'Р¦РµРЅР° СЃ РќР”РЎ'
           Title.TitleButton = True
         end
         item
@@ -1878,7 +1878,7 @@ object DocNaklForm: TDocNaklForm
           EditButtons = <>
           FieldName = 'SUMMAWPDV'
           Footers = <>
-          Title.Caption = 'Сумма с НДС'
+          Title.Caption = 'РЎСѓРјРјР° СЃ РќР”РЎ'
           Title.TitleButton = True
         end
         item
@@ -1887,7 +1887,7 @@ object DocNaklForm: TDocNaklForm
           EditButtons = <>
           FieldName = 'EXCISE'
           Footers = <>
-          Title.Caption = 'Ставка акциза'
+          Title.Caption = 'РЎС‚Р°РІРєР° Р°РєС†РёР·Р°'
           Title.TitleButton = True
           Width = 82
         end
@@ -1902,7 +1902,7 @@ object DocNaklForm: TDocNaklForm
               FieldName = 'EXCISE_SUM'
               ValueType = fvtSum
             end>
-          Title.Caption = 'Сумма акциза'
+          Title.Caption = 'РЎСѓРјРјР° Р°РєС†РёР·Р°'
           Title.TitleButton = True
           Width = 80
         end
@@ -1912,7 +1912,7 @@ object DocNaklForm: TDocNaklForm
           EditButtons = <>
           FieldName = 'LOCAL_KOD'
           Footers = <>
-          Title.Caption = 'Локальный код'
+          Title.Caption = 'Р›РѕРєР°Р»СЊРЅС‹Р№ РєРѕРґ'
           Title.TitleButton = True
         end
         item
@@ -1921,7 +1921,7 @@ object DocNaklForm: TDocNaklForm
           EditButtons = <>
           FieldName = 'IND_SUMMA'
           Footers = <>
-          Title.Caption = 'Нач.Сумма'
+          Title.Caption = 'РќР°С‡.РЎСѓРјРјР°'
         end
         item
           CellButtons = <>
@@ -1929,7 +1929,7 @@ object DocNaklForm: TDocNaklForm
           EditButtons = <>
           FieldName = 'OptPrice'
           Footers = <>
-          Title.Caption = 'Цена с НДС (Опт)'
+          Title.Caption = 'Р¦РµРЅР° СЃ РќР”РЎ (РћРїС‚)'
           Title.TitleButton = True
           Visible = False
         end
@@ -1939,7 +1939,7 @@ object DocNaklForm: TDocNaklForm
           EditButtons = <>
           FieldName = 'RealPrice'
           Footers = <>
-          Title.Caption = 'Цена с НДС*'
+          Title.Caption = 'Р¦РµРЅР° СЃ РќР”РЎ*'
           Title.TitleButton = True
           Visible = False
         end
@@ -1949,7 +1949,7 @@ object DocNaklForm: TDocNaklForm
           EditButtons = <>
           FieldName = 'INVOCE_NUMBER'
           Footers = <>
-          Title.Caption = 'Номер инвойса'
+          Title.Caption = 'РќРѕРјРµСЂ РёРЅРІРѕР№СЃР°'
           Width = 94
         end
         item
@@ -1958,7 +1958,7 @@ object DocNaklForm: TDocNaklForm
           EditButtons = <>
           FieldName = 'DATE_ROZLIVA'
           Footers = <>
-          Title.Caption = 'Дата розлива'
+          Title.Caption = 'Р”Р°С‚Р° СЂРѕР·Р»РёРІР°'
           Title.TitleButton = True
           Width = 98
         end
@@ -1969,7 +1969,7 @@ object DocNaklForm: TDocNaklForm
           EditButtons = <>
           FieldName = 'SKIDKA_WITH_PDV'
           Footers = <>
-          Title.Caption = 'Скидка с учетом НДС'
+          Title.Caption = 'РЎРєРёРґРєР° СЃ СѓС‡РµС‚РѕРј РќР”РЎ'
         end
         item
           CellButtons = <>
@@ -1978,7 +1978,7 @@ object DocNaklForm: TDocNaklForm
           EditButtons = <>
           FieldName = 'PRICE_PREV'
           Footers = <>
-          Title.Caption = 'Начальная'#13#10'цена'
+          Title.Caption = 'РќР°С‡Р°Р»СЊРЅР°СЏ'#13#10'С†РµРЅР°'
         end
         item
           CellButtons = <>
@@ -1986,7 +1986,7 @@ object DocNaklForm: TDocNaklForm
           EditButtons = <>
           FieldName = 'GROUP_NAME'
           Footers = <>
-          Title.Caption = 'Бренд'
+          Title.Caption = 'Р‘СЂРµРЅРґ'
           Title.TitleButton = True
         end
         item
@@ -1995,7 +1995,7 @@ object DocNaklForm: TDocNaklForm
           EditButtons = <>
           FieldName = 'SPRAV_MATER_CATEGORY_NAME'
           Footers = <>
-          Title.Caption = 'категория ценности'
+          Title.Caption = 'РєР°С‚РµРіРѕСЂРёСЏ С†РµРЅРЅРѕСЃС‚Рё'
           Width = 69
         end
         item
@@ -2004,7 +2004,7 @@ object DocNaklForm: TDocNaklForm
           EditButtons = <>
           FieldName = 'GDOCUMENT'
           Footers = <>
-          Title.Caption = 'Номер грузовой таможенной декларации'
+          Title.Caption = 'РќРѕРјРµСЂ РіСЂСѓР·РѕРІРѕР№ С‚Р°РјРѕР¶РµРЅРЅРѕР№ РґРµРєР»Р°СЂР°С†РёРё'
           Visible = False
         end>
       object RowDetailData: TRowDetailPanelControlEh
@@ -2043,7 +2043,7 @@ object DocNaklForm: TDocNaklForm
       object ToolButton3: TToolButton
         Left = 46
         Top = 0
-        Hint = 'Создание документов|Создание документов'
+        Hint = 'РЎРѕР·РґР°РЅРёРµ РґРѕРєСѓРјРµРЅС‚РѕРІ|РЎРѕР·РґР°РЅРёРµ РґРѕРєСѓРјРµРЅС‚РѕРІ'
         Caption = 'ToolButton3'
         DropdownMenu = CreatePopup
         ImageIndex = 16
@@ -2060,7 +2060,7 @@ object DocNaklForm: TDocNaklForm
       object ToolButton7: TToolButton
         Left = 77
         Top = 0
-        Hint = 'Печать|Печать'
+        Hint = 'РџРµС‡Р°С‚СЊ|РџРµС‡Р°С‚СЊ'
         Caption = 'ToolButton7'
         DropdownMenu = pmPrint
         ImageIndex = 4
@@ -2081,7 +2081,7 @@ object DocNaklForm: TDocNaklForm
       object ToolButton11: TToolButton
         Left = 131
         Top = 0
-        Hint = 'Показать связи|Показать связи'
+        Hint = 'РџРѕРєР°Р·Р°С‚СЊ СЃРІСЏР·Рё|РџРѕРєР°Р·Р°С‚СЊ СЃРІСЏР·Рё'
         Caption = 'ToolButton11'
         DropdownMenu = pmLink
         ImageIndex = 12
@@ -2115,7 +2115,7 @@ object DocNaklForm: TDocNaklForm
       object tbVozvr: TToolButton
         Left = 216
         Top = 0
-        Hint = 'Создание возвратов из шаблона'
+        Hint = 'РЎРѕР·РґР°РЅРёРµ РІРѕР·РІСЂР°С‚РѕРІ РёР· С€Р°Р±Р»РѕРЅР°'
         Caption = 'tbVozvr'
         ImageIndex = 48
         OnClick = tbVozvrClick
@@ -2123,7 +2123,7 @@ object DocNaklForm: TDocNaklForm
       object tbVozvrChP: TToolButton
         Left = 239
         Top = 0
-        Hint = 'Создание возвратов ЧП'
+        Hint = 'РЎРѕР·РґР°РЅРёРµ РІРѕР·РІСЂР°С‚РѕРІ Р§Рџ'
         Caption = 'tbVozvrChP'
         ImageIndex = 49
         OnClick = tbVozvrChPClick
@@ -2144,7 +2144,7 @@ object DocNaklForm: TDocNaklForm
       object ToolButton16: TToolButton
         Left = 293
         Top = 0
-        Hint = 'Внести пометку о договоре аренды'
+        Hint = 'Р’РЅРµСЃС‚Рё РїРѕРјРµС‚РєСѓ Рѕ РґРѕРіРѕРІРѕСЂРµ Р°СЂРµРЅРґС‹'
         Action = aSetOFDogovor
       end
       object tbSendNakl: TToolButton
@@ -2156,7 +2156,7 @@ object DocNaklForm: TDocNaklForm
       object tbAkcis: TToolButton
         Left = 339
         Top = 0
-        Hint = 'Сумма акцизного сбора'
+        Hint = 'РЎСѓРјРјР° Р°РєС†РёР·РЅРѕРіРѕ СЃР±РѕСЂР°'
         Caption = 'tbAkcis'
         ImageIndex = 18
         OnClick = tbAkcisClick
@@ -2226,7 +2226,7 @@ object DocNaklForm: TDocNaklForm
       object ToolButton9: TToolButton
         Left = 31
         Top = 0
-        Hint = 'Статус согласования'
+        Hint = 'РЎС‚Р°С‚СѓСЃ СЃРѕРіР»Р°СЃРѕРІР°РЅРёСЏ'
         Caption = 'ToolButton9'
         ImageIndex = 43
       end
@@ -2237,7 +2237,7 @@ object DocNaklForm: TDocNaklForm
         Height = 27
         Orientation = mpHorizontal
         LeftComboPos = 0
-        LabelCaption = '&ЦФО'
+        LabelCaption = '&Р¦Р¤Рћ'
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -11
@@ -2272,7 +2272,7 @@ object DocNaklForm: TDocNaklForm
       object tbOrderSklad: TToolButton
         Left = 259
         Top = 0
-        Hint = 'Наряд на погрузку\разгрузку'
+        Hint = 'РќР°СЂСЏРґ РЅР° РїРѕРіСЂСѓР·РєСѓ\СЂР°Р·РіСЂСѓР·РєСѓ'
         DropdownMenu = pmOrder
         ImageIndex = 71
         Style = tbsDropDown
@@ -2280,8 +2280,8 @@ object DocNaklForm: TDocNaklForm
       object btnReturnCause: TToolButton
         Left = 297
         Top = 0
-        Hint = 'Причина возврата|Причина возврата'
-        Caption = 'Причина возврата'
+        Hint = 'РџСЂРёС‡РёРЅР° РІРѕР·РІСЂР°С‚Р°|РџСЂРёС‡РёРЅР° РІРѕР·РІСЂР°С‚Р°'
+        Caption = 'РџСЂРёС‡РёРЅР° РІРѕР·РІСЂР°С‚Р°'
         ImageIndex = 50
         OnClick = btnReturnCauseClick
       end
@@ -2294,15 +2294,15 @@ object DocNaklForm: TDocNaklForm
       object tbSertificat: TToolButton
         Left = 343
         Top = 0
-        Hint = 'Привязать сертификат к позиции'
-        Caption = 'Привязать сертификат к позиции'
+        Hint = 'РџСЂРёРІСЏР·Р°С‚СЊ СЃРµСЂС‚РёС„РёРєР°С‚ Рє РїРѕР·РёС†РёРё'
+        Caption = 'РџСЂРёРІСЏР·Р°С‚СЊ СЃРµСЂС‚РёС„РёРєР°С‚ Рє РїРѕР·РёС†РёРё'
         ImageIndex = 59
         OnClick = tbSertificatClick
       end
       object ToolButton21: TToolButton
         Left = 366
         Top = 0
-        Hint = 'Пометить как базовую'
+        Hint = 'РџРѕРјРµС‚РёС‚СЊ РєР°Рє Р±Р°Р·РѕРІСѓСЋ'
         DropdownMenu = pmTypeAkc
         ImageIndex = 60
         Style = tbsDropDown
@@ -2311,23 +2311,23 @@ object DocNaklForm: TDocNaklForm
         Left = 404
         Top = 0
         Hint = 
-          'Создаются акционные накалдные по данному документу в случае если' +
-          ' они не были созданны. Накладная создается в следующем числе от ' +
-          'текущего'
+          'РЎРѕР·РґР°СЋС‚СЃСЏ Р°РєС†РёРѕРЅРЅС‹Рµ РЅР°РєР°Р»РґРЅС‹Рµ РїРѕ РґР°РЅРЅРѕРјСѓ РґРѕРєСѓРјРµРЅС‚Сѓ РІ СЃР»СѓС‡Р°Рµ РµСЃР»Рё' +
+          ' РѕРЅРё РЅРµ Р±С‹Р»Рё СЃРѕР·РґР°РЅРЅС‹. РќР°РєР»Р°РґРЅР°СЏ СЃРѕР·РґР°РµС‚СЃСЏ РІ СЃР»РµРґСѓСЋС‰РµРј С‡РёСЃР»Рµ РѕС‚ ' +
+          'С‚РµРєСѓС‰РµРіРѕ'
         Action = actCreateNaklAkcii
         ImageIndex = 62
       end
       object ToolButton22: TToolButton
         Left = 427
         Top = 0
-        Caption = 'Обновление отсрочек по акциям'
+        Caption = 'РћР±РЅРѕРІР»РµРЅРёРµ РѕС‚СЃСЂРѕС‡РµРє РїРѕ Р°РєС†РёСЏРј'
         ImageIndex = 13
         OnClick = ToolButton22Click
       end
       object btnStorageIn: TToolButton
         Left = 450
         Top = 0
-        Hint = 'Распределить ценности по ячейкам'
+        Hint = 'Р Р°СЃРїСЂРµРґРµР»РёС‚СЊ С†РµРЅРЅРѕСЃС‚Рё РїРѕ СЏС‡РµР№РєР°Рј'
         Caption = 'btnStorageIn'
         ImageIndex = 78
         Visible = False
@@ -2336,7 +2336,7 @@ object DocNaklForm: TDocNaklForm
       object btnStorageOut: TToolButton
         Left = 473
         Top = 0
-        Hint = 'Выбрать ценности из ячеек'
+        Hint = 'Р’С‹Р±СЂР°С‚СЊ С†РµРЅРЅРѕСЃС‚Рё РёР· СЏС‡РµРµРє'
         Caption = 'btnStorageOut'
         ImageIndex = 79
         OnClick = btnStorageOutClick
@@ -2355,8 +2355,8 @@ object DocNaklForm: TDocNaklForm
       object ToolButton26: TToolButton
         Left = 542
         Top = 0
-        Hint = 'Экспорт в WMS накладных из сортировки'
-        Caption = 'Экспорт в WMS накладных из сортировки'
+        Hint = 'Р­РєСЃРїРѕСЂС‚ РІ WMS РЅР°РєР»Р°РґРЅС‹С… РёР· СЃРѕСЂС‚РёСЂРѕРІРєРё'
+        Caption = 'Р­РєСЃРїРѕСЂС‚ РІ WMS РЅР°РєР»Р°РґРЅС‹С… РёР· СЃРѕСЂС‚РёСЂРѕРІРєРё'
         DropdownMenu = pmWMS
         ImageIndex = 66
       end
@@ -2455,7 +2455,7 @@ object DocNaklForm: TDocNaklForm
     Left = 236
     Top = 68
     object Insert: TAction
-      Caption = '&Добавить позицию ...'
+      Caption = '&Р”РѕР±Р°РІРёС‚СЊ РїРѕР·РёС†РёСЋ ...'
       ImageIndex = 0
       ShortCut = 45
       OnExecute = InsertExecute
@@ -2463,8 +2463,8 @@ object DocNaklForm: TDocNaklForm
       Left = 12345
     end
     object Edit: TAction
-      Caption = '&Позиция...'
-      Hint = 'Редактирование позиции|Редактирование позиции'
+      Caption = '&РџРѕР·РёС†РёСЏ...'
+      Hint = 'Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РїРѕР·РёС†РёРё|Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РїРѕР·РёС†РёРё'
       ImageIndex = 2
       ShortCut = 13
       OnExecute = EditExecute
@@ -2472,15 +2472,15 @@ object DocNaklForm: TDocNaklForm
       Left = 12345
     end
     object PrintNaklWithVozvrat: TAction
-      Category = 'Печать'
-      Caption = 'Печать накладной с учетом возвратов'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РџРµС‡Р°С‚СЊ РЅР°РєР»Р°РґРЅРѕР№ СЃ СѓС‡РµС‚РѕРј РІРѕР·РІСЂР°С‚РѕРІ'
       ImageIndex = 4
       OnExecute = PrintNaklExecute
       OnUpdate = PrintNaklUpdate
       Left = 12345
     end
     object Delete: TAction
-      Caption = '&Удалить позицию'
+      Caption = '&РЈРґР°Р»РёС‚СЊ РїРѕР·РёС†РёСЋ'
       ImageIndex = 8
       ShortCut = 16430
       OnExecute = DeleteExecute
@@ -2488,30 +2488,30 @@ object DocNaklForm: TDocNaklForm
       Left = 12345
     end
     object CloseForm: TAction
-      Caption = '&Сохранить'
-      Hint = 'Сохранить документ|Сохранить документ и закрыть'
+      Caption = '&РЎРѕС…СЂР°РЅРёС‚СЊ'
+      Hint = 'РЎРѕС…СЂР°РЅРёС‚СЊ РґРѕРєСѓРјРµРЅС‚|РЎРѕС…СЂР°РЅРёС‚СЊ РґРѕРєСѓРјРµРЅС‚ Рё Р·Р°РєСЂС‹С‚СЊ'
       ImageIndex = 33
       OnExecute = CloseFormExecute
       Left = 12345
     end
     object CreatePDVN_D2: TAction
-      Category = 'Создание документа'
-      Caption = 'Создать/открыть корректировку к налоговой накладной на продажу'
+      Category = 'РЎРѕР·РґР°РЅРёРµ РґРѕРєСѓРјРµРЅС‚Р°'
+      Caption = 'РЎРѕР·РґР°С‚СЊ/РѕС‚РєСЂС‹С‚СЊ РєРѕСЂСЂРµРєС‚РёСЂРѕРІРєСѓ Рє РЅР°Р»РѕРіРѕРІРѕР№ РЅР°РєР»Р°РґРЅРѕР№ РЅР° РїСЂРѕРґР°Р¶Сѓ'
       ImageIndex = 16
       OnExecute = CreatePDVN_D2Execute
       OnUpdate = CreateDocUpdate
       Left = 12345
     end
     object Copy: TAction
-      Caption = '&Копировать'
-      Hint = 'Копирование документа'
+      Caption = '&РљРѕРїРёСЂРѕРІР°С‚СЊ'
+      Hint = 'РљРѕРїРёСЂРѕРІР°РЅРёРµ РґРѕРєСѓРјРµРЅС‚Р°'
       ImageIndex = 20
       ShortCut = 116
       Left = 12345
     end
     object ACatalog: TAction
-      Caption = '&Справочник'
-      Hint = 'Ввод через открытый справочник ...'
+      Caption = '&РЎРїСЂР°РІРѕС‡РЅРёРє'
+      Hint = 'Р’РІРѕРґ С‡РµСЂРµР· РѕС‚РєСЂС‹С‚С‹Р№ СЃРїСЂР°РІРѕС‡РЅРёРє ...'
       ImageIndex = 22
       ShortCut = 114
       OnExecute = ACatalogExecute
@@ -2519,31 +2519,31 @@ object DocNaklForm: TDocNaklForm
       Left = 12345
     end
     object Print: TAction
-      Category = 'Печать'
-      Caption = '&Печать'
-      Hint = 'Печать документа'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = '&РџРµС‡Р°С‚СЊ'
+      Hint = 'РџРµС‡Р°С‚СЊ РґРѕРєСѓРјРµРЅС‚Р°'
       ImageIndex = 4
       ShortCut = 16464
       OnExecute = PrintExecute
       Left = 12345
     end
     object printNaclOF: TAction
-      Category = 'Печать'
-      Caption = 'Печать накл. для Смольянинова'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РџРµС‡Р°С‚СЊ РЅР°РєР». РґР»СЏ РЎРјРѕР»СЊСЏРЅРёРЅРѕРІР°'
       ImageIndex = 4
       OnExecute = printNaclOFExecute
       OnUpdate = printNaclOFUpdate
       Left = 12345
     end
     object actPrintSpecInvoiceUKR: TAction
-      Category = 'Печать ВЭД'
-      Caption = 'Друк специфікації/інвойсу Укр'
+      Category = 'РџРµС‡Р°С‚СЊ Р’Р­Р”'
+      Caption = 'Р”СЂСѓРє СЃРїРµС†РёС„С–РєР°С†С–С—/С–РЅРІРѕР№СЃСѓ РЈРєСЂ'
       OnExecute = actPrintSpecInvoiceUKRExecute
       OnUpdate = actPrintSpecInvoiceUpdate
       Left = 12345
     end
     object CreateDoc: TAction
-      Caption = 'Создать...'
+      Caption = 'РЎРѕР·РґР°С‚СЊ...'
       ImageIndex = 16
       ShortCut = 117
       OnExecute = CreateDocExecute
@@ -2551,129 +2551,129 @@ object DocNaklForm: TDocNaklForm
       Left = 12345
     end
     object CreatePDVNakl: TAction
-      Category = 'Создание документа'
-      Caption = 'Создать/открыть налоговую накладную на продажу'
+      Category = 'РЎРѕР·РґР°РЅРёРµ РґРѕРєСѓРјРµРЅС‚Р°'
+      Caption = 'РЎРѕР·РґР°С‚СЊ/РѕС‚РєСЂС‹С‚СЊ РЅР°Р»РѕРіРѕРІСѓСЋ РЅР°РєР»Р°РґРЅСѓСЋ РЅР° РїСЂРѕРґР°Р¶Сѓ'
       ImageIndex = 16
       OnExecute = CreatePDVNaklExecute
       OnUpdate = CreateDocUpdate
       Left = 12345
     end
     object SeparateNakl: TAction
-      Category = 'Создание документа'
-      Caption = 'Разбить накладную'
-      Hint = 'Разбить накладную по нескольким складам'
+      Category = 'РЎРѕР·РґР°РЅРёРµ РґРѕРєСѓРјРµРЅС‚Р°'
+      Caption = 'Р Р°Р·Р±РёС‚СЊ РЅР°РєР»Р°РґРЅСѓСЋ'
+      Hint = 'Р Р°Р·Р±РёС‚СЊ РЅР°РєР»Р°РґРЅСѓСЋ РїРѕ РЅРµСЃРєРѕР»СЊРєРёРј СЃРєР»Р°РґР°Рј'
       ImageIndex = 6
       OnExecute = SeparateNaklExecute
       Left = 12345
     end
     object Check: TAction
-      Caption = 'Корректность'
+      Caption = 'РљРѕСЂСЂРµРєС‚РЅРѕСЃС‚СЊ'
       Hint = 
-        'Проверка корректности списания ценностей'#13#10'в многопользовательско' +
-        'й среде'
+        'РџСЂРѕРІРµСЂРєР° РєРѕСЂСЂРµРєС‚РЅРѕСЃС‚Рё СЃРїРёСЃР°РЅРёСЏ С†РµРЅРЅРѕСЃС‚РµР№'#13#10'РІ РјРЅРѕРіРѕРїРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєРѕ' +
+        'Р№ СЃСЂРµРґРµ'
       ShortCut = 16496
       OnExecute = CheckExecute
       Left = 12345
     end
     object PrintNakl: TAction
-      Category = 'Печать'
-      Caption = 'Печать накладной'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РџРµС‡Р°С‚СЊ РЅР°РєР»Р°РґРЅРѕР№'
       ImageIndex = 4
       OnExecute = PrintNaklExecute
       OnUpdate = PrintNaklUpdate
       Left = 12345
     end
     object PrintNaklTMC: TAction
-      Category = 'Печать'
-      Caption = 'Бланк накладной ТМЦ'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'Р‘Р»Р°РЅРє РЅР°РєР»Р°РґРЅРѕР№ РўРњР¦'
       ImageIndex = 4
       OnExecute = PrintNaklTMCExecute
       OnUpdate = PrintNaklUpdate
       Left = 12345
     end
     object PrintInternal: TAction
-      Category = 'Печать'
-      Caption = 'Печать внутреннего документа'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РџРµС‡Р°С‚СЊ РІРЅСѓС‚СЂРµРЅРЅРµРіРѕ РґРѕРєСѓРјРµРЅС‚Р°'
       ImageIndex = 4
       OnExecute = PrintInternalExecute
       OnUpdate = PrintInternalUpdate
       Left = 12345
     end
     object PrintSchet: TAction
-      Category = 'Печать'
-      Caption = 'Счет'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РЎС‡РµС‚'
       ImageIndex = 4
       OnExecute = PrintSchetExecute
       Left = 12345
     end
     object FillRests: TAction
-      Caption = 'Остатки'
+      Caption = 'РћСЃС‚Р°С‚РєРё'
       ShortCut = 115
       OnExecute = FillRestsExecute
       Left = 12345
     end
     object PrintRetNakl: TAction
-      Category = 'Печать'
-      Caption = 'Накладная на возврат'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РќР°РєР»Р°РґРЅР°СЏ РЅР° РІРѕР·РІСЂР°С‚'
       ImageIndex = 4
       OnExecute = PrintRetNaklExecute
       Left = 12345
     end
     object PrintAct: TAction
-      Category = 'Печать'
-      Caption = 'Приемный акт'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РџСЂРёРµРјРЅС‹Р№ Р°РєС‚'
       ImageIndex = 4
       OnExecute = PrintActExecute
       Left = 12345
     end
     object PrintCopy: TAction
-      Category = 'Печать'
-      Caption = 'Печать копии'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РџРµС‡Р°С‚СЊ РєРѕРїРёРё'
       ImageIndex = 4
       OnExecute = PrintCopyExecute
       OnUpdate = PrintCopyUpdate
       Left = 12345
     end
     object CopyPos: TAction
-      Caption = 'Копировать позиции'
-      Hint = 'Копировать позиции в буффер'
+      Caption = 'РљРѕРїРёСЂРѕРІР°С‚СЊ РїРѕР·РёС†РёРё'
+      Hint = 'РљРѕРїРёСЂРѕРІР°С‚СЊ РїРѕР·РёС†РёРё РІ Р±СѓС„С„РµСЂ'
       ImageIndex = 20
       OnExecute = CopyPosExecute
       Left = 12345
     end
     object PastePos: TAction
-      Caption = 'Вставить позиции из буфера'
-      Hint = 'Вставить позиции из буфера'
+      Caption = 'Р’СЃС‚Р°РІРёС‚СЊ РїРѕР·РёС†РёРё РёР· Р±СѓС„РµСЂР°'
+      Hint = 'Р’СЃС‚Р°РІРёС‚СЊ РїРѕР·РёС†РёРё РёР· Р±СѓС„РµСЂР°'
       ImageIndex = 26
       OnExecute = PastePosExecute
       Left = 12345
     end
     object ViewDocProv: TAction
-      Caption = 'Проводки по документу'
+      Caption = 'РџСЂРѕРІРѕРґРєРё РїРѕ РґРѕРєСѓРјРµРЅС‚Сѓ'
       ImageIndex = 6
       ShortCut = 32882
       OnExecute = ViewDocProvExecute
       Left = 12345
     end
     object PriceLabels: TAction
-      Caption = 'Ценники'
+      Caption = 'Р¦РµРЅРЅРёРєРё'
       ShortCut = 16471
       OnExecute = PriceLabelsExecute
       OnUpdate = PriceLabelsUpdate
       Left = 12345
     end
     object PriceList: TAction
-      Caption = 'Прайс-лист'
+      Caption = 'РџСЂР°Р№СЃ-Р»РёСЃС‚'
       OnExecute = PriceListExecute
       Left = 12345
     end
     object MakeLgeDoc: TAction
-      Caption = 'Документы на провоз'
+      Caption = 'Р”РѕРєСѓРјРµРЅС‚С‹ РЅР° РїСЂРѕРІРѕР·'
       Left = 12345
     end
     object MakeDoc: TAction
-      Category = 'Создание документа'
-      Caption = 'Создать накладную ...'
+      Category = 'РЎРѕР·РґР°РЅРёРµ РґРѕРєСѓРјРµРЅС‚Р°'
+      Caption = 'РЎРѕР·РґР°С‚СЊ РЅР°РєР»Р°РґРЅСѓСЋ ...'
       OnExecute = MakeDocExecute
       Left = 12345
     end
@@ -2696,15 +2696,15 @@ object DocNaklForm: TDocNaklForm
       Left = 12345
     end
     object PrintDolg: TAction
-      Category = 'Печать'
-      Caption = 'Отплаченный долг'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РћС‚РїР»Р°С‡РµРЅРЅС‹Р№ РґРѕР»Рі'
       ImageIndex = 4
       OnExecute = PrintDolgExecute
       Left = 12345
     end
     object UntitledDoc: TAction
-      Category = 'Печать'
-      Caption = 'Безреквизитный'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'Р‘РµР·СЂРµРєРІРёР·РёС‚РЅС‹Р№'
       ImageIndex = 4
       OnExecute = UntitledDocExecute
       Left = 12345
@@ -2775,13 +2775,13 @@ object DocNaklForm: TDocNaklForm
       Left = 12345
     end
     object aShowRealPrice: TAction
-      Caption = 'Показать реальную цену'
+      Caption = 'РџРѕРєР°Р·Р°С‚СЊ СЂРµР°Р»СЊРЅСѓСЋ С†РµРЅСѓ'
       ShortCut = 49234
       OnExecute = aShowRealPriceExecute
       Left = 12345
     end
     object aShowOptPrice: TAction
-      Caption = 'Показать оптовую цену'
+      Caption = 'РџРѕРєР°Р·Р°С‚СЊ РѕРїС‚РѕРІСѓСЋ С†РµРЅСѓ'
       ShortCut = 49231
       OnExecute = aShowOptPriceExecute
       Left = 12345
@@ -2793,7 +2793,7 @@ object DocNaklForm: TDocNaklForm
       Left = 12345
     end
     object aF1F2: TAction
-      Caption = 'Разбить по формам'
+      Caption = 'Р Р°Р·Р±РёС‚СЊ РїРѕ С„РѕСЂРјР°Рј'
       ShortCut = 16454
       OnExecute = aF1F2Execute
       Left = 12345
@@ -2811,20 +2811,20 @@ object DocNaklForm: TDocNaklForm
       Left = 12345
     end
     object aPrintProver: TAction
-      Caption = 'Печать проверочного документа'
+      Caption = 'РџРµС‡Р°С‚СЊ РїСЂРѕРІРµСЂРѕС‡РЅРѕРіРѕ РґРѕРєСѓРјРµРЅС‚Р°'
       OnExecute = aPrintProverExecute
       Left = 12345
     end
     object aShowRetPos: TAction
-      Caption = 'Дополнить выбор...'
-      Hint = 'Редактирование возвратов'
+      Caption = 'Р”РѕРїРѕР»РЅРёС‚СЊ РІС‹Р±РѕСЂ...'
+      Hint = 'Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РІРѕР·РІСЂР°С‚РѕРІ'
       ImageIndex = 28
       ShortCut = 49235
       OnExecute = aShowRetPosExecute
       Left = 12345
     end
     object aBrands: TAction
-      Caption = 'Непредставленные бренды'
+      Caption = 'РќРµРїСЂРµРґСЃС‚Р°РІР»РµРЅРЅС‹Рµ Р±СЂРµРЅРґС‹'
       ShortCut = 121
       OnExecute = aBrandsExecute
       Left = 12345
@@ -2836,7 +2836,7 @@ object DocNaklForm: TDocNaklForm
       Left = 12345
     end
     object aTakeAcc: TAction
-      Caption = 'Забрать права'
+      Caption = 'Р—Р°Р±СЂР°С‚СЊ РїСЂР°РІР°'
       ShortCut = 16469
       OnExecute = aTakeAccExecute
       Left = 12345
@@ -2848,15 +2848,15 @@ object DocNaklForm: TDocNaklForm
       Left = 12345
     end
     object actCreateOplDoc: TAction
-      Category = 'Создание документа'
-      Caption = 'Создание оплат и возврата'
-      Hint = '|Создание оплатного/возвратного документа'
+      Category = 'РЎРѕР·РґР°РЅРёРµ РґРѕРєСѓРјРµРЅС‚Р°'
+      Caption = 'РЎРѕР·РґР°РЅРёРµ РѕРїР»Р°С‚ Рё РІРѕР·РІСЂР°С‚Р°'
+      Hint = '|РЎРѕР·РґР°РЅРёРµ РѕРїР»Р°С‚РЅРѕРіРѕ/РІРѕР·РІСЂР°С‚РЅРѕРіРѕ РґРѕРєСѓРјРµРЅС‚Р°'
       OnExecute = actCreateOplDocExecute
       Left = 12345
     end
     object actShowLinkedDocs: TAction
-      Caption = 'Показать связанные документы'
-      Hint = 'Показать связанные документы|Показать связанные документы'
+      Caption = 'РџРѕРєР°Р·Р°С‚СЊ СЃРІСЏР·Р°РЅРЅС‹Рµ РґРѕРєСѓРјРµРЅС‚С‹'
+      Hint = 'РџРѕРєР°Р·Р°С‚СЊ СЃРІСЏР·Р°РЅРЅС‹Рµ РґРѕРєСѓРјРµРЅС‚С‹|РџРѕРєР°Р·Р°С‚СЊ СЃРІСЏР·Р°РЅРЅС‹Рµ РґРѕРєСѓРјРµРЅС‚С‹'
       ImageIndex = 28
       OnExecute = actShowLinkedDocsExecute
       Left = 12345
@@ -2868,14 +2868,14 @@ object DocNaklForm: TDocNaklForm
       Left = 12345
     end
     object aCreateOplDocNoPos: TAction
-      Category = 'Создание документа'
-      Caption = 'Создание оплат и возврата (без позиций)'
+      Category = 'РЎРѕР·РґР°РЅРёРµ РґРѕРєСѓРјРµРЅС‚Р°'
+      Caption = 'РЎРѕР·РґР°РЅРёРµ РѕРїР»Р°С‚ Рё РІРѕР·РІСЂР°С‚Р° (Р±РµР· РїРѕР·РёС†РёР№)'
       OnExecute = aCreateOplDocNoPosExecute
       Left = 12345
     end
     object aTransit: TAction
-      Caption = 'Транзит'
-      Hint = 'Транзитная накладная'
+      Caption = 'РўСЂР°РЅР·РёС‚'
+      Hint = 'РўСЂР°РЅР·РёС‚РЅР°СЏ РЅР°РєР»Р°РґРЅР°СЏ'
       ImageIndex = 46
       OnExecute = aTransitExecute
       Left = 12345
@@ -2887,80 +2887,80 @@ object DocNaklForm: TDocNaklForm
       Left = 12345
     end
     object actFindTTN: TAction
-      Category = 'Вспомогательное'
-      Caption = 'Найти Товарно-транспортную накладную'
+      Category = 'Р’СЃРїРѕРјРѕРіР°С‚РµР»СЊРЅРѕРµ'
+      Caption = 'РќР°Р№С‚Рё РўРѕРІР°СЂРЅРѕ-С‚СЂР°РЅСЃРїРѕСЂС‚РЅСѓСЋ РЅР°РєР»Р°РґРЅСѓСЋ'
       Hint = 
-        'Найти Товарно-транспортную накладную|Найти Товарно-транспортную ' +
-        'накладную в которую включена данная накладная'
+        'РќР°Р№С‚Рё РўРѕРІР°СЂРЅРѕ-С‚СЂР°РЅСЃРїРѕСЂС‚РЅСѓСЋ РЅР°РєР»Р°РґРЅСѓСЋ|РќР°Р№С‚Рё РўРѕРІР°СЂРЅРѕ-С‚СЂР°РЅСЃРїРѕСЂС‚РЅСѓСЋ ' +
+        'РЅР°РєР»Р°РґРЅСѓСЋ РІ РєРѕС‚РѕСЂСѓСЋ РІРєР»СЋС‡РµРЅР° РґР°РЅРЅР°СЏ РЅР°РєР»Р°РґРЅР°СЏ'
       ImageIndex = 45
       OnExecute = actFindTTNExecute
       Left = 12345
     end
     object aSendENakl: TAction
-      Category = 'Электронная накладная'
-      Caption = 'Создание электронной накладной'
+      Category = 'Р­Р»РµРєС‚СЂРѕРЅРЅР°СЏ РЅР°РєР»Р°РґРЅР°СЏ'
+      Caption = 'РЎРѕР·РґР°РЅРёРµ СЌР»РµРєС‚СЂРѕРЅРЅРѕР№ РЅР°РєР»Р°РґРЅРѕР№'
       OnExecute = aSendENaklExecute
       Left = 12345
     end
     object actFindSortingParty: TAction
-      Category = 'Вспомогательное'
-      Caption = 'Найти сортировочную партию'
+      Category = 'Р’СЃРїРѕРјРѕРіР°С‚РµР»СЊРЅРѕРµ'
+      Caption = 'РќР°Р№С‚Рё СЃРѕСЂС‚РёСЂРѕРІРѕС‡РЅСѓСЋ РїР°СЂС‚РёСЋ'
       Hint = 
-        'Найти сортировочную партию|Найти сортировочную партию в которую ' +
-        'включена данная накладная'
+        'РќР°Р№С‚Рё СЃРѕСЂС‚РёСЂРѕРІРѕС‡РЅСѓСЋ РїР°СЂС‚РёСЋ|РќР°Р№С‚Рё СЃРѕСЂС‚РёСЂРѕРІРѕС‡РЅСѓСЋ РїР°СЂС‚РёСЋ РІ РєРѕС‚РѕСЂСѓСЋ ' +
+        'РІРєР»СЋС‡РµРЅР° РґР°РЅРЅР°СЏ РЅР°РєР»Р°РґРЅР°СЏ'
       OnExecute = actFindSortingPartyExecute
       Left = 12345
     end
     object PrintRecPrice: TAction
-      Category = 'Печать'
-      Caption = 'Печать рекомендованных цен'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РџРµС‡Р°С‚СЊ СЂРµРєРѕРјРµРЅРґРѕРІР°РЅРЅС‹С… С†РµРЅ'
       ImageIndex = 4
       OnExecute = PrintRecPriceExecute
       Left = 12345
     end
     object aSendToRegion: TAction
-      Caption = 'Отправить в регион'
-      Hint = 'Отправить в регион'
+      Caption = 'РћС‚РїСЂР°РІРёС‚СЊ РІ СЂРµРіРёРѕРЅ'
+      Hint = 'РћС‚РїСЂР°РІРёС‚СЊ РІ СЂРµРіРёРѕРЅ'
       ImageIndex = 41
       OnExecute = aSendToRegionExecute
       OnUpdate = aSendToRegionUpdate
       Left = 12345
     end
     object aCreatePDVIncDoc: TAction
-      Category = 'Создание документа'
-      Caption = 'Создать/открыть налоговую накладную на приобретение'
+      Category = 'РЎРѕР·РґР°РЅРёРµ РґРѕРєСѓРјРµРЅС‚Р°'
+      Caption = 'РЎРѕР·РґР°С‚СЊ/РѕС‚РєСЂС‹С‚СЊ РЅР°Р»РѕРіРѕРІСѓСЋ РЅР°РєР»Р°РґРЅСѓСЋ РЅР° РїСЂРёРѕР±СЂРµС‚РµРЅРёРµ'
       ShortCut = 49225
       OnExecute = aCreatePDVIncDocExecute
       OnUpdate = aCreatePDVIncDocUpdate
       Left = 12345
     end
     object aCreatePDVIncKorDoc: TAction
-      Category = 'Создание документа'
+      Category = 'РЎРѕР·РґР°РЅРёРµ РґРѕРєСѓРјРµРЅС‚Р°'
       Caption = 
-        'Создать/открыть корректировку к налоговой накладной на приобрете' +
-        'ние'
+        'РЎРѕР·РґР°С‚СЊ/РѕС‚РєСЂС‹С‚СЊ РєРѕСЂСЂРµРєС‚РёСЂРѕРІРєСѓ Рє РЅР°Р»РѕРіРѕРІРѕР№ РЅР°РєР»Р°РґРЅРѕР№ РЅР° РїСЂРёРѕР±СЂРµС‚Рµ' +
+        'РЅРёРµ'
       OnExecute = aCreatePDVIncKorDocExecute
       OnUpdate = aCreatePDVIncDocUpdate
       Left = 12345
     end
     object aSetDocExistsInOffice: TAction
-      Category = 'Вспомогательное'
+      Category = 'Р’СЃРїРѕРјРѕРіР°С‚РµР»СЊРЅРѕРµ'
       Caption = 'aSetDocExistsInOffice'
       OnExecute = aSetDocExistsInOfficeExecute
       Left = 12345
     end
     object PrintActSpisan: TAction
-      Category = 'Печать'
-      Caption = 'Акт списания основных фондов'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РђРєС‚ СЃРїРёСЃР°РЅРёСЏ РѕСЃРЅРѕРІРЅС‹С… С„РѕРЅРґРѕРІ'
       ImageIndex = 4
       OnExecute = PrintActSpisanExecute
       OnUpdate = printNaclOFUpdate
       Left = 12345
     end
     object actPrintTTN: TAction
-      Category = 'Печать'
-      Caption = 'Печать транспортной накладной'
-      Hint = 'Печать транспортной накладной|Печать транспортной накладной'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РџРµС‡Р°С‚СЊ С‚СЂР°РЅСЃРїРѕСЂС‚РЅРѕР№ РЅР°РєР»Р°РґРЅРѕР№'
+      Hint = 'РџРµС‡Р°С‚СЊ С‚СЂР°РЅСЃРїРѕСЂС‚РЅРѕР№ РЅР°РєР»Р°РґРЅРѕР№|РџРµС‡Р°С‚СЊ С‚СЂР°РЅСЃРїРѕСЂС‚РЅРѕР№ РЅР°РєР»Р°РґРЅРѕР№'
       ImageIndex = 4
       OnExecute = actPrintTTNExecute
       Left = 12345
@@ -2972,144 +2972,144 @@ object DocNaklForm: TDocNaklForm
       Left = 12345
     end
     object PrintIntNakl: TAction
-      Caption = 'Печать накладной на внутреннее перемещение'
+      Caption = 'РџРµС‡Р°С‚СЊ РЅР°РєР»Р°РґРЅРѕР№ РЅР° РІРЅСѓС‚СЂРµРЅРЅРµРµ РїРµСЂРµРјРµС‰РµРЅРёРµ'
       ImageIndex = 4
       OnExecute = PrintIntNaklExecute
       Left = 12345
     end
     object actNote: TAction
-      Category = 'Печать'
-      Caption = 'Письма'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РџРёСЃСЊРјР°'
       ImageIndex = 4
       OnExecute = actNoteExecute
       Left = 12345
     end
     object actTransfer: TAction
-      Category = 'Печать'
-      Caption = 'Акт приемки-передачи'
-      Hint = 'Акт приемки-передачи|Акт приемки-передачи'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РђРєС‚ РїСЂРёРµРјРєРё-РїРµСЂРµРґР°С‡Рё'
+      Hint = 'РђРєС‚ РїСЂРёРµРјРєРё-РїРµСЂРµРґР°С‡Рё|РђРєС‚ РїСЂРёРµРјРєРё-РїРµСЂРµРґР°С‡Рё'
       ImageIndex = 4
       OnExecute = actTransferExecute
       Left = 12345
     end
     object actPrintGift: TAction
-      Category = 'Печать'
-      Caption = 'Акт передачи'
-      Hint = 'Акт передачи|Акт передачи'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РђРєС‚ РїРµСЂРµРґР°С‡Рё'
+      Hint = 'РђРєС‚ РїРµСЂРµРґР°С‡Рё|РђРєС‚ РїРµСЂРµРґР°С‡Рё'
       ImageIndex = 4
       OnExecute = actPrintGiftExecute
       Left = 12345
     end
     object actPrintSpravB: TAction
-      Category = 'Печать'
-      Caption = 'Печать справки к ТТН (раздел Б)'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РџРµС‡Р°С‚СЊ СЃРїСЂР°РІРєРё Рє РўРўРќ (СЂР°Р·РґРµР» Р‘)'
       OnExecute = actPrintSpravBExecute
       Left = 12345
     end
     object actPrintTorg15: TAction
-      Category = 'Печать'
-      Caption = 'Акт о порче, бое,ломе... (Торг-15)'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РђРєС‚ Рѕ РїРѕСЂС‡Рµ, Р±РѕРµ,Р»РѕРјРµ... (РўРѕСЂРі-15)'
       ImageIndex = 4
       OnExecute = actPrintTorg15Execute
       Left = 12345
     end
     object actPrintTorg16: TAction
-      Category = 'Печать'
-      Caption = 'Акт о списании (Торг-16)'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РђРєС‚ Рѕ СЃРїРёСЃР°РЅРёРё (РўРѕСЂРі-16)'
       ImageIndex = 4
       OnExecute = actPrintTorg16Execute
       Left = 12345
     end
     object actPrintRbToTTN: TAction
-      Category = 'Печать'
-      Caption = 'Печать справки к ТТН (бывший раздел Б)'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РџРµС‡Р°С‚СЊ СЃРїСЂР°РІРєРё Рє РўРўРќ (Р±С‹РІС€РёР№ СЂР°Р·РґРµР» Р‘)'
       ImageIndex = 4
       OnExecute = actPrintRbToTTNExecute
       Left = 12345
     end
     object actSelLinkDOc: TAction
-      Caption = 'Показать связанные документы'
-      Hint = 'Показать связанные документы'
+      Caption = 'РџРѕРєР°Р·Р°С‚СЊ СЃРІСЏР·Р°РЅРЅС‹Рµ РґРѕРєСѓРјРµРЅС‚С‹'
+      Hint = 'РџРѕРєР°Р·Р°С‚СЊ СЃРІСЏР·Р°РЅРЅС‹Рµ РґРѕРєСѓРјРµРЅС‚С‹'
       ImageIndex = 51
       ShortCut = 32844
       OnExecute = actSelLinkDOcExecute
       Left = 12345
     end
     object actPrintSoprDToTN: TAction
-      Category = 'Печать'
-      Caption = 'Печать сопроводительного документа к ТН'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РџРµС‡Р°С‚СЊ СЃРѕРїСЂРѕРІРѕРґРёС‚РµР»СЊРЅРѕРіРѕ РґРѕРєСѓРјРµРЅС‚Р° Рє РўРќ'
       ImageIndex = 4
       OnExecute = actPrintSoprDToTNExecute
       Left = 12345
     end
     object actPrintSchetR: TAction
-      Category = 'Печать'
-      Caption = 'Счет на оплату'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РЎС‡РµС‚ РЅР° РѕРїР»Р°С‚Сѓ'
       ImageIndex = 4
       OnExecute = actPrintSchetRExecute
       Left = 12345
     end
     object actPrintTorg13: TAction
-      Category = 'Печать'
-      Caption = 'Накладная на внутренние ... (Торг-13)'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РќР°РєР»Р°РґРЅР°СЏ РЅР° РІРЅСѓС‚СЂРµРЅРЅРёРµ ... (РўРѕСЂРі-13)'
       ImageIndex = 4
       OnExecute = actPrintTorg13Execute
       Left = 12345
     end
     object actPrintMx3: TAction
-      Category = 'Печать'
-      Caption = 'Акт о возврате сданного на хранение (МХ-3)'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РђРєС‚ Рѕ РІРѕР·РІСЂР°С‚Рµ СЃРґР°РЅРЅРѕРіРѕ РЅР° С…СЂР°РЅРµРЅРёРµ (РњРҐ-3)'
       ImageIndex = 4
       OnExecute = actPrintMx3Execute
       Left = 12345
     end
     object actPrintM11: TAction
-      Category = 'Печать'
-      Caption = 'Требование-накладная (М-11)'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РўСЂРµР±РѕРІР°РЅРёРµ-РЅР°РєР»Р°РґРЅР°СЏ (Рњ-11)'
       ImageIndex = 4
       OnExecute = actPrintM11Execute
       Left = 12345
     end
     object actPrintM4: TAction
-      Category = 'Печать'
-      Caption = 'Приходный ордер (М-4)'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РџСЂРёС…РѕРґРЅС‹Р№ РѕСЂРґРµСЂ (Рњ-4)'
       ImageIndex = 4
       OnExecute = actPrintM4Execute
       Left = 12345
     end
     object aSetKolPrecent: TAction
-      Caption = 'Изменить кол-во на %'
+      Caption = 'РР·РјРµРЅРёС‚СЊ РєРѕР»-РІРѕ РЅР° %'
       ShortCut = 49227
       OnExecute = aSetKolPrecentExecute
       Left = 12345
     end
     object actPrintOC1: TAction
-      Category = 'Печать'
-      Caption = 'Акт о приеме-передаче осн.средств(ОС-1) '
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РђРєС‚ Рѕ РїСЂРёРµРјРµ-РїРµСЂРµРґР°С‡Рµ РѕСЃРЅ.СЃСЂРµРґСЃС‚РІ(РћРЎ-1) '
       OnExecute = actPrintOC1Execute
       Left = 12345
     end
     object actPrintOC2: TAction
-      Category = 'Печать'
-      Caption = 'Накладная на внутр.перемещение осн.фондов(ОС-2)'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РќР°РєР»Р°РґРЅР°СЏ РЅР° РІРЅСѓС‚СЂ.РїРµСЂРµРјРµС‰РµРЅРёРµ РѕСЃРЅ.С„РѕРЅРґРѕРІ(РћРЎ-2)'
       OnExecute = actPrintOC2Execute
       Left = 12345
     end
     object actPrintOC4: TAction
-      Category = 'Печать'
-      Caption = 'Акт о списании осн.средств(ОС-4)'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РђРєС‚ Рѕ СЃРїРёСЃР°РЅРёРё РѕСЃРЅ.СЃСЂРµРґСЃС‚РІ(РћРЎ-4)'
       OnExecute = actPrintOC4Execute
       Left = 12345
     end
     object actPrintOC4a: TAction
-      Category = 'Печать'
-      Caption = 'Акт о списании атотранспортных средств (ОС-4а)'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РђРєС‚ Рѕ СЃРїРёСЃР°РЅРёРё Р°С‚РѕС‚СЂР°РЅСЃРїРѕСЂС‚РЅС‹С… СЃСЂРµРґСЃС‚РІ (РћРЎ-4Р°)'
       OnExecute = actPrintOC4aExecute
       Left = 12345
     end
     object actPrintMB7: TAction
-      Category = 'Печать'
-      Caption = 'Ведомость учета выдачи спецодежды, .. (МБ-7)'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'Р’РµРґРѕРјРѕСЃС‚СЊ СѓС‡РµС‚Р° РІС‹РґР°С‡Рё СЃРїРµС†РѕРґРµР¶РґС‹, .. (РњР‘-7)'
       OnExecute = actPrintMB7Execute
       Left = 12345
     end
@@ -3120,36 +3120,36 @@ object DocNaklForm: TDocNaklForm
       Left = 12345
     end
     object aSetPriceColExecute: TAction
-      Category = 'Вспомогательное'
-      Caption = 'Проставить цены по колонке'
+      Category = 'Р’СЃРїРѕРјРѕРіР°С‚РµР»СЊРЅРѕРµ'
+      Caption = 'РџСЂРѕСЃС‚Р°РІРёС‚СЊ С†РµРЅС‹ РїРѕ РєРѕР»РѕРЅРєРµ'
       ShortCut = 49232
       OnExecute = aSetPriceColExecuteExecute
       OnUpdate = aSetPriceColExecuteUpdate
       Left = 12345
     end
     object actPrintMx1: TAction
-      Category = 'Печать'
-      Caption = 'Акт о приеме-передаче ТМЦ (МХ-1)'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РђРєС‚ Рѕ РїСЂРёРµРјРµ-РїРµСЂРµРґР°С‡Рµ РўРњР¦ (РњРҐ-1)'
       ImageIndex = 4
       OnExecute = actPrintMx1Execute
       Left = 12345
     end
     object actSticker: TAction
-      Category = 'Вспомогательное'
-      Caption = 'Стикер'
+      Category = 'Р’СЃРїРѕРјРѕРіР°С‚РµР»СЊРЅРѕРµ'
+      Caption = 'РЎС‚РёРєРµСЂ'
       OnExecute = actStickerExecute
       Left = 12345
     end
     object actPrintActR: TAction
-      Category = 'Печать'
-      Caption = 'Акт о выполненных работах (услугах)'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РђРєС‚ Рѕ РІС‹РїРѕР»РЅРµРЅРЅС‹С… СЂР°Р±РѕС‚Р°С… (СѓСЃР»СѓРіР°С…)'
       ImageIndex = 4
       OnExecute = actPrintActRExecute
       Left = 12345
     end
     object actPrintBreak: TAction
-      Category = 'Печать'
-      Caption = 'Акт боя от поставщика'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РђРєС‚ Р±РѕСЏ РѕС‚ РїРѕСЃС‚Р°РІС‰РёРєР°'
       OnExecute = actPrintBreakExecute
       OnUpdate = actPrintBreakUpdate
       Left = 12345
@@ -3161,31 +3161,31 @@ object DocNaklForm: TDocNaklForm
       Left = 12345
     end
     object aktSubRent: TAction
-      Category = 'Печать'
-      Caption = 'Договор субаренды'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'Р”РѕРіРѕРІРѕСЂ СЃСѓР±Р°СЂРµРЅРґС‹'
       ImageIndex = 4
       OnExecute = aktSubRentExecute
       Left = 12345
     end
     object actSubRent_List: TAction
-      Category = 'Печать'
-      Caption = 'Акт приёма-передачи имущества'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РђРєС‚ РїСЂРёС‘РјР°-РїРµСЂРµРґР°С‡Рё РёРјСѓС‰РµСЃС‚РІР°'
       ImageIndex = 4
       OnExecute = actSubRent_ListExecute
       OnUpdate = actSubRent_ListUpdate
       Left = 12345
     end
     object actNaklPosSplit: TAction
-      Caption = 'Разбить позицию'
-      Hint = 'Разбить позицию|Разбить позицию'
+      Caption = 'Р Р°Р·Р±РёС‚СЊ РїРѕР·РёС†РёСЋ'
+      Hint = 'Р Р°Р·Р±РёС‚СЊ РїРѕР·РёС†РёСЋ|Р Р°Р·Р±РёС‚СЊ РїРѕР·РёС†РёСЋ'
       ShortCut = 49236
       OnExecute = actNaklPosSplitExecute
       OnUpdate = actNaklPosSplitUpdate
       Left = 12345
     end
     object aSetOFDogovor: TAction
-      Category = 'Вспомогательное'
-      Caption = 'Договор подписан'
+      Category = 'Р’СЃРїРѕРјРѕРіР°С‚РµР»СЊРЅРѕРµ'
+      Caption = 'Р”РѕРіРѕРІРѕСЂ РїРѕРґРїРёСЃР°РЅ'
       ImageIndex = 48
       OnExecute = aSetOFDogovorExecute
       OnUpdate = aSetOFDogovorUpdate
@@ -3198,147 +3198,147 @@ object DocNaklForm: TDocNaklForm
       Left = 12345
     end
     object actPrintDogovor: TAction
-      Category = 'Печать'
-      Caption = 'Договор поручительства'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'Р”РѕРіРѕРІРѕСЂ РїРѕСЂСѓС‡РёС‚РµР»СЊСЃС‚РІР°'
       OnExecute = actPrintDogovorExecute
       Left = 12345
     end
     object actPrintActSpisanNew: TAction
-      Category = 'Печать'
-      Caption = 'Акт списания основных фондов (новый)'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РђРєС‚ СЃРїРёСЃР°РЅРёСЏ РѕСЃРЅРѕРІРЅС‹С… С„РѕРЅРґРѕРІ (РЅРѕРІС‹Р№)'
       OnExecute = actPrintActSpisanNewExecute
       OnUpdate = printNaclOFUpdate
       Left = 12345
     end
     object actPrintSpec: TAction
-      Category = 'Печать ВЭД'
-      Caption = 'Печать спецификации'
+      Category = 'РџРµС‡Р°С‚СЊ Р’Р­Р”'
+      Caption = 'РџРµС‡Р°С‚СЊ СЃРїРµС†РёС„РёРєР°С†РёРё'
       OnExecute = actPrintSpecExecute
       OnUpdate = actPrintSpecUpdate
       Left = 12345
     end
     object actPrintInvoiceP: TAction
-      Category = 'Печать ВЭД'
-      Caption = 'Проформа-Инвойс'
+      Category = 'РџРµС‡Р°С‚СЊ Р’Р­Р”'
+      Caption = 'РџСЂРѕС„РѕСЂРјР°-РРЅРІРѕР№СЃ'
       OnExecute = actPrintInvoicePExecute
       OnUpdate = actPrintInvoicePUpdate
       Left = 12345
     end
     object actPrintInvoice: TAction
-      Category = 'Печать ВЭД'
-      Caption = 'Инвойс - отгрузка'
+      Category = 'РџРµС‡Р°С‚СЊ Р’Р­Р”'
+      Caption = 'РРЅРІРѕР№СЃ - РѕС‚РіСЂСѓР·РєР°'
       OnExecute = actPrintInvoiceExecute
       OnUpdate = actPrintInvoiceUpdate
       Left = 12345
     end
     object actPrintInvoicePP: TAction
-      Category = 'Печать ВЭД'
-      Caption = 'Инвойс - предоплата'
+      Category = 'РџРµС‡Р°С‚СЊ Р’Р­Р”'
+      Caption = 'РРЅРІРѕР№СЃ - РїСЂРµРґРѕРїР»Р°С‚Р°'
       OnExecute = actPrintInvoicePPExecute
       OnUpdate = actPrintInvoiceUpdate
       Left = 12345
     end
     object actPrintPackList: TAction
-      Category = 'Печать'
-      Caption = 'Упаковочный лист'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РЈРїР°РєРѕРІРѕС‡РЅС‹Р№ Р»РёСЃС‚'
       OnUpdate = actPrintPackListUpdate
       Left = 12345
     end
     object actPrintSubRent_Strono: TAction
-      Category = 'Печать'
-      Caption = 'Акт приема-передачи имущества(сторно)'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РђРєС‚ РїСЂРёРµРјР°-РїРµСЂРµРґР°С‡Рё РёРјСѓС‰РµСЃС‚РІР°(СЃС‚РѕСЂРЅРѕ)'
       OnExecute = actPrintSubRent_StronoExecute
       Left = 12345
     end
     object actPrintInvoiceDe: TAction
-      Category = 'Печать ВЭД'
-      Caption = 'Инвойс, рус/нем'
+      Category = 'РџРµС‡Р°С‚СЊ Р’Р­Р”'
+      Caption = 'РРЅРІРѕР№СЃ, СЂСѓСЃ/РЅРµРј'
       OnExecute = actPrintInvoiceDeExecute
       OnUpdate = actPrintInvoiceUpdate
       Left = 12345
     end
     object aSendNaklToOffice: TAction
-      Category = 'Вспомогательное'
+      Category = 'Р’СЃРїРѕРјРѕРіР°С‚РµР»СЊРЅРѕРµ'
       Caption = 'aSendNaklToOffice'
-      Hint = 'Отправить накладную в офис'
+      Hint = 'РћС‚РїСЂР°РІРёС‚СЊ РЅР°РєР»Р°РґРЅСѓСЋ РІ РѕС„РёСЃ'
       OnExecute = aSendNaklToOfficeExecute
       Left = 12345
     end
     object actSelfExport: TAction
-      Category = 'Вспомогательное'
-      Hint = 'Пометить как Самовывоз'
+      Category = 'Р’СЃРїРѕРјРѕРіР°С‚РµР»СЊРЅРѕРµ'
+      Hint = 'РџРѕРјРµС‚РёС‚СЊ РєР°Рє РЎР°РјРѕРІС‹РІРѕР·'
       OnExecute = actSelfExportExecute
       Left = 12345
     end
     object actPrintSpec_Rekl: TAction
-      Category = 'Печать ВЭД'
-      Caption = 'Печать спецификации (реклама)'
+      Category = 'РџРµС‡Р°С‚СЊ Р’Р­Р”'
+      Caption = 'РџРµС‡Р°С‚СЊ СЃРїРµС†РёС„РёРєР°С†РёРё (СЂРµРєР»Р°РјР°)'
       OnExecute = actPrintSpec_ReklExecute
       OnUpdate = actPrintSpecUpdate
       Left = 12345
     end
     object actPrintInvoiceP_Rekl: TAction
-      Category = 'Печать ВЭД'
-      Caption = 'Проформа-Инвойс (реклама)'
+      Category = 'РџРµС‡Р°С‚СЊ Р’Р­Р”'
+      Caption = 'РџСЂРѕС„РѕСЂРјР°-РРЅРІРѕР№СЃ (СЂРµРєР»Р°РјР°)'
       OnExecute = actPrintInvoiceP_ReklExecute
       OnUpdate = actPrintInvoicePUpdate
       Left = 12345
     end
     object actPrintInvoice_Rekl: TAction
-      Category = 'Печать ВЭД'
-      Caption = 'Инвойс (реклама) -отгрузка'
+      Category = 'РџРµС‡Р°С‚СЊ Р’Р­Р”'
+      Caption = 'РРЅРІРѕР№СЃ (СЂРµРєР»Р°РјР°) -РѕС‚РіСЂСѓР·РєР°'
       OnExecute = actPrintInvoice_ReklExecute
       OnUpdate = actPrintInvoiceUpdate
       Left = 12345
     end
     object actPrintInvoice_ReklPP: TAction
-      Category = 'Печать ВЭД'
-      Caption = 'Инвойс (реклама) -предоплата'
+      Category = 'РџРµС‡Р°С‚СЊ Р’Р­Р”'
+      Caption = 'РРЅРІРѕР№СЃ (СЂРµРєР»Р°РјР°) -РїСЂРµРґРѕРїР»Р°С‚Р°'
       OnExecute = actPrintInvoice_ReklPPExecute
       OnUpdate = actPrintInvoiceUpdate
       Left = 12345
     end
     object actSpecificationParams: TAction
-      Category = 'Печать ВЭД'
-      Caption = 'Заполнить параметры отчёта'
+      Category = 'РџРµС‡Р°С‚СЊ Р’Р­Р”'
+      Caption = 'Р—Р°РїРѕР»РЅРёС‚СЊ РїР°СЂР°РјРµС‚СЂС‹ РѕС‚С‡С‘С‚Р°'
       OnExecute = actSpecificationParamsExecute
       OnUpdate = actSpecificationParamsUpdate
       Left = 12345
     end
     object actPrintSpecInvoice: TAction
-      Category = 'Печать ВЭД'
-      Caption = 'Печать спецификации/инвойса'
+      Category = 'РџРµС‡Р°С‚СЊ Р’Р­Р”'
+      Caption = 'РџРµС‡Р°С‚СЊ СЃРїРµС†РёС„РёРєР°С†РёРё/РёРЅРІРѕР№СЃР°'
       OnExecute = actPrintSpecInvoiceExecute
       OnUpdate = actPrintSpecInvoiceUpdate
       Left = 12345
     end
     object PrintNaklOS: TAction
-      Category = 'Печать'
-      Caption = 'Печать накладной для основных средств ЧП'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РџРµС‡Р°С‚СЊ РЅР°РєР»Р°РґРЅРѕР№ РґР»СЏ РѕСЃРЅРѕРІРЅС‹С… СЃСЂРµРґСЃС‚РІ Р§Рџ'
       ImageIndex = 4
       OnExecute = PrintNaklOSExecute
       OnUpdate = PrintNaklOSUpdate
       Left = 12345
     end
     object actPrintSpec_TNVED: TAction
-      Category = 'Печать ВЭД'
-      Caption = 'Печать спецификации ТН ВЭД'
+      Category = 'РџРµС‡Р°С‚СЊ Р’Р­Р”'
+      Caption = 'РџРµС‡Р°С‚СЊ СЃРїРµС†РёС„РёРєР°С†РёРё РўРќ Р’Р­Р”'
       ImageIndex = 4
       OnExecute = actPrintSpec_TNVEDExecute
       OnUpdate = actPrintSpecUpdate
       Left = 12345
     end
     object actPrintInvoice_TNVED: TAction
-      Category = 'Печать ВЭД'
-      Caption = 'Инвойс - отгрузка ТН ВЭД'
+      Category = 'РџРµС‡Р°С‚СЊ Р’Р­Р”'
+      Caption = 'РРЅРІРѕР№СЃ - РѕС‚РіСЂСѓР·РєР° РўРќ Р’Р­Р”'
       ImageIndex = 4
       OnExecute = actPrintInvoice_TNVEDExecute
       OnUpdate = actPrintInvoiceUpdate
       Left = 12345
     end
     object actPrintInvoicePP_TNVED: TAction
-      Category = 'Печать ВЭД'
-      Caption = 'Инвойс - предоплата ТН ВЭД'
+      Category = 'РџРµС‡Р°С‚СЊ Р’Р­Р”'
+      Caption = 'РРЅРІРѕР№СЃ - РїСЂРµРґРѕРїР»Р°С‚Р° РўРќ Р’Р­Р”'
       OnExecute = actPrintInvoicePP_TNVEDExecute
       OnUpdate = actPrintInvoiceUpdate
       Left = 12345
@@ -3350,36 +3350,36 @@ object DocNaklForm: TDocNaklForm
       Left = 12345
     end
     object actSetPdvC: TAction
-      Category = 'Вспомогательное'
+      Category = 'Р’СЃРїРѕРјРѕРіР°С‚РµР»СЊРЅРѕРµ'
       ShortCut = 24697
       OnExecute = actSetPdvCExecute
       Left = 12345
     end
     object actPrintPackListEn: TAction
-      Category = 'Печать ВЭД'
-      Caption = 'Упаковочный лист, рус/англ'
+      Category = 'РџРµС‡Р°С‚СЊ Р’Р­Р”'
+      Caption = 'РЈРїР°РєРѕРІРѕС‡РЅС‹Р№ Р»РёСЃС‚, СЂСѓСЃ/Р°РЅРіР»'
       OnExecute = actPrintPackListEnExecute
       OnUpdate = actPrintPackListEnUpdate
       Left = 12345
     end
     object actPrintQualityCertification: TAction
-      Category = 'Печать'
-      Caption = 'Печать удостоверений качества'
-      Hint = 'Печать удостоверений качества'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РџРµС‡Р°С‚СЊ СѓРґРѕСЃС‚РѕРІРµСЂРµРЅРёР№ РєР°С‡РµСЃС‚РІР°'
+      Hint = 'РџРµС‡Р°С‚СЊ СѓРґРѕСЃС‚РѕРІРµСЂРµРЅРёР№ РєР°С‡РµСЃС‚РІР°'
       ImageIndex = 4
       OnExecute = actPrintQualityCertificationExecute
       Left = 12345
     end
     object actPrinRealRus: TAction
-      Category = 'Печать'
-      Caption = 'Печать накладной (РЕАЛ гипермаркет)'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РџРµС‡Р°С‚СЊ РЅР°РєР»Р°РґРЅРѕР№ (Р Р•РђР› РіРёРїРµСЂРјР°СЂРєРµС‚)'
       OnExecute = actPrinRealRusExecute
       OnUpdate = actPrinRealRusUpdate
       Left = 12345
     end
     object actPrintActRekl_Ru: TAction
-      Category = 'Печать'
-      Caption = 'Акт о списании рекламной продукции'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РђРєС‚ Рѕ СЃРїРёСЃР°РЅРёРё СЂРµРєР»Р°РјРЅРѕР№ РїСЂРѕРґСѓРєС†РёРё'
       OnExecute = actPrintActRekl_RuExecute
       OnUpdate = actPrintActRekl_RuUpdate
       Left = 12345
@@ -3389,325 +3389,325 @@ object DocNaklForm: TDocNaklForm
       Left = 12345
     end
     object actPrintInvoiceTabClient: TAction
-      Category = 'Печать ВЭД'
-      Caption = 'Таблица для клиента'
+      Category = 'РџРµС‡Р°С‚СЊ Р’Р­Р”'
+      Caption = 'РўР°Р±Р»РёС†Р° РґР»СЏ РєР»РёРµРЅС‚Р°'
       OnExecute = actPrintInvoiceTabClientExecute
       OnUpdate = actPrintInvoiceTabClientUpdate
       Left = 12345
     end
     object actPrintGtdLinks: TAction
-      Category = 'Печать'
-      Caption = 'Печать привязок позиций к ГТД'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РџРµС‡Р°С‚СЊ РїСЂРёРІСЏР·РѕРє РїРѕР·РёС†РёР№ Рє Р“РўР”'
       OnExecute = actPrintGtdLinksExecute
       OnUpdate = actPrintGtdLinksUpdate
       Left = 12345
     end
     object actPrintNaklImages: TAction
-      Category = 'Печать'
-      Caption = 'Весь набор документов'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'Р’РµСЃСЊ РЅР°Р±РѕСЂ РґРѕРєСѓРјРµРЅС‚РѕРІ'
       OnExecute = actPrintNaklImagesExecute
       Left = 12345
     end
     object actGovQuality: TAction
-      Category = 'Печать'
-      Caption = 'Свидетельства госконтроля качества'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РЎРІРёРґРµС‚РµР»СЊСЃС‚РІР° РіРѕСЃРєРѕРЅС‚СЂРѕР»СЏ РєР°С‡РµСЃС‚РІР°'
       OnExecute = actGovQualityExecute
       Left = 12345
     end
     object actPrintNaklVozvrat: TAction
-      Category = 'Печать'
-      Caption = 'Печать возвратной накладной'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РџРµС‡Р°С‚СЊ РІРѕР·РІСЂР°С‚РЅРѕР№ РЅР°РєР»Р°РґРЅРѕР№'
       OnExecute = actPrintNaklVozvratExecute
       Left = 12345
     end
     object actActPP: TAction
-      Category = 'Печать'
-      Caption = 'Акт приема-передачи рекламных материалов'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РђРєС‚ РїСЂРёРµРјР°-РїРµСЂРµРґР°С‡Рё СЂРµРєР»Р°РјРЅС‹С… РјР°С‚РµСЂРёР°Р»РѕРІ'
       OnExecute = actActPPExecute
       Left = 12345
     end
     object actNaklVoronezh: TAction
-      Category = 'Печать'
-      Caption = 'Печать Торг-12 с датами розлива'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РџРµС‡Р°С‚СЊ РўРѕСЂРі-12 СЃ РґР°С‚Р°РјРё СЂРѕР·Р»РёРІР°'
       OnExecute = actNaklVoronezhExecute
       OnUpdate = actPrinRealRusUpdate
       Left = 12345
     end
     object actViewKartForm: TAction
-      Category = 'Вспомогательное'
-      Caption = 'Карточка движения ценности'
+      Category = 'Р’СЃРїРѕРјРѕРіР°С‚РµР»СЊРЅРѕРµ'
+      Caption = 'РљР°СЂС‚РѕС‡РєР° РґРІРёР¶РµРЅРёСЏ С†РµРЅРЅРѕСЃС‚Рё'
       ShortCut = 118
       OnExecute = actViewKartFormExecute
       Left = 12345
     end
     object actSplitPosByRests: TAction
-      Category = 'Вспомогательное'
-      Caption = 'Провести накладную с разделением позиций по остаткам'
-      Hint = 'Провести накладную с разделением позиций по остаткам'
+      Category = 'Р’СЃРїРѕРјРѕРіР°С‚РµР»СЊРЅРѕРµ'
+      Caption = 'РџСЂРѕРІРµСЃС‚Рё РЅР°РєР»Р°РґРЅСѓСЋ СЃ СЂР°Р·РґРµР»РµРЅРёРµРј РїРѕР·РёС†РёР№ РїРѕ РѕСЃС‚Р°С‚РєР°Рј'
+      Hint = 'РџСЂРѕРІРµСЃС‚Рё РЅР°РєР»Р°РґРЅСѓСЋ СЃ СЂР°Р·РґРµР»РµРЅРёРµРј РїРѕР·РёС†РёР№ РїРѕ РѕСЃС‚Р°С‚РєР°Рј'
       ImageIndex = 50
       OnExecute = actSplitPosByRestsExecute
       OnUpdate = actSplitPosByRestsUpdate
       Left = 12345
     end
     object actSplitNaklPosByParty: TAction
-      Category = 'Вспомогательное'
-      Caption = 'Распределить партии'
-      Hint = 'Разбивка по партиям, новый алгоритм (FIFO, VIP)'
+      Category = 'Р’СЃРїРѕРјРѕРіР°С‚РµР»СЊРЅРѕРµ'
+      Caption = 'Р Р°СЃРїСЂРµРґРµР»РёС‚СЊ РїР°СЂС‚РёРё'
+      Hint = 'Р Р°Р·Р±РёРІРєР° РїРѕ РїР°СЂС‚РёСЏРј, РЅРѕРІС‹Р№ Р°Р»РіРѕСЂРёС‚Рј (FIFO, VIP)'
       ImageIndex = 6
       OnExecute = actSplitNaklPosByPartyExecute
       OnUpdate = actSplitNaklPosByPartyUpdate
       Left = 12345
     end
     object actCreatePodotchetNakl: TAction
-      Category = 'Создание документа'
-      Caption = 'Создать накладную в подотчет'
-      Hint = 'Создать накладную в подотчет'
+      Category = 'РЎРѕР·РґР°РЅРёРµ РґРѕРєСѓРјРµРЅС‚Р°'
+      Caption = 'РЎРѕР·РґР°С‚СЊ РЅР°РєР»Р°РґРЅСѓСЋ РІ РїРѕРґРѕС‚С‡РµС‚'
+      Hint = 'РЎРѕР·РґР°С‚СЊ РЅР°РєР»Р°РґРЅСѓСЋ РІ РїРѕРґРѕС‚С‡РµС‚'
       ImageIndex = 2
       Left = 12345
     end
     object actStartBPAgreementOfProductionReturn: TAction
-      Caption = 'Стартовать процесс возвратной накладной'
-      Hint = 'Стартовать процесс возвратной накладной'
+      Caption = 'РЎС‚Р°СЂС‚РѕРІР°С‚СЊ РїСЂРѕС†РµСЃСЃ РІРѕР·РІСЂР°С‚РЅРѕР№ РЅР°РєР»Р°РґРЅРѕР№'
+      Hint = 'РЎС‚Р°СЂС‚РѕРІР°С‚СЊ РїСЂРѕС†РµСЃСЃ РІРѕР·РІСЂР°С‚РЅРѕР№ РЅР°РєР»Р°РґРЅРѕР№'
       OnExecute = actStartBPAgreementOfProductionReturnExecute
       Left = 12345
     end
     object actStartBPContragentVIP: TAction
-      Caption = 'Стартовать бизнес-процесс согласования VIP'
+      Caption = 'РЎС‚Р°СЂС‚РѕРІР°С‚СЊ Р±РёР·РЅРµСЃ-РїСЂРѕС†РµСЃСЃ СЃРѕРіР»Р°СЃРѕРІР°РЅРёСЏ VIP'
       OnExecute = actStartBPContragentVIPExecute
       Left = 12345
     end
     object actPrintBirka: TAction
-      Category = 'Печать'
-      Caption = 'Печать бирки на палетту'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РџРµС‡Р°С‚СЊ Р±РёСЂРєРё РЅР° РїР°Р»РµС‚С‚Сѓ'
       OnExecute = actPrintBirkaExecute
       OnUpdate = actPrintBirkaUpdate
       Left = 12345
     end
     object actStartBPRemoveBlockingOfMinimalOrder: TAction
-      Caption = 'Стартовать бизнес-процесс снятия блокировки мин. суммы заказа'
-      Hint = 'Стартовать бизнес-процесс снятия блокировки мин. суммы заказа'
+      Caption = 'РЎС‚Р°СЂС‚РѕРІР°С‚СЊ Р±РёР·РЅРµСЃ-РїСЂРѕС†РµСЃСЃ СЃРЅСЏС‚РёСЏ Р±Р»РѕРєРёСЂРѕРІРєРё РјРёРЅ. СЃСѓРјРјС‹ Р·Р°РєР°Р·Р°'
+      Hint = 'РЎС‚Р°СЂС‚РѕРІР°С‚СЊ Р±РёР·РЅРµСЃ-РїСЂРѕС†РµСЃСЃ СЃРЅСЏС‚РёСЏ Р±Р»РѕРєРёСЂРѕРІРєРё РјРёРЅ. СЃСѓРјРјС‹ Р·Р°РєР°Р·Р°'
       OnExecute = actStartBPRemoveBlockingOfMinimalOrderExecute
       Left = 12345
     end
     object actPrintMETRO: TAction
-      Category = 'Печать'
-      Caption = 'Печать накладной (МЕТРО)'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РџРµС‡Р°С‚СЊ РЅР°РєР»Р°РґРЅРѕР№ (РњР•РўР Рћ)'
       OnExecute = actPrintMETROExecute
       OnUpdate = actPrintMETROUpdate
       Left = 12345
     end
     object actInsNar: TAction
-      Category = 'наряды'
-      Caption = 'Создать наряд'
+      Category = 'РЅР°СЂСЏРґС‹'
+      Caption = 'РЎРѕР·РґР°С‚СЊ РЅР°СЂСЏРґ'
       OnExecute = actInsNarExecute
       OnUpdate = actInsNarUpdate
       Left = 12345
     end
     object actUpdateNar: TAction
-      Category = 'наряды'
-      Caption = 'Изменить наряд'
+      Category = 'РЅР°СЂСЏРґС‹'
+      Caption = 'РР·РјРµРЅРёС‚СЊ РЅР°СЂСЏРґ'
       OnExecute = actUpdateNarExecute
       OnUpdate = actUpdateNarUpdate
       Left = 12345
     end
     object actDelNar: TAction
-      Category = 'наряды'
-      Caption = 'Удалить наряд'
+      Category = 'РЅР°СЂСЏРґС‹'
+      Caption = 'РЈРґР°Р»РёС‚СЊ РЅР°СЂСЏРґ'
       OnExecute = actDelNarExecute
       OnUpdate = actDelNarUpdate
       Left = 12345
     end
     object actPrintOrder: TAction
-      Category = 'Печать'
-      Caption = 'Печать наряда на разгрузку/погрузку'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РџРµС‡Р°С‚СЊ РЅР°СЂСЏРґР° РЅР° СЂР°Р·РіСЂСѓР·РєСѓ/РїРѕРіСЂСѓР·РєСѓ'
       OnExecute = actPrintOrderExecute
       Left = 12345
     end
     object actStartBPFinanceCoordinationOfGettingProductOnCredit: TAction
-      Caption = 'Стартовать бизнес-процесс на согласование продукции в подотчет'
+      Caption = 'РЎС‚Р°СЂС‚РѕРІР°С‚СЊ Р±РёР·РЅРµСЃ-РїСЂРѕС†РµСЃСЃ РЅР° СЃРѕРіР»Р°СЃРѕРІР°РЅРёРµ РїСЂРѕРґСѓРєС†РёРё РІ РїРѕРґРѕС‚С‡РµС‚'
       OnExecute = actStartBPFinanceCoordinationOfGettingProductOnCreditExecute
       Left = 12345
     end
     object actAllowNotCheckForNewTT: TAction
-      Caption = 'Не проверять ассортимент для новой точки'
-      Hint = 'Не проверять ассортимент для новой точки'
+      Caption = 'РќРµ РїСЂРѕРІРµСЂСЏС‚СЊ Р°СЃСЃРѕСЂС‚РёРјРµРЅС‚ РґР»СЏ РЅРѕРІРѕР№ С‚РѕС‡РєРё'
+      Hint = 'РќРµ РїСЂРѕРІРµСЂСЏС‚СЊ Р°СЃСЃРѕСЂС‚РёРјРµРЅС‚ РґР»СЏ РЅРѕРІРѕР№ С‚РѕС‡РєРё'
       OnExecute = actAllowNotCheckForNewTTExecute
       Left = 12345
     end
     object actPrintNaklF2WithoutHeader: TAction
-      Category = 'Печать'
-      Caption = 'Печать накладной по Ф2'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РџРµС‡Р°С‚СЊ РЅР°РєР»Р°РґРЅРѕР№ РїРѕ Р¤2'
       OnExecute = actPrintNaklF2WithoutHeaderExecute
       OnUpdate = actPrintNaklF2WithoutHeaderUpdate
       Left = 12345
     end
     object actPrintMailBonus: TAction
-      Category = 'Печать'
-      Caption = 'Печать письма (бонусы)'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РџРµС‡Р°С‚СЊ РїРёСЃСЊРјР° (Р±РѕРЅСѓСЃС‹)'
       OnExecute = actPrintMailBonusExecute
       Left = 12345
     end
     object actPrintNaklNotLVI: TAction
-      Category = 'Печать'
-      Caption = 'Печать накладной(Не ЛВИ)'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РџРµС‡Р°С‚СЊ РЅР°РєР»Р°РґРЅРѕР№(РќРµ Р›Р’Р)'
       OnExecute = actPrintNaklNotLVIExecute
       Left = 12345
     end
     object actAddPosAntiBrand: TAction
-      Category = 'Вспомогательное'
-      Caption = 'СКИДКА'
+      Category = 'Р’СЃРїРѕРјРѕРіР°С‚РµР»СЊРЅРѕРµ'
+      Caption = 'РЎРљРР”РљРђ'
       Hint = 
-        'проводит скидку в накладной согласно программам абсолютный партн' +
-        'ер и топ -ассортимент'
+        'РїСЂРѕРІРѕРґРёС‚ СЃРєРёРґРєСѓ РІ РЅР°РєР»Р°РґРЅРѕР№ СЃРѕРіР»Р°СЃРЅРѕ РїСЂРѕРіСЂР°РјРјР°Рј Р°Р±СЃРѕР»СЋС‚РЅС‹Р№ РїР°СЂС‚РЅ' +
+        'РµСЂ Рё С‚РѕРї -Р°СЃСЃРѕСЂС‚РёРјРµРЅС‚'
       OnExecute = actAddPosAntiBrandExecute
       Left = 12345
     end
     object actAddFivePoistion: TAction
-      Caption = '5 - позиций'
-      Hint = 'Добавление позиций по Хортице и Благову'
+      Caption = '5 - РїРѕР·РёС†РёР№'
+      Hint = 'Р”РѕР±Р°РІР»РµРЅРёРµ РїРѕР·РёС†РёР№ РїРѕ РҐРѕСЂС‚РёС†Рµ Рё Р‘Р»Р°РіРѕРІСѓ'
       OnExecute = actAddFivePoistionExecute
       OnUpdate = actAddFivePoistionUpdate
       Left = 12345
     end
     object actStartBusinessSellingForTTWithoutLicense: TAction
-      Caption = 'Стартовать бизнес-процесс "Продажи в ТТ без лицензии"'
-      Hint = 'Стартовать бизнес-процесс "Продажи в ТТ без лицензии"'
+      Caption = 'РЎС‚Р°СЂС‚РѕРІР°С‚СЊ Р±РёР·РЅРµСЃ-РїСЂРѕС†РµСЃСЃ "РџСЂРѕРґР°Р¶Рё РІ РўРў Р±РµР· Р»РёС†РµРЅР·РёРё"'
+      Hint = 'РЎС‚Р°СЂС‚РѕРІР°С‚СЊ Р±РёР·РЅРµСЃ-РїСЂРѕС†РµСЃСЃ "РџСЂРѕРґР°Р¶Рё РІ РўРў Р±РµР· Р»РёС†РµРЅР·РёРё"'
       OnExecute = actStartBusinessSellingForTTWithoutLicenseExecute
       Left = 12345
     end
     object actCheckBaseNakl: TAction
-      Caption = 'Отметить как базовую (Хортица)'
+      Caption = 'РћС‚РјРµС‚РёС‚СЊ РєР°Рє Р±Р°Р·РѕРІСѓСЋ (РҐРѕСЂС‚РёС†Р°)'
       Visible = False
       OnExecute = actCheckBaseNaklExecute
       OnUpdate = actCheckBaseNaklUpdate
       Left = 12345
     end
     object actCheckBaseNakl_med: TAction
-      Caption = 'Отметить как базовую (Медовуха)'
+      Caption = 'РћС‚РјРµС‚РёС‚СЊ РєР°Рє Р±Р°Р·РѕРІСѓСЋ (РњРµРґРѕРІСѓС…Р°)'
       Visible = False
       OnExecute = actCheckBaseNakl_medExecute
       Left = 12345
     end
     object actCheckBaseNakl_blg: TAction
-      Caption = 'Отметить как базовую (Благофф)'
+      Caption = 'РћС‚РјРµС‚РёС‚СЊ РєР°Рє Р±Р°Р·РѕРІСѓСЋ (Р‘Р»Р°РіРѕС„С„)'
       Visible = False
       OnExecute = actCheckBaseNakl_blgExecute
       Left = 12345
     end
     object actCreateNaklAkcii: TAction
-      Category = 'Создание документа'
-      Caption = 'Создание акционных накалдных'
+      Category = 'РЎРѕР·РґР°РЅРёРµ РґРѕРєСѓРјРµРЅС‚Р°'
+      Caption = 'РЎРѕР·РґР°РЅРёРµ Р°РєС†РёРѕРЅРЅС‹С… РЅР°РєР°Р»РґРЅС‹С…'
       Hint = 
-        'Создаются акционные накалдные по данному документу в случае если' +
-        ' они не были созданны. Накладная создается в следующем числе'
+        'РЎРѕР·РґР°СЋС‚СЃСЏ Р°РєС†РёРѕРЅРЅС‹Рµ РЅР°РєР°Р»РґРЅС‹Рµ РїРѕ РґР°РЅРЅРѕРјСѓ РґРѕРєСѓРјРµРЅС‚Сѓ РІ СЃР»СѓС‡Р°Рµ РµСЃР»Рё' +
+        ' РѕРЅРё РЅРµ Р±С‹Р»Рё СЃРѕР·РґР°РЅРЅС‹. РќР°РєР»Р°РґРЅР°СЏ СЃРѕР·РґР°РµС‚СЃСЏ РІ СЃР»РµРґСѓСЋС‰РµРј С‡РёСЃР»Рµ'
       OnExecute = actCreateNaklAkciiExecute
       Left = 12345
     end
     object actPrintTTN2: TAction
-      Category = 'Печать'
-      Caption = 'Печать ТТН'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РџРµС‡Р°С‚СЊ РўРўРќ'
       OnExecute = actPrintTTN2Execute
       Left = 12345
     end
     object actPrintEANBox: TAction
-      Category = 'Печать'
-      Caption = 'Печать штрих-кодов с датой розлива на ящик'
-      Hint = 'Печать штрих-кодов с датой розлива на ящик'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РџРµС‡Р°С‚СЊ С€С‚СЂРёС…-РєРѕРґРѕРІ СЃ РґР°С‚РѕР№ СЂРѕР·Р»РёРІР° РЅР° СЏС‰РёРє'
+      Hint = 'РџРµС‡Р°С‚СЊ С€С‚СЂРёС…-РєРѕРґРѕРІ СЃ РґР°С‚РѕР№ СЂРѕР·Р»РёРІР° РЅР° СЏС‰РёРє'
       OnExecute = actPrintEANBoxExecute
       Left = 12345
     end
     object actPrintActMaterial: TAction
-      Category = 'Печать'
-      Caption = 'Акт о списании расходных материалов'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РђРєС‚ Рѕ СЃРїРёСЃР°РЅРёРё СЂР°СЃС…РѕРґРЅС‹С… РјР°С‚РµСЂРёР°Р»РѕРІ'
       OnExecute = actPrintActMaterialExecute
       Left = 12345
     end
     object acPrintSertif: TAction
-      Category = 'Печать'
-      Caption = 'Документы на сертификацию Краснодар'
-      Hint = 'Печать заявки на сертификацию'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'Р”РѕРєСѓРјРµРЅС‚С‹ РЅР° СЃРµСЂС‚РёС„РёРєР°С†РёСЋ РљСЂР°СЃРЅРѕРґР°СЂ'
+      Hint = 'РџРµС‡Р°С‚СЊ Р·Р°СЏРІРєРё РЅР° СЃРµСЂС‚РёС„РёРєР°С†РёСЋ'
       OnExecute = acPrintSertifExecute
       Left = 12345
     end
     object acPrintSertifKrasnoyarsk: TAction
-      Category = 'Печать'
-      Caption = 'Красноярск'
-      Hint = 'Документы на сертификацию Красноярск'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РљСЂР°СЃРЅРѕСЏСЂСЃРє'
+      Hint = 'Р”РѕРєСѓРјРµРЅС‚С‹ РЅР° СЃРµСЂС‚РёС„РёРєР°С†РёСЋ РљСЂР°СЃРЅРѕСЏСЂСЃРє'
       OnExecute = acPrintSertifKrasnoyarskExecute
       Left = 12345
     end
     object acPrintSertifRostov: TAction
-      Category = 'Печать'
-      Caption = 'по сертификату соответствия'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РїРѕ СЃРµСЂС‚РёС„РёРєР°С‚Сѓ СЃРѕРѕС‚РІРµС‚СЃС‚РІРёСЏ'
       OnExecute = acPrintSertifRostovExecute
       Left = 12345
     end
     object acPrintSertifPostovDate: TAction
-      Category = 'Печать'
-      Caption = 'по дате розлива'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РїРѕ РґР°С‚Рµ СЂРѕР·Р»РёРІР°'
       OnExecute = acPrintSertifPostovDateExecute
       Left = 12345
     end
     object acPrintSertifVoroneg: TAction
-      Category = 'Печать'
-      Caption = 'Воронеж'
-      Hint = 'Региональная сертификация для Воронежа'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'Р’РѕСЂРѕРЅРµР¶'
+      Hint = 'Р РµРіРёРѕРЅР°Р»СЊРЅР°СЏ СЃРµСЂС‚РёС„РёРєР°С†РёСЏ РґР»СЏ Р’РѕСЂРѕРЅРµР¶Р°'
       OnExecute = acPrintSertifVoronegExecute
       Left = 12345
     end
     object ActPrintImportZ_ZTPP: TAction
-      Category = 'Печать ВЭД'
-      Caption = 'заявка-декларация в ЗТПП'
+      Category = 'РџРµС‡Р°С‚СЊ Р’Р­Р”'
+      Caption = 'Р·Р°СЏРІРєР°-РґРµРєР»Р°СЂР°С†РёСЏ РІ Р—РўРџРџ'
       OnExecute = ActPrintImportZ_ZTPPExecute
       OnUpdate = actPrintPackListEnUpdate
       Left = 12345
     end
     object ActPrintImport_ActZ: TAction
-      Category = 'Печать ВЭД'
-      Caption = 'Акт о загрузке'
+      Category = 'РџРµС‡Р°С‚СЊ Р’Р­Р”'
+      Caption = 'РђРєС‚ Рѕ Р·Р°РіСЂСѓР·РєРµ'
       OnExecute = ActPrintImport_ActZExecute
       OnUpdate = actPrintPackListEnUpdate
       Left = 12345
     end
     object ActPrintImport_CMR: TAction
-      Category = 'Печать ВЭД'
-      Caption = 'Печать CMR'
+      Category = 'РџРµС‡Р°С‚СЊ Р’Р­Р”'
+      Caption = 'РџРµС‡Р°С‚СЊ CMR'
       OnExecute = ActPrintImport_CMRExecute
       OnUpdate = actPrintPackListEnUpdate
       Left = 12345
     end
     object actPrintSpravkaB: TAction
-      Category = 'Печать'
-      Caption = 'Печать справки Б'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РџРµС‡Р°С‚СЊ СЃРїСЂР°РІРєРё Р‘'
       OnExecute = actPrintSpravkaBExecute
       Left = 12345
     end
     object acPrintSertifYaroslavl: TAction
-      Category = 'Печать'
-      Caption = 'Ярославль'
-      Hint = 'Региональная сертификация для Ярославля'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РЇСЂРѕСЃР»Р°РІР»СЊ'
+      Hint = 'Р РµРіРёРѕРЅР°Р»СЊРЅР°СЏ СЃРµСЂС‚РёС„РёРєР°С†РёСЏ РґР»СЏ РЇСЂРѕСЃР»Р°РІР»СЏ'
       OnExecute = acPrintSertifYaroslavlExecute
       Left = 12345
     end
     object acPrintSertifKazan: TAction
-      Category = 'Печать'
-      Caption = 'Казань'
-      Hint = 'Региональная сертификация для Казани'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РљР°Р·Р°РЅСЊ'
+      Hint = 'Р РµРіРёРѕРЅР°Р»СЊРЅР°СЏ СЃРµСЂС‚РёС„РёРєР°С†РёСЏ РґР»СЏ РљР°Р·Р°РЅРё'
       OnExecute = acPrintSertifKazanExecute
       Left = 12345
     end
     object acPrintSertifRostovExcel: TAction
-      Category = 'Печать'
-      Caption = 'в Excel'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РІ Excel'
       OnExecute = acPrintSertifRostovExcelExecute
       Left = 12345
     end
     object actTransferStore: TAction
-      Category = 'Печать'
-      Caption = 'Акт приемки-передачи ответ хранения'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РђРєС‚ РїСЂРёРµРјРєРё-РїРµСЂРµРґР°С‡Рё РѕС‚РІРµС‚ С…СЂР°РЅРµРЅРёСЏ'
       Hint = 
-        'Акт приемки-передачи ответ хранения|Акт приемки-передачи  ответ ' +
-        'хранения'
+        'РђРєС‚ РїСЂРёРµРјРєРё-РїРµСЂРµРґР°С‡Рё РѕС‚РІРµС‚ С…СЂР°РЅРµРЅРёСЏ|РђРєС‚ РїСЂРёРµРјРєРё-РїРµСЂРµРґР°С‡Рё  РѕС‚РІРµС‚ ' +
+        'С…СЂР°РЅРµРЅРёСЏ'
       ImageIndex = 4
       OnExecute = actTransferStoreExecute
       Left = 12345
@@ -3718,39 +3718,39 @@ object DocNaklForm: TDocNaklForm
       Left = 12345
     end
     object actGroupNameMAter: TAction
-      Category = 'Вспомогательное'
-      Caption = 'Сумма по группам'
+      Category = 'Р’СЃРїРѕРјРѕРіР°С‚РµР»СЊРЅРѕРµ'
+      Caption = 'РЎСѓРјРјР° РїРѕ РіСЂСѓРїРїР°Рј'
       OnExecute = actGroupNameMAterExecute
       Left = 12345
     end
     object actInsNarUnloadCont: TAction
-      Category = 'наряды'
-      Caption = 'Выгрузка контейнеров'
+      Category = 'РЅР°СЂСЏРґС‹'
+      Caption = 'Р’С‹РіСЂСѓР·РєР° РєРѕРЅС‚РµР№РЅРµСЂРѕРІ'
       OnExecute = actInsNarUnloadContExecute
       OnUpdate = actInsNarUnloadContUpdate
       Left = 12345
     end
     object actPrintCheck: TAction
-      Category = 'Печать ЧЕКОВ'
-      Caption = 'Печать чеков'
+      Category = 'РџРµС‡Р°С‚СЊ Р§Р•РљРћР’'
+      Caption = 'РџРµС‡Р°С‚СЊ С‡РµРєРѕРІ'
       OnExecute = actPrintCheckExecute
       Left = 12345
     end
     object actCreatePDVNaklReports: TAction
-      Category = 'Создание документа'
-      Caption = 'Создать/открыть счет-фактуру на возврат (печатная форма)'
+      Category = 'РЎРѕР·РґР°РЅРёРµ РґРѕРєСѓРјРµРЅС‚Р°'
+      Caption = 'РЎРѕР·РґР°С‚СЊ/РѕС‚РєСЂС‹С‚СЊ СЃС‡РµС‚-С„Р°РєС‚СѓСЂСѓ РЅР° РІРѕР·РІСЂР°С‚ (РїРµС‡Р°С‚РЅР°СЏ С„РѕСЂРјР°)'
       OnExecute = actCreatePDVNaklReportsExecute
       Left = 12345
     end
     object PrintWithZMC: TAction
-      Category = 'Печать'
-      Caption = 'Печать накладной с учетом ЗМЦ'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РџРµС‡Р°С‚СЊ РЅР°РєР»Р°РґРЅРѕР№ СЃ СѓС‡РµС‚РѕРј Р—РњР¦'
       OnExecute = PrintNaklExecute
       OnUpdate = PrintNaklUpdate
       Left = 12345
     end
     object actSendNakl: TAction
-      Caption = 'Отправить накладную по эл. почте'
+      Caption = 'РћС‚РїСЂР°РІРёС‚СЊ РЅР°РєР»Р°РґРЅСѓСЋ РїРѕ СЌР». РїРѕС‡С‚Рµ'
       ShortCut = 49221
       OnExecute = actSendNaklExecute
       Left = 12345
@@ -3761,142 +3761,142 @@ object DocNaklForm: TDocNaklForm
       Left = 12345
     end
     object actPrintSpecInvoiceNew: TAction
-      Caption = 'Печать спецификации/инвойса Pos'
+      Caption = 'РџРµС‡Р°С‚СЊ СЃРїРµС†РёС„РёРєР°С†РёРё/РёРЅРІРѕР№СЃР° Pos'
       OnExecute = actPrintSpecInvoiceNewExecute
       Left = 12345
     end
     object ActPasteFromExcel: TAction
-      Category = 'Вспомогательное'
-      Caption = 'вставить из Excel ...'
-      Hint = 'вставить из Excel <код ценности>, <сумма>[, <количество> =1]'
+      Category = 'Р’СЃРїРѕРјРѕРіР°С‚РµР»СЊРЅРѕРµ'
+      Caption = 'РІСЃС‚Р°РІРёС‚СЊ РёР· Excel ...'
+      Hint = 'РІСЃС‚Р°РІРёС‚СЊ РёР· Excel <РєРѕРґ С†РµРЅРЅРѕСЃС‚Рё>, <СЃСѓРјРјР°>[, <РєРѕР»РёС‡РµСЃС‚РІРѕ> =1]'
       ImageIndex = 50
       OnExecute = ActPasteFromExcelExecute
       OnUpdate = ActPasteFromExcelUpdate
       Left = 12345
     end
     object ActDocListLocate: TAction
-      Category = 'Вспомогательное'
-      Caption = 'Поиск документа в списке'
-      Hint = 'Поиск документа в списке'
+      Category = 'Р’СЃРїРѕРјРѕРіР°С‚РµР»СЊРЅРѕРµ'
+      Caption = 'РџРѕРёСЃРє РґРѕРєСѓРјРµРЅС‚Р° РІ СЃРїРёСЃРєРµ'
+      Hint = 'РџРѕРёСЃРє РґРѕРєСѓРјРµРЅС‚Р° РІ СЃРїРёСЃРєРµ'
       ImageIndex = 69
       ShortCut = 16460
       OnExecute = ActDocListLocateExecute
       Left = 12345
     end
     object actSplitList: TAction
-      Category = 'Разделение накладной'
-      Caption = 'Разделить на несколько'
+      Category = 'Р Р°Р·РґРµР»РµРЅРёРµ РЅР°РєР»Р°РґРЅРѕР№'
+      Caption = 'Р Р°Р·РґРµР»РёС‚СЊ РЅР° РЅРµСЃРєРѕР»СЊРєРѕ'
       ShortCut = 24694
       OnExecute = actSplitListExecute
       Left = 12345
     end
     object actStickering: TAction
-      Category = 'наряды'
-      Caption = 'Стикеровка РЦ'
+      Category = 'РЅР°СЂСЏРґС‹'
+      Caption = 'РЎС‚РёРєРµСЂРѕРІРєР° Р Р¦'
       OnExecute = actStickeringExecute
       OnUpdate = actStickeringUpdate
       Left = 12345
     end
     object actShippingPallets: TAction
-      Category = 'наряды'
-      Caption = 'Отгрузка паллет'
+      Category = 'РЅР°СЂСЏРґС‹'
+      Caption = 'РћС‚РіСЂСѓР·РєР° РїР°Р»Р»РµС‚'
       OnExecute = actShippingPalletsExecute
       OnUpdate = actShippingPalletsUpdate
       Left = 12345
     end
     object acPrintNaklWithoutTransport: TAction
-      Category = 'Печать'
-      Caption = 'Печать накладной без транспортных услуг'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РџРµС‡Р°С‚СЊ РЅР°РєР»Р°РґРЅРѕР№ Р±РµР· С‚СЂР°РЅСЃРїРѕСЂС‚РЅС‹С… СѓСЃР»СѓРі'
       OnExecute = PrintNaklExecute
       OnUpdate = PrintNaklUpdate
       Left = 12345
     end
     object actGetEgaisNUmber: TAction
-      Category = 'ЕГАИС'
+      Category = 'Р•Р“РђРРЎ'
       Caption = 'actGetEgaisNUmber'
       Left = 12345
     end
     object actPrintMarkTara: TAction
-      Category = 'ЕГАИС'
-      Caption = 'Печать документа для маркировки поддона'
+      Category = 'Р•Р“РђРРЎ'
+      Caption = 'РџРµС‡Р°С‚СЊ РґРѕРєСѓРјРµРЅС‚Р° РґР»СЏ РјР°СЂРєРёСЂРѕРІРєРё РїРѕРґРґРѕРЅР°'
       OnExecute = actPrintMarkTaraExecute
       Left = 12345
     end
     object actExportToWMS: TAction
       Category = 'WMS'
-      Caption = 'Экспорт в WMS накладных из сортировки'
+      Caption = 'Р­РєСЃРїРѕСЂС‚ РІ WMS РЅР°РєР»Р°РґРЅС‹С… РёР· СЃРѕСЂС‚РёСЂРѕРІРєРё'
       ImageIndex = 66
       OnExecute = actExportToWMSExecute
       Left = 12345
     end
     object actExportSortToWMS: TAction
       Category = 'WMS'
-      Caption = 'Экспорт в WMS сортировочной накладной'
+      Caption = 'Р­РєСЃРїРѕСЂС‚ РІ WMS СЃРѕСЂС‚РёСЂРѕРІРѕС‡РЅРѕР№ РЅР°РєР»Р°РґРЅРѕР№'
       ImageIndex = 66
       OnExecute = actExportSortToWMSExecute
       Left = 12345
     end
     object actAkt1: TAction
-      Category = 'Печать'
-      Caption = 'на ответ-хранение'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РЅР° РѕС‚РІРµС‚-С…СЂР°РЅРµРЅРёРµ'
       OnExecute = actAkt1Execute
       Left = 12345
     end
     object actAkt2: TAction
-      Category = 'Печать'
-      Caption = 'с ответ-хранения'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'СЃ РѕС‚РІРµС‚-С…СЂР°РЅРµРЅРёСЏ'
       OnExecute = actAkt2Execute
       Left = 12345
     end
     object actExportOrderToWMS: TAction
       Category = 'WMS'
-      Caption = 'Экспорт в WMS сортировки как заказ'
+      Caption = 'Р­РєСЃРїРѕСЂС‚ РІ WMS СЃРѕСЂС‚РёСЂРѕРІРєРё РєР°Рє Р·Р°РєР°Р·'
       OnExecute = actExportOrderToWMSExecute
       Left = 12345
     end
     object actImportFromWMS: TAction
       Category = 'WMS'
-      Caption = 'Импорт из WMS сортировки как заказ'
+      Caption = 'РРјРїРѕСЂС‚ РёР· WMS СЃРѕСЂС‚РёСЂРѕРІРєРё РєР°Рє Р·Р°РєР°Р·'
       OnExecute = actImportFromWMSExecute
       Left = 12345
     end
     object PrintNaklNew: TAction
-      Category = 'Печать'
-      Caption = 'Накладная с округлением'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РќР°РєР»Р°РґРЅР°СЏ СЃ РѕРєСЂСѓРіР»РµРЅРёРµРј'
       OnExecute = PrintNaklExecute
       Left = 12345
     end
     object PrintNaklNew2: TAction
-      Category = 'Печать'
+      Category = 'РџРµС‡Р°С‚СЊ'
       Caption = 'PrintNaklNew2'
       OnExecute = PrintNaklExecute
       Left = 12345
     end
     object actPrintExcel: TAction
-      Category = 'Печать'
-      Caption = 'Выгрузка в Эксель'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'Р’С‹РіСЂСѓР·РєР° РІ Р­РєСЃРµР»СЊ'
       OnExecute = actPrintExcelExecute
       Left = 12345
     end
     object actCSV: TAction
-      Category = 'Печать'
-      Caption = 'Выгрузить в csv'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'Р’С‹РіСЂСѓР·РёС‚СЊ РІ csv'
       OnExecute = actCSVExecute
       Left = 12345
     end
     object actPrintLVZ: TAction
-      Category = 'Печать'
+      Category = 'РџРµС‡Р°С‚СЊ'
       Caption = 'actPrintLVZ'
       OnExecute = PrintNaklExecute
     end
     object actExportAktATB: TAction
-      Category = 'Печать'
-      Caption = 'Акт о предоставлении скидки АТБ в XML'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РђРєС‚ Рѕ РїСЂРµРґРѕСЃС‚Р°РІР»РµРЅРёРё СЃРєРёРґРєРё РђРўР‘ РІ XML'
       OnExecute = actExportAktATBExecute
     end
     object actPrint300War: TAction
-      Category = 'Печать'
-      Caption = 'Накладная на перевозку'
+      Category = 'РџРµС‡Р°С‚СЊ'
+      Caption = 'РќР°РєР»Р°РґРЅР°СЏ РЅР° РїРµСЂРµРІРѕР·РєСѓ'
       OnExecute = actPrint300WarExecute
     end
     object actTestReportL: TAction
@@ -3909,11 +3909,11 @@ object DocNaklForm: TDocNaklForm
       OnExecute = actTestPrint_F2Execute
     end
     object actPrintNaklInPathway: TAction
-      Caption = 'Накладная в путь'
+      Caption = 'РќР°РєР»Р°РґРЅР°СЏ РІ РїСѓС‚СЊ'
       OnExecute = actPrintNaklInPathwayExecute
     end
     object actPrintTTNNakl: TAction
-      Caption = 'Печать накладной с ТТН'
+      Caption = 'РџРµС‡Р°С‚СЊ РЅР°РєР»Р°РґРЅРѕР№ СЃ РўРўРќ'
       OnExecute = actPrintTTNNaklExecute
     end
   end
@@ -3939,22 +3939,22 @@ object DocNaklForm: TDocNaklForm
     end
     object N5: TMenuItem
       Action = CloseForm
-      Caption = '&Сохранить документ'
+      Caption = '&РЎРѕС…СЂР°РЅРёС‚СЊ РґРѕРєСѓРјРµРЅС‚'
       Left = 12345
     end
     object N1: TMenuItem
       Action = Copy
-      Caption = '&Копировать документ'
+      Caption = '&РљРѕРїРёСЂРѕРІР°С‚СЊ РґРѕРєСѓРјРµРЅС‚'
       Left = 12345
     end
     object N3: TMenuItem
       Action = ACatalog
-      Caption = '&Справочник позиций'
+      Caption = '&РЎРїСЂР°РІРѕС‡РЅРёРє РїРѕР·РёС†РёР№'
       Left = 12345
     end
     object N2: TMenuItem
       Action = Print
-      Caption = '&Печать документа'
+      Caption = '&РџРµС‡Р°С‚СЊ РґРѕРєСѓРјРµРЅС‚Р°'
       Left = 12345
     end
     object N13: TMenuItem
@@ -3972,17 +3972,17 @@ object DocNaklForm: TDocNaklForm
       Left = 12345
     end
     object N20: TMenuItem
-      Caption = 'Печать чека с позиции'
+      Caption = 'РџРµС‡Р°С‚СЊ С‡РµРєР° СЃ РїРѕР·РёС†РёРё'
       OnClick = CheckPrnPosExecute
       Left = 12345
     end
     object btnShowCol: TMenuItem
-      Caption = 'Показать колонки'
+      Caption = 'РџРѕРєР°Р·Р°С‚СЊ РєРѕР»РѕРЅРєРё'
       OnClick = btnShowColClick
       Left = 12345
     end
     object btnCheckWithCol: TMenuItem
-      Caption = 'Сравнить с колонкой ...'
+      Caption = 'РЎСЂР°РІРЅРёС‚СЊ СЃ РєРѕР»РѕРЅРєРѕР№ ...'
       OnClick = btnCheckWithColClick
       Left = 12345
     end
@@ -3999,7 +3999,7 @@ object DocNaklForm: TDocNaklForm
       Left = 12345
     end
     object dbf1: TMenuItem
-      Caption = 'Отправить dbf-файл'
+      Caption = 'РћС‚РїСЂР°РІРёС‚СЊ dbf-С„Р°Р№Р»'
       OnClick = dbf1Click
       Left = 12345
     end
@@ -4012,19 +4012,19 @@ object DocNaklForm: TDocNaklForm
       Left = 12345
       object J1: TMenuItem
         Tag = 1
-        Caption = 'Отправить счет EDI'
+        Caption = 'РћС‚РїСЂР°РІРёС‚СЊ СЃС‡РµС‚ EDI'
         OnClick = N98Click
         Left = 12345
       end
       object J2: TMenuItem
         Tag = 2
-        Caption = 'Отправить подтверждение заказа'
+        Caption = 'РћС‚РїСЂР°РІРёС‚СЊ РїРѕРґС‚РІРµСЂР¶РґРµРЅРёРµ Р·Р°РєР°Р·Р°'
         OnClick = N98Click
         Left = 12345
       end
       object N98: TMenuItem
         Tag = 3
-        Caption = 'Отправить уведомление об отгрузке'
+        Caption = 'РћС‚РїСЂР°РІРёС‚СЊ СѓРІРµРґРѕРјР»РµРЅРёРµ РѕР± РѕС‚РіСЂСѓР·РєРµ'
         OnClick = N98Click
         Left = 12345
       end
@@ -4035,13 +4035,13 @@ object DocNaklForm: TDocNaklForm
       Left = 12345
     end
     object gPositionsCopyPast: TMenuItem
-      Caption = 'Скопировать/вставить позицию'
+      Caption = 'РЎРєРѕРїРёСЂРѕРІР°С‚СЊ/РІСЃС‚Р°РІРёС‚СЊ РїРѕР·РёС†РёСЋ'
       object gCopy: TMenuItem
-        Caption = '&Cкопировать'
+        Caption = '&CРєРѕРїРёСЂРѕРІР°С‚СЊ'
         OnClick = gCopyClick
       end
       object gPast: TMenuItem
-        Caption = '&Вставить'
+        Caption = '&Р’СЃС‚Р°РІРёС‚СЊ'
         Enabled = False
         OnClick = gPastClick
       end
@@ -4089,7 +4089,7 @@ object DocNaklForm: TDocNaklForm
     end
     object MakeDoc1: TMenuItem
       Action = MakeDoc
-      Caption = 'Создать накладную (проводку) ...'
+      Caption = 'РЎРѕР·РґР°С‚СЊ РЅР°РєР»Р°РґРЅСѓСЋ (РїСЂРѕРІРѕРґРєСѓ) ...'
       Left = 12345
     end
     object N23: TMenuItem
@@ -4133,7 +4133,7 @@ object DocNaklForm: TDocNaklForm
       Left = 12345
     end
     object N105: TMenuItem
-      Caption = 'Печать накладной(Не ЛВИ) с примечанием'
+      Caption = 'РџРµС‡Р°С‚СЊ РЅР°РєР»Р°РґРЅРѕР№(РќРµ Р›Р’Р) СЃ РїСЂРёРјРµС‡Р°РЅРёРµРј'
       OnClick = N105Click
       Left = 12345
     end
@@ -4142,7 +4142,7 @@ object DocNaklForm: TDocNaklForm
       Left = 12345
     end
     object N95: TMenuItem
-      Caption = 'Печать накладной(Не ЛВИ) без примечания'
+      Caption = 'РџРµС‡Р°С‚СЊ РЅР°РєР»Р°РґРЅРѕР№(РќРµ Р›Р’Р) Р±РµР· РїСЂРёРјРµС‡Р°РЅРёСЏ'
       OnClick = N95Click
       Left = 12345
     end
@@ -4185,13 +4185,13 @@ object DocNaklForm: TDocNaklForm
       Left = 12345
     end
     object miSchet2Print: TMenuItem
-      Caption = 'Счет(2)'
+      Caption = 'РЎС‡РµС‚(2)'
       OnClick = miSchet2PrintClick
       Left = 12345
     end
     object N19: TMenuItem
       Action = PrintDolg
-      Caption = 'Оплаченный долг'
+      Caption = 'РћРїР»Р°С‡РµРЅРЅС‹Р№ РґРѕР»Рі'
       Enabled = False
       Left = 12345
     end
@@ -4214,7 +4214,7 @@ object DocNaklForm: TDocNaklForm
       Left = 12345
     end
     object IntitledDocBR: TMenuItem
-      Caption = 'Безреквизитный (без разбивки)'
+      Caption = 'Р‘РµР·СЂРµРєРІРёР·РёС‚РЅС‹Р№ (Р±РµР· СЂР°Р·Р±РёРІРєРё)'
       OnClick = IntitledDocBRClick
       Left = 12345
     end
@@ -4229,7 +4229,7 @@ object DocNaklForm: TDocNaklForm
     end
     object Rf1: TMenuItem
       Action = CheckPrn
-      Caption = 'Кассовый чек'
+      Caption = 'РљР°СЃСЃРѕРІС‹Р№ С‡РµРє'
       Left = 12345
     end
     object N28: TMenuItem
@@ -4265,7 +4265,7 @@ object DocNaklForm: TDocNaklForm
       Left = 12345
     end
     object pmPrint_i_Docs: TMenuItem
-      Caption = 'Документы ВЭД'
+      Caption = 'Р”РѕРєСѓРјРµРЅС‚С‹ Р’Р­Р”'
       Left = 12345
       object pmPrint_i_Spec: TMenuItem
         Action = actPrintSpec
@@ -4280,7 +4280,7 @@ object DocNaklForm: TDocNaklForm
         Left = 12345
       end
       object pmPrint_i_is: TMenuItem
-        Caption = 'Инвойс'
+        Caption = 'РРЅРІРѕР№СЃ'
         Left = 12345
         object N66: TMenuItem
           Action = actPrintInvoice
@@ -4300,7 +4300,7 @@ object DocNaklForm: TDocNaklForm
         end
       end
       object pmPrint_i_rs: TMenuItem
-        Caption = 'Инвойс (реклама)'
+        Caption = 'РРЅРІРѕР№СЃ (СЂРµРєР»Р°РјР°)'
         Left = 12345
         object N68: TMenuItem
           Action = actPrintInvoice_Rekl
@@ -4372,7 +4372,7 @@ object DocNaklForm: TDocNaklForm
       Left = 12345
     end
     object N29: TMenuItem
-      Caption = 'Акт приема-передачи ОФ'
+      Caption = 'РђРєС‚ РїСЂРёРµРјР°-РїРµСЂРµРґР°С‡Рё РћР¤'
       ImageIndex = 4
       Left = 12345
     end
@@ -4394,11 +4394,11 @@ object DocNaklForm: TDocNaklForm
       Left = 12345
     end
     object N135: TMenuItem
-      Caption = 'Акт узгодження ціни'
+      Caption = 'РђРєС‚ СѓР·РіРѕРґР¶РµРЅРЅСЏ С†С–РЅРё'
       OnClick = N135Click
     end
     object btnNote: TMenuItem
-      Caption = 'Письма'
+      Caption = 'РџРёСЃСЊРјР°'
       OnClick = actNoteExecute
       Left = 12345
     end
@@ -4407,7 +4407,7 @@ object DocNaklForm: TDocNaklForm
       Left = 12345
     end
     object N40: TMenuItem
-      Caption = 'Дополнение к ТН (для МЭТРО...)'
+      Caption = 'Р”РѕРїРѕР»РЅРµРЅРёРµ Рє РўРќ (РґР»СЏ РњР­РўР Рћ...)'
       Visible = False
       OnClick = N40Click
       Left = 12345
@@ -4449,22 +4449,22 @@ object DocNaklForm: TDocNaklForm
       Left = 12345
     end
     object N116: TMenuItem
-      Caption = 'Печать отчета для ЧП'
+      Caption = 'РџРµС‡Р°С‚СЊ РѕС‚С‡РµС‚Р° РґР»СЏ Р§Рџ'
       OnClick = N116Click
       Left = 12345
     end
     object N119: TMenuItem
-      Caption = 'Печать начального отчет по ЧП'
+      Caption = 'РџРµС‡Р°С‚СЊ РЅР°С‡Р°Р»СЊРЅРѕРіРѕ РѕС‚С‡РµС‚ РїРѕ Р§Рџ'
       OnClick = N119Click
       Left = 12345
     end
     object N117: TMenuItem
-      Caption = 'Печать конечного отчет по ЧП'
+      Caption = 'РџРµС‡Р°С‚СЊ РєРѕРЅРµС‡РЅРѕРіРѕ РѕС‚С‡РµС‚ РїРѕ Р§Рџ'
       OnClick = N117Click
       Left = 12345
     end
     object N118: TMenuItem
-      Caption = 'Печать накаладной по ЧП'
+      Caption = 'РџРµС‡Р°С‚СЊ РЅР°РєР°Р»Р°РґРЅРѕР№ РїРѕ Р§Рџ'
       OnClick = N118Click
       Left = 12345
     end
@@ -4473,17 +4473,17 @@ object DocNaklForm: TDocNaklForm
       Left = 12345
     end
     object N212: TMenuItem
-      Caption = 'Печать начала по ЧП2'
+      Caption = 'РџРµС‡Р°С‚СЊ РЅР°С‡Р°Р»Р° РїРѕ Р§Рџ2'
       OnClick = N212Click
       Left = 12345
     end
     object N210: TMenuItem
-      Caption = 'Печать по ЧП2'
+      Caption = 'РџРµС‡Р°С‚СЊ РїРѕ Р§Рџ2'
       OnClick = N210Click
       Left = 12345
     end
     object N211: TMenuItem
-      Caption = 'Печать конечного отчета 2'
+      Caption = 'РџРµС‡Р°С‚СЊ РєРѕРЅРµС‡РЅРѕРіРѕ РѕС‚С‡РµС‚Р° 2'
       OnClick = N211Click
       Left = 12345
     end
@@ -4492,21 +4492,21 @@ object DocNaklForm: TDocNaklForm
       Left = 12345
     end
     object N127: TMenuItem
-      Caption = 'ИБТ'
+      Caption = 'РР‘Рў'
       Left = 12345
       object N128: TMenuItem
-        Caption = 'Акт приема-передачи на ответ. хранение'
+        Caption = 'РђРєС‚ РїСЂРёРµРјР°-РїРµСЂРµРґР°С‡Рё РЅР° РѕС‚РІРµС‚. С…СЂР°РЅРµРЅРёРµ'
         OnClick = N128Click
         Left = 12345
       end
       object N129: TMenuItem
-        Caption = 'Акт приема-передачи возврата с ответ.хранения'
+        Caption = 'РђРєС‚ РїСЂРёРµРјР°-РїРµСЂРµРґР°С‡Рё РІРѕР·РІСЂР°С‚Р° СЃ РѕС‚РІРµС‚.С…СЂР°РЅРµРЅРёСЏ'
         OnClick = N129Click
         Left = 12345
       end
     end
     object N130: TMenuItem
-      Caption = 'Акты НОВЫЕ'
+      Caption = 'РђРєС‚С‹ РќРћР’Р«Р•'
       Left = 12345
       object N131: TMenuItem
         Action = actAkt1
@@ -4517,7 +4517,7 @@ object DocNaklForm: TDocNaklForm
         Left = 12345
       end
       object N134: TMenuItem
-        Caption = 'сборка и сортировка'
+        Caption = 'СЃР±РѕСЂРєР° Рё СЃРѕСЂС‚РёСЂРѕРІРєР°'
         OnClick = N134Click
         Left = 12345
       end
@@ -5081,12 +5081,12 @@ object DocNaklForm: TDocNaklForm
       
         'case when (lr.recid is not null and lr.baseid is not null)or (so' +
         '.status in (1,2,27,209,22))'
-      ' -- для возврата берем ОТ_КОГО'
+      ' -- РґР»СЏ РІРѕР·РІСЂР°С‚Р° Р±РµСЂРµРј РћРў_РљРћР“Рћ'
       
         ' then (select first 1 DOC_NUMBER from PROC_GET_DK_DOCUMENT(doc.d' +
         'k_from,doc.operdate,2005,dl.outlet_recid,dl.outlet_baseid,1,doc.' +
         'ADDR_FROM) pg)'
-      ' -- берем КОМУ'
+      ' -- Р±РµСЂРµРј РљРћРњРЈ'
       
         ' else (select first 1 DOC_NUMBER from PROC_GET_DK_DOCUMENT(doc.d' +
         'k_to,doc.operdate,2005,dl.outlet_recid,dl.outlet_baseid,1,doc.AD' +
@@ -5098,7 +5098,7 @@ object DocNaklForm: TDocNaklForm
       'spd_dt.dt  date_pdvstavka,'
       ''
       
-        'nad.TRANSPORT_TIME --[gsa] 24.09.19 добавил по просьбе Maloletov' +
+        'nad.TRANSPORT_TIME --[gsa] 24.09.19 РґРѕР±Р°РІРёР» РїРѕ РїСЂРѕСЃСЊР±Рµ Maloletov' +
         '.M'
       ''
       'FROM DOC_NAKL DOC'
@@ -5152,7 +5152,7 @@ object DocNaklForm: TDocNaklForm
     ConfirmPost = False
     ConfirmDelete = False
     ConfirmPostMsg.Strings = (
-      'Записать изменения ?')
+      'Р—Р°РїРёСЃР°С‚СЊ РёР·РјРµРЅРµРЅРёСЏ ?')
     Left = 44
     Top = 336
     oNoForceIsNull = True
@@ -5438,7 +5438,7 @@ object DocNaklForm: TDocNaklForm
       FieldName = 'BRAND_CASE_ID'
     end
     object DocNaklDONT_USE_SPEC_PRICE: TFIBBooleanField
-      DisplayLabel = 'Не использовать акционные цены'
+      DisplayLabel = 'РќРµ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ Р°РєС†РёРѕРЅРЅС‹Рµ С†РµРЅС‹'
       FieldName = 'DONT_USE_SPEC_PRICE'
       OnChange = DocNaklDONT_USE_SPEC_PRICEChange
     end
@@ -5509,8 +5509,8 @@ object DocNaklForm: TDocNaklForm
       '  PACK_RECID = ?PACK_RECID,'
       '  SUMMA_AMOUNT_TRAFIC  = ?SUMMA_AMOUNT_TRAFIC'
       
-        '  /*, EGAIS_ADD_NUM = ?EGAIS_ADD_NUM */  --<-- это условие будет' +
-        ' измененно в коде для партионного учета 3'
+        '  /*, EGAIS_ADD_NUM = ?EGAIS_ADD_NUM */  --<-- СЌС‚Рѕ СѓСЃР»РѕРІРёРµ Р±СѓРґРµС‚' +
+        ' РёР·РјРµРЅРµРЅРЅРѕ РІ РєРѕРґРµ РґР»СЏ РїР°СЂС‚РёРѕРЅРЅРѕРіРѕ СѓС‡РµС‚Р° 3'
       'where'
       '  RECID = ?old_RECID AND'
       '  BASEID = ?old_BASEID')
@@ -5545,8 +5545,8 @@ object DocNaklForm: TDocNaklForm
       '  SUMMA_DUTY,'
       '  SUMMA_AMOUNT_TRAFIC'
       
-        '  /*, EGAIS_ADD_NUM */  --<-- это условие будет измененно в коде' +
-        ' для партионного учета 3'
+        '  /*, EGAIS_ADD_NUM */  --<-- СЌС‚Рѕ СѓСЃР»РѕРІРёРµ Р±СѓРґРµС‚ РёР·РјРµРЅРµРЅРЅРѕ РІ РєРѕРґРµ' +
+        ' РґР»СЏ РїР°СЂС‚РёРѕРЅРЅРѕРіРѕ СѓС‡РµС‚Р° 3'
       ')'
       'values'
       '('
@@ -5573,8 +5573,8 @@ object DocNaklForm: TDocNaklForm
       '  ?SUMMA_DUTY,'
       '  ?SUMMA_AMOUNT_TRAFIC'
       
-        '  /*, ?EGAIS_ADD_NUM */  --<-- это условие будет измененно в код' +
-        'е для партионного учета 3'
+        '  /*, ?EGAIS_ADD_NUM */  --<-- СЌС‚Рѕ СѓСЃР»РѕРІРёРµ Р±СѓРґРµС‚ РёР·РјРµРЅРµРЅРЅРѕ РІ РєРѕРґ' +
+        'Рµ РґР»СЏ РїР°СЂС‚РёРѕРЅРЅРѕРіРѕ СѓС‡РµС‚Р° 3'
       ')'
       ' ')
     RefreshSQL.Strings = (
@@ -5714,9 +5714,9 @@ object DocNaklForm: TDocNaklForm
     ConfirmPost = True
     ConfirmDelete = True
     ConfirmDeleteMsg.Strings = (
-      'Удалить позицию в накладной ?')
+      'РЈРґР°Р»РёС‚СЊ РїРѕР·РёС†РёСЋ РІ РЅР°РєР»Р°РґРЅРѕР№ ?')
     ConfirmPostMsg.Strings = (
-      'Сохранить позицию в накладной ?')
+      'РЎРѕС…СЂР°РЅРёС‚СЊ РїРѕР·РёС†РёСЋ РІ РЅР°РєР»Р°РґРЅРѕР№ ?')
     Left = 224
     Top = 304
     dcForceOpen = True
@@ -6174,22 +6174,22 @@ object DocNaklForm: TDocNaklForm
       Left = 12345
     end
     object N57: TMenuItem
-      Caption = 'Безреквизитная накладная'
+      Caption = 'Р‘РµР·СЂРµРєРІРёР·РёС‚РЅР°СЏ РЅР°РєР»Р°РґРЅР°СЏ'
       OnClick = N57Click
       Left = 12345
     end
     object ItemTorg3: TMenuItem
-      Caption = 'Акт о расхождениях при импорте (Торг-3)'
+      Caption = 'РђРєС‚ Рѕ СЂР°СЃС…РѕР¶РґРµРЅРёСЏС… РїСЂРё РёРјРїРѕСЂС‚Рµ (РўРѕСЂРі-3)'
       OnClick = ItemTorg3Click
       Left = 12345
     end
     object MenuItem5_Torg2: TMenuItem
-      Caption = 'Акт о расхождениях (Торг-2)'
+      Caption = 'РђРєС‚ Рѕ СЂР°СЃС…РѕР¶РґРµРЅРёСЏС… (РўРѕСЂРі-2)'
       OnClick = MenuItem5_Torg2Click
       Left = 12345
     end
     object Torg2ForClient: TMenuItem
-      Caption = 'Акт о расхождениях (Торг-2) (для клиентов)'
+      Caption = 'РђРєС‚ Рѕ СЂР°СЃС…РѕР¶РґРµРЅРёСЏС… (РўРѕСЂРі-2) (РґР»СЏ РєР»РёРµРЅС‚РѕРІ)'
       OnClick = Torg2ForClientClick
       Left = 12345
     end
@@ -6211,11 +6211,11 @@ object DocNaklForm: TDocNaklForm
     end
     object ItemSbToTTN: TMenuItem
       Action = actPrintRbToTTN
-      Caption = 'Печать сопроводительной ведости (бывший раздел Б)'
+      Caption = 'РџРµС‡Р°С‚СЊ СЃРѕРїСЂРѕРІРѕРґРёС‚РµР»СЊРЅРѕР№ РІРµРґРѕСЃС‚Рё (Р±С‹РІС€РёР№ СЂР°Р·РґРµР» Р‘)'
       Left = 12345
     end
     object N91: TMenuItem
-      Caption = 'Печать сопроводительной ведости (МЕТРО)'
+      Caption = 'РџРµС‡Р°С‚СЊ СЃРѕРїСЂРѕРІРѕРґРёС‚РµР»СЊРЅРѕР№ РІРµРґРѕСЃС‚Рё (РњР•РўР Рћ)'
       OnClick = N91Click
       Left = 12345
     end
@@ -6228,7 +6228,7 @@ object DocNaklForm: TDocNaklForm
       Left = 12345
     end
     object ItemsOS: TMenuItem
-      Caption = 'по Основным средствам'
+      Caption = 'РїРѕ РћСЃРЅРѕРІРЅС‹Рј СЃСЂРµРґСЃС‚РІР°Рј'
       Left = 12345
       object ItemOC1: TMenuItem
         Action = actPrintOC1
@@ -6248,7 +6248,7 @@ object DocNaklForm: TDocNaklForm
       end
     end
     object ItemsTMC: TMenuItem
-      Caption = 'по учету ТМЦ'
+      Caption = 'РїРѕ СѓС‡РµС‚Сѓ РўРњР¦'
       Left = 12345
       object ItemM4: TMenuItem
         Action = actPrintM4
@@ -6271,7 +6271,7 @@ object DocNaklForm: TDocNaklForm
         Left = 12345
       end
       object N41: TMenuItem
-        Caption = 'Акт о приеме-передаче ТМЦ (изм.)'
+        Caption = 'РђРєС‚ Рѕ РїСЂРёРµРјРµ-РїРµСЂРµРґР°С‡Рµ РўРњР¦ (РёР·Рј.)'
         OnClick = N41Click
         Left = 12345
       end
@@ -6297,7 +6297,7 @@ object DocNaklForm: TDocNaklForm
       Left = 12345
     end
     object miBilla: TMenuItem
-      Caption = 'Печать накладной (БИЛЛА)'
+      Caption = 'РџРµС‡Р°С‚СЊ РЅР°РєР»Р°РґРЅРѕР№ (Р‘РР›Р›Рђ)'
       OnClick = PrintNaklExecute
       Left = 12345
     end
@@ -6314,7 +6314,7 @@ object DocNaklForm: TDocNaklForm
       Left = 12345
     end
     object miOKK_OLD: TMenuItem
-      Caption = 'Документы ОКК (старый вариант)'
+      Caption = 'Р”РѕРєСѓРјРµРЅС‚С‹ РћРљРљ (СЃС‚Р°СЂС‹Р№ РІР°СЂРёР°РЅС‚)'
       Visible = False
       Left = 12345
       object N79: TMenuItem
@@ -6331,7 +6331,7 @@ object DocNaklForm: TDocNaklForm
       end
     end
     object miOKK: TMenuItem
-      Caption = 'Документы ОКК'
+      Caption = 'Р”РѕРєСѓРјРµРЅС‚С‹ РћРљРљ'
       OnClick = miOKKClick
       Left = 12345
     end
@@ -6348,12 +6348,12 @@ object DocNaklForm: TDocNaklForm
       Left = 12345
     end
     object G1: TMenuItem
-      Caption = 'Приложение к накладной (Ярославль, Владивосток, Ростов)'
+      Caption = 'РџСЂРёР»РѕР¶РµРЅРёРµ Рє РЅР°РєР»Р°РґРЅРѕР№ (РЇСЂРѕСЃР»Р°РІР»СЊ, Р’Р»Р°РґРёРІРѕСЃС‚РѕРє, Р РѕСЃС‚РѕРІ)'
       OnClick = G1Click
       Left = 12345
     end
     object N101: TMenuItem
-      Caption = 'Печать счёта-оферты'
+      Caption = 'РџРµС‡Р°С‚СЊ СЃС‡С‘С‚Р°-РѕС„РµСЂС‚С‹'
       OnClick = N101Click
       Left = 12345
     end
@@ -6362,7 +6362,7 @@ object DocNaklForm: TDocNaklForm
       Left = 12345
     end
     object L1: TMenuItem
-      Caption = 'Документы на региональную сертификацию'
+      Caption = 'Р”РѕРєСѓРјРµРЅС‚С‹ РЅР° СЂРµРіРёРѕРЅР°Р»СЊРЅСѓСЋ СЃРµСЂС‚РёС„РёРєР°С†РёСЋ'
       Left = 12345
       object N108: TMenuItem
         Action = acPrintSertifKrasnoyarsk
@@ -6370,12 +6370,12 @@ object DocNaklForm: TDocNaklForm
       end
       object N107: TMenuItem
         Action = acPrintSertif
-        Caption = 'Краснодар'
-        Hint = 'Документы на сертификацию Краснодар'
+        Caption = 'РљСЂР°СЃРЅРѕРґР°СЂ'
+        Hint = 'Р”РѕРєСѓРјРµРЅС‚С‹ РЅР° СЃРµСЂС‚РёС„РёРєР°С†РёСЋ РљСЂР°СЃРЅРѕРґР°СЂ'
         Left = 12345
       end
       object N109: TMenuItem
-        Caption = 'Ростов'
+        Caption = 'Р РѕСЃС‚РѕРІ'
         Left = 12345
         object N110: TMenuItem
           Action = acPrintSertifRostov
@@ -6960,7 +6960,7 @@ object DocNaklForm: TDocNaklForm
     end
     object VIP1: TMenuItem
       Action = actStartBPContragentVIP
-      Caption = 'Стартовать бизнес-процесс согласования продажи на просрочку'
+      Caption = 'РЎС‚Р°СЂС‚РѕРІР°С‚СЊ Р±РёР·РЅРµСЃ-РїСЂРѕС†РµСЃСЃ СЃРѕРіР»Р°СЃРѕРІР°РЅРёСЏ РїСЂРѕРґР°Р¶Рё РЅР° РїСЂРѕСЃСЂРѕС‡РєСѓ'
       Left = 12345
     end
     object N90: TMenuItem
@@ -6972,7 +6972,7 @@ object DocNaklForm: TDocNaklForm
       Left = 12345
     end
     object N96: TMenuItem
-      Caption = 'Стартовать бизнес-процесс на снятие блокировки перегруза ТТ'
+      Caption = 'РЎС‚Р°СЂС‚РѕРІР°С‚СЊ Р±РёР·РЅРµСЃ-РїСЂРѕС†РµСЃСЃ РЅР° СЃРЅСЏС‚РёРµ Р±Р»РѕРєРёСЂРѕРІРєРё РїРµСЂРµРіСЂСѓР·Р° РўРў'
       OnClick = N96Click
       Left = 12345
     end
@@ -7044,12 +7044,12 @@ object DocNaklForm: TDocNaklForm
       '    znt.STATUS,'
       '    znt.SCANDOC,'
       '    CASE znt.STATUS'
-      '      WHEN 0 THEN '#39'окрытая'#39
-      '      WHEN 1 THEN '#39'в работе'#39
-      '      WHEN 2 THEN '#39'закрытая'#39
-      '      WHEN 3 THEN '#39'в работе'#39
-      '      WHEN 4 THEN '#39'отменена'#39
-      '      WHEN 5 THEN '#39'утверждена'#39
+      '      WHEN 0 THEN '#39'РѕРєСЂС‹С‚Р°СЏ'#39
+      '      WHEN 1 THEN '#39'РІ СЂР°Р±РѕС‚Рµ'#39
+      '      WHEN 2 THEN '#39'Р·Р°РєСЂС‹С‚Р°СЏ'#39
+      '      WHEN 3 THEN '#39'РІ СЂР°Р±РѕС‚Рµ'#39
+      '      WHEN 4 THEN '#39'РѕС‚РјРµРЅРµРЅР°'#39
+      '      WHEN 5 THEN '#39'СѓС‚РІРµСЂР¶РґРµРЅР°'#39
       '      ELSE '#39'?'#39
       '    end as Status_Name,'
       
@@ -7119,12 +7119,12 @@ object DocNaklForm: TDocNaklForm
       '    znt.STATUS,'
       '    znt.SCANDOC,'
       '    CASE znt.STATUS'
-      '      WHEN 0 THEN '#39'окрытая'#39
-      '      WHEN 1 THEN '#39'в работе'#39
-      '      WHEN 2 THEN '#39'закрытая'#39
-      '      WHEN 3 THEN '#39'в работе'#39
-      '      WHEN 4 THEN '#39'отменена'#39
-      '      WHEN 5 THEN '#39'утверждена'#39
+      '      WHEN 0 THEN '#39'РѕРєСЂС‹С‚Р°СЏ'#39
+      '      WHEN 1 THEN '#39'РІ СЂР°Р±РѕС‚Рµ'#39
+      '      WHEN 2 THEN '#39'Р·Р°РєСЂС‹С‚Р°СЏ'#39
+      '      WHEN 3 THEN '#39'РІ СЂР°Р±РѕС‚Рµ'#39
+      '      WHEN 4 THEN '#39'РѕС‚РјРµРЅРµРЅР°'#39
+      '      WHEN 5 THEN '#39'СѓС‚РІРµСЂР¶РґРµРЅР°'#39
       '      ELSE '#39'?'#39
       '    end as Status_Name,'
       
@@ -7354,7 +7354,7 @@ object DocNaklForm: TDocNaklForm
         Left = 12345
       end
       object cxGridViewRepository1DBTableView1DOCNUMBER: TcxGridDBColumn
-        Caption = '№ заявки'
+        Caption = 'в„– Р·Р°СЏРІРєРё'
         DataBinding.FieldName = 'DOCNUMBER'
         HeaderAlignmentHorz = taCenter
         MinWidth = 0
@@ -7363,14 +7363,14 @@ object DocNaklForm: TDocNaklForm
         Left = 12345
       end
       object cxGridViewRepository1DBTableView1DOCDATE: TcxGridDBColumn
-        Caption = 'Дата'
+        Caption = 'Р”Р°С‚Р°'
         DataBinding.FieldName = 'DOCDATE'
         Visible = False
         HeaderAlignmentHorz = taCenter
         Left = 12345
       end
       object cxGridViewRepository1DBTableView1GOROD_FROM: TcxGridDBColumn
-        Caption = 'Пункт отправления'
+        Caption = 'РџСѓРЅРєС‚ РѕС‚РїСЂР°РІР»РµРЅРёСЏ'
         DataBinding.FieldName = 'GOROD_FROM'
         Visible = False
         HeaderAlignmentHorz = taCenter
@@ -7378,7 +7378,7 @@ object DocNaklForm: TDocNaklForm
         Left = 12345
       end
       object cxGridViewRepository1DBTableView1GOROD_TO: TcxGridDBColumn
-        Caption = 'Пункт назначения'
+        Caption = 'РџСѓРЅРєС‚ РЅР°Р·РЅР°С‡РµРЅРёСЏ'
         DataBinding.FieldName = 'GOROD_TO'
         Visible = False
         HeaderAlignmentHorz = taCenter
@@ -7386,7 +7386,7 @@ object DocNaklForm: TDocNaklForm
         Left = 12345
       end
       object cxGridViewRepository1DBTableView1GOROD_TRANSIT: TcxGridDBColumn
-        Caption = 'Транзит'
+        Caption = 'РўСЂР°РЅР·РёС‚'
         DataBinding.FieldName = 'GOROD_TRANSIT'
         Visible = False
         HeaderAlignmentHorz = taCenter
@@ -7394,35 +7394,35 @@ object DocNaklForm: TDocNaklForm
         Left = 12345
       end
       object cxGridViewRepository1DBTableView1TOWN_FROM: TcxGridDBColumn
-        Caption = 'Пункт отправления'
+        Caption = 'РџСѓРЅРєС‚ РѕС‚РїСЂР°РІР»РµРЅРёСЏ'
         DataBinding.FieldName = 'TOWN_FROM'
         HeaderAlignmentHorz = taCenter
         Width = 106
         Left = 12345
       end
       object cxGridViewRepository1DBTableView1TOWN_TO: TcxGridDBColumn
-        Caption = 'Пункт назначения'
+        Caption = 'РџСѓРЅРєС‚ РЅР°Р·РЅР°С‡РµРЅРёСЏ'
         DataBinding.FieldName = 'TOWN_TO'
         HeaderAlignmentHorz = taCenter
         Width = 100
         Left = 12345
       end
       object cxGridViewRepository1DBTableView1TOWN_TRANSIT: TcxGridDBColumn
-        Caption = 'Транзит'
+        Caption = 'РўСЂР°РЅР·РёС‚'
         DataBinding.FieldName = 'TOWN_TRANSIT'
         HeaderAlignmentHorz = taCenter
         Width = 100
         Left = 12345
       end
       object cxGridViewRepository1DBTableView1START_DATE: TcxGridDBColumn
-        Caption = 'Дата загрузки'
+        Caption = 'Р”Р°С‚Р° Р·Р°РіСЂСѓР·РєРё'
         DataBinding.FieldName = 'START_DATE'
         HeaderAlignmentHorz = taCenter
         Width = 65
         Left = 12345
       end
       object cxGridViewRepository1DBTableView1END_DATE: TcxGridDBColumn
-        Caption = 'Дата разгрузки'
+        Caption = 'Р”Р°С‚Р° СЂР°Р·РіСЂСѓР·РєРё'
         DataBinding.FieldName = 'END_DATE'
         HeaderAlignmentHorz = taCenter
         Width = 65
@@ -7435,7 +7435,7 @@ object DocNaklForm: TDocNaklForm
         Left = 12345
       end
       object cxGridViewRepository1DBTableView1TYP_NAME: TcxGridDBColumn
-        Caption = 'Тип ТС'
+        Caption = 'РўРёРї РўРЎ'
         DataBinding.FieldName = 'TYP_NAME'
         HeaderAlignmentHorz = taCenter
         Width = 60
@@ -7448,7 +7448,7 @@ object DocNaklForm: TDocNaklForm
         Left = 12345
       end
       object cxGridViewRepository1DBTableView1TONNAGE_VALUE: TcxGridDBColumn
-        Caption = 'Тоннаж'
+        Caption = 'РўРѕРЅРЅР°Р¶'
         DataBinding.FieldName = 'TONNAGE_VALUE'
         HeaderAlignmentHorz = taCenter
         Width = 50
@@ -7461,14 +7461,14 @@ object DocNaklForm: TDocNaklForm
         Left = 12345
       end
       object cxGridViewRepository1DBTableView1SCANDOC: TcxGridDBColumn
-        Caption = 'Документ'
+        Caption = 'Р”РѕРєСѓРјРµРЅС‚'
         DataBinding.FieldName = 'SCANDOC'
         Visible = False
         HeaderAlignmentHorz = taCenter
         Left = 12345
       end
       object cxGridViewRepository1DBTableView1STATUS_NAME: TcxGridDBColumn
-        Caption = 'Статус'
+        Caption = 'РЎС‚Р°С‚СѓСЃ'
         DataBinding.FieldName = 'STATUS_NAME'
         Visible = False
         HeaderAlignmentHorz = taCenter
@@ -7481,49 +7481,49 @@ object DocNaklForm: TDocNaklForm
         Left = 12345
       end
       object cxGridViewRepository1DBTableView1DK_CARRIER: TcxGridDBColumn
-        Caption = 'Перевозчик'
+        Caption = 'РџРµСЂРµРІРѕР·С‡РёРє'
         DataBinding.FieldName = 'DK_CARRIER_NAME'
         HeaderAlignmentHorz = taCenter
         Width = 80
         Left = 12345
       end
       object cxGridViewRepository1DBTableView1DRIVER_NAME: TcxGridDBColumn
-        Caption = 'Водитель'
+        Caption = 'Р’РѕРґРёС‚РµР»СЊ'
         DataBinding.FieldName = 'DRIVER_NAME'
         HeaderAlignmentHorz = taCenter
         Width = 100
         Left = 12345
       end
       object cxGridViewRepository1DBTableView1DRIVER_PASSPORT: TcxGridDBColumn
-        Caption = 'Паспорт водителя'
+        Caption = 'РџР°СЃРїРѕСЂС‚ РІРѕРґРёС‚РµР»СЏ'
         DataBinding.FieldName = 'DRIVER_PASSPORT'
         HeaderAlignmentHorz = taCenter
         Width = 80
         Left = 12345
       end
       object cxGridViewRepository1DBTableView1CAR_SNUM: TcxGridDBColumn
-        Caption = 'Номер авто'
+        Caption = 'РќРѕРјРµСЂ Р°РІС‚Рѕ'
         DataBinding.FieldName = 'CAR_SNUM'
         HeaderAlignmentHorz = taCenter
         Width = 63
         Left = 12345
       end
       object cxGridViewRepository1DBTableView1CAR_TRAILER: TcxGridDBColumn
-        Caption = 'Прицеп'
+        Caption = 'РџСЂРёС†РµРї'
         DataBinding.FieldName = 'CAR_TRAILER'
         HeaderAlignmentHorz = taCenter
         Width = 73
         Left = 12345
       end
       object cxGridViewRepository1DBTableView1CAR_TRAILER2: TcxGridDBColumn
-        Caption = 'Прицеп2'
+        Caption = 'РџСЂРёС†РµРї2'
         DataBinding.FieldName = 'CAR_TRAILER2'
         HeaderAlignmentHorz = taCenter
         Width = 66
         Left = 12345
       end
       object cxGridViewRepository1DBTableView1DRIVER_PHONE: TcxGridDBColumn
-        Caption = 'тел. водителя'
+        Caption = 'С‚РµР». РІРѕРґРёС‚РµР»СЏ'
         DataBinding.FieldName = 'DRIVER_PHONE'
         HeaderAlignmentHorz = taCenter
         Width = 78
@@ -7565,11 +7565,11 @@ object DocNaklForm: TDocNaklForm
     Left = 608
     Top = 92
     object MenuItem5: TMenuItem
-      Caption = 'Создать наряд'
+      Caption = 'РЎРѕР·РґР°С‚СЊ РЅР°СЂСЏРґ'
       Left = 12345
       object N59: TMenuItem
         Action = actInsNar
-        Hint = 'Может быть неактивным если это тарнзитная накладная'
+        Hint = 'РњРѕР¶РµС‚ Р±С‹С‚СЊ РЅРµР°РєС‚РёРІРЅС‹Рј РµСЃР»Рё СЌС‚Рѕ С‚Р°СЂРЅР·РёС‚РЅР°СЏ РЅР°РєР»Р°РґРЅР°СЏ'
         Left = 12345
       end
       object N60: TMenuItem
@@ -7708,7 +7708,7 @@ object DocNaklForm: TDocNaklForm
     Top = 420
     object N99: TMenuItem
       Action = actCheckBaseNakl
-      Caption = 'Отметить как базовую(Хортица)'
+      Caption = 'РћС‚РјРµС‚РёС‚СЊ РєР°Рє Р±Р°Р·РѕРІСѓСЋ(РҐРѕСЂС‚РёС†Р°)'
       Left = 12345
     end
     object N100: TMenuItem
@@ -7720,19 +7720,19 @@ object DocNaklForm: TDocNaklForm
       Left = 12345
     end
     object actCheckBaseNaklFeodosia: TMenuItem
-      Caption = 'Отметить как базовую (Феодосия)'
+      Caption = 'РћС‚РјРµС‚РёС‚СЊ РєР°Рє Р±Р°Р·РѕРІСѓСЋ (Р¤РµРѕРґРѕСЃРёСЏ)'
       Visible = False
       OnClick = actCheckBaseNaklFeodosiaClick
       Left = 12345
     end
     object actCheckBaseNaklOKZ: TMenuItem
-      Caption = 'Отметить как базовую (ОКЗ)'
+      Caption = 'РћС‚РјРµС‚РёС‚СЊ РєР°Рє Р±Р°Р·РѕРІСѓСЋ (РћРљР—)'
       Visible = False
       OnClick = actCheckBaseNaklOKZClick
       Left = 12345
     end
     object actCheckBaseNaklTOP14: TMenuItem
-      Caption = 'Отметить как базовую (ТОП14)'
+      Caption = 'РћС‚РјРµС‚РёС‚СЊ РєР°Рє Р±Р°Р·РѕРІСѓСЋ (РўРћРџ14)'
       OnClick = actCheckBaseNaklTOP14Click
       Left = 12345
     end
@@ -7741,45 +7741,45 @@ object DocNaklForm: TDocNaklForm
       Left = 12345
     end
     object actUnCheckBaseNakl_Khortitsa: TMenuItem
-      Caption = 'Снять отметку базовой накладной(Хортица)'
+      Caption = 'РЎРЅСЏС‚СЊ РѕС‚РјРµС‚РєСѓ Р±Р°Р·РѕРІРѕР№ РЅР°РєР»Р°РґРЅРѕР№(РҐРѕСЂС‚РёС†Р°)'
       Hint = 
-        'Снимает признак базовой по данному клиенту. Гланвое чтобы клиент' +
-        ' в накаладной совпадал с нужным.'
+        'РЎРЅРёРјР°РµС‚ РїСЂРёР·РЅР°Рє Р±Р°Р·РѕРІРѕР№ РїРѕ РґР°РЅРЅРѕРјСѓ РєР»РёРµРЅС‚Сѓ. Р“Р»Р°РЅРІРѕРµ С‡С‚РѕР±С‹ РєР»РёРµРЅС‚' +
+        ' РІ РЅР°РєР°Р»Р°РґРЅРѕР№ СЃРѕРІРїР°РґР°Р» СЃ РЅСѓР¶РЅС‹Рј.'
       Visible = False
       OnClick = actUnCheckBaseNakl_KhortitsaClick
       Left = 12345
     end
     object actUnCheckBaseNakl_Med: TMenuItem
-      Caption = 'Снять отметку базовой накладной(Медовуха)'
+      Caption = 'РЎРЅСЏС‚СЊ РѕС‚РјРµС‚РєСѓ Р±Р°Р·РѕРІРѕР№ РЅР°РєР»Р°РґРЅРѕР№(РњРµРґРѕРІСѓС…Р°)'
       Visible = False
       OnClick = actUnCheckBaseNakl_MedClick
       Left = 12345
     end
     object actUnCheckBaseNakl_Blg: TMenuItem
-      Caption = 'Снять отметку базовой накладной(Благофф)'
+      Caption = 'РЎРЅСЏС‚СЊ РѕС‚РјРµС‚РєСѓ Р±Р°Р·РѕРІРѕР№ РЅР°РєР»Р°РґРЅРѕР№(Р‘Р»Р°РіРѕС„С„)'
       Visible = False
       OnClick = actUnCheckBaseNakl_BlgClick
       Left = 12345
     end
     object actUnCheckBaseNakl_Feod: TMenuItem
-      Caption = 'Снять отметку базовой накладной(Феодосия)'
+      Caption = 'РЎРЅСЏС‚СЊ РѕС‚РјРµС‚РєСѓ Р±Р°Р·РѕРІРѕР№ РЅР°РєР»Р°РґРЅРѕР№(Р¤РµРѕРґРѕСЃРёСЏ)'
       Visible = False
       OnClick = actUnCheckBaseNakl_FeodClick
       Left = 12345
     end
     object actUnCheckBaseNakl_OKZ: TMenuItem
-      Caption = 'Снять отметку базовой накладной(ОКЗ)'
+      Caption = 'РЎРЅСЏС‚СЊ РѕС‚РјРµС‚РєСѓ Р±Р°Р·РѕРІРѕР№ РЅР°РєР»Р°РґРЅРѕР№(РћРљР—)'
       Visible = False
       OnClick = actUnCheckBaseNakl_OKZClick
       Left = 12345
     end
     object actUnCheckBaseNakl_TOP14: TMenuItem
-      Caption = 'Снять отметку базовой накладной(ТОП14)'
+      Caption = 'РЎРЅСЏС‚СЊ РѕС‚РјРµС‚РєСѓ Р±Р°Р·РѕРІРѕР№ РЅР°РєР»Р°РґРЅРѕР№(РўРћРџ14)'
       OnClick = actUnCheckBaseNakl_TOP14Click
       Left = 12345
     end
     object actUnCheckBaseNakl_all: TMenuItem
-      Caption = 'Снять отметку базовой накладной(ВСЕ АКЦИИ)'
+      Caption = 'РЎРЅСЏС‚СЊ РѕС‚РјРµС‚РєСѓ Р±Р°Р·РѕРІРѕР№ РЅР°РєР»Р°РґРЅРѕР№(Р’РЎР• РђРљР¦РР)'
       OnClick = actUnCheckBaseNakl_allClick
       Left = 12345
     end
