@@ -1,7 +1,7 @@
 // ------------------------------------
 // project : Megapolis Money
 // --
-// module  : план товарно-транспортных накладных
+// module  : РїР»Р°РЅ С‚РѕРІР°СЂРЅРѕ-С‚СЂР°РЅСЃРїРѕСЂС‚РЅС‹С… РЅР°РєР»Р°РґРЅС‹С…
 // author  : Dmitry Lutsenko (lutsenko_d@yahoo.com)
 // --
 // created       :
@@ -872,17 +872,17 @@ uses
   wsDocumentEDIOrdRsp, wsDocumentEDIDesAdv, wsDocumentEDIInvoice, uDocumentEDI, Main, ufmTTNPlanCars,
   ufmMSelectCheckList,ufmSelectDir,ufmTTNRoadCheck,uDlgEnterPeriod, RinkaiPlan2, fbMegaUtils, SimpleXML, FileCtrl,
   XSBuiltIns,SendMail_TLB,ActiveX,ComServ,uMegaSendMail,
-     {[gsa]03-06-2019 комментар в БП стал обезательным } UnitBDComment
+     {[gsa]03-06-2019 РєРѕРјРјРµРЅС‚Р°СЂ РІ Р‘Рџ СЃС‚Р°Р» РѕР±РµР·Р°С‚РµР»СЊРЅС‹Рј } UnitBDComment
      , ufmSendMail,
   PrintNakl2, Printers, frxPrinter, uPrintInternalDocHelper; // add new nirs 31_03_2026 print nakl in rout
 
 {$R *.DFM}
 
 const
- TTN_not_Exists = 'ТТН не создана';
- TTN_Exists = 'ТТН создана';
- c_IS_TEMP_MARSH_Caption = 'Временный мар-т';
- cnstZvirka = 'Звірка';
+ TTN_not_Exists = 'РўРўРќ РЅРµ СЃРѕР·РґР°РЅР°';
+ TTN_Exists = 'РўРўРќ СЃРѕР·РґР°РЅР°';
+ c_IS_TEMP_MARSH_Caption = 'Р’СЂРµРјРµРЅРЅС‹Р№ РјР°СЂ-С‚';
+ cnstZvirka = 'Р—РІС–СЂРєР°';
 
 constructor TRoute.Create(aID,aCFO, aDocDate, aCarID, aCarDriver, aStart, aFinish,aExpeditorID,aLengthPath,aMassaAuto,aCost,
  aPorNumber, aDocRecKey, aStartPoint, aUnloadPoint, aFinishPoint, aDistance, aTTType:string);
@@ -960,14 +960,14 @@ begin
    end;
 // END add new nirs 25_11_2024
 
-   //Доверенность или ЛПР
+   //Р”РѕРІРµСЂРµРЅРЅРѕСЃС‚СЊ РёР»Рё Р›РџР 
    if IntfMegaDBCommon.GetCountry=iccRussia then
    begin
     gridNaklDBBandedTableView1LPR.Visible:=false;
    end;
 
 
-{---Антор}
+{---РђРЅС‚РѕСЂ}
       AntorEnable:=0;
       if(IntfMegaDBCommon.GetParam('ANTOR', '0')='1') then
       begin
@@ -996,7 +996,7 @@ begin
         Antor.ConnectionString:= connectString;
         MainForm.InfoPanel.Visible:=true;
         MainForm.spInfo.Visible:=true;
-        MainForm.reInfo.Lines.Add('База Антор ' +ReplaceStr(connectString,'tripusss','passw',false,true));
+        MainForm.reInfo.Lines.Add('Р‘Р°Р·Р° РђРЅС‚РѕСЂ ' +ReplaceStr(connectString,'tripusss','passw',false,true));
         if (IntfMegaDBCommon.GetParam('ANTOR_ONLY', '0')='1') then
          begin
            actNaklAdd.Enabled:= false;
@@ -1029,7 +1029,7 @@ begin
     MegaDSTTNPlanPositions.ParamByName('PosInSortLot').asString:='(select count(*) from SORT_LOT_POSITIONS slp WHERE  slp.nakl_recid=tpp.tn_recid and slp.nakl_baseid=tpp.tn_baseid) ';
 
 
-  if MegaSelTradeDelegate.Value = '' then Exit; //Если не выбрано представительство
+  if MegaSelTradeDelegate.Value = '' then Exit; //Р•СЃР»Рё РЅРµ РІС‹Р±СЂР°РЅРѕ РїСЂРµРґСЃС‚Р°РІРёС‚РµР»СЊСЃС‚РІРѕ
 
   if Owner <> nil then
     actRefreshData.Execute;
@@ -1038,8 +1038,8 @@ begin
   fdsDKFROMNasP.open;
   dtMoveTempMarshDate.Date := Date;
 
-  // -- перепризначення btnPrintTTN: друк накладних по маршруту --
-  // -- закоментувати рядок нижче для відновлення старої логіки   --
+  // -- РїРµСЂРµРїСЂРёР·РЅР°С‡РµРЅРЅСЏ btnPrintTTN: РґСЂСѓРє РЅР°РєР»Р°РґРЅРёС… РїРѕ РјР°СЂС€СЂСѓС‚Сѓ --
+  // -- Р·Р°РєРѕРјРµРЅС‚СѓРІР°С‚Рё СЂСЏРґРѕРє РЅРёР¶С‡Рµ РґР»СЏ РІС–РґРЅРѕРІР»РµРЅРЅСЏ СЃС‚Р°СЂРѕС— Р»РѕРіС–РєРё   --
   SetupPrintNaklInRout; // add new nirs 31_03_2026
 
 end;
@@ -1119,7 +1119,7 @@ begin
 end;
 
 procedure TfmTTNPlan.pcTTNPlanChange(Sender: TObject);
-begin //Изменение просматриваемых маршрутов
+begin //РР·РјРµРЅРµРЅРёРµ РїСЂРѕСЃРјР°С‚СЂРёРІР°РµРјС‹С… РјР°СЂС€СЂСѓС‚РѕРІ
   if (MegaDSTTNPlan.State = dsInsert)
   or (MegaDSTTNPlan.State = dsEdit)
   then
@@ -1127,23 +1127,23 @@ begin //Изменение просматриваемых маршрутов
     try
      MegaDSTTNPlan.Post;
     except
-    on e: Exception do //[gsa]10062019 добавил для блокировки
+    on e: Exception do //[gsa]10062019 РґРѕР±Р°РІРёР» РґР»СЏ Р±Р»РѕРєРёСЂРѕРІРєРё
       if e.Message <> '' then
       begin
-        MessageDlg('Внимание!'+#13+#10+'<' + e.Message + '>''', mtWarning, [mbOK], 0);
+        MessageDlg('Р’РЅРёРјР°РЅРёРµ!'+#13+#10+'<' + e.Message + '>''', mtWarning, [mbOK], 0);
         MegaDSTTNPlan.Cancel;
       end;
     end;
    end;
 
-  if Assigned(pcTTNPlan.ActivePage) then  //Если есть открытая страница маршрутов
+  if Assigned(pcTTNPlan.ActivePage) then  //Р•СЃР»Рё РµСЃС‚СЊ РѕС‚РєСЂС‹С‚Р°СЏ СЃС‚СЂР°РЅРёС†Р° РјР°СЂС€СЂСѓС‚РѕРІ
   begin
-      if MegaDSTTNPlan.Active then  //Если таблица Маршрутов открыта
-      begin //Выбрать в таблице Маршрутов соответствующую закладке запись
+      if MegaDSTTNPlan.Active then  //Р•СЃР»Рё С‚Р°Р±Р»РёС†Р° РњР°СЂС€СЂСѓС‚РѕРІ РѕС‚РєСЂС‹С‚Р°
+      begin //Р’С‹Р±СЂР°С‚СЊ РІ С‚Р°Р±Р»РёС†Рµ РњР°СЂС€СЂСѓС‚РѕРІ СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓСЋС‰СѓСЋ Р·Р°РєР»Р°РґРєРµ Р·Р°РїРёСЃСЊ
         fNotChangeNUM:=true;
         MegaDSTTNPlan.Locate('PLANNUMBER', pcTTNPlan.ActivePage.Tag, []);
         fNotChangeNUM:=false;
-      end;//соответственно обновится таблица ПОЗИЦИЙ ТТН
+      end;//СЃРѕРѕС‚РІРµС‚СЃС‚РІРµРЅРЅРѕ РѕР±РЅРѕРІРёС‚СЃСЏ С‚Р°Р±Р»РёС†Р° РџРћР—РР¦РР™ РўРўРќ
     actPlanRefresh.Execute;
 //    listTonnag;
     if (MegaDSTTNPlanPositions.WeightTonn<>0) and (MegaDSTTNPlan.TotalTonnage<>0) then
@@ -1158,13 +1158,13 @@ end;
 
 procedure TfmTTNPlan.actPlanAddExecute(Sender: TObject);
 begin
-  if (MegaDSTTNPlan.State = dsInsert)      //Добавление нового маршрута
+  if (MegaDSTTNPlan.State = dsInsert)      //Р”РѕР±Р°РІР»РµРЅРёРµ РЅРѕРІРѕРіРѕ РјР°СЂС€СЂСѓС‚Р°
   or (MegaDSTTNPlan.State = dsEdit)
   then MegaDSTTNPlan.Post;
-  //Проверка на то какая база обновлённая или нет
+  //РџСЂРѕРІРµСЂРєР° РЅР° С‚Рѕ РєР°РєР°СЏ Р±Р°Р·Р° РѕР±РЅРѕРІР»С‘РЅРЅР°СЏ РёР»Рё РЅРµС‚
    if (is_newcrm = true) then
    begin
-   //Проверка на наличие записей на указанную дату
+   //РџСЂРѕРІРµСЂРєР° РЅР° РЅР°Р»РёС‡РёРµ Р·Р°РїРёСЃРµР№ РЅР° СѓРєР°Р·Р°РЅРЅСѓСЋ РґР°С‚Сѓ
   qPlan_Count.close;
   qPlan_Count.SQL.Text:='SELECT * FROM ttn_plan'#13#10 +
   'WHERE Plandate='+QuotedStr(DateToStr(MegaDatePanel.Date))+
@@ -1173,10 +1173,10 @@ begin
   qPlan_Count.ExecQuery;
   if (qPlan_Count.RecordCount>0) then
   begin
-    ShowMessage('Маршруты уже созданы');
+    ShowMessage('РњР°СЂС€СЂСѓС‚С‹ СѓР¶Рµ СЃРѕР·РґР°РЅС‹');
     Exit;
  end
- else if (qPlan_Count.RecordCount=0) then //Если на указанную дату маршруты не созданы
+ else if (qPlan_Count.RecordCount=0) then //Р•СЃР»Рё РЅР° СѓРєР°Р·Р°РЅРЅСѓСЋ РґР°С‚Сѓ РјР°СЂС€СЂСѓС‚С‹ РЅРµ СЃРѕР·РґР°РЅС‹
  begin
       MegaDSTTNPlanPositions.Close;
       qPlan_Count.Close;
@@ -1188,7 +1188,7 @@ begin
       begin
            MegaDSTTNPlanPositions.Close;
            MegaDSTTNPlan.Add;
-           //Произвести редактирование записи тоесть поставить значения из ttn_marshruts
+           //РџСЂРѕРёР·РІРµСЃС‚Рё СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ Р·Р°РїРёСЃРё С‚РѕРµСЃС‚СЊ РїРѕСЃС‚Р°РІРёС‚СЊ Р·РЅР°С‡РµРЅРёСЏ РёР· ttn_marshruts
            //MegaDSTTNPlanPositions.Open;
            MegaDSTTNPlan.Edit;
            MegaDSTTNPlan.FieldByName('IS_HORECA').asInteger:=qPlan_Count.FieldByName('IS_HORECA').asInteger;
@@ -1204,7 +1204,7 @@ begin
  end;
  Exit;
  end
- else //Если используется не обновлённая версия (is_newcrm = false)
+ else //Р•СЃР»Рё РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РЅРµ РѕР±РЅРѕРІР»С‘РЅРЅР°СЏ РІРµСЂСЃРёСЏ (is_newcrm = false)
   begin
     MegaDSTTNPlanPositions.Close;
     MegaDSTTNPlan.Add;
@@ -1220,9 +1220,9 @@ procedure TfmTTNPlan.InitNewTabSheet;
 var
   dxSheet: TcxTabSheet;
 begin
-  dxSheet:= TcxTabSheet.Create(Self);       //Организация на понели Закладок Маршрутов
+  dxSheet:= TcxTabSheet.Create(Self);       //РћСЂРіР°РЅРёР·Р°С†РёСЏ РЅР° РїРѕРЅРµР»Рё Р—Р°РєР»Р°РґРѕРє РњР°СЂС€СЂСѓС‚РѕРІ
   dxSheet.Tag:= MegaDSTTNPlanPLANNUMBER.AsInteger;
-  dxSheet.Caption:= 'Маршрут '+MegaDSTTNPlanPLANNUMBER.AsString;
+  dxSheet.Caption:= 'РњР°СЂС€СЂСѓС‚ '+MegaDSTTNPlanPLANNUMBER.AsString;
   if MegaDSTTNPlanIS_HORECA.Value=1 then dxSheet.Highlighted:=true;
   dxSheet.PageControl:= pcTTNPlan;
 end;
@@ -1252,7 +1252,7 @@ var
   lOldRecID: integer;
   lOldBaseID, i: integer;
   strlist : TStringList;
-begin  //Обновление таблицы  ТТН
+begin  //РћР±РЅРѕРІР»РµРЅРёРµ С‚Р°Р±Р»РёС†С‹  РўРўРќ
   fdsNaklList.disablecontrols;
   try
     if fdsNaklList.Active then
@@ -1270,7 +1270,7 @@ begin  //Обновление таблицы  ТТН
     if MegaSelTradeDelegate.Value = '' then
     begin
       MegaSelTradeDelegate.ComboBox.SetFocus;
-      raise Exception.Create('Выберите регион!');
+      raise Exception.Create('Р’С‹Р±РµСЂРёС‚Рµ СЂРµРіРёРѕРЅ!');
     end;
     fdsNaklList.ParamByName('BASEID').AsInteger:= StrToInt(MegaSelTradeDelegate.Value);
 
@@ -1295,7 +1295,7 @@ begin
  //  actNaklAddExecute_2025(Sender);
 end;
 
-// варіант тільки по одному вибраному
+// РІР°СЂС–Р°РЅС‚ С‚С–Р»СЊРєРё РїРѕ РѕРґРЅРѕРјСѓ РІРёР±СЂР°РЅРѕРјСѓ
 procedure TfmTTNPlan.actNaklAddExecute_prev(Sender: TObject);
 var
   lbm: TBookMarkStr;
@@ -1306,15 +1306,15 @@ begin
 
   dtype := fdsNaklList.FieldByName('DOCTYPE').AsString;
 
-  if FiltActive<>0 then exit;    //Антор
+  if FiltActive<>0 then exit;    //РђРЅС‚РѕСЂ
   lbm:= fdsNaklList.Bookmark;
-  if fdsNaklList.EOF and fdsNaklList.BOF then //Проверка на наличие ТТН для добавления в
-    raise Exception.Create('Нет накладных для добавления'); //текущий маршрут
+  if fdsNaklList.EOF and fdsNaklList.BOF then //РџСЂРѕРІРµСЂРєР° РЅР° РЅР°Р»РёС‡РёРµ РўРўРќ РґР»СЏ РґРѕР±Р°РІР»РµРЅРёСЏ РІ
+    raise Exception.Create('РќРµС‚ РЅР°РєР»Р°РґРЅС‹С… РґР»СЏ РґРѕР±Р°РІР»РµРЅРёСЏ'); //С‚РµРєСѓС‰РёР№ РјР°СЂС€СЂСѓС‚
 
   if (fdsNaklList.FieldByName('IS_HORECA').asInteger<>1)
     and (fdsNaklList.FieldByName('CATEGORY').asInteger<>1)
     and (MegaDSTTNPlan.FieldByName('IS_HORECA').AsInteger = 1) then
-    raise Exception.Create('В маршрут хореки нельзя добавлять накладные не хорики');
+    raise Exception.Create('Р’ РјР°СЂС€СЂСѓС‚ С…РѕСЂРµРєРё РЅРµР»СЊР·СЏ РґРѕР±Р°РІР»СЏС‚СЊ РЅР°РєР»Р°РґРЅС‹Рµ РЅРµ С…РѕСЂРёРєРё');
 
   if dtype <> cnstZvirka then
   if fdsNaklListKOD_CELL.isNULL or (fdsNaklListKOD_CELL.AsString='') then
@@ -1326,19 +1326,19 @@ begin
     end;
     if aLG_CELL_CHECK_PLAN then
     begin
-      MessageDlg('Не задана логистическая сота по торговой точке.'#13#10+
-                 'Необходимо привязать торговую точку к логистической соте.',
+      MessageDlg('РќРµ Р·Р°РґР°РЅР° Р»РѕРіРёСЃС‚РёС‡РµСЃРєР°СЏ СЃРѕС‚Р° РїРѕ С‚РѕСЂРіРѕРІРѕР№ С‚РѕС‡РєРµ.'#13#10+
+                 'РќРµРѕР±С…РѕРґРёРјРѕ РїСЂРёРІСЏР·Р°С‚СЊ С‚РѕСЂРіРѕРІСѓСЋ С‚РѕС‡РєСѓ Рє Р»РѕРіРёСЃС‚РёС‡РµСЃРєРѕР№ СЃРѕС‚Рµ.',
                  mtInformation, [mbOk], 0);
       actLinkTTtoSotaNaklList.Execute;
     end
   end;
 
   if MegaDSTTNPlan.FieldByName('TTN_RECID').AsInteger <> 0 then //???
-   if MessageDlg('ТТН по маршруту уже создана.'+#13+#10+'Удалить данную ТТН и продолжить?', mtConfirmation, [mbYes,mbNo], 0) = mrYes then
+   if MessageDlg('РўРўРќ РїРѕ РјР°СЂС€СЂСѓС‚Сѓ СѓР¶Рµ СЃРѕР·РґР°РЅР°.'+#13+#10+'РЈРґР°Р»РёС‚СЊ РґР°РЅРЅСѓСЋ РўРўРќ Рё РїСЂРѕРґРѕР»Р¶РёС‚СЊ?', mtConfirmation, [mbYes,mbNo], 0) = mrYes then
    begin
      MegaDSTTNPlan.DeleteTTN(false);
 
-     if Assigned(pcTTNPlan.ActivePage) then //Проверка на наличие активного МАРШРУТА
+     if Assigned(pcTTNPlan.ActivePage) then //РџСЂРѕРІРµСЂРєР° РЅР° РЅР°Р»РёС‡РёРµ Р°РєС‚РёРІРЅРѕРіРѕ РњРђР РЁР РЈРўРђ
      begin
        if not MegaDSTTNPlanPositions.Active then
          MegaDSTTNPlanPositions.Open;
@@ -1347,7 +1347,7 @@ begin
        PARENT_RECID:= fdsNaklListRECID.asInteger;
        PARENT_BASEID:= fdsNaklListBASEID.AsInteger;
        fdsNaklList.Delete;
-       // ищем подчиненные и запихиваем их тоже
+       // РёС‰РµРј РїРѕРґС‡РёРЅРµРЅРЅС‹Рµ Рё Р·Р°РїРёС…РёРІР°РµРј РёС… С‚РѕР¶Рµ
        while fdsNaklList.Locate('PARENT_RECID;PARENT_BASEID', VarArrayOf([PARENT_RECID, PARENT_BASEID]), []) do
        begin
          MegaDSTTNPlanPositions.Add_2(fdsNaklListRECID.asInteger, fdsNaklListBASEID.AsInteger, dtype);
@@ -1355,7 +1355,7 @@ begin
        end;
      end
      else
-     Raise Exception.Create('Создайте маршрут');
+     Raise Exception.Create('РЎРѕР·РґР°Р№С‚Рµ РјР°СЂС€СЂСѓС‚');
    end
    else
    begin
@@ -1371,7 +1371,7 @@ begin
       PARENT_RECID:= fdsNaklListRECID.asInteger;
       PARENT_BASEID:= fdsNaklListBASEID.AsInteger;
       fdsNaklList.Delete;
-      // ищем подчиненные и запихиваем их тоже
+      // РёС‰РµРј РїРѕРґС‡РёРЅРµРЅРЅС‹Рµ Рё Р·Р°РїРёС…РёРІР°РµРј РёС… С‚РѕР¶Рµ
       while fdsNaklList.Locate('PARENT_RECID;PARENT_BASEID', VarArrayOf([PARENT_RECID, PARENT_BASEID]), []) do
       begin
          MegaDSTTNPlanPositions.Add_2(fdsNaklListRECID.asInteger, fdsNaklListBASEID.AsInteger, dtype);
@@ -1379,21 +1379,21 @@ begin
       end;
     end
     else
-    Raise Exception.Create('Создайте маршрут');
+    Raise Exception.Create('РЎРѕР·РґР°Р№С‚Рµ РјР°СЂС€СЂСѓС‚');
 
     //fdsNaklList.Delete;
     actPlanRefresh.Execute;
 
-    fdsNaklList.Next;//Перейти на следующую неразмещённую ТТН
+    fdsNaklList.Next;//РџРµСЂРµР№С‚Рё РЅР° СЃР»РµРґСѓСЋС‰СѓСЋ РЅРµСЂР°Р·РјРµС‰С‘РЅРЅСѓСЋ РўРўРќ
   end;
-   //if fdsNaklList.EOF and fdsNaklList.BOF then //Проверка на наличие накладных
-   //raise Exception.Create('Нет накладных для добавления');
-   //if MegaDSTTNPlan.EOF and MegaDSTTNPlan.BOF then //Проверка на наличие маршрутов
-   //raise Exception.Create('Нет маршрутов на текущую дату.');
+   //if fdsNaklList.EOF and fdsNaklList.BOF then //РџСЂРѕРІРµСЂРєР° РЅР° РЅР°Р»РёС‡РёРµ РЅР°РєР»Р°РґРЅС‹С…
+   //raise Exception.Create('РќРµС‚ РЅР°РєР»Р°РґРЅС‹С… РґР»СЏ РґРѕР±Р°РІР»РµРЅРёСЏ');
+   //if MegaDSTTNPlan.EOF and MegaDSTTNPlan.BOF then //РџСЂРѕРІРµСЂРєР° РЅР° РЅР°Р»РёС‡РёРµ РјР°СЂС€СЂСѓС‚РѕРІ
+   //raise Exception.Create('РќРµС‚ РјР°СЂС€СЂСѓС‚РѕРІ РЅР° С‚РµРєСѓС‰СѓСЋ РґР°С‚Сѓ.');
         //fdsNaklList.DisableControls;
         //fdsNaklList.First;
-        //while not fdsNaklList.Eof do  //Цикл который проходится по всем накладным
-        //begin                       //организованным на текущую дату
+        //while not fdsNaklList.Eof do  //Р¦РёРєР» РєРѕС‚РѕСЂС‹Р№ РїСЂРѕС…РѕРґРёС‚СЃСЏ РїРѕ РІСЃРµРј РЅР°РєР»Р°РґРЅС‹Рј
+        //begin                       //РѕСЂРіР°РЅРёР·РѕРІР°РЅРЅС‹Рј РЅР° С‚РµРєСѓС‰СѓСЋ РґР°С‚Сѓ
              //MegaDSTTNPlan.Locate('PLANNUMBER', fdsNaklListN_TTN_MARSHRUT.Value, []);
              //if fdsNaklListN_TTN_MARSHRUT.Value=MegaDSTTNPlanPLANNUMBER.Value then
                //MegaDSTTNPlanPositions.Add(fdsNaklListRECID.asInteger, fdsNaklListBASEID.AsInteger);
@@ -1407,7 +1407,7 @@ begin
  end;
 
 
-// варіант з можливістю вибрати декілька SelectedRows "Звірка" і додати усі виділені
+// РІР°СЂС–Р°РЅС‚ Р· РјРѕР¶Р»РёРІС–СЃС‚СЋ РІРёР±СЂР°С‚Рё РґРµРєС–Р»СЊРєР° SelectedRows "Р—РІС–СЂРєР°" С– РґРѕРґР°С‚Рё СѓСЃС– РІРёРґС–Р»РµРЅС–
 procedure TfmTTNPlan.actNaklAddExecute_2025(Sender: TObject);
 var
   lbm, lbm2: TBookMarkStr;
@@ -1421,21 +1421,21 @@ begin
   end;
 
   if gridNaklDBBandedTableView1.Controller.SelectedRowCount > 1 then
-     if MessageDlg('Підтвердіть будь ласка: перенесення усіх виділених позицій типу "Звірка"? ', mtConfirmation, [mbYes,mbNo], 0) = mrNo then Exit;
+     if MessageDlg('РџС–РґС‚РІРµСЂРґС–С‚СЊ Р±СѓРґСЊ Р»Р°СЃРєР°: РїРµСЂРµРЅРµСЃРµРЅРЅСЏ СѓСЃС–С… РІРёРґС–Р»РµРЅРёС… РїРѕР·РёС†С–Р№ С‚РёРїСѓ "Р—РІС–СЂРєР°"? ', mtConfirmation, [mbYes,mbNo], 0) = mrNo then Exit;
 
-  if FiltActive<>0 then exit;    //Антор
+  if FiltActive<>0 then exit;    //РђРЅС‚РѕСЂ
   lbm:= fdsNaklList.Bookmark;
-  if fdsNaklList.EOF and fdsNaklList.BOF then //Проверка на наличие ТТН для добавления в
-    raise Exception.Create('Нет накладных для добавления'); //текущий маршрут
+  if fdsNaklList.EOF and fdsNaklList.BOF then //РџСЂРѕРІРµСЂРєР° РЅР° РЅР°Р»РёС‡РёРµ РўРўРќ РґР»СЏ РґРѕР±Р°РІР»РµРЅРёСЏ РІ
+    raise Exception.Create('РќРµС‚ РЅР°РєР»Р°РґРЅС‹С… РґР»СЏ РґРѕР±Р°РІР»РµРЅРёСЏ'); //С‚РµРєСѓС‰РёР№ РјР°СЂС€СЂСѓС‚
 
   for i:= 0 to gridNaklDBBandedTableView1.Controller.SelectedRowCount - 1 do begin
     NklRecID := gridNaklDBBandedTableView1.Controller.SelectedRows[i].Values[gridNaklDBBandedTableView1RECID.Index];
     NklBaseID := gridNaklDBBandedTableView1.Controller.SelectedRows[i].Values[gridNaklDBBandedTableView1BASEID.Index];
     if not fdsNaklList.Locate('RECID;BASEID', VarArrayOf([NklRecID, NklBaseID]), []) then
-      raise Exception.Create('Помилка проходу по виділеним позиціям в накладних! Спробуйте переміщувати тільки по одній позиції!');
+      raise Exception.Create('РџРѕРјРёР»РєР° РїСЂРѕС…РѕРґСѓ РїРѕ РІРёРґС–Р»РµРЅРёРј РїРѕР·РёС†С–СЏРј РІ РЅР°РєР»Р°РґРЅРёС…! РЎРїСЂРѕР±СѓР№С‚Рµ РїРµСЂРµРјС–С‰СѓРІР°С‚Рё С‚С–Р»СЊРєРё РїРѕ РѕРґРЅС–Р№ РїРѕР·РёС†С–С—!');
     dtype := fdsNaklList.FieldByName('DOCTYPE').AsString;    
     if dtype <> cnstZvirka then 
-      if MessageDlg('Увага! Документ з типом: ' +dtype+#13+#10+' Перемістити його?', mtConfirmation, [mbYes,mbNo], 0) = mrNo then begin
+      if MessageDlg('РЈРІР°РіР°! Р”РѕРєСѓРјРµРЅС‚ Р· С‚РёРїРѕРј: ' +dtype+#13+#10+' РџРµСЂРµРјС–СЃС‚РёС‚Рё Р№РѕРіРѕ?', mtConfirmation, [mbYes,mbNo], 0) = mrNo then begin
         actPlanRefresh.Execute;
         fdsNaklList.Bookmark:= lbm;
         Exit;
@@ -1443,7 +1443,7 @@ begin
     if (fdsNaklList.FieldByName('IS_HORECA').asInteger<>1)
       and (fdsNaklList.FieldByName('CATEGORY').asInteger<>1)
       and (MegaDSTTNPlan.FieldByName('IS_HORECA').AsInteger = 1) then
-      raise Exception.Create('В маршрут хореки нельзя добавлять накладные не хорики');
+      raise Exception.Create('Р’ РјР°СЂС€СЂСѓС‚ С…РѕСЂРµРєРё РЅРµР»СЊР·СЏ РґРѕР±Р°РІР»СЏС‚СЊ РЅР°РєР»Р°РґРЅС‹Рµ РЅРµ С…РѕСЂРёРєРё');
 
     if fdsNaklListKOD_CELL.isNULL or (fdsNaklListKOD_CELL.AsString='') then
     begin
@@ -1454,19 +1454,19 @@ begin
       end;
       if aLG_CELL_CHECK_PLAN then
       begin
-        MessageDlg('Не задана логистическая сота по торговой точке.'#13#10+
-                  'Необходимо привязать торговую точку к логистической соте.',
+        MessageDlg('РќРµ Р·Р°РґР°РЅР° Р»РѕРіРёСЃС‚РёС‡РµСЃРєР°СЏ СЃРѕС‚Р° РїРѕ С‚РѕСЂРіРѕРІРѕР№ С‚РѕС‡РєРµ.'#13#10+
+                  'РќРµРѕР±С…РѕРґРёРјРѕ РїСЂРёРІСЏР·Р°С‚СЊ С‚РѕСЂРіРѕРІСѓСЋ С‚РѕС‡РєСѓ Рє Р»РѕРіРёСЃС‚РёС‡РµСЃРєРѕР№ СЃРѕС‚Рµ.',
                   mtInformation, [mbOk], 0);
         actLinkTTtoSotaNaklList.Execute;
       end
     end;
 
     if MegaDSTTNPlan.FieldByName('TTN_RECID').AsInteger <> 0 then //???
-    if MessageDlg('ТТН по маршруту уже создана.'+#13+#10+'Удалить данную ТТН и продолжить?', mtConfirmation, [mbYes,mbNo], 0) = mrYes then
+    if MessageDlg('РўРўРќ РїРѕ РјР°СЂС€СЂСѓС‚Сѓ СѓР¶Рµ СЃРѕР·РґР°РЅР°.'+#13+#10+'РЈРґР°Р»РёС‚СЊ РґР°РЅРЅСѓСЋ РўРўРќ Рё РїСЂРѕРґРѕР»Р¶РёС‚СЊ?', mtConfirmation, [mbYes,mbNo], 0) = mrYes then
     begin
    //   MegaDSTTNPlan.DeleteTTN(false); //d
 
-      if Assigned(pcTTNPlan.ActivePage) then //Проверка на наличие активного МАРШРУТА
+      if Assigned(pcTTNPlan.ActivePage) then //РџСЂРѕРІРµСЂРєР° РЅР° РЅР°Р»РёС‡РёРµ Р°РєС‚РёРІРЅРѕРіРѕ РњРђР РЁР РЈРўРђ
       begin
         if not MegaDSTTNPlanPositions.Active then
           MegaDSTTNPlanPositions.Open;
@@ -1476,7 +1476,7 @@ begin
         PARENT_BASEID:= fdsNaklListBASEID.AsInteger;
 //        fdsNaklList.Delete; //d
         lbm2:= fdsNaklList.Bookmark;
-        // ищем подчиненные и запихиваем их тоже
+        // РёС‰РµРј РїРѕРґС‡РёРЅРµРЅРЅС‹Рµ Рё Р·Р°РїРёС…РёРІР°РµРј РёС… С‚РѕР¶Рµ
         while fdsNaklList.Locate('PARENT_RECID;PARENT_BASEID', VarArrayOf([PARENT_RECID, PARENT_BASEID]), []) do
         begin
 //          MegaDSTTNPlanPositions.Add_2(fdsNaklListRECID.asInteger, fdsNaklListBASEID.AsInteger, dtype); //d
@@ -1485,7 +1485,7 @@ begin
         fdsNaklList.Bookmark:= lbm2;
       end
       else
-      Raise Exception.Create('Создайте маршрут');
+      Raise Exception.Create('РЎРѕР·РґР°Р№С‚Рµ РјР°СЂС€СЂСѓС‚');
     end
     else
     begin
@@ -1502,7 +1502,7 @@ begin
         PARENT_BASEID:= fdsNaklListBASEID.AsInteger;
 //        fdsNaklList.Delete; d
         lbm2:= fdsNaklList.Bookmark;
-        // ищем подчиненные и запихиваем их тоже
+        // РёС‰РµРј РїРѕРґС‡РёРЅРµРЅРЅС‹Рµ Рё Р·Р°РїРёС…РёРІР°РµРј РёС… С‚РѕР¶Рµ
         while fdsNaklList.Locate('PARENT_RECID;PARENT_BASEID', VarArrayOf([PARENT_RECID, PARENT_BASEID]), []) do
         begin
 //          MegaDSTTNPlanPositions.Add_2(fdsNaklListRECID.asInteger, fdsNaklListBASEID.AsInteger, dtype); // d
@@ -1511,12 +1511,12 @@ begin
         fdsNaklList.Bookmark:= lbm2;
       end
       else
-      Raise Exception.Create('Создайте маршрут');
+      Raise Exception.Create('РЎРѕР·РґР°Р№С‚Рµ РјР°СЂС€СЂСѓС‚');
 
   //    actPlanRefresh.Execute;
-  //    fdsNaklList.Next;//Перейти на следующую неразмещённую ТТН
+  //    fdsNaklList.Next;//РџРµСЂРµР№С‚Рё РЅР° СЃР»РµРґСѓСЋС‰СѓСЋ РЅРµСЂР°Р·РјРµС‰С‘РЅРЅСѓСЋ РўРўРќ
     end;
-//      fdsNaklList.Next;//Перейти на следующую неразмещённую ТТН //d
+//      fdsNaklList.Next;//РџРµСЂРµР№С‚Рё РЅР° СЃР»РµРґСѓСЋС‰СѓСЋ РЅРµСЂР°Р·РјРµС‰С‘РЅРЅСѓСЋ РўРўРќ //d
   end;
   actPlanRefresh.Execute;
   fdsNaklList.Bookmark:= lbm;
@@ -1528,10 +1528,10 @@ var
   aKOD_CELL : string;
   lbm: TBookMarkStr;
 begin
-  if FiltActive<>0 then exit; //Антор
+  if FiltActive<>0 then exit; //РђРЅС‚РѕСЂ
   lbm:= fdsNaklList.Bookmark;
   if fdsNaklListKOD_CELL.IsNull then
-    raise Exception.Create('У торговой точки отсутствуе привязка к соте');
+    raise Exception.Create('РЈ С‚РѕСЂРіРѕРІРѕР№ С‚РѕС‡РєРё РѕС‚СЃСѓС‚СЃС‚РІСѓРµ РїСЂРёРІСЏР·РєР° Рє СЃРѕС‚Рµ');
 
   aKOD_CELL := fdsNaklListKOD_CELL.AsString;
   fdsNaklList.First;
@@ -1553,15 +1553,15 @@ procedure TfmTTNPlan.actNaklRemoveExecute(Sender: TObject);
 var
   lbm: TBookMarkStr;
   i, ttnRecid, NAKLRecID, NAKLBaseId, parent_recid, parent_baseid: integer;
-begin  //Удаление НАКЛАДНОЙ из текущего маршрута
+begin  //РЈРґР°Р»РµРЅРёРµ РќРђРљР›РђР”РќРћР™ РёР· С‚РµРєСѓС‰РµРіРѕ РјР°СЂС€СЂСѓС‚Р°
   //lbm:= MegaDSTTNPlanPositions.Bookmark;
  {
-    [gsa] 26-03-2019 удалить ТТ с маршрута, сделал так
-    что бы можно было удалить несколько ТТ с маршрута.
+    [gsa] 26-03-2019 СѓРґР°Р»РёС‚СЊ РўРў СЃ РјР°СЂС€СЂСѓС‚Р°, СЃРґРµР»Р°Р» С‚Р°Рє
+    С‡С‚Рѕ Р±С‹ РјРѕР¶РЅРѕ Р±С‹Р»Рѕ СѓРґР°Р»РёС‚СЊ РЅРµСЃРєРѕР»СЊРєРѕ РўРў СЃ РјР°СЂС€СЂСѓС‚Р°.
   }
  if gridPlan.SelectedRows.Count = 0 then
     begin
-       Abort('Не выделено ни одной позиции.');
+       Abort('РќРµ РІС‹РґРµР»РµРЅРѕ РЅРё РѕРґРЅРѕР№ РїРѕР·РёС†РёРё.');
     end else begin
 
        for I := 0 to gridPlan.SelectedRows.Count - 1 do
@@ -1573,14 +1573,14 @@ begin  //Удаление НАКЛАДНОЙ из текущего маршрута
        NAKLBaseId:= MegaDSTTNPlanPositionsNAKL_BASEID.Asinteger;
 
        if MegaDSTTNPlan.FieldByName('TTN_RECID').AsInteger <> 0 then
-        if MessageDlg('ТТН по маршруту уже создана.'+#13+#10+'Удалить данную ТТН и продолжить?', mtConfirmation, [mbYes,mbNo], 0) = mrYes then
+        if MessageDlg('РўРўРќ РїРѕ РјР°СЂС€СЂСѓС‚Сѓ СѓР¶Рµ СЃРѕР·РґР°РЅР°.'+#13+#10+'РЈРґР°Р»РёС‚СЊ РґР°РЅРЅСѓСЋ РўРўРќ Рё РїСЂРѕРґРѕР»Р¶РёС‚СЊ?', mtConfirmation, [mbYes,mbNo], 0) = mrYes then
           begin
             MegaDSTTNPlan.DeleteTTN(false);
 
             PARENT_RECID:= MegaDSTTNPlanPositionsNAKL_RECID.Asinteger;
             PARENT_BASEID:= MegaDSTTNPlanPositionsNAKL_BASEID.Asinteger;
             MegaDSTTNPlanPositions.Delete;
-            // ищем подчиненные и запихиваем их тоже
+            // РёС‰РµРј РїРѕРґС‡РёРЅРµРЅРЅС‹Рµ Рё Р·Р°РїРёС…РёРІР°РµРј РёС… С‚РѕР¶Рµ
             while MegaDSTTNPlanPositions.Locate('PARENT_RECID;PARENT_BASEID', VarArrayOf([PARENT_RECID, PARENT_BASEID]), []) do
              begin
                //MegaDSTTNPlanPositions.Add(fdsNaklListRECID.asInteger, fdsNaklListBASEID.AsInteger);
@@ -1605,7 +1605,7 @@ begin  //Удаление НАКЛАДНОЙ из текущего маршрута
 
 //            MegaDSTTNPlanPositions.ParamByName('OLD_DOCTYPE').AsString := MegaDSTTNPlanPositions.FieldByName('DOCTYPE').AsString;
          MegaDSTTNPlanPositions.Delete;
-          // ищем подчиненные и запихиваем их тоже
+          // РёС‰РµРј РїРѕРґС‡РёРЅРµРЅРЅС‹Рµ Рё Р·Р°РїРёС…РёРІР°РµРј РёС… С‚РѕР¶Рµ
             while MegaDSTTNPlanPositions.Locate('PARENT_RECID;PARENT_BASEID', VarArrayOf([PARENT_RECID, PARENT_BASEID]), []) do
              begin
                //MegaDSTTNPlanPositions.Add(fdsNaklListRECID.asInteger, fdsNaklListBASEID.AsInteger);
@@ -1629,14 +1629,14 @@ end;
 procedure TfmTTNPlan.actPlanRefreshExecute(Sender: TObject);
 var
   lMinPercent: double;
-begin             //Обновление таблицы Позиции накладных
+begin             //РћР±РЅРѕРІР»РµРЅРёРµ С‚Р°Р±Р»РёС†С‹ РџРѕР·РёС†РёРё РЅР°РєР»Р°РґРЅС‹С…
   MegaDSTTNPlanPositions.RefreshTransportInfo;
 
   lbTonnage.Caption:= FloatToStrF(MegaDSTTNPlan.TotalTonnage, ffFixed, 15, 2);
 
   GaugeWeight.MinValue:= 0;
-  GaugeWeight.MaxValue:= Round(MegaDSTTNPlan.TotalTonnage*1000); //Тонаж машины по справочнику
-  GaugeWeight.Progress:= Round(MegaDSTTNPlanPositions.WeightTonn*1000); //Загуженность машины
+  GaugeWeight.MaxValue:= Round(MegaDSTTNPlan.TotalTonnage*1000); //РўРѕРЅР°Р¶ РјР°С€РёРЅС‹ РїРѕ СЃРїСЂР°РІРѕС‡РЅРёРєСѓ
+  GaugeWeight.Progress:= Round(MegaDSTTNPlanPositions.WeightTonn*1000); //Р—Р°РіСѓР¶РµРЅРЅРѕСЃС‚СЊ РјР°С€РёРЅС‹
 
   edOutletCount.Text:= IntToStr(MegaDSTTNPlanPositions.OutletCount);
 
@@ -1645,17 +1645,17 @@ begin             //Обновление таблицы Позиции накладных
     lMinPercent:= StrToIntDef(IntfMegaDBCommon.GetParam(sMinTTNLoadingPercent, '80'), 80);
   if ((dbcbType.Text = sttndtCity) or (dbcbType.Text = sttndtCityCash)) then
     lMinPercent:= StrToIntDef(IntfMegaDBCommon.GetParam(sMinTTNLoadingPercentCity, '80'), 80);
-  //Минимально допустимая загрузка машины взависимости от ТИПА документа
+  //РњРёРЅРёРјР°Р»СЊРЅРѕ РґРѕРїСѓСЃС‚РёРјР°СЏ Р·Р°РіСЂСѓР·РєР° РјР°С€РёРЅС‹ РІР·Р°РІРёСЃРёРјРѕСЃС‚Рё РѕС‚ РўРРџРђ РґРѕРєСѓРјРµРЅС‚Р°
   lbPercent.Caption:= FloatToStrF(lMinPercent, ffFixed, 15, 2);
 
 
   RefreshMinOutletCount;
-  // заполним ovner-а у автомобилей !!!
+  // Р·Р°РїРѕР»РЅРёРј ovner-Р° Сѓ Р°РІС‚РѕРјРѕР±РёР»РµР№ !!!
   MegaSelTruck.Owner := MegaSelTransporter.KodTransporter;
   MegaSelTrailer1.Owner := MegaSelTransporter.KodTransporter;
   MegaSelTrailer2.Owner := MegaSelTransporter.KodTransporter;
 
-  // для временного маршрута открываем панельку, чтобы можно было его "оживить"
+  // РґР»СЏ РІСЂРµРјРµРЅРЅРѕРіРѕ РјР°СЂС€СЂСѓС‚Р° РѕС‚РєСЂС‹РІР°РµРј РїР°РЅРµР»СЊРєСѓ, С‡С‚РѕР±С‹ РјРѕР¶РЅРѕ Р±С‹Р»Рѕ РµРіРѕ "РѕР¶РёРІРёС‚СЊ"
   pn_MoveTempMarshr.Visible := (not MegaDSTTNPlanIS_TEMP_MARSHRUT.IsNull) and (MegaDSTTNPlanIS_TEMP_MARSHRUT.AsInteger = 1);
 end;
 
@@ -1789,7 +1789,7 @@ var
   scr, dk_to, in_baseid,in_tonnage:string;
 begin
 
-    //-----[gsa] 31-05-2019 запрос на заполнения поля по весу в заголовке.
+    //-----[gsa] 31-05-2019 Р·Р°РїСЂРѕСЃ РЅР° Р·Р°РїРѕР»РЅРµРЅРёСЏ РїРѕР»СЏ РїРѕ РІРµСЃСѓ РІ Р·Р°РіРѕР»РѕРІРєРµ.
     if actPlanHeaderShow.Checked then
     begin
         //ttn_list_tonnage(:dk_to, :in_baseid, :in_tonnage)
@@ -1881,7 +1881,7 @@ begin
    if Selected <> 0 then begin
      mQuery := TMegaQuery.Create(Self);
      if gridNaklDBBandedTableView1.Controller.SelectedRowCount > 1 then
-       if MessageDlg('Підтвердіть будь ласка: перенесення Дати усіх виділених позицій типу "Звірка"? ', mtConfirmation, [mbYes,mbNo], 0) = mrNo then Exit;
+       if MessageDlg('РџС–РґС‚РІРµСЂРґС–С‚СЊ Р±СѓРґСЊ Р»Р°СЃРєР°: РїРµСЂРµРЅРµСЃРµРЅРЅСЏ Р”Р°С‚Рё СѓСЃС–С… РІРёРґС–Р»РµРЅРёС… РїРѕР·РёС†С–Р№ С‚РёРїСѓ "Р—РІС–СЂРєР°"? ', mtConfirmation, [mbYes,mbNo], 0) = mrNo then Exit;
     fdsNaklList.DisableControls;
     try
       mQuery.DataBase:= DM.Money;
@@ -1892,10 +1892,10 @@ begin
         NklRecID := gridNaklDBBandedTableView1.Controller.SelectedRows[i].Values[gridNaklDBBandedTableView1RECID.Index];
         NklBaseID := gridNaklDBBandedTableView1.Controller.SelectedRows[i].Values[gridNaklDBBandedTableView1BASEID.Index];
         if not fdsNaklList.Locate('RECID;BASEID', VarArrayOf([NklRecID, NklBaseID]), []) then
-           raise Exception.Create('Помилка проходу по виділеним позиціям в накладних! Спробуйте переміщувати тільки по одній позиції!');
+           raise Exception.Create('РџРѕРјРёР»РєР° РїСЂРѕС…РѕРґСѓ РїРѕ РІРёРґС–Р»РµРЅРёРј РїРѕР·РёС†С–СЏРј РІ РЅР°РєР»Р°РґРЅРёС…! РЎРїСЂРѕР±СѓР№С‚Рµ РїРµСЂРµРјС–С‰СѓРІР°С‚Рё С‚С–Р»СЊРєРё РїРѕ РѕРґРЅС–Р№ РїРѕР·РёС†С–С—!');
         dtype := fdsNaklList.FieldByName('DOCTYPE').AsString;
         if dtype <> cnstZvirka then begin
-           MessageDlg('Увага! Документ з типом: ' +dtype+' перемістити в дату не можливо!',  mtInformation, [mbOk], 0);
+           MessageDlg('РЈРІР°РіР°! Р”РѕРєСѓРјРµРЅС‚ Р· С‚РёРїРѕРј: ' +dtype+' РїРµСЂРµРјС–СЃС‚РёС‚Рё РІ РґР°С‚Сѓ РЅРµ РјРѕР¶Р»РёРІРѕ!',  mtInformation, [mbOk], 0);
            actPlanRefresh.Execute;
            fdsNaklList.Bookmark:= lbm;
            fdsNaklList.EnableControls;
@@ -1965,7 +1965,7 @@ begin
   // Create the form dynamically
   DateForm := TForm.Create(nil);
   try
-    DateForm.Caption := 'Виберіть дату:';
+    DateForm.Caption := 'Р’РёР±РµСЂС–С‚СЊ РґР°С‚Сѓ:';
     DateForm.Width := 300;
     DateForm.Height := 150;
     DateForm.Position := poDesigned;
@@ -2014,9 +2014,9 @@ var
 begin
 
   if dbedCAR_DRIVER.Showing then
-    dbcbType.SetFocus; //фиктивный код, но без этого почему-то не устанавливается свойство Modified у датасета
+    dbcbType.SetFocus; //С„РёРєС‚РёРІРЅС‹Р№ РєРѕРґ, РЅРѕ Р±РµР· СЌС‚РѕРіРѕ РїРѕС‡РµРјСѓ-С‚Рѕ РЅРµ СѓСЃС‚Р°РЅР°РІР»РёРІР°РµС‚СЃСЏ СЃРІРѕР№СЃС‚РІРѕ Modified Сѓ РґР°С‚Р°СЃРµС‚Р°
 
- {  //[gsa] 040619 добавил для фиксации плана
+ {  //[gsa] 040619 РґРѕР±Р°РІРёР» РґР»СЏ С„РёРєСЃР°С†РёРё РїР»Р°РЅР°
   if dbtxtTonnag.Caption<>'' then   begin
        if((fltfldDEBET_KOD_MATERMegaDSTTNPlanTONNAG.AsString <> '') and(MegaDSTTNPlanENABLE_NOT_RENTABLE.AsInteger <> 0))then
           begin
@@ -2045,26 +2045,26 @@ begin
    begin
     if not CanCreateTTN then
     begin
-      MessageBox(Application.Handle,'Обращайтесь в отдел логистики.'+#13#10+'Создание ТТН не возможно!','Ошибка!',MB_OK+MB_ICONERROR+MB_APPLMODAL);
+      MessageBox(Application.Handle,'РћР±СЂР°С‰Р°Р№С‚РµСЃСЊ РІ РѕС‚РґРµР» Р»РѕРіРёСЃС‚РёРєРё.'+#13#10+'РЎРѕР·РґР°РЅРёРµ РўРўРќ РЅРµ РІРѕР·РјРѕР¶РЅРѕ!','РћС€РёР±РєР°!',MB_OK+MB_ICONERROR+MB_APPLMODAL);
       Exit;
     end;
-     //проверка на минимальній заказ
+     //РїСЂРѕРІРµСЂРєР° РЅР° РјРёРЅРёРјР°Р»СЊРЅС–Р№ Р·Р°РєР°Р·
    { MinSumma := CheckMinSum(TMegaTransaction(MegaDSTTNPlan.Transaction),
                  MegaDSTTNPlanPLANDATE.AsDateTime,
                  MegaDSTTNPlanBASEID.AsInteger,
                  MegaDSTTNPlanPLANNUMBER.asInteger);
     if MinSumma <>'' then
     begin
-        MessageStr := 'Накладные, №'+#13#10 + MinSumma+ #13#10+
-                      'не удовлетворяют условию минимального заказа.'+ #13#10+'Операция проведения партии невозможна!';
-        MessageBox(Application.Handle,PChar(MessageStr),'Проведение партии',MB_OK+MB_ICONERROR+MB_APPLMODAL);
+        MessageStr := 'РќР°РєР»Р°РґРЅС‹Рµ, в„–'+#13#10 + MinSumma+ #13#10+
+                      'РЅРµ СѓРґРѕРІР»РµС‚РІРѕСЂСЏСЋС‚ СѓСЃР»РѕРІРёСЋ РјРёРЅРёРјР°Р»СЊРЅРѕРіРѕ Р·Р°РєР°Р·Р°.'+ #13#10+'РћРїРµСЂР°С†РёСЏ РїСЂРѕРІРµРґРµРЅРёСЏ РїР°СЂС‚РёРё РЅРµРІРѕР·РјРѕР¶РЅР°!';
+        MessageBox(Application.Handle,PChar(MessageStr),'РџСЂРѕРІРµРґРµРЅРёРµ РїР°СЂС‚РёРё',MB_OK+MB_ICONERROR+MB_APPLMODAL);
 
       Exit;
     end; }
    end;
   if ((dbcbType.Text = sttndtReclame) and (IntfMegaAccessManager.GetUserRole <> 'TRANSPORT_AUDIT'))  then
   begin
-    MessageBox(Application.Handle,'Обращайтесь в отдел логистики.'+#13#10+'Накладную с типо "ДР" может создавть только человек с ролью TRANSPORT_AUDIT!','Ошибка!',MB_OK+MB_ICONERROR+MB_APPLMODAL);
+    MessageBox(Application.Handle,'РћР±СЂР°С‰Р°Р№С‚РµСЃСЊ РІ РѕС‚РґРµР» Р»РѕРіРёСЃС‚РёРєРё.'+#13#10+'РќР°РєР»Р°РґРЅСѓСЋ СЃ С‚РёРїРѕ "Р”Р " РјРѕР¶РµС‚ СЃРѕР·РґР°РІС‚СЊ С‚РѕР»СЊРєРѕ С‡РµР»РѕРІРµРє СЃ СЂРѕР»СЊСЋ TRANSPORT_AUDIT!','РћС€РёР±РєР°!',MB_OK+MB_ICONERROR+MB_APPLMODAL);
     Exit;
   end;
   MegaDSTTNPlan.CreateTTN(MegaDSTTNPlanPositions);
@@ -2078,15 +2078,15 @@ var CrUpdEnable:Boolean;
 begin
   CrUpdEnable:=true;
 
-  //Для Украины - если маршрут следующего дня, то проверить можно ли в данный момент создавать ТТН
+  //Р”Р»СЏ РЈРєСЂР°РёРЅС‹ - РµСЃР»Рё РјР°СЂС€СЂСѓС‚ СЃР»РµРґСѓСЋС‰РµРіРѕ РґРЅСЏ, С‚Рѕ РїСЂРѕРІРµСЂРёС‚СЊ РјРѕР¶РЅРѕ Р»Рё РІ РґР°РЅРЅС‹Р№ РјРѕРјРµРЅС‚ СЃРѕР·РґР°РІР°С‚СЊ РўРўРќ
   if (IntfMegaDBCommon.GetCountry = iccUkraine) then
   begin
-    //процедура TTN_MARSH_EDIT_ALLOW
+    //РїСЂРѕС†РµРґСѓСЂР° TTN_MARSH_EDIT_ALLOW
     if (mqAllowCrTTN.Open) then mqAllowCrTTN.Close;
     mqAllowCrTTN.ParamByName('marsh_date').AsDate:= MegaDatePanel.Date;
     mqAllowCrTTN.ExecQuery;
    // CrUpdEnable:= mqAllowCrTTN.FieldByName('allow').AsBoolean;
-    //Пусть проверяет через некоторое время
+    //РџСѓСЃС‚СЊ РїСЂРѕРІРµСЂСЏРµС‚ С‡РµСЂРµР· РЅРµРєРѕС‚РѕСЂРѕРµ РІСЂРµРјСЏ
     //Timer1.Enabled:=not(CrUpdEnable);
     CrUpdEnable:=(mqAllowCrTTN.FieldByName('allow').AsBoolean) or (MegaDatePanel.Date>=IntfMegaDBCommon.GetParam('UNLOCKDATE',IntfIBCommon.GetServerDate));
   end;
@@ -2113,12 +2113,12 @@ var CrUpdEnable:Boolean;
 begin
   CrUpdEnable:=true;
 
-  //Для Украины - если маршрут следующего дня, то проверить можно ли в данный момент создавать ТТН
+  //Р”Р»СЏ РЈРєСЂР°РёРЅС‹ - РµСЃР»Рё РјР°СЂС€СЂСѓС‚ СЃР»РµРґСѓСЋС‰РµРіРѕ РґРЅСЏ, С‚Рѕ РїСЂРѕРІРµСЂРёС‚СЊ РјРѕР¶РЅРѕ Р»Рё РІ РґР°РЅРЅС‹Р№ РјРѕРјРµРЅС‚ СЃРѕР·РґР°РІР°С‚СЊ РўРўРќ
   if ((IntfMegaDBCommon.GetCountry = iccUkraine)) then
   begin
-    //Пусть проверяет через некоторое время
+    //РџСѓСЃС‚СЊ РїСЂРѕРІРµСЂСЏРµС‚ С‡РµСЂРµР· РЅРµРєРѕС‚РѕСЂРѕРµ РІСЂРµРјСЏ
     if(Timer1.Enabled=false) then Timer1.Enabled:=true;
-    //процедура TTN_MARSH_EDIT_ALLOW
+    //РїСЂРѕС†РµРґСѓСЂР° TTN_MARSH_EDIT_ALLOW
     if (mqAllowCrTTN.Open) then mqAllowCrTTN.Close;
     mqAllowCrTTN.ParamByName('marsh_date').AsDate:= MegaDatePanel.Date;
     mqAllowCrTTN.ExecQuery;
@@ -2141,7 +2141,7 @@ begin
   then fdsNaklListCALC_OPERSTATUS.AsString:= 'B';
 
   if fdsNaklListDELIV_TIME.AsString ='' then
-   if fdsNaklListdesireddeliverytime.AsString ='' then fdsNaklListRes_deliveryTime.AsString := 'Любое'
+   if fdsNaklListdesireddeliverytime.AsString ='' then fdsNaklListRes_deliveryTime.AsString := 'Р›СЋР±РѕРµ'
      else fdsNaklListRes_deliveryTime.AsString := GetDecodeDeliveryTime(fdsNaklListdesireddeliverytime.AsString)
    else fdsNaklListRes_deliveryTime.AsString := GetDecodeDeliveryTime(fdsNaklListDELIV_TIME.AsString);
 end;
@@ -2158,7 +2158,7 @@ end;
 //   then MegaDSTTNPlanPositionsCALC_OPERSTATUS.AsString:= 'B';
 
 //   if MegaDSTTNPlanPositionsDELIV_TIME.AsString ='' then
-//    if MegaDSTTNPlanPositionsdesireddeliverytime.AsString='' then MegaDSTTNPlanPositionsRes_deliveryTime.AsString := 'Любое'
+//    if MegaDSTTNPlanPositionsdesireddeliverytime.AsString='' then MegaDSTTNPlanPositionsRes_deliveryTime.AsString := 'Р›СЋР±РѕРµ'
 //     else MegaDSTTNPlanPositionsRes_deliveryTime.AsString := GetDecodeDeliveryTime( MegaDSTTNPlanPositionsdesireddeliverytime.AsString )
 //    else MegaDSTTNPlanPositionsRes_deliveryTime.AsString := GetDecodeDeliveryTime( MegaDSTTNPlanPositionsDELIV_TIME.AsString );
 
@@ -2177,7 +2177,7 @@ begin
 
   DelivTime:= Trim(MegaDSTTNPlanPositionsDELIV_TIME.AsString);
   if (DelivTime ='') or (DelivTime ='01.01.19') or (DelivTime ='01.01.1900') then
-   if MegaDSTTNPlanPositionsdesireddeliverytime.AsString='' then MegaDSTTNPlanPositionsRes_deliveryTime.AsString := 'Любое'
+   if MegaDSTTNPlanPositionsdesireddeliverytime.AsString='' then MegaDSTTNPlanPositionsRes_deliveryTime.AsString := 'Р›СЋР±РѕРµ'
     else MegaDSTTNPlanPositionsRes_deliveryTime.AsString := GetDecodeDeliveryTime( MegaDSTTNPlanPositionsdesireddeliverytime.AsString )
    else MegaDSTTNPlanPositionsRes_deliveryTime.AsString := GetDecodeDeliveryTime( DelivTime );
 
@@ -2230,7 +2230,7 @@ const sDocs='select distinct '#13#10+
   ' (dl.outlet_recid*1000+dl.outlet_baseid) UNISTRING     '#13#10+
   ' ,sd_otl.name_dk NAME    '#13#10+
   ' ,sd_otl.name_dk FULLNAME     '#13#10+
-  ' ,iif((td.address like ''%''||snp.nas_p_name||'' %'') or (td.address like ''%''||snp.nas_p_name||'',%'') ,td.address,''м.''||snp.nas_p_name||'',''||td.address) ADRESS     '#13#10+
+  ' ,iif((td.address like ''%''||snp.nas_p_name||'' %'') or (td.address like ''%''||snp.nas_p_name||'',%'') ,td.address,''Рј.''||snp.nas_p_name||'',''||td.address) ADRESS     '#13#10+
   ' ,iif (oom.WORKTIMEFROM is null,''00:00'', iif (oom.WORKTIMEFROM=''  :'',''00:00'',iif (oom.WORKTIMEFROM=''00:0'',''00:00'',iif (oom.WORKTIMEFROM=''80:00'',''08:00'',    '#13#10+
   ' iif (oom.WORKTIMEFROM=''9 :'',''09:00'',iif (oom.WORKTIMEFROM=''08:0'',''08:00'',iif (oom.WORKTIMEFROM=''09:0'',''09:00'',iif (oom.WORKTIMEFROM=''10:0'',''10:00'',oom.WORKTIMEFROM)))))))) UPLIMTIME0    '#13#10+
   ' ,iif (oom.WORKTIMETILL is null,''24:00'',iif (oom.WORKTIMETILL=''  :'',''24:00'',iif (oom.WORKTIMETILL=''00:0'',''24:00'',iif (oom.WORKTIMETILL=''20:0'',''20:00'',   '#13#10+
@@ -2267,8 +2267,8 @@ begin
    Get_Dir(OldDir,DirSave);
    if DirSave='' then Exit;
 
-   if Application.MessageBox(pchar('При выгрузке информации в файлы будет использован фильтр "'+cbFilt.Text+'". Продолжить? '),
-                             'Подтвердите действие...',
+   if Application.MessageBox(pchar('РџСЂРё РІС‹РіСЂСѓР·РєРµ РёРЅС„РѕСЂРјР°С†РёРё РІ С„Р°Р№Р»С‹ Р±СѓРґРµС‚ РёСЃРїРѕР»СЊР·РѕРІР°РЅ С„РёР»СЊС‚СЂ "'+cbFilt.Text+'". РџСЂРѕРґРѕР»Р¶РёС‚СЊ? '),
+                             'РџРѕРґС‚РІРµСЂРґРёС‚Рµ РґРµР№СЃС‚РІРёРµ...',
                              MB_YESNO+MB_ICONQUESTION)<>ID_YES
      then Exit;
 
@@ -2288,7 +2288,7 @@ begin
    if MegaSelTradeDelegate.Value = '' then
      begin
        MegaSelTradeDelegate.ComboBox.SetFocus;
-       raise Exception.Create('Выберите регион!');
+       raise Exception.Create('Р’С‹Р±РµСЂРёС‚Рµ СЂРµРіРёРѕРЅ!');
      end;
    sQuery.ParamByName('BASEID').AsInteger:= StrToInt(MegaSelTradeDelegate.Value);
    sQuery.ExecQuery;
@@ -2315,7 +2315,7 @@ begin
    if MegaSelTradeDelegate.Value = '' then
      begin
        MegaSelTradeDelegate.ComboBox.SetFocus;
-       raise Exception.Create('Выберите регион!');
+       raise Exception.Create('Р’С‹Р±РµСЂРёС‚Рµ СЂРµРіРёРѕРЅ!');
      end;
    sQuery.ParamByName('BASEID').AsInteger:= StrToInt(MegaSelTradeDelegate.Value);
    sQuery.ExecQuery;
@@ -2323,14 +2323,14 @@ begin
    Rewrite(f);                                                                                                //  CLIENTS_TYPE_ID;
    Writeln(f,'UNISTRING;NAME;FULLNAME;ADRESS;TIME_WAIT;UPLIMTIME0;DNLIMTIME0;UPLIMTIME1;DNLIMTIME1;USED;GPS_X;GPS_Y');
    while not sQuery.EOF do
-      begin  //СЕРТИФИКАТЫ НУЖНЫ Доставка: с 10:00 по 17:00   notes
+      begin  //РЎР•Р РўРР¤РРљРђРўР« РќРЈР–РќР« Р”РѕСЃС‚Р°РІРєР°: СЃ 10:00 РїРѕ 17:00   notes
        //if sQuery.FieldByName('UNISTRING').AsString then
        
         Notes:=sQuery.FieldByName('NOTES').AsString;
-       if Pos('Доставка: с ',Notes)>0 then
+       if Pos('Р”РѕСЃС‚Р°РІРєР°: СЃ ',Notes)>0 then
          begin
-            DatS:=Copy(Notes,Pos('Доставка: с ',Notes)+12,5);
-            DatPo:=Copy(Notes,Pos('Доставка: с ',Notes)+21,5);
+            DatS:=Copy(Notes,Pos('Р”РѕСЃС‚Р°РІРєР°: СЃ ',Notes)+12,5);
+            DatPo:=Copy(Notes,Pos('Р”РѕСЃС‚Р°РІРєР°: СЃ ',Notes)+21,5);
          end
            else
              begin
@@ -2349,7 +2349,7 @@ begin
       end;
   sQuery.Close;
   CloseFile(f);
-  ShowMessage('Выгрузка завершена');
+  ShowMessage('Р’С‹РіСЂСѓР·РєР° Р·Р°РІРµСЂС€РµРЅР°');
 
 end;
 
@@ -2374,13 +2374,13 @@ begin
     MegaDSTTNPlan.Locate('PLANNUMBER', StrToInt(MegaSelTradeDelegate.Value), []);
    if  MegaDSTTNPlan.RecordCount=0 then
    begin
-     MainForm.reInfo.Lines.Add('!!!Ошибка!!!. Создайте маршруты в Моней' ) ;
+     MainForm.reInfo.Lines.Add('!!!РћС€РёР±РєР°!!!. РЎРѕР·РґР°Р№С‚Рµ РјР°СЂС€СЂСѓС‚С‹ РІ РњРѕРЅРµР№' ) ;
      exit;
    end;
 
    if not (FileExists(Dir+'Route.CSV')) then
      begin
-       MainForm.reInfo.Lines.Add('Нет маршрутов для загрузки') ;
+       MainForm.reInfo.Lines.Add('РќРµС‚ РјР°СЂС€СЂСѓС‚РѕРІ РґР»СЏ Р·Р°РіСЂСѓР·РєРё') ;
        exit;
     end;
     //****************************************************
@@ -2409,7 +2409,7 @@ begin
               if sls.Strings[0]<>RouteNum then
                 begin
                   RouteNum:=sls.Strings[0];
-                  fmTTNRoadCheck.clRoad.Items.Add(sls.Strings[0]+'('+sls.Strings[1]+' Автомобиль: '+sls.Strings[3]+' Масса: '+sls.Strings[8]+' Расстояние: '+sls.Strings[6] +')');
+                  fmTTNRoadCheck.clRoad.Items.Add(sls.Strings[0]+'('+sls.Strings[1]+' РђРІС‚РѕРјРѕР±РёР»СЊ: '+sls.Strings[3]+' РњР°СЃСЃР°: '+sls.Strings[8]+' Р Р°СЃСЃС‚РѕСЏРЅРёРµ: '+sls.Strings[6] +')');
                 end;
 
             end;
@@ -2421,13 +2421,13 @@ begin
     except
       CloseFile(svcFile);
       sls.Free;
-      MainForm.reInfo.Lines.Add('!!!Ошибка!!!. При обработке файла Route.CSV' ) ;
+      MainForm.reInfo.Lines.Add('!!!РћС€РёР±РєР°!!!. РџСЂРё РѕР±СЂР°Р±РѕС‚РєРµ С„Р°Р№Р»Р° Route.CSV' ) ;
       exit;
     end;
 
     if RoadList.Count=0 then
       begin
-        ShowMessage('Не выбрано ни одного маршрута для импорта');
+        ShowMessage('РќРµ РІС‹Р±СЂР°РЅРѕ РЅРё РѕРґРЅРѕРіРѕ РјР°СЂС€СЂСѓС‚Р° РґР»СЏ РёРјРїРѕСЂС‚Р°');
         sls.Free;
         exit;
       end;
@@ -2440,7 +2440,7 @@ begin
     //****************************************************
     if isFirst then
       begin
-        MainForm.reInfo.Lines.Add('Очистка маршрутов');
+        MainForm.reInfo.Lines.Add('РћС‡РёСЃС‚РєР° РјР°СЂС€СЂСѓС‚РѕРІ');
         MegaDSTTNPlan.First;
         while not  MegaDSTTNPlan.Eof do
         begin
@@ -2550,18 +2550,18 @@ begin
     except
      // CloseFile(svcFile);
       sl.Free;
-      MainForm.reInfo.Lines.Add('!!!Ошибка!!!. При обработке файла Route.CSV' ) ;
+      MainForm.reInfo.Lines.Add('!!!РћС€РёР±РєР°!!!. РџСЂРё РѕР±СЂР°Р±РѕС‚РєРµ С„Р°Р№Р»Р° Route.CSV' ) ;
       exit;
     end;
     if RouteList.Count=0 then
       begin
-        MainForm.reInfo.Lines.Add('Нет маршрутов в файле Route.CSV' ) ;
+        MainForm.reInfo.Lines.Add('РќРµС‚ РјР°СЂС€СЂСѓС‚РѕРІ РІ С„Р°Р№Р»Рµ Route.CSV' ) ;
         exit;
       end;
     for i:= 0 to RouteList.Count - 1 do
      if TRoute(RouteList.Items[i]).DocDate<>FormatDateTime('dd.mm.yyyy',MegaDatePanel.Date) then
        begin
-         MainForm.reInfo.Lines.Add('В файле Route.CSV есть маршруты не за '+FormatDateTime('dd.mm.yyyy',MegaDatePanel.Date));
+         MainForm.reInfo.Lines.Add('Р’ С„Р°Р№Р»Рµ Route.CSV РµСЃС‚СЊ РјР°СЂС€СЂСѓС‚С‹ РЅРµ Р·Р° '+FormatDateTime('dd.mm.yyyy',MegaDatePanel.Date));
          exit;
        end;
         NPlan:=TStringList.Create;
@@ -2594,7 +2594,7 @@ begin
 
      if NPlan.Count<RouteCount then
          begin
-           MainForm.reInfo.Lines.Add('Не хватает свободных маршрутов. Требуется '+IntToStr(NPlan.Count)+' маршрутов');
+           MainForm.reInfo.Lines.Add('РќРµ С…РІР°С‚Р°РµС‚ СЃРІРѕР±РѕРґРЅС‹С… РјР°СЂС€СЂСѓС‚РѕРІ. РўСЂРµР±СѓРµС‚СЃСЏ '+IntToStr(NPlan.Count)+' РјР°СЂС€СЂСѓС‚РѕРІ');
            exit;
          end;
 
@@ -2624,7 +2624,7 @@ begin
              try
                Dm.ChangeQuery.ExecQuery;
              except
-               MainForm.reInfo.Lines.Add('!!! ОШИБКА!!! Не загружен маршрут '+ NPlan.Strings[RoutePor]+' '+IntToStr(RouteID)+' '+IntToStr(TRoute(RouteList.Items[i]).PorNumber)+' '+IntToStr(TRoute(RouteList.Items[i]).DocRecID)+' '+IntToStr(TRoute(RouteList.Items[i]).DocBaseID));
+               MainForm.reInfo.Lines.Add('!!! РћРЁРР‘РљРђ!!! РќРµ Р·Р°РіСЂСѓР¶РµРЅ РјР°СЂС€СЂСѓС‚ '+ NPlan.Strings[RoutePor]+' '+IntToStr(RouteID)+' '+IntToStr(TRoute(RouteList.Items[i]).PorNumber)+' '+IntToStr(TRoute(RouteList.Items[i]).DocRecID)+' '+IntToStr(TRoute(RouteList.Items[i]).DocBaseID));
              end;
              if i=RouteList.Count - 1 then PlanUpd:=True
              else if TRoute(RouteList.Items[i]).ID<>TRoute(RouteList.Items[i+1]).ID then PlanUpd:=True;
@@ -2650,8 +2650,8 @@ begin
                   mQuery.ParamByName('PLANNUMBER').AsInteger:=StrToInt(NPlan.Strings[RoutePor]);
                   mQuery.ParamByName('num_km').AsFloat:=TRoute(RouteList.Items[i]).LengthPath;
                   mQuery.ParamByName('cost_route').AsFloat:=TRoute(RouteList.Items[i]).Cost;
-                  if G_Count>=R_Count then mQuery.ParamByName('doctype').AsString:='Г'
-                  else mQuery.ParamByName('doctype').AsString:='Р';
+                  if G_Count>=R_Count then mQuery.ParamByName('doctype').AsString:='Р“'
+                  else mQuery.ParamByName('doctype').AsString:='Р ';
                   if TRoute(RouteList.Items[i]).ExpeditorID<>0 then
                     mQuery.ParamByName('dk_c').AsFloat:=TRoute(RouteList.Items[i]).ExpeditorID;
                   mQuery.ParamByName('car_snum').AsString:=TRoute(RouteList.Items[i]).CarID;
@@ -2659,7 +2659,7 @@ begin
                    mQuery.ExecQuery;
                end;
 
-           end else MainForm.reInfo.Lines.Add('!!! ОШИБКА!!! Не загружен маршрут '+ IntToStr(RoutePor)+' '+IntToStr(RouteID)+' '+IntToStr(TRoute(RouteList.Items[i]).PorNumber)+' '+IntToStr(TRoute(RouteList.Items[i]).DocRecID)+' '+IntToStr(TRoute(RouteList.Items[i]).DocBaseID));
+           end else MainForm.reInfo.Lines.Add('!!! РћРЁРР‘РљРђ!!! РќРµ Р·Р°РіСЂСѓР¶РµРЅ РјР°СЂС€СЂСѓС‚ '+ IntToStr(RoutePor)+' '+IntToStr(RouteID)+' '+IntToStr(TRoute(RouteList.Items[i]).PorNumber)+' '+IntToStr(TRoute(RouteList.Items[i]).DocRecID)+' '+IntToStr(TRoute(RouteList.Items[i]).DocBaseID));
        end;
 
    RouteList.Free;
@@ -2683,8 +2683,8 @@ var
  i:integer;
 begin
 
-if Application.MessageBox('Выгрузить заявки в файл? (Да - в файл, нет - в таблицу БД)',
-  'Внимание', MB_YESNO + MB_ICONQUESTION) = IDYES then
+if Application.MessageBox('Р’С‹РіСЂСѓР·РёС‚СЊ Р·Р°СЏРІРєРё РІ С„Р°Р№Р»? (Р”Р° - РІ С„Р°Р№Р», РЅРµС‚ - РІ С‚Р°Р±Р»РёС†Сѓ Р‘Р”)',
+  'Р’РЅРёРјР°РЅРёРµ', MB_YESNO + MB_ICONQUESTION) = IDYES then
 begin
    if cxShellBrowserDialog1.Execute then
    begin
@@ -2702,7 +2702,7 @@ begin
        begin
          if fdsNaklList.FieldByName('LATITUDE').Value=0 then
          begin
-          MainForm.reInfo.Lines.Add('!!! Отсутствуют координаты!!!  заказ №'+fdsNaklList.FieldByName('DOCNUMBER').AsString+' - '+ fdsNaklList.FieldByName('SHORTNAME_DK_TO').AsString + ' - ' +fdsNaklList.FieldByName('ADDRESS').AsString);
+          MainForm.reInfo.Lines.Add('!!! РћС‚СЃСѓС‚СЃС‚РІСѓСЋС‚ РєРѕРѕСЂРґРёРЅР°С‚С‹!!!  Р·Р°РєР°Р· в„–'+fdsNaklList.FieldByName('DOCNUMBER').AsString+' - '+ fdsNaklList.FieldByName('SHORTNAME_DK_TO').AsString + ' - ' +fdsNaklList.FieldByName('ADDRESS').AsString);
       //  fdsNaklList.Next;
          end;
         { buf_str := fdsNaklList.FieldByName('EXT_STRID').asString+#09+
@@ -2715,7 +2715,7 @@ begin
          FloatToStr(fdsNaklList.FieldByName('OGRSUM1').asFloat*1000)+#09+
          FloatToStr(fdsNaklList.FieldByName('OGRSUM2').asFloat)+#09+
          '0'+#09+'0'+#09+
-         ReplaceStr(fdsNaklList.FieldByName('ADDR').asString,'Респ Татарстан','РТ',false,true)+#09+
+         ReplaceStr(fdsNaklList.FieldByName('ADDR').asString,'Р РµСЃРї РўР°С‚Р°СЂСЃС‚Р°РЅ','Р Рў',false,true)+#09+
          fdsNaklList.FieldByName('STR1').asString+#09+
          '0'+#09+'0'+#09+
          fdsNaklList.FieldByName('DELIV_DATE1').asString+#09+
@@ -2734,7 +2734,7 @@ begin
          FormatFloat('0.00000',fdsNaklList.FieldByName('OGRSUM1').asFloat*1000)+#09+
          FormatFloat('0.00000',fdsNaklList.FieldByName('OGRSUM2').asFloat)+#09+
          '0'+#09+'0'+#09+
-         ReplaceStr(fdsNaklList.FieldByName('ADDR').asString,'Респ Татарстан','РТ',false,true)+#09+
+         ReplaceStr(fdsNaklList.FieldByName('ADDR').asString,'Р РµСЃРї РўР°С‚Р°СЂСЃС‚Р°РЅ','Р Рў',false,true)+#09+
          fdsNaklList.FieldByName('DISTR').asString+#09+
          fdsNaklList.FieldByName('TOWN').asString+#09+
          fdsNaklList.FieldByName('STREET').asString+#09+
@@ -2765,11 +2765,11 @@ begin
 
    if not  Antor.Connected then
    begin
-    MainForm.reInfo.Lines.Add('Подключение к ' +ReplaceStr( Antor.ConnectionString,'tripusss','passw',false,true));
+    MainForm.reInfo.Lines.Add('РџРѕРґРєР»СЋС‡РµРЅРёРµ Рє ' +ReplaceStr( Antor.ConnectionString,'tripusss','passw',false,true));
      Antor.Connected:=true;
    end;
    i:=0;
-  MainForm.reInfo.Lines.Add('Выгрузка заявок');
+  MainForm.reInfo.Lines.Add('Р’С‹РіСЂСѓР·РєР° Р·Р°СЏРІРѕРє');
 
    qQuery.Close;
    qQuery.SQL.Text:='TRUNCATE table  d__import'+AntorIndex;
@@ -2793,7 +2793,7 @@ begin
      begin
        if fdsNaklList.FieldByName('LATITUDE').Value=0 then
        begin
-        MainForm.reInfo.Lines.Add('!!! Отсутствуют координаты!!!  заказ №'+fdsNaklList.FieldByName('DOCNUMBER').AsString+' - '+ fdsNaklList.FieldByName('SHORTNAME_DK_TO').AsString + ' - ' +fdsNaklList.FieldByName('ADDRESS').AsString);
+        MainForm.reInfo.Lines.Add('!!! РћС‚СЃСѓС‚СЃС‚РІСѓСЋС‚ РєРѕРѕСЂРґРёРЅР°С‚С‹!!!  Р·Р°РєР°Р· в„–'+fdsNaklList.FieldByName('DOCNUMBER').AsString+' - '+ fdsNaklList.FieldByName('SHORTNAME_DK_TO').AsString + ' - ' +fdsNaklList.FieldByName('ADDRESS').AsString);
     //  fdsNaklList.Next;
        end;
       qInsertNakl.Parameters.ParamByName('EXT_STRID').Value :=fdsNaklList.FieldByName('EXT_STRID').Value;
@@ -2811,7 +2811,7 @@ begin
       qInsertNakl.Parameters.ParamByName('OGRSUM2').Value :=fdsNaklList.FieldByName('OGRSUM2').Value;
       qInsertNakl.Parameters.ParamByName('SUM3').Value :=0;//fdsNaklList.FieldByName('SUM3').Value;
       qInsertNakl.Parameters.ParamByName('SUM4').Value :=0;//fdsNaklList.FieldByName('SUM3').Value;
-      qInsertNakl.Parameters.ParamByName('ADDR').Value := ReplaceStr(fdsNaklList.FieldByName('ADDR').Value,'Респ Татарстан','РТ',false,true);
+      qInsertNakl.Parameters.ParamByName('ADDR').Value := ReplaceStr(fdsNaklList.FieldByName('ADDR').Value,'Р РµСЃРї РўР°С‚Р°СЂСЃС‚Р°РЅ','Р Рў',false,true);
       qInsertNakl.Parameters.ParamByName('STR1').Value :=fdsNaklList.FieldByName('STR1').Value;
       qInsertNakl.Parameters.ParamByName('MIN_CAR').Value :=0;
       qInsertNakl.Parameters.ParamByName('MAX_CAR').Value :=0;
@@ -2834,7 +2834,7 @@ begin
        qInsertNakl.Parameters.ParamByName('TIME_BEG').Value := StrToDateTime(stT1);
        qInsertNakl.Parameters.ParamByName('TIME_END').Value := StrToDateTime(stT2);
      except
-       MainForm.reInfo.Lines.Add('!!!Ошибка интервала доставки ' +  st);
+       MainForm.reInfo.Lines.Add('!!!РћС€РёР±РєР° РёРЅС‚РµСЂРІР°Р»Р° РґРѕСЃС‚Р°РІРєРё ' +  st);
      end;
    end;
    }
@@ -2848,7 +2848,7 @@ begin
  //  qQuery.SQL.Text:='insert into  d__orders0 select * from d__orders';
  //  qQuery.ExecSQL;
  end;
-   MainForm.reInfo.Lines.Add('Выгружено заявок: ' + IntToStr(i));
+   MainForm.reInfo.Lines.Add('Р’С‹РіСЂСѓР¶РµРЅРѕ Р·Р°СЏРІРѕРє: ' + IntToStr(i));
 
 
 end;
@@ -2866,7 +2866,7 @@ begin
     MegaDSTTNPlan.Locate('PLANNUMBER', StrToInt(MegaSelTradeDelegate.Value), []);
    if  MegaDSTTNPlan.RecordCount=0 then
    begin
-     MainForm.reInfo.Lines.Add('!!!Ошибка!!!. Создайте маршруты в Моней' ) ;
+     MainForm.reInfo.Lines.Add('!!!РћС€РёР±РєР°!!!. РЎРѕР·РґР°Р№С‚Рµ РјР°СЂС€СЂСѓС‚С‹ РІ РњРѕРЅРµР№' ) ;
      exit;
    end;
 
@@ -2876,7 +2876,7 @@ begin
    qQuery.Open;
    aCount:=qQuery.FieldByName('i').AsInteger;
    if  aCount=0 then begin
-      MainForm.reInfo.Lines.Add('Нет маршрутов для загрузки') ;
+      MainForm.reInfo.Lines.Add('РќРµС‚ РјР°СЂС€СЂСѓС‚РѕРІ РґР»СЏ Р·Р°РіСЂСѓР·РєРё') ;
       exit;
    end;
 
@@ -2885,12 +2885,12 @@ begin
    qQuery.Open;
 
    if  qQuery.RecordCount >0 then begin
-      MainForm.reInfo.Lines.Add('!!!Ошибка!!! Имеются не разъединенные заявки!!!') ;
+      MainForm.reInfo.Lines.Add('!!!РћС€РёР±РєР°!!! РРјРµСЋС‚СЃСЏ РЅРµ СЂР°Р·СЉРµРґРёРЅРµРЅРЅС‹Рµ Р·Р°СЏРІРєРё!!!') ;
       exit;
    end;
 
 
-    MainForm.reInfo.Lines.Add('Очистка маршрутов');
+    MainForm.reInfo.Lines.Add('РћС‡РёСЃС‚РєР° РјР°СЂС€СЂСѓС‚РѕРІ');
     MegaDSTTNPlan.First;
     while not  MegaDSTTNPlan.Eof do
     begin
@@ -2934,7 +2934,7 @@ begin
 //    Dm.SharedQuery.Transaction.Commit;
 
 
-    MainForm.reInfo.Lines.Add('Загрузка маршрутов');
+    MainForm.reInfo.Lines.Add('Р—Р°РіСЂСѓР·РєР° РјР°СЂС€СЂСѓС‚РѕРІ');
     dsRoute.Close;
     dsRoute.CommandText:='SELECT    rr.ROUTE_NUM, oo.NUM_INROUTE,   dbo.D__CARS.MARK, dbo.D__CARS.NOMER, dbo.D__CARS.STR1, rr.ID,'+
                     '  CONVERT(varchar(5), oo.TIME_ARR, 8) AS TIME_ARR, CONVERT(varchar(8), oo.DELIV_DATE, 4) AS DELIV_DATE,'+
@@ -2990,7 +2990,7 @@ begin
       try
        Dm.ChangeQuery.ExecQuery;
       except
-          MainForm.reInfo.Lines.Add('!!! ОШИБКА!!! Не загружен маршрут '+ dsRoute.FieldByName('ROUTE_NUM').AsString+' '+dsRoute.FieldByName('NUM_INROUTE').AsString+' '+st+' '+System.copy(st,1,System.Pos('|',st)-1)+' '+System.copy(st,System.Pos('|',st)+1,Length(st)));
+          MainForm.reInfo.Lines.Add('!!! РћРЁРР‘РљРђ!!! РќРµ Р·Р°РіСЂСѓР¶РµРЅ РјР°СЂС€СЂСѓС‚ '+ dsRoute.FieldByName('ROUTE_NUM').AsString+' '+dsRoute.FieldByName('NUM_INROUTE').AsString+' '+st+' '+System.copy(st,1,System.Pos('|',st)-1)+' '+System.copy(st,System.Pos('|',st)+1,Length(st)));
       end;
 
       {
@@ -3010,7 +3010,7 @@ begin
       end;
 
        }
-      end else MainForm.reInfo.Lines.Add('!!! ОШИБКА!!! Не загружен маршрут '+ dsRoute.FieldByName('ROUTE_NUM').AsString+' '+dsRoute.FieldByName('NUM_INROUTE').AsString+' '+st+' '+System.copy(st,1,System.Pos('|',st)-1)+' '+System.copy(st,System.Pos('|',st)+1,Length(st)));
+      end else MainForm.reInfo.Lines.Add('!!! РћРЁРР‘РљРђ!!! РќРµ Р·Р°РіСЂСѓР¶РµРЅ РјР°СЂС€СЂСѓС‚ '+ dsRoute.FieldByName('ROUTE_NUM').AsString+' '+dsRoute.FieldByName('NUM_INROUTE').AsString+' '+st+' '+System.copy(st,1,System.Pos('|',st)-1)+' '+System.copy(st,System.Pos('|',st)+1,Length(st)));
       dsRoute.Next;
     end;
     //Dm.SharedQuery.Transaction.Commit;
@@ -3079,7 +3079,7 @@ begin
 
   resultIns2:=ws.InsertLocationsAndOrdersForMultipleDepots7('gl0gl0ss', orderArray);
  // resultIns22:= (HTTPRIO1 as WebService7Interface).InsertLocationsAndOrdersForMultipleDepots7('gloglosp',orderArray); //ws.InsertLocationsAndOrdersForMultipleDepots('gloglosp',orderArray);
-  Application.MessageBox('Данные выгружены успешно!', 'Внимание!', MB_OK +
+  Application.MessageBox('Р”Р°РЅРЅС‹Рµ РІС‹РіСЂСѓР¶РµРЅС‹ СѓСЃРїРµС€РЅРѕ!', 'Р’РЅРёРјР°РЅРёРµ!', MB_OK +
    MB_ICONINFORMATION);
 
 except
@@ -3110,20 +3110,20 @@ begin
   vPlansResponse:=ws.GetPlans(vGetPlans);
   if Length(vPlansResponse.return.Plans)<=0 then
   begin
-     MainForm.reInfo.Lines.Add('Нет маршрутов для загрузки') ;
+     MainForm.reInfo.Lines.Add('РќРµС‚ РјР°СЂС€СЂСѓС‚РѕРІ РґР»СЏ Р·Р°РіСЂСѓР·РєРё') ;
      exit;
   end;
   DecodeDate(MegaDatePanel.Date, lYear, lMonth, lDay);
   for iPlans := 0 to Length(vPlansResponse.return.Plans) - 1 do
   begin
-    //берем только маршрут за выбранную дату
+    //Р±РµСЂРµРј С‚РѕР»СЊРєРѕ РјР°СЂС€СЂСѓС‚ Р·Р° РІС‹Р±СЂР°РЅРЅСѓСЋ РґР°С‚Сѓ
     if inttostr(vPlansResponse.return.Plans[iPlans].routes[0].Date)=inttostr(lYear)+formatFloat('00',lMonth)+formatFloat('00',lDay) then
     begin
       for i:=0 to Length(vPlansResponse.return.Plans[iPlans].Routes)-1 do
       begin
         if i=0 then
         begin
-          MainForm.reInfo.Lines.Add('Очистка маршрутов');
+          MainForm.reInfo.Lines.Add('РћС‡РёСЃС‚РєР° РјР°СЂС€СЂСѓС‚РѕРІ');
           MegaDSTTNPlan.First;
           while not  MegaDSTTNPlan.Eof do
           begin
@@ -3166,7 +3166,7 @@ begin
           try
            Dm.ChangeQuery.ExecQuery;
           except
-           MainForm.reInfo.Lines.Add('!!! ОШИБКА!!! Не загружена накладная '+ vPlansResponse.return.Plans[iPlans].Routes[i].Stops[iOrders].OrderUserDefinedId);
+           MainForm.reInfo.Lines.Add('!!! РћРЁРР‘РљРђ!!! РќРµ Р·Р°РіСЂСѓР¶РµРЅР° РЅР°РєР»Р°РґРЅР°СЏ '+ vPlansResponse.return.Plans[iPlans].Routes[i].Stops[iOrders].OrderUserDefinedId);
           end;
         end;
         Dm.ChangeQuery.Close;
@@ -3323,7 +3323,7 @@ begin
   CloseFile(f);
 
    frmSendMail:=TfrmSendMail.Create(Application);
-   frmSendMail.SendMailMessage('kislaja.j@khortitsa.com','',Subject,'',PathFile,'[Выгрузка]',true,'','');
+   frmSendMail.SendMailMessage('kislaja.j@khortitsa.com','',Subject,'',PathFile,'[Р’С‹РіСЂСѓР·РєР°]',true,'','');
    frmSendMail.show;
 
 end;
@@ -3364,7 +3364,7 @@ end;
 procedure TfmTTNPlan.actRecalcPosExecute(Sender: TObject);
 begin
    //
-if MessageDlg('Вы хотите поменять располжение точек в маршруте согласно уадленности от склада?', mtConfirmation, [mbYes,mbNo], 0) = mrYes then
+if MessageDlg('Р’С‹ С…РѕС‚РёС‚Рµ РїРѕРјРµРЅСЏС‚СЊ СЂР°СЃРїРѕР»Р¶РµРЅРёРµ С‚РѕС‡РµРє РІ РјР°СЂС€СЂСѓС‚Рµ СЃРѕРіР»Р°СЃРЅРѕ СѓР°РґР»РµРЅРЅРѕСЃС‚Рё РѕС‚ СЃРєР»Р°РґР°?', mtConfirmation, [mbYes,mbNo], 0) = mrYes then
 begin
    if (MegaDSTTNPlanNAS_P_FROM.asInteger<>0) then
    begin
@@ -3382,14 +3382,14 @@ begin
      MegaDSTTNPlanPositions.EnableControls;
    end
    else
-     MessageBox(Application.Handle,'Не задан пункт погрузки.'+#13#10+'Пересчет произвести нельзя! Откройте "Заголовок" и укажите пункт погрузки','Ошибка!',MB_OK+MB_ICONERROR+MB_APPLMODAL);
+     MessageBox(Application.Handle,'РќРµ Р·Р°РґР°РЅ РїСѓРЅРєС‚ РїРѕРіСЂСѓР·РєРё.'+#13#10+'РџРµСЂРµСЃС‡РµС‚ РїСЂРѕРёР·РІРµСЃС‚Рё РЅРµР»СЊР·СЏ! РћС‚РєСЂРѕР№С‚Рµ "Р—Р°РіРѕР»РѕРІРѕРє" Рё СѓРєР°Р¶РёС‚Рµ РїСѓРЅРєС‚ РїРѕРіСЂСѓР·РєРё','РћС€РёР±РєР°!',MB_OK+MB_ICONERROR+MB_APPLMODAL);
 end;
 end;
 
 
 { ----------------------------------------------------------------
   PrintDocNaklByIDs                                    31_03_2026
-  Друкує накладну за RecID / BaseID без залежності від TDocNaklForm.
+  Р”СЂСѓРєСѓС” РЅР°РєР»Р°РґРЅСѓ Р·Р° RecID / BaseID Р±РµР· Р·Р°Р»РµР¶РЅРѕСЃС‚С– РІС–Рґ TDocNaklForm.
   ---------------------------------------------------------------- }
 procedure PrintDocNaklByIDs(aRecID, aBaseID: integer);
 var
@@ -3430,14 +3430,14 @@ begin
     begin
       re := TRegExpr.Create;
       try
-        re.Expression := '\#\s*([-0-9A-Za-zА-Яа-я]+)(\s*\@(\d+))*';
+        re.Expression := '\#\s*([-0-9A-Za-zРђ-РЇР°-СЏ]+)(\s*\@(\d+))*';
         if re.Exec(Trim(ldmRep.DocNaklNOTES.AsString)) then
         begin
           frVariables.Variable['ZakazNo']  := re.Match[1];
           if re.Match[3] = '' then
             frVariables.Variable['KodOrder'] := ''
           else
-            frVariables.Variable['KodOrder'] := 'код поставщика  ' + re.Match[3];
+            frVariables.Variable['KodOrder'] := 'РєРѕРґ РїРѕСЃС‚Р°РІС‰РёРєР°  ' + re.Match[3];
         end
         else
         begin
@@ -3466,12 +3466,12 @@ end;
 
 { ----------------------------------------------------------------
   PrintNaklF2WithoutHeaderByIDs                        01_04_2026
-  Друкує накладну Ф2 без шапки за RecID / BaseID
-  без залежності від TDocNaklForm.
-  Адаптовано з TDocNaklForm.actPrintNaklF2WithoutHeaderExecute
-  (DocNakl.pas) за патерном PrintDocNaklByIDs.
-  Якщо fLic = True, друкується лише одна копія.
-  Якщо fLic = False, друкується дві копії (одна з not_agent = True, друга з not_agent = False).
+  Р”СЂСѓРєСѓС” РЅР°РєР»Р°РґРЅСѓ Р¤2 Р±РµР· С€Р°РїРєРё Р·Р° RecID / BaseID
+  Р±РµР· Р·Р°Р»РµР¶РЅРѕСЃС‚С– РІС–Рґ TDocNaklForm.
+  РђРґР°РїС‚РѕРІР°РЅРѕ Р· TDocNaklForm.actPrintNaklF2WithoutHeaderExecute
+  (DocNakl.pas) Р·Р° РїР°С‚РµСЂРЅРѕРј PrintDocNaklByIDs.
+  РЇРєС‰Рѕ fLic = True, РґСЂСѓРєСѓС”С‚СЊСЃСЏ Р»РёС€Рµ РѕРґРЅР° РєРѕРїС–СЏ.
+  РЇРєС‰Рѕ fLic = False, РґСЂСѓРєСѓС”С‚СЊСЃСЏ РґРІС– РєРѕРїС–С— (РѕРґРЅР° Р· not_agent = True, РґСЂСѓРіР° Р· not_agent = False).
   ---------------------------------------------------------------- }
 procedure PrintNaklF2WithoutHeaderByIDs(aRecID, aBaseID: integer);
 var
@@ -3530,7 +3530,7 @@ begin
         frVariables.Variable['IsOtv'] := False;
 
       frVariables.Variable['flic']      := True;
-      frVariables.Variable['not_agent'] := False; // на агента
+      frVariables.Variable['not_agent'] := False; // РЅР° Р°РіРµРЅС‚Р°
 
       ldmRep.frNakl_f2_withoutheader.PrepareReport;
       ldmRep.frNakl_f2_withoutheader.PrintPreparedReport('', 1, False, frAll);
@@ -3657,28 +3657,28 @@ end;
 
 { =====================================================
   SetupPrintNaklInRout                        31_03_2026
-  Перепризначає btnPrintTTN для друку накладних по маршруту.
-  Закоментувати виклик у FormCreate для відновлення старої логіки
-  (Action = actTTNPrint, Caption = 'Печать маршрута').
+  РџРµСЂРµРїСЂРёР·РЅР°С‡Р°С” btnPrintTTN РґР»СЏ РґСЂСѓРєСѓ РЅР°РєР»Р°РґРЅРёС… РїРѕ РјР°СЂС€СЂСѓС‚Сѓ.
+  Р—Р°РєРѕРјРµРЅС‚СѓРІР°С‚Рё РІРёРєР»РёРє Сѓ FormCreate РґР»СЏ РІС–РґРЅРѕРІР»РµРЅРЅСЏ СЃС‚Р°СЂРѕС— Р»РѕРіС–РєРё
+  (Action = actTTNPrint, Caption = 'РџРµС‡Р°С‚СЊ РјР°СЂС€СЂСѓС‚Р°').
   ===================================================== }
 procedure TfmTTNPlan.SetupPrintNaklInRout;
 begin
   btnPrintTTN.Action  := actPrintNaklListInRout;
-  btnPrintTTN.Caption := 'Печать накладних';
+  btnPrintTTN.Caption := 'РџРµС‡Р°С‚СЊ РЅР°РєР»Р°РґРЅРёС…';
 end;
 // ---- end add new nirs 31_03_2026
 
 procedure TfmTTNPlan.actRefreshDataExecute(Sender: TObject);
-begin  //Процедура ОБНОВИТЬ
+begin  //РџСЂРѕС†РµРґСѓСЂР° РћР‘РќРћР’РРўР¬
   if MegaDSTTNPlan.Active then
      if MegaDSTTNPlan.State in [dsEdit,dsInsert] then MegaDSTTNPlan.Post;
   //Transaction.Commit;
  // Transaction.Active:= True;
   RefreshNaklList;
   InitTTNPlanTabSheets;
-  tblTTN_Migrat.Open; //для выбора маршрута в который будет пемещатся ТТН
-  {if MessageDlg('Создать маршруты'+#13+#10+'на текущую дату?', mtConfirmation, [mbYes,mbNo], 0) = mrYes then
-     actPlanAddExecute(Sender);//Поставить процеду добавления маршрутов }
+  tblTTN_Migrat.Open; //РґР»СЏ РІС‹Р±РѕСЂР° РјР°СЂС€СЂСѓС‚Р° РІ РєРѕС‚РѕСЂС‹Р№ Р±СѓРґРµС‚ РїРµРјРµС‰Р°С‚СЃСЏ РўРўРќ
+  {if MessageDlg('РЎРѕР·РґР°С‚СЊ РјР°СЂС€СЂСѓС‚С‹'+#13+#10+'РЅР° С‚РµРєСѓС‰СѓСЋ РґР°С‚Сѓ?', mtConfirmation, [mbYes,mbNo], 0) = mrYes then
+     actPlanAddExecute(Sender);//РџРѕСЃС‚Р°РІРёС‚СЊ РїСЂРѕС†РµРґСѓ РґРѕР±Р°РІР»РµРЅРёСЏ РјР°СЂС€СЂСѓС‚РѕРІ }
 
 //  listTonnag;
 end;
@@ -3752,7 +3752,7 @@ end;
 procedure TfmTTNPlan.RefreshMinOutletCount;
 var
   lMinClientCount: integer;
-begin //Получения из параметров базы минимально допустимого количества посещения ТТ
+begin //РџРѕР»СѓС‡РµРЅРёСЏ РёР· РїР°СЂР°РјРµС‚СЂРѕРІ Р±Р°Р·С‹ РјРёРЅРёРјР°Р»СЊРЅРѕ РґРѕРїСѓСЃС‚РёРјРѕРіРѕ РєРѕР»РёС‡РµСЃС‚РІР° РїРѕСЃРµС‰РµРЅРёСЏ РўРў
   if (MegaDSTTNPlanDOCTYPE.AsString = sttndtCity)
   then lMinClientCount:= StrToIntDef(IntfMegaDBCommon.GetParam(sMinTTNClientCountCity, '23'), 23)
   else lMinClientCount:= StrToIntDef(IntfMegaDBCommon.GetParam(sMinTTNClientCount, '17'), 17);
@@ -3777,11 +3777,11 @@ begin
     NaklSum := DBSumListTTNPlan.SumCollection.Items[1].SumValue;
 
     if NaklSum = 0 then
-    begin // деление на 0
+    begin // РґРµР»РµРЅРёРµ РЅР° 0
       PlanSum := 0;
       NaklSum := 1;
     end;
-    lbWholeRent.Caption := 'Общая рентабельность:'+Format('%6.2f',[PlanSum*100/NaklSum]);
+    lbWholeRent.Caption := 'РћР±С‰Р°СЏ СЂРµРЅС‚Р°Р±РµР»СЊРЅРѕСЃС‚СЊ:'+Format('%6.2f',[PlanSum*100/NaklSum]);
   end;
 end;
 
@@ -3812,7 +3812,7 @@ var  TempDir,EmailAdr,EmailAdrOld:string;
 begin
   EmailAdr:= IntfMegaDBCommon.GetParam('JOINTLOGISTIC_MAIL', '');
   EmailAdrOld:= EmailAdr;
-  if InputQuery('e-mail ', 'Введите адрес эл.почты', EmailAdr) then
+  if InputQuery('e-mail ', 'Р’РІРµРґРёС‚Рµ Р°РґСЂРµСЃ СЌР».РїРѕС‡С‚С‹', EmailAdr) then
      begin
      if EmailAdrOld <> EmailAdr then
       IntfMegaDBCommon.SetParam('JOINTLOGISTIC_MAIL', EmailAdr);
@@ -3838,25 +3838,25 @@ begin
     xsdt1.Free;
   end;    
     { intfRef := CreateComObject(CLASS_ClassSendMail) as IMySendMail;
-       if intfRef.SendMail(EmailAdr,'План маршрута','во вложении',TempDir+paramFileName,'','')<>1 then
-          ShowMessage('ОШИБКА отправки плана маршрута ');
-       ShowMessage('Отправлено');}
+       if intfRef.SendMail(EmailAdr,'РџР»Р°РЅ РјР°СЂС€СЂСѓС‚Р°','РІРѕ РІР»РѕР¶РµРЅРёРё',TempDir+paramFileName,'','')<>1 then
+          ShowMessage('РћРЁРР‘РљРђ РѕС‚РїСЂР°РІРєРё РїР»Р°РЅР° РјР°СЂС€СЂСѓС‚Р° ');
+       ShowMessage('РћС‚РїСЂР°РІР»РµРЅРѕ');}
         try
             lSM:=TMegaSendMail.Create(self);
-            lSM.SetSMTPLoginByID(4); // устанавливаю хост/логин/пароль для SMTP
+            lSM.SetSMTPLoginByID(4); // СѓСЃС‚Р°РЅР°РІР»РёРІР°СЋ С…РѕСЃС‚/Р»РѕРіРёРЅ/РїР°СЂРѕР»СЊ РґР»СЏ SMTP
             lSM.ToAddress.Add(EmailAdr);
             lSM.Body.Clear;
-            lSM.Body.Add('во вложении') ;
+            lSM.Body.Add('РІРѕ РІР»РѕР¶РµРЅРёРё') ;
             lSM.Attachments.Add(TempDir+paramFileName);
             lSM.SetEmailFrom('postmaster@megapol.com.ua');
-            lSM.Subject:= 'План маршрута';
+            lSM.Subject:= 'РџР»Р°РЅ РјР°СЂС€СЂСѓС‚Р°';
             try
               lSM.SendEmail(false);
             except
               on e:Exception do
-                liUtils.Error('Не удалось отправить данные !'+#13+#10+' ошибка - [' + e.Message + ']');
+                liUtils.Error('РќРµ СѓРґР°Р»РѕСЃСЊ РѕС‚РїСЂР°РІРёС‚СЊ РґР°РЅРЅС‹Рµ !'+#13+#10+' РѕС€РёР±РєР° - [' + e.Message + ']');
             end;
-            ShowMessage('Отправлено');
+            ShowMessage('РћС‚РїСЂР°РІР»РµРЅРѕ');
             finally
              lSM.free;
             end;    
@@ -3880,7 +3880,7 @@ var
   directory: string;
   xsdt1: TXSDateTime;
 begin
-  if SelectDirectory('Папка для сохранения файла:','C:\', directory) then
+  if SelectDirectory('РџР°РїРєР° РґР»СЏ СЃРѕС…СЂР°РЅРµРЅРёСЏ С„Р°Р№Р»Р°:','C:\', directory) then
   begin
   paramFileName:= 'RoutePlan_'+IntToStr(paramRouteNumber)+'_'+ReplaceStr(DateToStr(Now), '.', '')+'.xml';
   wsLogist:=  GetJointLogistic(False, (IntfMegaDBCommon.GetCountry = iccRussia));
@@ -3892,7 +3892,7 @@ begin
     try
       if Length(A) > 0 then
        FS.WriteBuffer(Pointer(A)^, Length(A));
-      ShowMessage('Выгрузка завершена')
+      ShowMessage('Р’С‹РіСЂСѓР·РєР° Р·Р°РІРµСЂС€РµРЅР°')
     finally
       FreeAndNil(FS);
     end;
@@ -3915,11 +3915,11 @@ begin
     xsdt1.AsDateTime := MegaDatePanel.Date;
     try
       s:= wsTocan.RequestXmlDocCarsForTocan(xsdt1);
-      ShowMessage('Машины выгружены -' + s);
+      ShowMessage('РњР°С€РёРЅС‹ РІС‹РіСЂСѓР¶РµРЅС‹ -' + s);
     except
       on e: Exception do
       if e.Message <> '' then
-        MessageDlg('Внимание!'+#13+#10+'<' + e.Message + '>''', mtWarning, [mbOK], 0);
+        MessageDlg('Р’РЅРёРјР°РЅРёРµ!'+#13+#10+'<' + e.Message + '>''', mtWarning, [mbOK], 0);
     end
   finally
     xsdt1.Free;
@@ -3948,11 +3948,11 @@ begin
     xsdt1.AsDateTime := MegaDatePanel.Date;
     try
     s:= wsTocan.RequestXmlDocInvoicesWitoutPlanForTocan(xsdt1);
-    ShowMessage('Создан или обновлен проект -'+s);
+    ShowMessage('РЎРѕР·РґР°РЅ РёР»Рё РѕР±РЅРѕРІР»РµРЅ РїСЂРѕРµРєС‚ -'+s);
     except
      on e: Exception do
       if e.Message <> '' then
-        MessageDlg('Внимание!'+#13+#10+'<' + e.Message + '>''', mtWarning, [mbOK], 0);
+        MessageDlg('Р’РЅРёРјР°РЅРёРµ!'+#13+#10+'<' + e.Message + '>''', mtWarning, [mbOK], 0);
    end
   finally
     xsdt1.Free;
@@ -3980,7 +3980,7 @@ var //TempDir,EmailAdr,EmailAdrOld:string;
 //  PathLine:  string;
 //  body: TStringList;
 begin
-  if SelectDirectory('Папка для сохранения файла:','C:\', directory) then
+  if SelectDirectory('РџР°РїРєР° РґР»СЏ СЃРѕС…СЂР°РЅРµРЅРёСЏ С„Р°Р№Р»Р°:','C:\', directory) then
    begin
      paramFileName:= 'RoutePlan_TOCAN'+'_'+ReplaceStr(DateToStr(Now), '.', '')+'.xml';
      wsTocan:=  GetApiForTocan(False, (IntfMegaDBCommon.GetCountry = iccRussia));
@@ -3991,7 +3991,7 @@ begin
        FS := TFileStream.Create(directory+'/'+paramFileName, fmCreate);
        try
          FS.WriteBuffer(s[1],  sizeof(TxMLChar)*length(s));
-         ShowMessage('Выгрузка завершена')
+         ShowMessage('Р’С‹РіСЂСѓР·РєР° Р·Р°РІРµСЂС€РµРЅР°')
        finally
          FreeAndNil(FS);
        end;
@@ -4035,7 +4035,7 @@ begin
     except
      on e: Exception do
       if e.Message <> '' then
-        MessageDlg('Внимание!'+#13+#10+'<' + e.Message + '>''', mtWarning, [mbOK], 0);
+        MessageDlg('Р’РЅРёРјР°РЅРёРµ!'+#13+#10+'<' + e.Message + '>''', mtWarning, [mbOK], 0);
    end
   finally
     xsdt1.Free;
@@ -4091,7 +4091,7 @@ begin
     except
      on e: Exception do
       if e.Message <> '' then
-        MessageDlg('Внимание!'+#13+#10+'<' + e.Message + '>''', mtWarning, [mbOK], 0);
+        MessageDlg('Р’РЅРёРјР°РЅРёРµ!'+#13+#10+'<' + e.Message + '>''', mtWarning, [mbOK], 0);
    end
   finally
     xsdt1.Free;
@@ -4154,11 +4154,11 @@ begin
      FIsStickeringNakl:=VarToInt(fbExecQuery(DM, ' SELECT count(*) FROM ttn_plan_positions tpp '+
      ' left join GET_LINKED_DOCS_NEW(1,tpp.nakl_recid,tpp.nakl_baseid,1,0) gl on (1=1) '+
      ' left join doc_nakl dn on (dn.recid = tpp.nakl_recid and dn.baseid = tpp.nakl_baseid) ' +
-     ' where tpp.plandate=''%s'' and tpp.plannumber=%d and gl.LINKED_PARENT=1 and dn.doctype<>''РНк200'' and tpp.baseid = %d', [MegaDSTTNPlanPLANDATE.asString,MegaDSTTNPlanPLANNUMBER.asInteger ,MegaDSTTNPlanBASEID.asInteger]));
+     ' where tpp.plandate=''%s'' and tpp.plannumber=%d and gl.LINKED_PARENT=1 and dn.doctype<>''Р РќРє200'' and tpp.baseid = %d', [MegaDSTTNPlanPLANDATE.asString,MegaDSTTNPlanPLANNUMBER.asInteger ,MegaDSTTNPlanBASEID.asInteger]));
     if FIsStickeringNakl>0 then
     begin
-       Application.MessageBox('Создавать наряд на маршрут в котором есть транзитные накладные запрещено!',
-         'Внимание', MB_OK + MB_ICONSTOP);
+       Application.MessageBox('РЎРѕР·РґР°РІР°С‚СЊ РЅР°СЂСЏРґ РЅР° РјР°СЂС€СЂСѓС‚ РІ РєРѕС‚РѕСЂРѕРј РµСЃС‚СЊ С‚СЂР°РЅР·РёС‚РЅС‹Рµ РЅР°РєР»Р°РґРЅС‹Рµ Р·Р°РїСЂРµС‰РµРЅРѕ!',
+         'Р’РЅРёРјР°РЅРёРµ', MB_OK + MB_ICONSTOP);
        exit;
     end;
   end;
@@ -4195,7 +4195,7 @@ begin
 end;
 
 procedure TfmTTNPlan.actLinkTTtoSotaExecute(Sender: TObject);
-begin // Привязать торговую точку к логистическим сотам
+begin // РџСЂРёРІСЏР·Р°С‚СЊ С‚РѕСЂРіРѕРІСѓСЋ С‚РѕС‡РєСѓ Рє Р»РѕРіРёСЃС‚РёС‡РµСЃРєРёРј СЃРѕС‚Р°Рј
   MegaCreateAndShowForm(TfmLogCells_AddTT, fmLogCells_AddTT);
 
   fmLogCells_AddTT.aOUTLET_RECID  := MegaDSTTNPlanPositionsOUTLET_RECID.Asinteger;
@@ -4215,7 +4215,7 @@ begin // Привязать торговую точку к логистическим сотам
 end;
 
 procedure TfmTTNPlan.actLinkTTtoSotaNaklListExecute(Sender: TObject);
-begin // Привязать торговую точку к логистическим сотам
+begin // РџСЂРёРІСЏР·Р°С‚СЊ С‚РѕСЂРіРѕРІСѓСЋ С‚РѕС‡РєСѓ Рє Р»РѕРіРёСЃС‚РёС‡РµСЃРєРёРј СЃРѕС‚Р°Рј
   MegaCreateAndShowForm(TfmLogCells_AddTT, fmLogCells_AddTT);
 
   fmLogCells_AddTT.aOUTLET_RECID  := fdsNaklListOUTLET_RECID.Asinteger;
@@ -4235,13 +4235,13 @@ begin // Привязать торговую точку к логистическим сотам
 end;
 
 procedure TfmTTNPlan.actLinkTTtoSotaNaklListUpdate(Sender: TObject);
-begin // Привязать торговую точку к логистической соте
+begin // РџСЂРёРІСЏР·Р°С‚СЊ С‚РѕСЂРіРѕРІСѓСЋ С‚РѕС‡РєСѓ Рє Р»РѕРіРёСЃС‚РёС‡РµСЃРєРѕР№ СЃРѕС‚Рµ
   TAction(sender).Enabled := true ;
       //or fdsNaklListKOD_CELL.IsNull or (fdsNaklListKOD_CELL.AsString='');
 end;
 
 procedure TfmTTNPlan.actLinkTTtoSotaUpdate(Sender: TObject);
-begin // Привязать торговую точку к логистической соте
+begin // РџСЂРёРІСЏР·Р°С‚СЊ С‚РѕСЂРіРѕРІСѓСЋ С‚РѕС‡РєСѓ Рє Р»РѕРіРёСЃС‚РёС‡РµСЃРєРѕР№ СЃРѕС‚Рµ
   TAction(sender).Enabled := true ;
       // or MegaDSTTNPlanPositionsKOD_CELL.IsNull or (MegaDSTTNPlanPositionsKOD_CELL.AsString='');
 end;
@@ -4252,7 +4252,7 @@ begin
     TAAMakeForm.MoveSchetsToNaklsByTimeOut;
   except
     on E:Exception do
-      MessageBox(Self.Handle, PChar('Ошибка переноса заказов в накладные! '+E.Message), 'Ошибка', MB_OK or MB_ICONERROR);
+      MessageBox(Self.Handle, PChar('РћС€РёР±РєР° РїРµСЂРµРЅРѕСЃР° Р·Р°РєР°Р·РѕРІ РІ РЅР°РєР»Р°РґРЅС‹Рµ! '+E.Message), 'РћС€РёР±РєР°', MB_OK or MB_ICONERROR);
   end;
 end;
 
@@ -4260,20 +4260,20 @@ procedure TfmTTNPlan.actNaclMAddExecute(Sender: TObject);
 var
    i:integer;
 begin
-     //Распределение всех накладных по маршрутам
-   if fdsNaklList.EOF and fdsNaklList.BOF then //Проверка на наличие накладных
-   raise Exception.Create('Нет накладных для добавления');
-   if MegaDSTTNPlan.EOF and MegaDSTTNPlan.BOF then //Проверка на наличие маршрутов
-   raise Exception.Create('Нет маршрутов на текущую дату.');
+     //Р Р°СЃРїСЂРµРґРµР»РµРЅРёРµ РІСЃРµС… РЅР°РєР»Р°РґРЅС‹С… РїРѕ РјР°СЂС€СЂСѓС‚Р°Рј
+   if fdsNaklList.EOF and fdsNaklList.BOF then //РџСЂРѕРІРµСЂРєР° РЅР° РЅР°Р»РёС‡РёРµ РЅР°РєР»Р°РґРЅС‹С…
+   raise Exception.Create('РќРµС‚ РЅР°РєР»Р°РґРЅС‹С… РґР»СЏ РґРѕР±Р°РІР»РµРЅРёСЏ');
+   if MegaDSTTNPlan.EOF and MegaDSTTNPlan.BOF then //РџСЂРѕРІРµСЂРєР° РЅР° РЅР°Р»РёС‡РёРµ РјР°СЂС€СЂСѓС‚РѕРІ
+   raise Exception.Create('РќРµС‚ РјР°СЂС€СЂСѓС‚РѕРІ РЅР° С‚РµРєСѓС‰СѓСЋ РґР°С‚Сѓ.');
    ////i:=fdsNaklList.RecordCount;
    ////MegaDSTTNPlan.First;
-   ////while not MegaDSTTNPlan.Eof do //Цикл который проходится по всем маршрутам
+   ////while not MegaDSTTNPlan.Eof do //Р¦РёРєР» РєРѕС‚РѕСЂС‹Р№ РїСЂРѕС…РѕРґРёС‚СЃСЏ РїРѕ РІСЃРµРј РјР°СЂС€СЂСѓС‚Р°Рј
    ////begin
-        i:=fdsNaklList.RecordCount; //организованным на текущую дату
+        i:=fdsNaklList.RecordCount; //РѕСЂРіР°РЅРёР·РѕРІР°РЅРЅС‹Рј РЅР° С‚РµРєСѓС‰СѓСЋ РґР°С‚Сѓ
         fdsNaklList.DisableControls;
         fdsNaklList.First;
-        while not fdsNaklList.Eof do  //Цикл который проходится по всем накладным
-        begin                       //организованным на текущую дату
+        while not fdsNaklList.Eof do  //Р¦РёРєР» РєРѕС‚РѕСЂС‹Р№ РїСЂРѕС…РѕРґРёС‚СЃСЏ РїРѕ РІСЃРµРј РЅР°РєР»Р°РґРЅС‹Рј
+        begin                       //РѕСЂРіР°РЅРёР·РѕРІР°РЅРЅС‹Рј РЅР° С‚РµРєСѓС‰СѓСЋ РґР°С‚Сѓ
              MegaDSTTNPlan.Locate('PLANNUMBER', fdsNaklListN_TTN_MARSHRUT.Value, []);
              if fdsNaklListN_TTN_MARSHRUT.Value = MegaDSTTNPlanPLANNUMBER.Value then
              MegaDSTTNPlanPositions.Add(fdsNaklListRECID.asInteger, fdsNaklListBASEID.AsInteger);
@@ -4286,10 +4286,10 @@ end;
 procedure TfmTTNPlan.actNaclRightExecute(Sender: TObject);
 var
    nacl_id:integer;
-begin  //Передвижение накладной вправо
+begin  //РџРµСЂРµРґРІРёР¶РµРЅРёРµ РЅР°РєР»Р°РґРЅРѕР№ РІРїСЂР°РІРѕ
 
     if MegaDSTTNPlan.FieldByName('TTN_RECID').AsInteger <> 0 then
-    Raise Exception.Create('Действие неккоректно. Удалите ТТН.');
+    Raise Exception.Create('Р”РµР№СЃС‚РІРёРµ РЅРµРєРєРѕСЂРµРєС‚РЅРѕ. РЈРґР°Р»РёС‚Рµ РўРўРќ.');
 
 
     if (MegaDSTTNPlan.State = dsInsert)
@@ -4297,14 +4297,14 @@ begin  //Передвижение накладной вправо
     then MegaDSTTNPlan.Post;
 
     fdsNaklList.DisableControls;
-    nacl_id:=MegaDSTTNPlanPositionsNAKL_RECID.Value;//Присваивается значение перемещаемой ТТН
-    actNaklRemoveExecute(Sender);  //Удалить ТТН из текущего маршрута
+    nacl_id:=MegaDSTTNPlanPositionsNAKL_RECID.Value;//РџСЂРёСЃРІР°РёРІР°РµС‚СЃСЏ Р·РЅР°С‡РµРЅРёРµ РїРµСЂРµРјРµС‰Р°РµРјРѕР№ РўРўРќ
+    actNaklRemoveExecute(Sender);  //РЈРґР°Р»РёС‚СЊ РўРўРќ РёР· С‚РµРєСѓС‰РµРіРѕ РјР°СЂС€СЂСѓС‚Р°
     if (MegaDSTTNPlan.Eof) then MegaDSTTNPlan.First
-    else MegaDSTTNPlan.Next;           //Перейти на следующий маршрут
-    actPlanRefresh.Execute;       //Обновить таблицу Позиций ТТН
+    else MegaDSTTNPlan.Next;           //РџРµСЂРµР№С‚Рё РЅР° СЃР»РµРґСѓСЋС‰РёР№ РјР°СЂС€СЂСѓС‚
+    actPlanRefresh.Execute;       //РћР±РЅРѕРІРёС‚СЊ С‚Р°Р±Р»РёС†Сѓ РџРѕР·РёС†РёР№ РўРўРќ
     fdsNaklList.Locate('RECID',nacl_id,[]); //
     actPlanRefresh.Execute;
-    actNaklAddExecute(Sender);    // Добавить ТТН в текущий маршрут
+    actNaklAddExecute(Sender);    // Р”РѕР±Р°РІРёС‚СЊ РўРўРќ РІ С‚РµРєСѓС‰РёР№ РјР°СЂС€СЂСѓС‚
     fdsNaklList.EnableControls;
     pcTTNPlanChange(Sender);
 end;
@@ -4312,33 +4312,33 @@ end;
 procedure TfmTTNPlan.actNaclLeftExecute(Sender: TObject);
 var
    nacl_id:integer;
-begin  //Передвижение накладной влево
+begin  //РџРµСЂРµРґРІРёР¶РµРЅРёРµ РЅР°РєР»Р°РґРЅРѕР№ РІР»РµРІРѕ
 
     if MegaDSTTNPlan.FieldByName('TTN_RECID').AsInteger <> 0 then
-    Raise Exception.Create('Действие неккоректно. Удалите ТТН.');
+    Raise Exception.Create('Р”РµР№СЃС‚РІРёРµ РЅРµРєРєРѕСЂРµРєС‚РЅРѕ. РЈРґР°Р»РёС‚Рµ РўРўРќ.');
 
     if (MegaDSTTNPlan.State = dsInsert)
     or (MegaDSTTNPlan.State = dsEdit)
     then MegaDSTTNPlan.Post;
 
     fdsNaklList.DisableControls;
-    nacl_id:=MegaDSTTNPlanPositionsNAKL_RECID.Value;//Присваивается значение перемещаемой ТТН
-    actNaklRemoveExecute(Sender);  //Удалить ТТН из текущего маршрута
+    nacl_id:=MegaDSTTNPlanPositionsNAKL_RECID.Value;//РџСЂРёСЃРІР°РёРІР°РµС‚СЃСЏ Р·РЅР°С‡РµРЅРёРµ РїРµСЂРµРјРµС‰Р°РµРјРѕР№ РўРўРќ
+    actNaklRemoveExecute(Sender);  //РЈРґР°Р»РёС‚СЊ РўРўРќ РёР· С‚РµРєСѓС‰РµРіРѕ РјР°СЂС€СЂСѓС‚Р°
     if (MegaDSTTNPlan.Bof) then MegaDSTTNPlan.Last
-    else MegaDSTTNPlan.Prior;          //Перейти на предыдущий маршрут
-    actPlanRefresh.Execute;  //Обновить таблицу Позиций ТТН
+    else MegaDSTTNPlan.Prior;          //РџРµСЂРµР№С‚Рё РЅР° РїСЂРµРґС‹РґСѓС‰РёР№ РјР°СЂС€СЂСѓС‚
+    actPlanRefresh.Execute;  //РћР±РЅРѕРІРёС‚СЊ С‚Р°Р±Р»РёС†Сѓ РџРѕР·РёС†РёР№ РўРўРќ
     fdsNaklList.Locate('RECID',nacl_id,[]); //
     actPlanRefresh.Execute;
-    actNaklAddExecute(Sender);    // Добавить ТТН в текущий маршрут
+    actNaklAddExecute(Sender);    // Р”РѕР±Р°РІРёС‚СЊ РўРўРќ РІ С‚РµРєСѓС‰РёР№ РјР°СЂС€СЂСѓС‚
     fdsNaklList.EnableControls;
-    pcTTNPlanChange(Sender); //Изменение просматриваемого маршрута(обновление открытой закладки)
+    pcTTNPlanChange(Sender); //РР·РјРµРЅРµРЅРёРµ РїСЂРѕСЃРјР°С‚СЂРёРІР°РµРјРѕРіРѕ РјР°СЂС€СЂСѓС‚Р°(РѕР±РЅРѕРІР»РµРЅРёРµ РѕС‚РєСЂС‹С‚РѕР№ Р·Р°РєР»Р°РґРєРё)
 end;
 
 procedure TfmTTNPlan.edTTN_PositionChange(Sender: TObject);
 var
    nacl_id:integer;
    base_id:integer;
-begin //Перемещение ТТН на указанный маршрут
+begin //РџРµСЂРµРјРµС‰РµРЅРёРµ РўРўРќ РЅР° СѓРєР°Р·Р°РЅРЅС‹Р№ РјР°СЂС€СЂСѓС‚
     if not actNaklRemove.Enabled then begin
       edTTN_Position.DisplayValue:='';
       abort;
@@ -4347,7 +4347,7 @@ begin //Перемещение ТТН на указанный маршрут
     if MegaDSTTNPlan.FieldByName('TTN_RECID').AsInteger <> 0 then
     begin
          edTTN_Position.DisplayValue:='';
-         Raise Exception.Create('Действие неккоректно. Удалите ТТН.');
+         Raise Exception.Create('Р”РµР№СЃС‚РІРёРµ РЅРµРєРєРѕСЂРµРєС‚РЅРѕ. РЈРґР°Р»РёС‚Рµ РўРўРќ.');
     end;
 
     if (MegaDSTTNPlan.State = dsInsert)
@@ -4362,16 +4362,16 @@ begin //Перемещение ТТН на указанный маршрут
     end;
 
     fdsNaklList.DisableControls;
-    nacl_id:=MegaDSTTNPlanPositionsNAKL_RECID.Value;//Присваивается значение перемещаемой ТТН
+    nacl_id:=MegaDSTTNPlanPositionsNAKL_RECID.Value;//РџСЂРёСЃРІР°РёРІР°РµС‚СЃСЏ Р·РЅР°С‡РµРЅРёРµ РїРµСЂРµРјРµС‰Р°РµРјРѕР№ РўРўРќ
     base_id:=MegaDSTTNPlanPositionsNAKL_BASEID.Value;
-    actNaklRemoveExecute(Sender);  //Удалить ТТН из текущего маршрута
+    actNaklRemoveExecute(Sender);  //РЈРґР°Р»РёС‚СЊ РўРўРќ РёР· С‚РµРєСѓС‰РµРіРѕ РјР°СЂС€СЂСѓС‚Р°
     MegaDSTTNPlan.Locate('PLANNUMBER',edTTN_Position.Value,[]);
     MegaDSTTNPlanPositions.Add(nacl_id, base_id);
     //fdsNaklList.Locate('RECID',nacl_id,[]); //
-    //actNaklAddExecute(Sender);    // Добавить ТТН в текущий маршрут
+    //actNaklAddExecute(Sender);    // Р”РѕР±Р°РІРёС‚СЊ РўРўРќ РІ С‚РµРєСѓС‰РёР№ РјР°СЂС€СЂСѓС‚
     fdsNaklList.EnableControls;
-    RefreshNaklList;   //Обновление таблицы ТТН
-    pcTTNPlanChange(Sender); //Изменение просматриваемого маршрута
+    RefreshNaklList;   //РћР±РЅРѕРІР»РµРЅРёРµ С‚Р°Р±Р»РёС†С‹ РўРўРќ
+    pcTTNPlanChange(Sender); //РР·РјРµРЅРµРЅРёРµ РїСЂРѕСЃРјР°С‚СЂРёРІР°РµРјРѕРіРѕ РјР°СЂС€СЂСѓС‚Р°
     edTTN_Position.DisplayValue:='';
 end;
 
@@ -4388,16 +4388,16 @@ begin
       begin
            if qPlan_Count.FieldByName('PARAMVALUE').Value = 1 then
            begin
-                cxButton3.Enabled:=true;//Добавить все (Enable=true)
-//                actFixMarshrut.Enabled:=true;//Фиксированные маршруты
-                dxBarButton2.Enabled:=false; //Удалить (Enable=false)
+                cxButton3.Enabled:=true;//Р”РѕР±Р°РІРёС‚СЊ РІСЃРµ (Enable=true)
+//                actFixMarshrut.Enabled:=true;//Р¤РёРєСЃРёСЂРѕРІР°РЅРЅС‹Рµ РјР°СЂС€СЂСѓС‚С‹
+                dxBarButton2.Enabled:=false; //РЈРґР°Р»РёС‚СЊ (Enable=false)
                 is_newcrm:=true;
            end;
       end;
       {else
       begin
-           cxButton3.Enabled:=true; //Добавить все (Enable=true)
-           dxBarButton2.Enabled:=false; //Удалить (Enable=false)
+           cxButton3.Enabled:=true; //Р”РѕР±Р°РІРёС‚СЊ РІСЃРµ (Enable=true)
+           dxBarButton2.Enabled:=false; //РЈРґР°Р»РёС‚СЊ (Enable=false)
            is_newcrm:=false;
       end;}
 end;
@@ -4408,7 +4408,7 @@ begin
  if ParName='Delivery_Time' then
   begin
    if report.FieldByName('DELIV_TIME').AsString ='' then
-    if report.FieldByName('DESIREDDELIVERYTIME').AsString='' then ParValue:='Любое'
+    if report.FieldByName('DESIREDDELIVERYTIME').AsString='' then ParValue:='Р›СЋР±РѕРµ'
      else ParValue:= GetDecodeDeliveryTime(report.FieldByName('DESIREDDELIVERYTIME').AsString )
    else ParValue := GetDecodeDeliveryTime( report.FieldByName('DELIV_TIME').AsString );
 
@@ -4433,7 +4433,7 @@ begin
   else
     pnl_isTTNNAKL.Caption := TTN_not_Exists;
 
-  // если временный маршрут, то сообщаю об этом
+  // РµСЃР»Рё РІСЂРµРјРµРЅРЅС‹Р№ РјР°СЂС€СЂСѓС‚, С‚Рѕ СЃРѕРѕР±С‰Р°СЋ РѕР± СЌС‚РѕРј
   pn_MoveTempMarshr.Visible := (not MegaDSTTNPlanIS_TEMP_MARSHRUT.IsNull) and
                                (MegaDSTTNPlanIS_TEMP_MARSHRUT.AsInteger=1);
   if pn_MoveTempMarshr.Visible then
@@ -4446,7 +4446,7 @@ end;
 procedure TfmTTNPlan.dbedCAR_DRIVERKeyPress(Sender: TObject;
   var Key: Char);
 begin
-// if not ((key in ['А'..'Я','а'..'я','.','-']) or ( Key <=' ')) then Key :=#0;
+// if not ((key in ['Рђ'..'РЇ','Р°'..'СЏ','.','-']) or ( Key <=' ')) then Key :=#0;
 end;
 
 procedure TfmTTNPlan.dxBarButton12Click(Sender: TObject);
@@ -4481,8 +4481,8 @@ var
   lNaklRecid, lNaklBaseID : integer;
 begin
   Result := false;
-  //  Изменение от 19.06.2004  Бехтеренко Ю.
-  // Запрет на создание ТТН, если не выполнены оба ограничения.
+  //  РР·РјРµРЅРµРЅРёРµ РѕС‚ 19.06.2004  Р‘РµС…С‚РµСЂРµРЅРєРѕ Р®.
+  // Р—Р°РїСЂРµС‚ РЅР° СЃРѕР·РґР°РЅРёРµ РўРўРќ, РµСЃР»Рё РЅРµ РІС‹РїРѕР»РЅРµРЅС‹ РѕР±Р° РѕРіСЂР°РЅРёС‡РµРЅРёСЏ.
   lNaklRecid := MegaDSTTNPlanPositionsNAKL_RECID.AsInteger;
   lNaklBaseID:= MegaDSTTNPlanPositionsNAKL_BASEID.AsInteger;
 
@@ -4498,7 +4498,7 @@ begin
 
   if MegaDSTTNPlanDOCTYPE.AsString = sttndtCity then
   begin
-    // по городу
+    // РїРѕ РіРѕСЂРѕРґСѓ
     lMinWeightLoad := StrToIntDef(IntfMegaDBCommon.GetParam(sMinTTNCityLoadingWeight, '3'), 3);
     lMinPersentLoad := StrToIntDef(IntfMegaDBCommon.GetParam(sMinTTNLoadingPercentCity, '80'), 80);
     lMinClientCount := StrToIntDef(IntfMegaDBCommon.GetParam(sMinTTNClientCountCity, '25'), 25);
@@ -4514,7 +4514,7 @@ begin
   end
   else
   begin
-    // межгород
+    // РјРµР¶РіРѕСЂРѕРґ
     lMinPersentLoad := StrToIntDef(IntfMegaDBCommon.GetParam(sMinTTNLoadingPercent, '80'), 80);
     lMinClientCount := StrToIntDef(IntfMegaDBCommon.GetParam(sMinTTNClientCount, '20'), 20);
 
@@ -4577,20 +4577,20 @@ begin
     while not qr.Eof do
     begin
       s := s+qr.FN('SHORTNAME_DK').ASString+
-           ' ТТ: '+ qr.FN('TT').ASString+
-           ' кол-во: '+qr.FN('KOLICH').ASString+
-           ' сумма: '+qr.FN('SUMMA').ASString+
+           ' РўРў: '+ qr.FN('TT').ASString+
+           ' РєРѕР»-РІРѕ: '+qr.FN('KOLICH').ASString+
+           ' СЃСѓРјРјР°: '+qr.FN('SUMMA').ASString+
            #13#10;
       qr.Next;
     end;
 
     result := S = '';
     if aShowMessage and (not result) then
-      MessageDlg('Запрещено отгружать накладные на одну торговую точку c'#13#10+
-                 'общим количеством менее '+IntfMegaDBCommon.GetParam('NAKL_MIN_BOTTLE_CNT','10')+
-                 ' и общей суммой менее '+IntfMegaDBCommon.GetParam('NAKL_MIN_NAKL_SUM','200')+'.'#13#10+
+      MessageDlg('Р—Р°РїСЂРµС‰РµРЅРѕ РѕС‚РіСЂСѓР¶Р°С‚СЊ РЅР°РєР»Р°РґРЅС‹Рµ РЅР° РѕРґРЅСѓ С‚РѕСЂРіРѕРІСѓСЋ С‚РѕС‡РєСѓ c'#13#10+
+                 'РѕР±С‰РёРј РєРѕР»РёС‡РµСЃС‚РІРѕРј РјРµРЅРµРµ '+IntfMegaDBCommon.GetParam('NAKL_MIN_BOTTLE_CNT','10')+
+                 ' Рё РѕР±С‰РµР№ СЃСѓРјРјРѕР№ РјРµРЅРµРµ '+IntfMegaDBCommon.GetParam('NAKL_MIN_NAKL_SUM','200')+'.'#13#10+
                  S+
-                 'Обращайтесь в отдел продаж!', mtInformation, [mbok], 0 );
+                 'РћР±СЂР°С‰Р°Р№С‚РµСЃСЊ РІ РѕС‚РґРµР» РїСЂРѕРґР°Р¶!', mtInformation, [mbok], 0 );
     qr.Close;
     qr.Destroy;
   end;
@@ -4607,14 +4607,14 @@ begin
     //   frTTNRep.DesignReport;
    if (IntfMegaDBCommon.GetCountry = iccUkraine) then
    begin
-     MessageBox(Application.Handle,'Используйте функцию печати маршрутного листа в ТТН.','Ошибка!',MB_OK+MB_ICONERROR+MB_APPLMODAL);
+     MessageBox(Application.Handle,'РСЃРїРѕР»СЊР·СѓР№С‚Рµ С„СѓРЅРєС†РёСЋ РїРµС‡Р°С‚Рё РјР°СЂС€СЂСѓС‚РЅРѕРіРѕ Р»РёСЃС‚Р° РІ РўРўРќ.','РћС€РёР±РєР°!',MB_OK+MB_ICONERROR+MB_APPLMODAL);
    end
    else
     frTTNRep.ShowReport;
     
     MegaDSTTNPlanPositions.Locate('NAKL_RECID;NAKL_BASEID', VarArrayOf([lRecid, lBaseid]), []);
   except
-    MessageBox(Application.Handle,'Ошибка формирования отчета "Накладые в маршруте".','Ошибка!',MB_OK+MB_ICONERROR+MB_APPLMODAL);
+    MessageBox(Application.Handle,'РћС€РёР±РєР° С„РѕСЂРјРёСЂРѕРІР°РЅРёСЏ РѕС‚С‡РµС‚Р° "РќР°РєР»Р°РґС‹Рµ РІ РјР°СЂС€СЂСѓС‚Рµ".','РћС€РёР±РєР°!',MB_OK+MB_ICONERROR+MB_APPLMODAL);
   end;
 end;
 
@@ -4646,7 +4646,7 @@ begin
 
   if qrTempMarsh.FieldByName('PLANNUMBER').IsNull then
   begin
-    MessageDlg(format('Маршрут №%d за %s не создан.',
+    MessageDlg(format('РњР°СЂС€СЂСѓС‚ в„–%d Р·Р° %s РЅРµ СЃРѕР·РґР°РЅ.',
        [qrTempMarsh.ParamByName('PLANNUMBER').AsInteger,
         qrTempMarsh.ParamByName('PLANDATE').AsString]),
        mtError, [mbYes,mbNo], 0);
@@ -4657,7 +4657,7 @@ begin
   if (not qrTempMarsh.FieldByName('TTN_RECID').IsNull) and
      (qrTempMarsh.FieldByName('TTN_RECID').AsInteger <>0) then
   begin
-    MessageDlg(format('По маршруту №%d за %s уже создана ТТН',
+    MessageDlg(format('РџРѕ РјР°СЂС€СЂСѓС‚Сѓ в„–%d Р·Р° %s СѓР¶Рµ СЃРѕР·РґР°РЅР° РўРўРќ',
        [qrTempMarsh.ParamByName('PLANNUMBER').AsInteger,
         qrTempMarsh.ParamByName('PLANDATE').AsString]),
        mtError, [mbYes,mbNo], 0);
@@ -4668,7 +4668,7 @@ begin
   qrTempMarshUpd.Transaction.Commit;
   try
 
-  // убираю галочки с накладных
+  // СѓР±РёСЂР°СЋ РіР°Р»РѕС‡РєРё СЃ РЅР°РєР»Р°РґРЅС‹С…
   qrTempMarshUpd.Close;
   qrTempMarshUpd.SQL.Text:=
   'UPDATE DOC_NAKL dn SET                 '#13#10+
@@ -4690,7 +4690,7 @@ begin
 
   qrTempMarshUpd.Transaction.Commit;
   
-  // проставляю галочки
+  // РїСЂРѕСЃС‚Р°РІР»СЏСЋ РіР°Р»РѕС‡РєРё
   qrTempMarsh.Close;
   qrTempMarsh.SQL.Text:=
   'SELECT distinct dn.DK_TO                           '#13#10+
@@ -4726,7 +4726,7 @@ begin
   end;
   DolgAnalizForm.Close;
 
-  // переношу в новый маршрут //
+  // РїРµСЂРµРЅРѕС€Сѓ РІ РЅРѕРІС‹Р№ РјР°СЂС€СЂСѓС‚ //
   qrTempMarshUpd.Close;
   qrTempMarshUpd.SQL.Text:=
   ' UPDATE TTN_PLAN_POSITIONS tpp SET               '#13#10+
@@ -4745,7 +4745,7 @@ begin
   qrTempMarshUpd.ParamByName('NEW_PLANNUMBER').AsInteger:= edMoveTempMarshNumber.Value;
   qrTempMarshUpd.ExecQuery;
 
-  // если все накладные перенесены, то удаляю маршрут //
+  // РµСЃР»Рё РІСЃРµ РЅР°РєР»Р°РґРЅС‹Рµ РїРµСЂРµРЅРµСЃРµРЅС‹, С‚Рѕ СѓРґР°Р»СЏСЋ РјР°СЂС€СЂСѓС‚ //
   qrTempMarshUpd.Close;
   qrTempMarshUpd.SQL.Text:=
   ' DELETE FROM TTN_PLAN tp                              '#13#10+
@@ -4765,7 +4765,7 @@ begin
   except
     on e:Exception do
     begin
-      MessageDlg('В процессе переноса накладных в новый маршрут возникли следующие ошибки:'#13#10+e.Message,
+      MessageDlg('Р’ РїСЂРѕС†РµСЃСЃРµ РїРµСЂРµРЅРѕСЃР° РЅР°РєР»Р°РґРЅС‹С… РІ РЅРѕРІС‹Р№ РјР°СЂС€СЂСѓС‚ РІРѕР·РЅРёРєР»Рё СЃР»РµРґСѓСЋС‰РёРµ РѕС€РёР±РєРё:'#13#10+e.Message,
                  mtInformation, [mbOk],0);
       qrTempMarshUpd.Transaction.Rollback;
     end;
@@ -4814,7 +4814,7 @@ begin
     except
     on e:Exception do
       begin
-        ShowMessage(e.Message+' Некорректно указано количество дополнительных маршрутов');
+        ShowMessage(e.Message+' РќРµРєРѕСЂСЂРµРєС‚РЅРѕ СѓРєР°Р·Р°РЅРѕ РєРѕР»РёС‡РµСЃС‚РІРѕ РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹С… РјР°СЂС€СЂСѓС‚РѕРІ');
         exit;
       end;
     end;
@@ -4902,8 +4902,8 @@ begin  //
       DM.SharedQuery.ParamByName('nakl_baseid').asInteger:=MegaDSTTNPlanPositionsNAKL_BASEID.Value;
       DM.SharedQuery.ExecQuery;
       if DM.SharedQuery.RecordCount>0 then begin
-        MessageDlg('Накладная входит в сортировочную партию'+#13#10+
-                   DM.SharedQuery.FieldByName('LOTNUMBER').asString+' от '+DM.SharedQuery.FieldByName('LOTDATE').asString
+        MessageDlg('РќР°РєР»Р°РґРЅР°СЏ РІС…РѕРґРёС‚ РІ СЃРѕСЂС‚РёСЂРѕРІРѕС‡РЅСѓСЋ РїР°СЂС‚РёСЋ'+#13#10+
+                   DM.SharedQuery.FieldByName('LOTNUMBER').asString+' РѕС‚ '+DM.SharedQuery.FieldByName('LOTDATE').asString
                    ,mtInformation,[mbOk],0);
       end;
     finally
@@ -4926,7 +4926,7 @@ var
   ws: IDocumentEDIOrdRsp;
 begin
   ws:=  GetEDIOrdRsp(False, (IntfMegaDBCommon.GetCountry = iccRussia));
-  OutputDebugString(PAnsiChar('Вызов AddInvoiceToOrdRsPFormingQueue. NaklRecid = '+IntToStr(NaklRecID)+
+  OutputDebugString(PAnsiChar('Р’С‹Р·РѕРІ AddInvoiceToOrdRsPFormingQueue. NaklRecid = '+IntToStr(NaklRecID)+
         ', NaklBaseID = '+IntToStr(NaklBaseId)+', NaklGUID = '+NaklGUID));
   Result := ws.AddInvoiceToOrdRspFormingQueue(NaklRecID, NaklBaseId, NaklGuid, NaklSumma);
 end;
@@ -4939,12 +4939,12 @@ begin
 //  begin
 //    try
       ws:=  GetEDIDesAdv(False, (IntfMegaDBCommon.GetCountry = iccRussia));
-      OutputDebugString(PAnsiChar('Вызов AddInvoiceToDesAdvFormingQueue. NaklRecid = '+IntToStr(NaklRecID)+
+      OutputDebugString(PAnsiChar('Р’С‹Р·РѕРІ AddInvoiceToDesAdvFormingQueue. NaklRecid = '+IntToStr(NaklRecID)+
         ', NaklBaseID = '+IntToStr(NaklBaseId)+', NaklGUID = '+NaklGUID));
       Result := ws.AddInvoiceToDesAdvFormingQueue(NaklRecID, NaklBaseId, NaklGuid, NaklSumma);
 //    except
 //      on E: Exception do
-//        DM.WriteToInfo('Ошибка при вставке накладной в очередь формирования уведомлений об отгрузке EDI: '+E.Message);
+//        DM.WriteToInfo('РћС€РёР±РєР° РїСЂРё РІСЃС‚Р°РІРєРµ РЅР°РєР»Р°РґРЅРѕР№ РІ РѕС‡РµСЂРµРґСЊ С„РѕСЂРјРёСЂРѕРІР°РЅРёСЏ СѓРІРµРґРѕРјР»РµРЅРёР№ РѕР± РѕС‚РіСЂСѓР·РєРµ EDI: '+E.Message);
 //    end;
 //  end;
 end;
@@ -4957,12 +4957,12 @@ begin
 //  begin
 //    try
       ws:=  GetEDIInvoice(False, (IntfMegaDBCommon.GetCountry = iccRussia));
-      OutputDebugString(PAnsiChar('Вызов CreateByInvoice. NaklRecid = '+IntToStr(NaklRecID)+
+      OutputDebugString(PAnsiChar('Р’С‹Р·РѕРІ CreateByInvoice. NaklRecid = '+IntToStr(NaklRecID)+
         ', NaklBaseID = '+IntToStr(NaklBaseId)+', NaklGUID = '+NaklGUID));
       Result := ws.CreateByInvoice(NaklRecID, NaklBaseId, NaklGuid);
 //    except
 //      on E: Exception do
-//        DM.WriteToInfo('Ошибка при вставке накладной в очередь формирования уведомлений об отгрузке EDI: '+E.Message);
+//        DM.WriteToInfo('РћС€РёР±РєР° РїСЂРё РІСЃС‚Р°РІРєРµ РЅР°РєР»Р°РґРЅРѕР№ РІ РѕС‡РµСЂРµРґСЊ С„РѕСЂРјРёСЂРѕРІР°РЅРёСЏ СѓРІРµРґРѕРјР»РµРЅРёР№ РѕР± РѕС‚РіСЂСѓР·РєРµ EDI: '+E.Message);
 //    end;
 //  end;
 end;
@@ -4974,10 +4974,10 @@ var
   sms,scr:string;
 begin
 
-  if Ask('Запустить бизнес-процесс согласования нерентабельного маршрута?') <> idYes then Exit;
-  { [gsa] Призапуске БП всплывает окно для комментария, по БП. }
+  if Ask('Р—Р°РїСѓСЃС‚РёС‚СЊ Р±РёР·РЅРµСЃ-РїСЂРѕС†РµСЃСЃ СЃРѕРіР»Р°СЃРѕРІР°РЅРёСЏ РЅРµСЂРµРЅС‚Р°Р±РµР»СЊРЅРѕРіРѕ РјР°СЂС€СЂСѓС‚Р°?') <> idYes then Exit;
+  { [gsa] РџСЂРёР·Р°РїСѓСЃРєРµ Р‘Рџ РІСЃРїР»С‹РІР°РµС‚ РѕРєРЅРѕ РґР»СЏ РєРѕРјРјРµРЅС‚Р°СЂРёСЏ, РїРѕ Р‘Рџ. }
 
- // if dbtxtTonnag.Caption='' then begin ShowMessage('Внимание: не выбран тоннаж, см.заголовок.'); exit; end;
+ // if dbtxtTonnag.Caption='' then begin ShowMessage('Р’РЅРёРјР°РЅРёРµ: РЅРµ РІС‹Р±СЂР°РЅ С‚РѕРЅРЅР°Р¶, СЃРј.Р·Р°РіРѕР»РѕРІРѕРє.'); exit; end;
 
 
   tmp:= TfStartBPComment.Create(self);
@@ -4986,7 +4986,7 @@ begin
   if tmp.ModalResult = 2 then
      begin
         if sms = '' then begin
-            ShowMessage('Внимание: Комментарий обезательный.');
+            ShowMessage('Р’РЅРёРјР°РЅРёРµ: РљРѕРјРјРµРЅС‚Р°СЂРёР№ РѕР±РµР·Р°С‚РµР»СЊРЅС‹Р№.');
             tmp.Free;
             Exit;
         end;
@@ -4995,9 +4995,9 @@ begin
   //-----------
         {
           [gsa] 04-06-19
-          если нужно хранить в БДв плане, информацию по тоннажу который выбрали в заголовке
-          при запуске БП, что бы после нельзя было его изменить в ТТН, только под ролью
-          админа по ТТН      FloatToStrEx
+          РµСЃР»Рё РЅСѓР¶РЅРѕ С…СЂР°РЅРёС‚СЊ РІ Р‘Р”РІ РїР»Р°РЅРµ, РёРЅС„РѕСЂРјР°С†РёСЋ РїРѕ С‚РѕРЅРЅР°Р¶Сѓ РєРѕС‚РѕСЂС‹Р№ РІС‹Р±СЂР°Р»Рё РІ Р·Р°РіРѕР»РѕРІРєРµ
+          РїСЂРё Р·Р°РїСѓСЃРєРµ Р‘Рџ, С‡С‚Рѕ Р±С‹ РїРѕСЃР»Рµ РЅРµР»СЊР·СЏ Р±С‹Р»Рѕ РµРіРѕ РёР·РјРµРЅРёС‚СЊ РІ РўРўРќ, С‚РѕР»СЊРєРѕ РїРѕРґ СЂРѕР»СЊСЋ
+          Р°РґРјРёРЅР° РїРѕ РўРўРќ      FloatToStrEx
         }
                                   
      if dbtxtTonnag.Caption<>'' then   begin
@@ -5010,12 +5010,12 @@ begin
          mQuery1.ExecQuery;
          mQuery1.Close;
      end;
-  //------------------------  GSA ДЛя теста 07-06-2019 -------------------------
+  //------------------------  GSA Р”Р›СЏ С‚РµСЃС‚Р° 07-06-2019 -------------------------
   with GetICommonModulesBusinessProcesses(true) do
   try
     Res := StartBusinessProcessDistributionCoordinationUnprofitableRoutes(
         IntfMegaAccessManager.GetUserKodDK,
-        ('Запуск из Money. С тоннажом '+(dbtxtTonnag.Caption)+'. Комментарий автора: '+sms+' '),
+        ('Р—Р°РїСѓСЃРє РёР· Money. РЎ С‚РѕРЅРЅР°Р¶РѕРј '+(dbtxtTonnag.Caption)+'. РљРѕРјРјРµРЅС‚Р°СЂРёР№ Р°РІС‚РѕСЂР°: '+sms+' '),
         MegaDSTTNPlanPLANNumber.AsInteger,
         MegaDSTTNPlanBASEID.AsInteger,
         //IntfMegaDBCommon.GetBaseID,
@@ -5030,7 +5030,7 @@ begin
   except
     on E:Exception do
     begin
-      liUtils.Error('При создании процесса возникли ошибки:'#13#10+e.Message);
+      liUtils.Error('РџСЂРё СЃРѕР·РґР°РЅРёРё РїСЂРѕС†РµСЃСЃР° РІРѕР·РЅРёРєР»Рё РѕС€РёР±РєРё:'#13#10+e.Message);
     end;
   end;  
 
@@ -5068,9 +5068,9 @@ begin
   if UnProvStr <>'' then
   begin
     if fShowMessage then begin
-      MessageStr := 'Не проведенны накладные, №'+#13#10 + UnProvStr+ #13#10+
-                    'Операция проведения партии невозможна!';
-      MessageBox(Application.Handle,PChar(MessageStr),'Проведение партии',MB_OK+MB_ICONERROR+MB_APPLMODAL);
+      MessageStr := 'РќРµ РїСЂРѕРІРµРґРµРЅРЅС‹ РЅР°РєР»Р°РґРЅС‹Рµ, в„–'+#13#10 + UnProvStr+ #13#10+
+                    'РћРїРµСЂР°С†РёСЏ РїСЂРѕРІРµРґРµРЅРёСЏ РїР°СЂС‚РёРё РЅРµРІРѕР·РјРѕР¶РЅР°!';
+      MessageBox(Application.Handle,PChar(MessageStr),'РџСЂРѕРІРµРґРµРЅРёРµ РїР°СЂС‚РёРё',MB_OK+MB_ICONERROR+MB_APPLMODAL);
     end;
     Exit;
   end;
@@ -5083,15 +5083,15 @@ begin
   begin
     if fShowMessage then begin
 
-      MessageStr := 'Накладные, №'+#13#10 + MinSumma+ #13#10+
-                    'не удовлетовряют условию минимального заказа.'+ #13#10+'Операция проведения партии невозможна!';
-      MessageBox(Application.Handle,PChar(MessageStr),'Проведение партии',MB_OK+MB_ICONERROR+MB_APPLMODAL);
+      MessageStr := 'РќР°РєР»Р°РґРЅС‹Рµ, в„–'+#13#10 + MinSumma+ #13#10+
+                    'РЅРµ СѓРґРѕРІР»РµС‚РѕРІСЂСЏСЋС‚ СѓСЃР»РѕРІРёСЋ РјРёРЅРёРјР°Р»СЊРЅРѕРіРѕ Р·Р°РєР°Р·Р°.'+ #13#10+'РћРїРµСЂР°С†РёСЏ РїСЂРѕРІРµРґРµРЅРёСЏ РїР°СЂС‚РёРё РЅРµРІРѕР·РјРѕР¶РЅР°!';
+      MessageBox(Application.Handle,PChar(MessageStr),'РџСЂРѕРІРµРґРµРЅРёРµ РїР°СЂС‚РёРё',MB_OK+MB_ICONERROR+MB_APPLMODAL);
     end;
     Exit;
   end;
   if fShowMessage then
-  if Application.MessageBox('После создания сортировочной партии изменения будут не доступны!'+#13#10+
-                            'Продолжить?','Внимание',MB_YESNO+MB_ICONWARNING+MB_DEFBUTTON2)<>ID_YES then exit;
+  if Application.MessageBox('РџРѕСЃР»Рµ СЃРѕР·РґР°РЅРёСЏ СЃРѕСЂС‚РёСЂРѕРІРѕС‡РЅРѕР№ РїР°СЂС‚РёРё РёР·РјРµРЅРµРЅРёСЏ Р±СѓРґСѓС‚ РЅРµ РґРѕСЃС‚СѓРїРЅС‹!'+#13#10+
+                            'РџСЂРѕРґРѕР»Р¶РёС‚СЊ?','Р’РЅРёРјР°РЅРёРµ',MB_YESNO+MB_ICONWARNING+MB_DEFBUTTON2)<>ID_YES then exit;
 
   //if not CanCreatSortLot(true) then
   // exit;
@@ -5145,7 +5145,7 @@ begin
                                                    MegaDSSortingLotPositionsMOB_ORDER_GUID.AsString,
                                                    MegaDSSortingLotPositionsDOC_SUMMA.AsFloat);
                 if (not IsRussia) then
-                 begin       // Для России перенесено при печати ТТН, чтобы было ГТД
+                 begin       // Р”Р»СЏ Р РѕСЃСЃРёРё РїРµСЂРµРЅРµСЃРµРЅРѕ РїСЂРё РїРµС‡Р°С‚Рё РўРўРќ, С‡С‚РѕР±С‹ Р±С‹Р»Рѕ Р“РўР”
                   if MegaDSSortingLotPositionsUSE_EDI_DESADV.AsInteger = 1 then
                     cntEDIDesAdv := cntEDIDesAdv +
                     AddNaklToEDIDesAdvFormingQueue(MegaDSSortingLotPositionsNAKL_RECID.AsInteger,
@@ -5163,14 +5163,14 @@ begin
                 end;
              MegaDSSortingLotPositions.next;
            end;
-          OutputDebugString(PAnsiChar('Подтверждений заказа EDI сформировано: ' + IntToStr(cntEDIOrdRsp)));
-          OutputDebugString(PAnsiChar('Уведомлений об отгрузке EDI сформировано: ' + IntToStr(cntEDIDesAdv)));
+          OutputDebugString(PAnsiChar('РџРѕРґС‚РІРµСЂР¶РґРµРЅРёР№ Р·Р°РєР°Р·Р° EDI СЃС„РѕСЂРјРёСЂРѕРІР°РЅРѕ: ' + IntToStr(cntEDIOrdRsp)));
+          OutputDebugString(PAnsiChar('РЈРІРµРґРѕРјР»РµРЅРёР№ РѕР± РѕС‚РіСЂСѓР·РєРµ EDI СЃС„РѕСЂРјРёСЂРѕРІР°РЅРѕ: ' + IntToStr(cntEDIDesAdv)));
         except
           on e:Exception do
            begin
              if fShowMessage
              then
-              MessageDlg('Ошибка при формировании документов EDI:'#13#10+e.Message, mtWarning, [mbOk],0)
+              MessageDlg('РћС€РёР±РєР° РїСЂРё С„РѕСЂРјРёСЂРѕРІР°РЅРёРё РґРѕРєСѓРјРµРЅС‚РѕРІ EDI:'#13#10+e.Message, mtWarning, [mbOk],0)
              else
               raise;
            end;
@@ -5231,7 +5231,7 @@ begin
                                                    MegaDSSortingLotPositionsMOB_ORDER_GUID.AsString,
                                                    MegaDSSortingLotPositionsDOC_SUMMA.AsFloat);
                 if (not IsRussia) then
-                 begin       // Для России перенесено при печати ТТН, чтобы было ГТД
+                 begin       // Р”Р»СЏ Р РѕСЃСЃРёРё РїРµСЂРµРЅРµСЃРµРЅРѕ РїСЂРё РїРµС‡Р°С‚Рё РўРўРќ, С‡С‚РѕР±С‹ Р±С‹Р»Рѕ Р“РўР”
                   if MegaDSSortingLotPositionsUSE_EDI_DESADV.AsInteger = 1 then
                     cntEDIDesAdv := cntEDIDesAdv +
                     AddNaklToEDIDesAdvFormingQueue(MegaDSSortingLotPositionsNAKL_RECID.AsInteger,
@@ -5249,14 +5249,14 @@ begin
                 end;
              MegaDSSortingLotPositions.next;
            end;
-          OutputDebugString(PAnsiChar('Подтверждений заказа EDI сформировано: ' + IntToStr(cntEDIOrdRsp)));
-          OutputDebugString(PAnsiChar('Уведомлений об отгрузке EDI сформировано: ' + IntToStr(cntEDIDesAdv)));
+          OutputDebugString(PAnsiChar('РџРѕРґС‚РІРµСЂР¶РґРµРЅРёР№ Р·Р°РєР°Р·Р° EDI СЃС„РѕСЂРјРёСЂРѕРІР°РЅРѕ: ' + IntToStr(cntEDIOrdRsp)));
+          OutputDebugString(PAnsiChar('РЈРІРµРґРѕРјР»РµРЅРёР№ РѕР± РѕС‚РіСЂСѓР·РєРµ EDI СЃС„РѕСЂРјРёСЂРѕРІР°РЅРѕ: ' + IntToStr(cntEDIDesAdv)));
         except
           on e:Exception do
            begin
              if fShowMessage
              then
-              MessageDlg('Ошибка при формировании документов EDI:'#13#10+e.Message, mtWarning, [mbOk],0)
+              MessageDlg('РћС€РёР±РєР° РїСЂРё С„РѕСЂРјРёСЂРѕРІР°РЅРёРё РґРѕРєСѓРјРµРЅС‚РѕРІ EDI:'#13#10+e.Message, mtWarning, [mbOk],0)
              else
               raise;
            end;
@@ -5323,11 +5323,11 @@ begin
   f:=MegaDSTTNPlan.Active;
   if f then
     f:=f and (not MegaDSTTNPlan.IsEmpty);
-{не понятно зачем это, если потом идет проверка 'DELIVERY_24_HOUR'
+{РЅРµ РїРѕРЅСЏС‚РЅРѕ Р·Р°С‡РµРј СЌС‚Рѕ, РµСЃР»Рё РїРѕС‚РѕРј РёРґРµС‚ РїСЂРѕРІРµСЂРєР° 'DELIVERY_24_HOUR'
   TAction(sender).Enabled := F and
     (MegaDSTTNPlanIS_TEMP_MARSHRUT.IsNull or (MegaDSTTNPlanIS_TEMP_MARSHRUT.AsInteger<>1));
 
-   добавил "f and..." }
+   РґРѕР±Р°РІРёР» "f and..." }
 
   TAction(sender).Enabled :=f  and (not IntfMegaDBCommon.IsOffice)and
                  not (IntfMegaDBCommon.GetParam('DELIVERY_24_HOUR','0')='1');
@@ -5338,7 +5338,7 @@ var
   aPlannumber : integer;
 begin
   MegaDSTTNPlanPositions.Close;
-  // наибольший номер маршрута
+  // РЅР°РёР±РѕР»СЊС€РёР№ РЅРѕРјРµСЂ РјР°СЂС€СЂСѓС‚Р°
   qrTempMarsh.Close;
   qrTempMarsh.SQL.Text:=
     'SELECT max(a.NUM)+1 MAX_NUM FROM ('#13#10+
